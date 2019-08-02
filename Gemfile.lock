@@ -284,6 +284,7 @@ DEPENDENCIES
   font-awesome-sass
   fullcalendar-rails
   jbuilder (~> 2.7)
+  jquery-rails
   koala
   listen (>= 3.0.5, < 3.2)
   momentjs-rails

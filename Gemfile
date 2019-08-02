@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'pg'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-
+gem 'jquery-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'autoprefixer-rails'
@@ -38,6 +38,9 @@ gem 'sassc-rails', '>= 2.1.0'
 gem 'toastr-rails'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+gem 'autoprefixer-rails'
+gem 'font-awesome-sass'
+gem 'simple_form'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
