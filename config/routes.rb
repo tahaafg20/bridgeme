@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   #   delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
   # end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root 'users#index'
+  root 'pages#home'
   resources :rooms, except: [:edit] do
     member do
       get 'listing'
@@ -17,8 +17,6 @@ Rails.application.routes.draw do
       get 'preload'
       get 'preview'
     end
-    resources :photos, only: [:create, :destroy]
-    resources :reservations, only: [:create]
     resources :calendars
   end
 end
