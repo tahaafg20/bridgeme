@@ -34,7 +34,8 @@ color: #FF5A5F;
    background-color: red;
 }
 a{
-  color: black
+  color: black;
+  text-decoration: none !important;
 }
 
 .dropdown-toggle {
@@ -82,9 +83,9 @@ BUTTONS
   margin-top: 15px;
 }
 
-// .btn:hover, .btn:focus {
-//   color: #fff;
-// }
+.btn:hover{
+  color: #FF5A5F;
+}
 
 .btn.btn-default {
   width: 100%;

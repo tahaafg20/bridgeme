@@ -1,6 +1,3 @@
-<!-- Static navbar -->
-<!--Navbar -->
-<!--Navbar -->
 <nav class="mb-1 navbar navbar-expand-lg navbar-custom">
   <%= link_to "Golshan Stay", root_path, class: "navbar-brand" %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
@@ -24,7 +21,7 @@
       <li class="nav-item dropdown active">
         <a class="nav-link dropdown-toggle active" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-user"></i> <%= current_user.fullname %> </a>
+          <i class="fa fa-user-circle-o fa-1x"></i> <%= current_user.fullname %> </a>
         <div class="dropdown-menu dropdown-menu-right dropdown-info">
           <%= link_to "Manage Listing", rooms_path, :id => "drop" %><br>
           <%= link_to "List Your Space", new_room_path, :id => "drop" %><br>
@@ -39,7 +36,7 @@
 
 
 <% if (user_signed_in?) && !current_page?(root_path) && !current_page?("/rooms/#{params[:id]}")%>
-    <nav class="navbar navbar-default" style="background-color: #565A5C">
+    <nav class="navbar navbar-default">
       <div class="container">
         <ul class="nav navbar-nav">
           <%# <li <% if current_page?(dashboard_path) %>

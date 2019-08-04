@@ -39,4 +39,5 @@
 <%= form_for @room do |f| %>
   <%= f.hidden_field :active, value: true %>
   <%= f.submit "Publish", id: "publish_button", class: "btn btn-normal btn-block", disabled: !is_ready %>
+  <%= link_to "See The Room", "/rooms/#{@room.id}", id: "publish_button", class: "btn btn-normal btn-block" %>
 <% end %>

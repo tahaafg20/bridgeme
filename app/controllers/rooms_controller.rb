@@ -36,15 +36,12 @@ class RoomsController < ApplicationController
   def description
   end
 
-  def photo_upload
-    @photos = @room.photos
-  end
-
   def amenities
   end
 
   def destroy
     @room.destroy
+    redirect_to '/rooms'
   end
 
   def location

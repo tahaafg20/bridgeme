@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-12">
-    <%= image_tag(url_for(@room.cover)) %>
+    <%= image_tag(url_for(@room.cover.variant(resize_to_limit: [300, 300]))) %>
   </div>
 </div>
 <br/>
@@ -85,24 +85,21 @@
     </div>
     <hr/>
 
-    <!-- Carousel -->
     <div class="row">
 
       <% if @photos.length > 0 %>
           <div id="myCarousel" class="carousel slide" data-ride="carousel">
-          <!-- Indicators -->
           <ol class="carousel-indicators">
             <% @photos.each do |photo| %>
                 <li data-target="#myCarousel" data-slide-to="<%= photo.id %>"></li>
             <% end %>
           </ol>
 
-          <!-- Wrapper for slides -->
           <div class="carousel-inner">
             <% @photos.each do |photo| %>
                 <div class="item <%= 'active' if photo.id == @photos[0].id %>">
-                  <%= image_tag(url_for(photo)) %>
-                </div>
+                  <%= image_tag(url_for(photo.variant(resize_to_limit: [300, 300]))) %>
+                </div><hr>
             <% end %>
           </div>
 
