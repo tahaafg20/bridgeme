@@ -26,38 +26,39 @@
 </form>
 
 <br/><hr/><br/>
-
-<!-- HOMES -->
-<div><h3>Homes</h3></div>
+<div><h3>Places To Stay</h3></div>
 <br/>
 
 <div class="row">
   <%= render partial: "rooms/rooms_list", locals: {rooms: @rooms} %>
 </div><br>
 
-<!-- CITIES -->
-<div><h3 style="text-align:center;">Cities</h3></div>
+<div><h3 style="text-align:center;">Malaysia Popular Cities</h3></div>
 <br/>
 
 <div class="row">
   <div class="col-md-3 col-sm-12">
-    <a href="http://localhost:3000/search?utf8=%E2%9C%93&search=los+angeles">
+    <a href="https://en.wikipedia.org/wiki/Cameron_Highlands_District">
       <div class="discovery-card" style="background-image: url('/assets/LA.jpg')"></div>
     </a>
+    Cameron Highlands
   </div>
   <div class="col-md-3 col-sm-12">
-    <a href="http://localhost:3000/search?utf8=%E2%9C%93&search=london">
+    <a href="https://en.wikipedia.org/wiki/Kuala_Lumpur">
       <div class="discovery-card" style="background-image: url('/assets/LD.jpg')"></div>
     </a>
+    Kuala Lumpur
   </div>
   <div class="col-md-3 col-sm-12">
-    <a href="http://localhost:3000/search?utf8=%E2%9C%93&search=paris">
+    <a href="https://en.wikipedia.org/wiki/MELAKA">
       <div class="discovery-card" style="background-image: url('/assets/PR.jpg')"></div>
     </a>
+    Melaka
   </div>
   <div class="col-md-3 col-sm-12">
-    <a href="http://localhost:3000/search?utf8=%E2%9C%93&search=miami">
+    <a href="https://en.wikipedia.org/wiki/PUTRA_JAYA">
       <div class="discovery-card" style="background-image: url('/assets/MI.jpg')"></div>
     </a>
+    Putra Jaya
   </div>
 </div>
