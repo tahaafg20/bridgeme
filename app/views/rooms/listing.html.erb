@@ -61,7 +61,18 @@
                                 id: "bath_rooms", prompt: "Select...", class: "form-control" %>
                 </div>
               </div>
-
+                <div>
+                <div>
+                  <label>Room Cover Photo</label>
+                  <%= f.file_field :cover %>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <label>Images</label>
+                  <%= f.file_field :images, multiple: true %>
+                </div>
+              </div>
             </div>
 
             <div><%= f.submit "Save", class: "btn btn-normal" %></div>

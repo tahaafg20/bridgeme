@@ -24,8 +24,7 @@ class RoomsController < ApplicationController
   end
 
   def show
-    @photos = @room.photos
-    @guest_reviews = @room.guest_reviews
+    @photos = @room.images
   end
 
   def listing
@@ -42,6 +41,10 @@ class RoomsController < ApplicationController
   end
 
   def amenities
+  end
+
+  def destroy
+    @room.destroy
   end
 
   def location

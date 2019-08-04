@@ -33,6 +33,7 @@ gem 'simple_form'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'koala'
+gem 'mini_magick'
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'sassc-rails', '>= 2.1.0'
 gem 'toastr-rails'
@@ -41,6 +42,7 @@ gem 'momentjs-rails'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
+gem 'font-awesome-rails'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
