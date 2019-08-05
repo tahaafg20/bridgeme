@@ -19,4 +19,6 @@ Rails.application.routes.draw do
     end
     resources :calendars
   end
+  get 'search' => 'pages#search'
+  get '/host_calendar' => "calendars#host"
 end
