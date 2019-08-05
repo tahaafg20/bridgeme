@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-12">
-    <%= image_tag(url_for(@room.cover)) %>
+    <%= image_tag(url_for(@room.cover),size:"300x300") %>
   </div>
 </div>
 <br/>
@@ -98,7 +98,7 @@
           <div class="carousel-inner">
             <% @photos.each do |photo| %>
                 <div class="item <%= 'active' if photo.id == @photos[0].id %>">
-                  <%= image_tag(url_for(photo)) %>
+                  <%= image_tag(url_for(photo),size:"300x300") %>
                 </div><hr>
             <% end %>
           </div>
