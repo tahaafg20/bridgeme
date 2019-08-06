@@ -27,6 +27,11 @@ body {
   background-color: #0E1854;
 }
 
+.btn-lg {
+  background-color: #0E1854;
+  color: white;
+}
+
 .navbar-collapse {
   height:65px;
 }
@@ -258,9 +263,9 @@ BUTTONS
   background-color: #00A699;
 }
 
-.btn:hover{
-  color: #FF5A5F;
-}
+// .btn:hover{
+//   color: #FF5A5F;
+// }
 
 .btn.btn-default {
   width: 100%;

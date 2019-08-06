@@ -56,11 +56,11 @@ Rails.application.configure do
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :mailgun
   config.action_mailer.smtp_settings = {
   address:              'smtp.gmail.com',
   port:                 587,
-  domain:               'golshan-stay.herokuapp.com',
+  domain:               'golshanstay.site',
   user_name:            'golshanstay@gmail.com',
   password:             Rails.application.credentials.email[:email_password],
   authentication:       'plain',
