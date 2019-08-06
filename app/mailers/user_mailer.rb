@@ -4,7 +4,6 @@ class UserMailer < ApplicationMailer
         @user = user
         @url =  'https://golshan-stay.herokuapp.com'
         mail(to: user.email, subject:'Welcome To Golshan Stay')
-
     end
 
 end
