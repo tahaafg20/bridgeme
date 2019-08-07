@@ -86,7 +86,7 @@
     </div>
     <hr/>
 
-    <div>
+    <div id="longtitude" data-long= "<%= @room.longitude %>">
           <% if @photos.length > 0 %>
             <% @photos.each do |photo| %>
                   <%= image_tag(url_for(photo),size:"300x300") %>
@@ -107,9 +107,27 @@
     </div>
     <hr/>
     <!-- GOOGLE MAP -->
-    <div class="row">
-      map is gonna be heres
+    <div class="row" id="latitude" data-lat= "<%= @room.latitude %>" >
+      <div id="map"></div>
     </div>
     <hr/>
- </div> 
+ </div>
 
+<script> 
+  var lt = parseInt(document.querySelector("#latitude").dataset["lat"])
+  var ln = parseInt(document.querySelector("#longtitude").dataset["long"])
+var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat:lt, lng:ln},
+          zoom: 8
+        });
+        var marker = new google.maps.Marker({
+          position: {lat:lt, lng:ln},
+          map: map,
+          title: 'Hello World!'
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLwih_dEjx7rHvO04och6w_zABvfO8Dcw&callback=initMap"
+    async defer></script>

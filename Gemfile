@@ -50,7 +50,6 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'font-awesome-rails'
-gem 'sidekiq'
 gem 'premailer-rails'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 group :development, :test do
