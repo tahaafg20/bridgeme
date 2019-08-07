@@ -1,4 +1,5 @@
 class Room < ApplicationRecord
+
     belongs_to :user
     has_many_attached :images
     has_one_attached :cover
@@ -13,7 +14,9 @@ class Room < ApplicationRecord
     validates :accommodate, presence: true
     validates :bed_room, presence: true
     validates :bath_room, presence: true
-  
+    
+    geocoded_by :address
+    after_validation :geocode, if: :address_changed?
     
   
     def average_rating
