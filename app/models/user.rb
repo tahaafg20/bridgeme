@@ -2,11 +2,14 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable,:async, :rememberable, :validatable, :omniauthable, omniauth_providers: %i[facebook]
+         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i[facebook]
          validates :fullname, presence: true, length: {maximum: 50}
         has_many :rooms
         has_many :reservations
-
+        ​
+        def send_devise_notification(notification, *args)
+          devise_mailer.send(notification, self, *args).deliver_later
+        end
          def self.from_omniauth(auth)
           user = User.where(email: auth.info.email).first
           if user
