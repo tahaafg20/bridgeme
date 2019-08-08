@@ -45,9 +45,11 @@ class RoomsController < ApplicationController
   end
 
   def location
+    
   end
 
   def update
+    byebug
 
     new_params = room_params
     new_params = room_params.merge(active: true) if is_ready_room
@@ -107,6 +109,6 @@ class RoomsController < ApplicationController
     end
 
     def room_params
-      params.require(:room).permit(:home_type, :room_type, :accommodate, :bed_room, :bath_room, :cover, :listing_name, :summary, :address, :is_tv, :images, :is_kitchen, :is_air, :is_heating, :is_internet, :price, :active, :longtitude, :latitude, :instant)
+      params.require(:room).permit(:home_type, :room_type, :accommodate, :bed_room, :bath_room, :cover, :listing_name, :summary, :address, :is_tv, :images, :is_kitchen, :is_air, :is_heating, :is_internet, :price, :active, :longitude, :latitude, :instant)
     end
 end

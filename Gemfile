@@ -52,6 +52,9 @@ gem 'simple_form'
 gem 'font-awesome-rails'
 gem 'premailer-rails'
 gem 'sidekiq'
+gem 'searchkick'
+gem 'chartkick'
+gem 'twilio-ruby'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

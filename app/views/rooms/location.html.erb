@@ -71,16 +71,19 @@
 
 
  <script>
- var lt = parseFloat(document.querySelector("#latitude").dataset["lat"])
-  var ln = parseFloat(document.querySelector("#longtitude").dataset["long"])
       // This example requires the Places library. Include the libraries=places
       // parameter when you first load the API. For example:
       // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
       function initMap() {
+        var lt = parseFloat(document.querySelector("#latitude").dataset["lat"])
+        var ln = parseFloat(document.querySelector("#longtitude").dataset["long"])
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: lt, lng: ln},
           zoom: 13
         });
+        console.log(lt)
+                console.log(ln)
+
         var card = document.getElementById('pac-card');
         var input = document.getElementById('pac-input');
         var types = document.getElementById('type-selector');
@@ -119,11 +122,10 @@
             window.alert("No details available for input: '" + place.name + "'");
             return;
           }
+          document.querySelector("#lat").value = place.geometry.location.lat();
+          document.querySelector("#long").value = place.geometry.location.lng();
           var form = document.querySelector("#form");
-          form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            document.querySelector("#lat").value = place.geometry.location.lat()
-            document.querySelector("#long").value = place.geometry.location.lng()
+          form.addEventListener('submit', function() {
           });
           // If the place has a geometry, then present it on a map.
           if (place.geometry.viewport) {

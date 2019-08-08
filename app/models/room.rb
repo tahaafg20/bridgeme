@@ -1,13 +1,19 @@
 class Room < ApplicationRecord
-
-    belongs_to :user
     has_many_attached :images
     has_one_attached :cover
+    searchkick
+    belongs_to :user
     has_many :reservations
-  
     has_many :guest_reviews
     has_many :calendars
-  
+    def search_data
+      {
+        address: address,
+        summary: summary,
+        price: price,
+        listing_name: listing_name
+      }
+    end
   
     validates :home_type, presence: true
     validates :room_type, presence: true
