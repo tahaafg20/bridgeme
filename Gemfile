@@ -55,6 +55,9 @@ gem 'sidekiq'
 gem 'searchkick'
 gem 'chartkick'
 gem 'twilio-ruby'
+gem 'uglifier'
+gem 'rails-assets-card', source: 'https://rails-assets.org'
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'ransack', github: 'activerecord-hackery/ransack'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
