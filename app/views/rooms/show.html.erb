@@ -114,12 +114,13 @@
  </div>
 
 <script> 
-  var lt = parseInt(document.querySelector("#latitude").dataset["lat"])
-  var ln = parseInt(document.querySelector("#longtitude").dataset["long"])
+  var lt = parseFloat(document.querySelector("#latitude").dataset["lat"])
+  var ln = parseFloat(document.querySelector("#longtitude").dataset["long"])
 var map;
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat:lt, lng:ln},
+          
           zoom: 8
         });
         var marker = new google.maps.Marker({

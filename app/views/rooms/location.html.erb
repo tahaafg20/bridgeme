@@ -23,7 +23,7 @@
                 <%=f.text_field :longitude, id:"long"%>
       </div>
       <div class="pac-card" id="pac-card">
-      <div>
+      <div id="latitude" data-lat= "<%= @room.latitude %>">
         <div id="title">
           Autocomplete search
         </div>
@@ -54,7 +54,7 @@
       <span id="place-address"></span>
     </div>
       </div>
-            <div class="text-center">
+            <div class="text-center" id="longtitude" data-long= "<%= @room.longitude%>">
               <%= f.submit "Save", class: "btn btn-form" %>
             </div>
 
@@ -71,13 +71,14 @@
 
 
  <script>
+ var lt = parseFloat(document.querySelector("#latitude").dataset["lat"])
+  var ln = parseFloat(document.querySelector("#longtitude").dataset["long"])
       // This example requires the Places library. Include the libraries=places
       // parameter when you first load the API. For example:
       // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -33.8688, lng: 151.2195},
+          center: {lat: lt, lng: ln},
           zoom: 13
         });
         var card = document.getElementById('pac-card');
@@ -97,7 +98,8 @@
         // Set the data fields to return when the user selects a place.
         autocomplete.setFields(
             ['address_components', 'geometry', 'icon', 'name']);
-
+        var lt = parseFloat(document.querySelector("#latitude").dataset["lat"])
+        var ln = parseFloat(document.querySelector("#longtitude").dataset["long"])
         var infowindow = new google.maps.InfoWindow();
         var infowindowContent = document.getElementById('infowindow-content');
         infowindow.setContent(infowindowContent);
@@ -118,7 +120,8 @@
             return;
           }
           var form = document.querySelector("#form");
-          form.addEventListener('submit', function() {
+          form.addEventListener('submit', function(e) {
+            e.preventDefault();
             document.querySelector("#lat").value = place.geometry.location.lat()
             document.querySelector("#long").value = place.geometry.location.lng()
           });
