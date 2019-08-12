@@ -5,13 +5,17 @@
 //= require toastr
 //= require jquery
 //= require jquery_ujs
-require("@rails/ujs").start()
+
 require('jquery')
+require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("jquery-ui")
 import 'bootstrap';
 import './geocomplete';
+import './jquery.raty';
+import './jquery.raty.min'
 window.jQuery = $;
 window.$ = $;
 

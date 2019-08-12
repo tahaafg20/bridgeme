@@ -1,4 +1,5 @@
 class Room < ApplicationRecord
+  enum instant: {Request: 0, Instant: 1}
     has_many_attached :images
     has_one_attached :cover
     searchkick

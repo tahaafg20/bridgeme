@@ -1,20 +1,24 @@
+<!-- Image -->
 <div class="row">
   <div class="col-md-12">
-    <%= image_tag(url_for(@room.cover),size:"725x725") %>
+    <%= image_tag @room.cover, width: "100%" %>
   </div>
-  
 </div>
 <br/>
 
 <div class="row">
+
+  <!-- LEFT PANEL -->
   <div class="col-md-8">
+
+    <!-- Listing Name -->
     <div class="row">
       <div class="col-md-8">
         <h1><%= @room.listing_name %></h1>
-        <h4>Address: <%= @room.address %></h4>
+        <%= @room.address %>
       </div>
       <div class="col-md-4 text-center">
-        <h4>Hosted by (<%= @room.user.fullname %>)</h4>
+        Hosted By (<%= @room.user.fullname %>)
       </div>
     </div>
     <hr/>
@@ -24,26 +28,23 @@
       <div class="row text-center row-space-1">
         <div class="col-md-3">
           <i class="fa fa-home fa-2x"></i>
-          <div><%= @room.home_type %></div>
         </div>
         <div class="col-md-3">
           <i class="fa fa-user-circle-o fa-2x"></i>
-          <div><%= pluralize(@room.accommodate, "Guest") %></div>
         </div>
         <div class="col-md-3">
           <i class="fa fa-bed fa-2x"></i>
-          <div><%= pluralize(@room.bed_room, "Bedroom") %></div>
         </div>
         <div class="col-md-3">
           <i class="fa fa-bath fa-2x"></i>
-          <div><%= pluralize(@room.bath_room, "Bathroom") %></div>
         </div>
       </div>
 
       <div class="row text-center">
-        
-        
-        
+        <div class="col-md-3"><%= @room.home_type %></div>
+        <div class="col-md-3"><%= pluralize(@room.accommodate, "Guest") %></div>
+        <div class="col-md-3"><%= pluralize(@room.bed_room, "Bedroom") %></div>
+        <div class="col-md-3"><%= pluralize(@room.bath_room, "Bathroom") %></div>
       </div>
 
     </div>
@@ -86,8 +87,10 @@
     </div>
     <hr/>
 
-    <div id="longtitude" data-long= "<%= @room.longitude %>">
-          <% if @photos.length > 0 %>
+    <!-- Carousel -->
+    <div class="row">
+
+      <% if @photos.length > 0 %>
             <% @photos.each do |photo| %>
                   <%= image_tag(url_for(photo),size:"300x300") %>
             <% end %>
@@ -106,14 +109,27 @@
       <% end %>
     </div>
     <hr/>
-    <!-- GOOGLE MAP -->
-    <div class="row" id="latitude" data-lat= "<%= @room.latitude %>" >
-      <div id="map"></div>
+    <!-- REVIEWS -->
+    <div class="row" id="longtitude" data-long= "<%= @room.longitude %>">
+      <div class="col-md-12">
+        <h3>
+          <%= pluralize(@guest_reviews.count, "Review") %>
+          <span id="average_rating"></span>
+        </h3>
+        <div class="container">
+          <div><%= render "reviews/guest_list" %></div>
+        </div>
+      </div>
     </div>
+    <br/>
     <hr/>
- </div>
 
-<script> 
+    <!-- GOOGLE MAP -->
+    <div class="row" id="latitude" data-lat= "<%= @room.latitude %>">
+
+      <div id="map" style="width: 100%; height: 400px"></div>
+
+     <script> 
   var lt = parseFloat(document.querySelector("#latitude").dataset["lat"])
   var ln = parseFloat(document.querySelector("#longtitude").dataset["long"])
   var map;
@@ -131,4 +147,44 @@
       }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLwih_dEjx7rHvO04och6w_zABvfO8Dcw&callback=initMap"
-    async defer></script>
+    async defer></script> 
+    </div>
+    <hr/>
+
+    <!-- NEAR BY ROOMS -->
+    <div class="row">
+      <h3>Near by</h3>
+      <% for room in @room.nearbys(10) %>
+          <div class="col-md-4">
+            <div class="panel panel-default">
+              <div class="panel-heading preview">
+                <%= image_tag url_for(room.cover) %>
+              </div>
+              <div class="panel-body">
+                <%= link_to room.listing_name, room %><br/>
+                (<%= room.distance.round(2) %> kms away)
+              </div>
+            </div>
+          </div>
+      <% end %>
+    </div>
+
+  </div>
+
+
+  <!-- RIGHT PANEL -->
+  <div class="col-md-4">
+    <!-- Reservation Form -->
+    <%= render 'reservations/form' %>
+  </div>
+</div>
+
+<script>
+$(document).ready(function() {
+  $('#average_rating').raty({
+    path: '/assets',
+    readOnly: true,
+    score: <%= @room.average_rating %>
+  });
+});
+</script>

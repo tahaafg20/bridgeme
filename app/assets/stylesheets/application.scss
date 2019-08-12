@@ -1,17 +1,5 @@
-
-// Graphical variables
-@import "config/fonts";
-@import "config/colors";
-@import "config/bootstrap_variables";
-
-// External libraries
-@import "bootstrap/scss/bootstrap";
-@import "font-awesome-sprockets";
-@import "font-awesome";
-
-// Your CSS partials
-@import "pages/index";
 @import "bootstrap-sprockets";
+@import "bootstrap";
 @import "toastr";
 @import "fullcalendar";
 
@@ -20,255 +8,59 @@ body {
   background-color: #E8DEDB;
   font-family: "Varela Round", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
-.navbar-toggler-icon {
-  color: white;
-}
-.navbar-custom {
-  background-color: #0E1854;
+
+a {
+  color: #0E1854;
 }
 
-.btn-lg {
-  background-color: #0E1854;
-  color: white;
-}
-#map {
-  height: 400px;  /* The height is 400 pixels */
-  width: 100%;  /* The width is the width of the web page */
- }
-.navbar-collapse {
-  height:65px;
-}
-.dropdown-menu{
-  background-color: #0E1854;
-}
-
-.navbar-custom a {
-  color: white;;
-}
-#drop {
-color: #FF5A5F;
-}
-.btn-warning {
-   background-color: red;
-}
-a{
-  color: black;
-  text-decoration: none !important;
-}
-
-.dropdown-toggle {
-  color: white;
-}
 .container {
   width: 80%;
 }
 
-// .text-babu, .icon-babu {
-//   color: #00A699;
-// }
+.text-babu, .icon-babu {
+  color: #00A699;
+}
 
-// .text-red, .icon-red {
-//   color: #FF5A5F;
-// }
+.text-red, .icon-red {
+  color: #FF5A5F;
+}
 
 // NAVBARS
-// .navbar-default {
-//   background-color: #FFFFFF;
-// }
+.navbar-default {
+  background-color: #0E1854;
+}
 
-// .navbar-default .navbar-brand {
-//   color: #FF5A5F;
-//   font-size: 2em;
-//   font-weight: 400;
-// }
+.navbar-nav > li > a{
+  color:white !important;
+}
+.navbar-default .navbar-brand {
+  color: white;
+  font-size: 2em;
+  font-weight: 400;
+}
 
-BUTTONS
+// BUTTONS
 .btn-block {
   display: block;
   white-space: normal;
   width: 100%;
 }
-.site-footer
-{
-  background-color:#0E1854;
-  padding:45px 0 20px;
-  font-size:15px;
-  line-height:24px;
-  color:#737373;
+
+.btn {
+  color: #fff;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 9px 27px;
 }
-.site-footer hr
-{
-  border-top-color:#bbb;
-  opacity:0.5
-}
-.site-footer hr.small
-{
-  margin:20px 0
-}
-.site-footer h6
-{
-  color:#fff;
-  font-size:16px;
-  text-transform:uppercase;
-  margin-top:5px;
-  letter-spacing:2px
-}
-.site-footer a
-{
-  color:#737373;
-}
-.site-footer a:hover
-{
-  color:#3366cc;
-  text-decoration:none;
-}
-.footer-links
-{
-  padding-left:0;
-  list-style:none
-}
-.footer-links li
-{
-  display:block
-}
-.footer-links a
-{
-  color:#737373
-}
-.footer-links a:active,.footer-links a:focus,.footer-links a:hover
-{
-  color:#3366cc;
-  text-decoration:none;
-}
-.footer-links.inline li
-{
-  display:inline-block
-}
-.site-footer .social-icons
-{
-  text-align:right
-}
-.site-footer .social-icons a
-{
-  width:40px;
-  height:40px;
-  line-height:40px;
-  margin-left:6px;
-  margin-right:0;
-  border-radius:100%;
-  background-color:#33353d
-}
-.copyright-text
-{
-  margin:0
-}
-@media (max-width:991px)
-{
-  .site-footer [class^=col-]
-  {
-    margin-bottom:30px
-  }
-}
-@media (max-width:767px)
-{
-  .site-footer
-  {
-    padding-bottom:0
-  }
-  .site-footer .copyright-text,.site-footer .social-icons
-  {
-    text-align:center
-  }
-}
-.social-icons
-{
-  padding-left:0;
-  margin-bottom:0;
-  list-style:none
-}
-.social-icons li
-{
-  display:inline-block;
-  margin-bottom:4px
-}
-.social-icons li.title
-{
-  margin-right:15px;
-  text-transform:uppercase;
-  color:#96a2b2;
-  font-weight:700;
-  font-size:13px
-}
-.social-icons a{
-  background-color:#eceeef;
-  color:#818a91;
-  font-size:16px;
-  display:inline-block;
-  line-height:44px;
-  width:44px;
-  height:44px;
-  text-align:center;
-  margin-right:8px;
-  border-radius:100%;
-  -webkit-transition:all .2s linear;
-  -o-transition:all .2s linear;
-  transition:all .2s linear
-}
-.social-icons a:active,.social-icons a:focus,.social-icons a:hover
-{
-  color:#fff;
-  background-color:#29aafe
-}
-.social-icons.size-sm a
-{
-  line-height:34px;
-  height:34px;
-  width:34px;
-  font-size:14px
-}
-.social-icons a.facebook:hover
-{
-  background-color:#3b5998
-}
-.social-icons a.twitter:hover
-{
-  background-color:#00aced
-}
-.social-icons a.linkedin:hover
-{
-  background-color:#007bb6
-}
-.social-icons a.dribbble:hover
-{
-  background-color:#ea4c89
-}
-@media (max-width:767px)
-{
-  .social-icons li.title
-  {
-    display:block;
-    margin-right:0;
-    font-weight:600
-  }
-}
-// .btn {
-//   color: #fff;
-//   border-radius: 5px;
-//   font-weight: bold;
-//   padding: 9px 27px;
-// }
 
 .btn-small {
   padding: 5px 15px;
   margin-top: 15px;
 }
-.navbar-toggler-icon {
-  background-color: #00A699;
-}
 
-// .btn:hover{
-//   color: #FF5A5F;
-// }
+.btn:hover, .btn:focus {
+  color: #fff;
+}
 
 .btn.btn-default {
   width: 100%;
@@ -281,25 +73,32 @@ BUTTONS
 }
 
 .btn.btn-normal {
-  border: 1px solid #ff5a5f;
-  background-color: #ff5a5f;
+  border: 1px solid #0E1854;
+  background-color: #0E1854;
 }
 
 .btn.btn-normal:active {
   outline: none;
-  border-color: #e00007;
-  background-color: #e00007;
+  border-color: #0E1854;
+  background-color: #0E1854;
 }
 
-// .btn.btn-form {
-//   border: 1px solid #00A699;
-//   background-color: #00A699;
-// }
+.active > a:focus{
+  background-color: #2d467b !important;
+}
+.active > a {
+  background-color: #2d467b !important;
+}
+
+.btn.btn-form {
+  background-color: white;
+  color: #0E1854 ;
+}
 
 .btn.btn-form:active {
   outline: none;
-  border-color: #066165;
-  background-color: #066165;
+  border-color: #0E1854;
+  background-color: white;
 }
 
 .btn.btn-facebook {
@@ -316,7 +115,7 @@ BUTTONS
 // PANELS
 .panel-default .panel-heading {
   color: #ffffff;
-  background-color: #00A699;
+  background-color: #0E1854;
   font-size: 18px;
   font-weight: 400;
 }
@@ -330,9 +129,7 @@ BUTTONS
   margin-top: 12px;
   margin-bottom: 12px;
 }
-.show.dropdown-info.dropdown-menu-right.dropdown-menu{
-  color: black;
-}
+
 .row-space-3 {
   margin-top: 24px;
   margin-bottom: 24px;
@@ -374,11 +171,9 @@ BUTTONS
 
 .form-group input {
   height: 45px;
-  border: 1px solid #00A699;
 }
 
 .form-group textarea {
-  border: 1px solid #00A699;
 }
 
 .form-group input[type="radio"] {
@@ -394,7 +189,6 @@ BUTTONS
   width: 100%;
   color: #565a5c;
   background-color: white;
-  border: 1px solid #00A699;
   border-radius: 2px;
   padding: 10px;
   appearance: none;
@@ -406,7 +200,7 @@ BUTTONS
   content: '\25bc';
   font-size: 1.2em;
   position: absolute;
-  color: #00A699;
+  color: #0E1854;
   top: 35px;
   right: 30px;
   transform: scale(0.94, 0.62);
@@ -452,7 +246,7 @@ BUTTONS
 }
 
 .sidebar-link:hover, .sidebar-link:focus {
-  color: #CACCCD;
+  color: white;
   text-decoration: none;
 }
 
@@ -520,9 +314,8 @@ BUTTONS
 }
 
 .form-control.datepicker {
-  color: #00A699;
+  color: #0E1854;
   background-color: white;
-  border: 1px solid #00A699;
   text-align: center;
 }
 
@@ -550,6 +343,10 @@ BUTTONS
   right: 0;
   width: 450px;
   height: 100%;
+}
+#map{
+  height: 400px !important;  /* The height is 400 pixels */
+  width: 100% !important;  /* The width is the width of the web page */
 }
 
 .map_price {

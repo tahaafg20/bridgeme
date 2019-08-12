@@ -6,11 +6,23 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i[facebook]
-         validates :fullname, presence: true, length: {maximum: 50}
          after_commit :send_pending_devise_notifications
-        has_many :rooms
-        has_many :reservations
-        # ​
+         validates :fullname, presence: true, length: {maximum: 50}
+
+         has_many :rooms
+         has_many :reservations
+       
+         has_many :guest_reviews, class_name: "GuestReview", foreign_key: "guest_id"
+         has_many :host_reviews, class_name: "HostReview", foreign_key: "host_id"
+         has_many :notifications
+       
+         has_one :setting
+         after_create :add_setting
+         
+         def add_setting
+          Setting.create(user: self, enable_sms: true, enable_email: true)
+        end
+
         def send_devise_notification(notification, *args)
           devise_mailer.send(notification, self, *args).deliver_later
         end

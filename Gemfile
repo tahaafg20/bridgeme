@@ -2,11 +2,9 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.0.rc2'
 # Use sqlite3 as the database for Active Record
-
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 gem 'jquery-rails'
@@ -19,7 +17,6 @@ gem 'jquery-ui-rails'
 gem 'webpacker', '~> 4.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
-gem 'jquery-ui-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
@@ -29,7 +26,6 @@ gem 'jbuilder', '~> 2.7'
 gem 'pg'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-gem 'jquery-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'autoprefixer-rails'
@@ -46,9 +42,6 @@ gem 'sassc-rails', '>= 2.1.0'
 gem 'toastr-rails'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
-gem 'autoprefixer-rails'
-gem 'font-awesome-sass'
-gem 'simple_form'
 gem 'font-awesome-rails'
 gem 'premailer-rails'
 gem 'sidekiq'
@@ -57,7 +50,6 @@ gem 'chartkick'
 gem 'twilio-ruby'
 gem 'uglifier'
 gem 'rails-assets-card', source: 'https://rails-assets.org'
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'ransack', github: 'activerecord-hackery/ransack'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

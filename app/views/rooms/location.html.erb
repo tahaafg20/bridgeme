@@ -1,3 +1,4 @@
+
 <div class="row">
   <div class="col-md-3">
     <%= render 'room_menu' %>
@@ -15,12 +16,10 @@
             placeholder:"Where is your address?"%>
       </div>
       <div class="form-group">
-                <label>Latitude</label>
-                <%=f.text_field :latitude, id:"lat"%>
+                <%=f.text_field :latitude, id:"lat", style:"display:none;"%>
       </div>
       <div class="form-group">
-                <label>Longtitude</label>
-                <%=f.text_field :longitude, id:"long"%>
+                <%=f.text_field :longitude, id:"long", style:"display:none;"%>
       </div>
       <div class="pac-card" id="pac-card">
       <div id="latitude" data-lat= "<%= @room.latitude %>">
@@ -28,31 +27,13 @@
           Autocomplete search
         </div>
         <div id="type-selector" class="pac-controls">
-          <input type="radio" name="type" id="changetype-all" checked="checked">
-          <label for="changetype-all">All</label>
-
-          <input type="radio" name="type" id="changetype-establishment">
-          <label for="changetype-establishment">Establishments</label>
-
-          <input type="radio" name="type" id="changetype-address">
-          <label for="changetype-address">Addresses</label>
-
-          <input type="radio" name="type" id="changetype-geocode">
-          <label for="changetype-geocode">Geocodes</label>
         </div>
         <div id="strict-bounds-selector" class="pac-controls">
-          <input type="checkbox" id="use-strict-bounds" value="">
-          <label for="use-strict-bounds">Strict Bounds</label>
         </div>
       </div>
       
     </div>
-    <div id="map"></div>
-    <div id="infowindow-content">
-      <img src="" width="16" height="16" id="place-icon">
-      <span id="place-name"  class="title"></span><br>
-      <span id="place-address"></span>
-    </div>
+    <div id="map" ></div>
       </div>
             <div class="text-center" id="longtitude" data-long= "<%= @room.longitude%>">
               <%= f.submit "Save", class: "btn btn-form" %>
@@ -83,21 +64,16 @@
         });
         console.log(lt)
                 console.log(ln)
-
         var card = document.getElementById('pac-card');
         var input = document.getElementById('pac-input');
         var types = document.getElementById('type-selector');
         var strictBounds = document.getElementById('strict-bounds-selector');
-
         map.controls[google.maps.ControlPosition.TOP_RIGHT].push(card);
-
         var autocomplete = new google.maps.places.Autocomplete(input);
-
         // Bind the map's bounds (viewport) property to the autocomplete object,
         // so that the autocomplete requests use the current map bounds for the
         // bounds option in the request.
         autocomplete.bindTo('bounds', map);
-
         // Set the data fields to return when the user selects a place.
         autocomplete.setFields(
             ['address_components', 'geometry', 'icon', 'name']);
@@ -110,7 +86,6 @@
           map: map,
           anchorPoint: new google.maps.Point(0, -29)
         });
-
         autocomplete.addListener('place_changed', function() {
           infowindow.close();
           marker.setVisible(false);
@@ -137,7 +112,6 @@
           marker.setPosition(place.geometry.location);
           marker.setVisible(true);
           
-
           var address = '';
           if (place.address_components) {
             address = [
@@ -146,13 +120,11 @@
               (place.address_components[2] && place.address_components[2].short_name || '')
             ].join(' ');
           }
-
           infowindowContent.children['place-icon'].src = place.icon;
           infowindowContent.children['place-name'].textContent = place.name;
           infowindowContent.children['place-address'].textContent = address;
           infowindow.open(map, marker);
         });
-
         // Sets a listener on a radio button to change the filter type on Places
         // Autocomplete.
         function setupClickListener(id, types) {
@@ -161,12 +133,10 @@
             autocomplete.setTypes(types);
           });
         }
-
         setupClickListener('changetype-all', []);
         setupClickListener('changetype-address', ['address']);
         setupClickListener('changetype-establishment', ['establishment']);
         setupClickListener('changetype-geocode', ['geocode']);
-
         document.getElementById('use-strict-bounds')
             .addEventListener('click', function() {
               console.log('Checkbox clicked! New state=' + this.checked);
