@@ -1,6 +1,6 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <span><% if @room.Instant? %><i class="fa fa-bolt" style="color: #ffb400"></i> <% end %> $<%= @room.price %></span>
+    <span><% if @room.Instant? %><i class="fa fa-bolt" style="color: #ffb400"></i> <% end %> RM <%= @room.price %></span>
     <span class="pull-right">Per Night</span>
   </div>
   <div class="panel-body">
@@ -22,7 +22,7 @@
           <tbody>
             <tr>
               <td>Price</td>
-              <td class="text-right">$<%= @room.price %></td>
+              <td class="text-right">RM <%= @room.price %></td>
             </tr>
             <tr>
               <td>Night(s)</td>
@@ -36,7 +36,7 @@
             </tr>
             <tr>
               <td class="total">Total</td>
-              <td class="text-right">$<span id="reservation_total"></span></td>
+              <td class="text-right">RM <span id="reservation_total"></span></td>
             </tr>
           </tbody>
         </table>
