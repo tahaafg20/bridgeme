@@ -1,9 +1,6 @@
 class HostReviewsController < ApplicationController
 
   def create
-    # Step 1: Check if the reservation exist (room_id, guest_id, host_id)
-
-    # Step 2: Check if the current host already reviewed the guest in this reservation.
 
     @reservation = Reservation.where(
                     id: host_review_params[:reservation_id],
@@ -29,7 +26,7 @@ class HostReviewsController < ApplicationController
     else
       flash[:alert] = "Not found this reservation"
     end
-
+    
     redirect_back(fallback_location: request.referer)
   end
 

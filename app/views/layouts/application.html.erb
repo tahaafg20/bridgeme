@@ -17,6 +17,20 @@
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/hot-sneaks/jquery-ui.css">
   </head>
   <body>
+  <%# ALERT & NOTICE %>
+ <% if notice != nil || alert != nil %>
+   <% if notice != nil %>
+     <div class=“notification form-actions text-center alert alert-success” role=“alert”>
+       <button type=“button” class=“notice close” data-dismiss=“alert” aria-label=“Close”><span aria-hidden=“true”>&times;</span></button>
+       <strong><%= notice %></strong>
+     </div>
+   <% else %>
+     <div class=“notification text-center alert alert-alert” role=“alert”>
+       <button type=“button” class=“alert close” data-dismiss=“alert” aria-label=“Close”><span aria-hidden=“true”>&times;</span></button>
+       <strong><%= alert %></strong>
+     </div>
+   <% end %>
+ <% end %>
     <%= render 'shared/navbar' %>
     <% if current_user %>
         <input type="hidden" id="user_id" value="<%= current_user.id %>">

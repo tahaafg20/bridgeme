@@ -80,7 +80,6 @@ class ReservationsController < ApplicationController
         )
 
         if charge
-          byebug
           reservation.Approved!
           ReservationMailer.send_email_to_guest(reservation.user, room).deliver_later if reservation.user.setting.enable_email
           flash[:notice] = "Reservation created successfully!"
