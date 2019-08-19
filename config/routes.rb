@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
  
+  resources :organizations
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks',  registrations: 'users/registrations'}
   devise_scope :users do
     get "sign_out", :to => "devise/sessions#destroy"
