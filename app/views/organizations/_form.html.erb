@@ -1,39 +1,40 @@
 
-<%= simple_form_for(@organization) do |f|%>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-  <div class="form-inputs" id= "form">
-    <%= f.input :name %>
-    <%= f.input :email %>
-    <%= f.input :number %>
-    <%= f.input :service %>
-    <%= f.input :about %>
-    <%= f.input :address %>
-    <%=f.text_field :latitude, id:"lat", style:"display:none;"%>
-    <%=f.text_field :longitude, id:"long", style:"display:none;"%>
-  </div>
-  <div class="pac-card" id="pac-card">
+          <%= form_for @organization, :html => { :id => "form" } do |f| %>
+                <label>Organization Name</label>
+                <%=f.text_field :name %><br>
+      <label>Email</label>
+                <%=f.text_field :email %><br>
+      <label>Phone Number</label>
+                <%=f.text_field :number%><br>
+      <label>Service</label>
+                <%=f.text_field :service %><br>
+      <label>About</label>
+                <%=f.text_field :about %><br>
+                <label>Address</label>
+                <%=f.text_field :address, id:"pac-input",
+            placeholder:"Where is your address?"%><br>
+                <%=f.text_field :latitude, id:"lat", style:"display:none;"%>
+                <%=f.text_field :longitude, id:"long", style:"display:none;"%>
+      <div class="pac-card" id="pac-card">
       <div id="latitude" data-lat= "<%= @organization.latitude %>">
-        <div id="title">
-        </div>
         <div id="type-selector" class="pac-controls">
         </div>
         <div id="strict-bounds-selector" class="pac-controls">
+        </div>
       </div>
-  </div>
+      
+    </div>
     <div id="map" ></div>
       </div>
             <div class="text-center" id="longtitude" data-long= "<%= @organization.longitude%>">
-              <%# <%= f.submit "Save", class: "btn btn-form" %> %>
+              <%= f.submit "Save", class: "btn btn-form" %>
             </div>
+
+          <% end %>
         </div>
       </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+
 <script>
       // This example requires the Places library. Include the libraries=places
       // parameter when you first load the API. For example:
