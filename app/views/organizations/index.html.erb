@@ -1,37 +1,112 @@
-<p id="notice"><%= notice %></p>
+<div id="main">
+  <div id="left">
+    <div class="row">
+      <br/>
+      <div class="row" id="organization_listing">
+        <%= render partial: "organizations/organizations_list", locals: {organizations: @arrOrganizations} %>
+      </div>
 
-<h1>Organizations</h1>
+    </div>
+  </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Number</th>
-      <th>Address</th>
-      <th>Service</th>
-      <th>About</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @organizations.each do |organization| %>
-      <tr>
-        <td><%= organization.name %></td>
-        <td><%= organization.email %></td>
-        <td><%= organization.number %></td>
-        <td><%= organization.address %></td>
-        <td><%= organization.service %></td>
-        <td><%= organization.about %></td>
-        <td><%= link_to 'Show', organization %></td>
-        <td><%= link_to 'Edit', edit_organization_path(organization) %></td>
-        <td><%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div id="right">
+    <!-- GOOGLE MAP WILL BE HERE -->
 
-<br>
+    <div id="map" ></div>
+    </div>
+    </div>
 
-<%= link_to 'New Organization', new_organization_path %>
+    <%# <script src="https://maps.googleapis.com/maps/api/js"></script> %>
+    
+    <script>
+        function initialize(organizations) {
+          var location = {lat: 44.5403, lng: -78.5463}
+
+          if (organizations.length > 0) {
+            // debugger
+            location = {lat: organizations[0].latitude, lng: organizations[0].longitude}
+          }
+
+          var map = new google.maps.Map(document.getElementById('map'), {
+            center: location,
+            zoom: 12
+          });
+
+          var marker, inforwindow;
+
+          organizations.forEach(function(organization) {
+            marker = new google.maps.Marker({
+              position: {lat: organization.latitude, lng: organization.longitude},
+              map: map
+            });
+
+            inforwindow = new google.maps.InfoWindow({
+              content: "<div class='map_price'>" + organization.name + "</div>"
+            });
+
+            inforwindow.open(map, marker);
+          })
+        }
+
+        google.maps.event.addDomListener(window, 'load', function() {
+          initialize(<%= raw @arrOrganizations.to_json %>)
+        });
+    </script>
+  </div>
+</div>
+
+
+<%# <script>
+  $('#start_date').datepicker({
+    dateFormat: 'dd-mm-yy',
+    minDate: 0,
+    maxDate: '3m',
+    onSelect: function(selected) {
+      $('#end_date').datepicker("option", "minDate", selected);
+      $('#end_date').attr("disabled", false);
+    }
+  });
+
+  $('#end_date').datepicker({
+    dateFormat: 'dd-mm-yy',
+    minDate: 0,
+    maxDate: '3m',
+    onSelect: function(selected) {
+      $('#start_date').datepicker("option", "maxDate", selected);
+    }
+  });
+
+  var open = true;
+
+  $('#filter').click(function() {
+    if (open) {
+      $('#filter').html("More filters <i class='fa fa-chevron-up'></i>")
+    } else {
+      $('#filter').html("More filters <i class='fa fa-chevron-down'></i>")
+    }
+    open = !open;
+  });
+</script>
+
+<script>
+  $(function() {
+    $("#q_price_gteq").val('100');
+    $("#q_price_lteq").val('500');
+
+    $("#slider-range").slider({
+      range: true,
+      min: 0,
+      max: 1000,
+      values: [100, 500],
+      slide: function(event, ui) {
+        $("#q_price_gteq").val(ui.values[0]);
+        $("#q_price_lteq").val(ui.values[1]);
+      }
+    });
+
+    $(".ui-widget-header").css('background', '#00A699');
+    $(".ui-state-default, .ui-widget-content").css('background', 'white');
+    $(".ui-state-default, .ui-widget-content").css('border-color', '#00A699');
+  })
+</script> %>

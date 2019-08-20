@@ -7,9 +7,6 @@ class ReservationsController < ApplicationController
 
     if current_user == room.user
       flash[:alert] = "You cannot book your own property!"
-    elsif current_user.stripe_id.blank?
-      flash[:alert] = "Please update your payment method."
-      return redirect_to payment_method_path
     else
       start_date = Date.parse(reservation_params[:start_date])
       end_date = Date.parse(reservation_params[:end_date])
@@ -35,7 +32,9 @@ class ReservationsController < ApplicationController
         if room.Request?
           flash[:notice] = "Request sent successfully!"
         else
-          charge(room, @reservation)
+          @reservation.Approved!
+          ReservationMailer.send_email_to_guest(@reservation.user, room).deliver_later
+          flash[:notice] = "Reservation created successfully!"
         end
       else
         flash[:alert] = "Cannot make a reservation!"
