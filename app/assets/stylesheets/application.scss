@@ -1,3 +1,9 @@
+
+@import "config/colors";
+@import "config/fonts";
+@import "config/bootstrap_variables";
+@import "config/swiper";
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "toastr";
@@ -505,11 +511,6 @@ a {
 .success.visible, .error.visible {
   display: inline;
 }
+@import "./pages/index";
 
-.error {
-  color: #E4584C;
-}
 
-.fade {
-  opacity: 1;
-}
