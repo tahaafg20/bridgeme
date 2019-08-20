@@ -566,6 +566,13 @@ button:not(:disabled), [type="button"]:not(:disabled), [type="reset"]:not(:disab
     background-color: #4E66F8 !important;
     border-color: #4E66F8 !important;
 }
+.btn-lg{
+    color: #fff !important;
+    height: 30px;
+    font-size: 40px;
+    background-color: #2994b2 !important;
+    border-color: #4E66F8 !important;
+}
 .btn {
     display: inline-block;
     font-weight: 400;
@@ -579,6 +586,7 @@ button:not(:disabled), [type="button"]:not(:disabled), [type="reset"]:not(:disab
     background-color: transparent;
     border: 1px solid transparent;
     padding: .525rem .75rem;
+    // padding: .645rem .80rem;
     font-size: .8rem;
     line-height: 1.6;
     border-radius: .4rem;
