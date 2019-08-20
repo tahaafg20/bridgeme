@@ -20,78 +20,32 @@
   </head>
   <body>
   <%# ALERT & NOTICE %>
- <% if notice != nil || alert != nil %>
-   <% if notice != nil %>
-     <div class=“notification form-actions text-center alert alert-success” role=“alert”>
-       <button type=“button” class=“notice close” data-dismiss=“alert” aria-label=“Close”><span aria-hidden=“true”>&times;</span></button>
-       <strong><%= notice %></strong>
-     </div>
-   <% else %>
-     <div class=“notification text-center alert alert-alert” role=“alert”>
-       <button type=“button” class=“alert close” data-dismiss=“alert” aria-label=“Close”><span aria-hidden=“true”>&times;</span></button>
-       <strong><%= alert %></strong>
-     </div>
-   <% end %>
- <% end %>
-    <%= render 'shared/navbar' %>
+  <% if notice != nil || alert != nil %>
+    <% if notice != nil %>
+      <div class=“notification form-actions text-center alert alert-success” role=“alert”>
+        <button type=“button” class=“notice close” data-dismiss=“alert” aria-label=“Close”><span aria-hidden=“true”>&times;</span></button>
+        <strong><%= notice %></strong>
+      </div>
+    <% else %>
+      <div class=“notification text-center alert alert-alert” role=“alert”>
+        <button type=“button” class=“alert close” data-dismiss=“alert” aria-label=“Close”><span aria-hidden=“true”>&times;</span></button>
+        <strong><%= alert %></strong>
+      </div>
+    <% end %>
+  <% end %>
+<%= render 'shared/navbar' %>
     <% if current_user %>
         <input type="hidden" id="user_id" value="<%= current_user.id %>">
     <% end %>
     <div class="container">
-      <%= yield %>
-    </div><br><br>
- <%= render 'shared/footer' %>
+  <%= yield %>
+
+  </div><%= render 'shared/footer' %>
+
+
 
     
-    <!-- Site footer -->
-    <%# <footer class="site-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12 col-md-6">
-            <h6>About</h6>
-            <p class="text-justify">Golshan Stay <i>Easy Booking With Us </i> This is my final rails project in Recode Bootcamp August 3rd 2019.</p>
-          </div>
-
-          <div class="col-xs-6 col-md-3">
-            <h6>Categories</h6>
-            <ul class="footer-links">
-              <li><a href="#">Book A Room</a></li>
-              <li><a href="#">Host Your Space</a></li>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Contact</a></li>
-            </ul>
-          </div>
-
-          <div class="col-xs-6 col-md-3">
-            <h6>Quick Links</h6>
-            <ul class="footer-links">
-              <li><a href="#">Contribute</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Sitemap</a></li>
-            </ul>
-          </div>
-        </div>
-        <hr>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 col-sm-6 col-xs-12">
-            <p class="copyright-text">Copyright &copy; 2019 All Rights Reserved by 
-         <a href="#">Golshan Stay</a>.
-            </p>
-          </div>
-
-          <div class="col-md-4 col-sm-6 col-xs-12">
-            <ul class="social-icons">
-              <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
-              <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
-            </ul>
-          </div>
-        </div>
-      </div>
-</footer> %>
+    
 <%# <script src="https://js.stripe.com/v3/"></script> %>
 <script>
   (function($) {
