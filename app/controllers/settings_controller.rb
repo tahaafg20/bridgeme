@@ -1,4 +1,4 @@
-class SettingsController < ApplicationController
+
     class SettingsController < ApplicationController
         def edit
           @setting = User.find(current_user.id).setting
@@ -19,4 +19,4 @@ class SettingsController < ApplicationController
             params.require(:setting).permit(:enable_sms, :enable_email)
           end
       end      
-end
+

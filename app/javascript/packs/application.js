@@ -15,6 +15,10 @@ require("jquery-ui")
 import 'bootstrap';
 import './geocomplete';
 import './jquery.raty';
+import 'moment';
+
+
+import 'fullcalendar';
 window.jQuery = $;
 window.$ = $;
 

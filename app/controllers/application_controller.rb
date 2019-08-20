@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-    #  byebug
+  
     devise_parameter_sanitizer.permit(:sign_up, keys: [:fullname])
     devise_parameter_sanitizer.permit(:account_update, keys: [:fullname, :email, :password, :password_confirmation, :current_password])
   end

@@ -1,9 +1,10 @@
-class CalendarsController < ApplicationController
+
     class CalendarsController < ApplicationController
         before_action :authenticate_user!
         include ApplicationHelper
       
         def create
+       
           date_from = Date.parse(calendar_params[:start_date])
           date_to = Date.parse(calendar_params[:end_date])
       
@@ -46,9 +47,8 @@ class CalendarsController < ApplicationController
             end_of_month = (start_date + 1.months).end_of_month # => Aug 31
       
             @events = @room.reservations.joins(:user)
-                            .select('reservations.*, users.fullname, users.image, users.email, users.uid')
+                            .select('reservations.*, users.fullname, users.email')
                             .where('(start_date BETWEEN ? AND ?) AND status <> ?', first_of_month, end_of_month, 2)
-            @events.each{ |e| e.image = avatar_url(e) }
             @days = Calendar.where("room_id = ? AND day BETWEEN ? AND ?", params[:room_id], first_of_month, end_of_month)
           else
             @room = nil
@@ -62,5 +62,4 @@ class CalendarsController < ApplicationController
             params.require(:calendar).permit([:price, :status, :start_date, :end_date])
           end
       end
-      
-end
+

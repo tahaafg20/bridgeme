@@ -11,13 +11,7 @@
 
             <div class="row">
 
-              <div class="col-md-4 select">
-                <div class="form-group">
-                  <label>Home Type</label>
-                  <%= f.select :home_type, [["Apartment", "Apartment"], ["House", "House"], ["Bed & Breakfast", "Bed & Breakfast"]],
-                                id: "home_type", prompt: "Select...", class: "form-control" %>
-                </div>
-              </div>
+              
 
               <div class="col-md-4 select">
                 <div class="form-group">
@@ -27,13 +21,7 @@
                 </div>
               </div>
 
-              <%# <div class="col-md-4 select"> %>
-                <%# <div class="form-group"> %>
-                  <%# <label>Booking Type</label> %>
-                  <%# <%= f.select :instant, Room.instants.map {|key,value| [key.humanize, key]}, selected: 'Instant', prompt: "Select...", class: "form-control" %>
-                <%# </div> %>
-              <%# </div> %>
-
+              
               <div class="col-md-4 select">
                 <div class="form-group">
                   <label>Accommodate</label>
@@ -42,14 +30,7 @@
                 </div>
               </div>
 
-              <div class="col-md-4 select">
-                <div class="form-group">
-                  <label>Bedrooms</label>
-                  <%= f.select :bed_room, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]],
-                                id: "bed_room", prompt: "Select...", class: "form-control" %>
-                </div>
-              </div>
-
+             
               <div class="col-md-4 select">
                 <div class="form-group">
                   <label>Bathrooms</label>
