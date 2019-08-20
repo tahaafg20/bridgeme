@@ -2,8 +2,8 @@
   <div id="left">
     <div class="row">
       <br/>
-      <div class="row" id="room_listing">
-        <%= render partial: "rooms/rooms_list", locals: {rooms: @arrRooms} %>
+      <div class="row" id="organization_listing">
+        <%= render partial: "organizations/organizations_list", locals: {organizations: @arrOrganizations} %>
       </div>
 
     </div>
@@ -13,14 +13,18 @@
   <div id="right">
     <!-- GOOGLE MAP WILL BE HERE -->
 
-    <div id="map" style="width: 100%; height: 100%"></div>
+    <div id="map" ></div>
+    </div>
+    </div>
 
     <%# <script src="https://maps.googleapis.com/maps/api/js"></script> %>
+    
     <script>
         function initialize(organizations) {
           var location = {lat: 44.5403, lng: -78.5463}
 
           if (organizations.length > 0) {
+            // debugger
             location = {lat: organizations[0].latitude, lng: organizations[0].longitude}
           }
 
@@ -31,14 +35,14 @@
 
           var marker, inforwindow;
 
-          organizations.forEach(function(room) {
+          organizations.forEach(function(organization) {
             marker = new google.maps.Marker({
               position: {lat: organization.latitude, lng: organization.longitude},
               map: map
             });
 
             inforwindow = new google.maps.InfoWindow({
-              content: "<div class='map_price'>RM " + room.price + "</div>"
+              content: "<div class='map_price'>" + organization.name + "</div>"
             });
 
             inforwindow.open(map, marker);
@@ -53,7 +57,7 @@
 </div>
 
 
-<script>
+<%# <script>
   $('#start_date').datepicker({
     dateFormat: 'dd-mm-yy',
     minDate: 0,
@@ -105,4 +109,4 @@
     $(".ui-state-default, .ui-widget-content").css('background', 'white');
     $(".ui-state-default, .ui-widget-content").css('border-color', '#00A699');
   })
-</script>
+</script> %>

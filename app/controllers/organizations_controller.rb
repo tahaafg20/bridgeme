@@ -1,10 +1,11 @@
 class OrganizationsController < ApplicationController
   before_action :set_organization, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, except: [:show]
   # GET /organizations
   # GET /organizations.json
   def index
     @organizations = Organization.all
+    @arrOrganizations = @organizations.to_a
   end
 
   # GET /organizations/1

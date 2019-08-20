@@ -1,5 +1,7 @@
+<% if (!user_signed_in?) %>
 <h1>New Organization</h1>
 
 <%= render 'form', organization: @organization %>
 
 <%= link_to 'Back', organizations_path %>
+<% end %>

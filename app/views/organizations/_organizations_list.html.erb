@@ -1,0 +1,8 @@
+<% @organizations.each do |organization| %>
+    <div class="col-md-4">
+        <div class="panel-body">
+          <%= link_to organization.name, organization %><br/>
+          Phone Number: <%= organization.number %> <br> <%= organization.address %>
+        </div>
+    </div>
+<% end %>
