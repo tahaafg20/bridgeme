@@ -1,7 +1,14 @@
+
+@import "config/colors";
+@import "config/fonts";
+@import "config/bootstrap_variables";
+// @import "config/swiper";
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "toastr";
 @import "fullcalendar";
+@import "pages/index";
 
 body {
   color: #565a5c;
@@ -26,18 +33,18 @@ a {
 }
 
 // NAVBARS
-.navbar-default {
-  background-color: #0E1854;
-}
+// .navbar-default {
+//   background-color: #0E1854;
+// }
 
-.navbar-nav > li > a{
-  color:white !important;
-}
-.navbar-default .navbar-brand {
-  color: white;
-  font-size: 2em;
-  font-weight: 400;
-}
+// .navbar-nav > li > a{
+//   color:white !important;
+// }
+// .navbar-default .navbar-brand {
+//   color: white;
+//   font-size: 2em;
+//   font-weight: 400;
+// }
 
 // BUTTONS
 .btn-block {
@@ -115,9 +122,11 @@ a {
 // PANELS
 .panel-default .panel-heading {
   color: #ffffff;
-  background-color: #0E1854;
+  background-color: rgb(3, 89, 95);
   font-size: 18px;
   font-weight: 400;
+  display:flex; 
+  justify-content:center;
 }
 
 .row-space-1 {
@@ -349,6 +358,10 @@ a {
   width: 100% !important;  /* The width is the width of the web page */
 }
 
+.submit-btn{
+  padding-top: 10px;
+}
+
 .map_price {
   text-align: center;
   font-size: 16px;
@@ -498,11 +511,6 @@ a {
 .success.visible, .error.visible {
   display: inline;
 }
+@import "./pages/index";
 
-.error {
-  color: #E4584C;
-}
 
-.fade {
-  opacity: 1;
-}
