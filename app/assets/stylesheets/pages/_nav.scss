@@ -49,6 +49,7 @@ $app_dark :#444f5a;
 .navbar ul.nav li.active a, .navbar ul.nav li.active a:hover, .navbar ul.nav li.active a:focus {
     color: $app_dark !important;
     background: transparent !important;
+    padding-top:30px !important;
 }
 // form .search-box {
 //     position: relative;
