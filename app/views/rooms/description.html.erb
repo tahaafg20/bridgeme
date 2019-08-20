@@ -20,12 +20,12 @@
                 <label>Summary</label>
                 <%= f.text_area :summary, rows: 5, placeholder: "Summary of your house", class: "form-control", required: true %>
               </div>
-            </div>
+            
 
-            <div class="text-center">
-              <%= f.submit "Save", class: "btn btn-form" %>
+              <div>
+                <%= f.submit "Save", class: "btn btn-primary" %>
+              </div>
             </div>
-
           <% end %>
         </div>
       </div>

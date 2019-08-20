@@ -8,7 +8,7 @@
   </div>
   <div class="col-md-9">
     <div class="panel panel-default">
-      <div class="panel-heading">
+      <div class="panel-heading" style="display:flex; justify-content:center;">
         Listings
       </div>
       <div class="panel-body">
@@ -18,8 +18,8 @@
             <div class="col-md-7">
               <h4><%= room.listing_name %></h4>
             </div>
-            <div class="col-md-3 right">
-              <%= link_to "Update", listing_room_path(room), class: "btn btn-form" %>
+            <div class="card col-md-11" style="display:flex; justify-content:flex-end;">
+              <i class="fas fa-pen-alt"><%= link_to "Update", listing_room_path(room) %></i>
             </div>
           </div>
           <hr/>

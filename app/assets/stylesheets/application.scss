@@ -2,6 +2,7 @@
 @import "bootstrap";
 @import "toastr";
 @import "fullcalendar";
+@import "pages/index";
 
 body {
   color: #565a5c;
@@ -26,18 +27,18 @@ a {
 }
 
 // NAVBARS
-.navbar-default {
-  background-color: #0E1854;
-}
+// .navbar-default {
+//   background-color: #0E1854;
+// }
 
-.navbar-nav > li > a{
-  color:white !important;
-}
-.navbar-default .navbar-brand {
-  color: white;
-  font-size: 2em;
-  font-weight: 400;
-}
+// .navbar-nav > li > a{
+//   color:white !important;
+// }
+// .navbar-default .navbar-brand {
+//   color: white;
+//   font-size: 2em;
+//   font-weight: 400;
+// }
 
 // BUTTONS
 .btn-block {
@@ -115,9 +116,11 @@ a {
 // PANELS
 .panel-default .panel-heading {
   color: #ffffff;
-  background-color: #0E1854;
+  background-color: rgb(3, 89, 95);
   font-size: 18px;
   font-weight: 400;
+  display:flex; 
+  justify-content:center;
 }
 
 .row-space-1 {
@@ -347,6 +350,10 @@ a {
 #map{
   height: 400px !important;  /* The height is 400 pixels */
   width: 100% !important;  /* The width is the width of the web page */
+}
+
+.submit-btn{
+  padding-top: 10px;
 }
 
 .map_price {

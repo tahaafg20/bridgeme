@@ -1,7 +1,7 @@
 <!-- Image -->
 <div class="row">
   <div class="col-md-12">
-    <%= image_tag @room.cover, width: "100%" %>
+    <%= image_tag @room.cover, width: "50%" %>
   </div>
 </div>
 <br/>
@@ -11,15 +11,19 @@
   <!-- LEFT PANEL -->
   <div class="col-md-8">
 
+  <div>
+     Hosted By (<%= @room.user.fullname %>)
+  </div>
+  <hr>
+
+  
     <!-- Listing Name -->
     <div class="row">
-      <div class="col-md-8">
-        <h1><%= @room.listing_name %></h1>
+      <div class="col-md-12">
+        <h2 class="details">Details </h2>
+        <h2><%= @room.listing_name %></h2>
         <%= @room.address %>
-      </div>
-      <div class="col-md-4 text-center">
-        Hosted By (<%= @room.user.fullname %>)
-      </div>
+      </div> 
     </div>
     <hr/>
 
@@ -62,7 +66,7 @@
     <!-- Amenities -->
     <div class="row">
       <div class="col-md-3">
-        <h4>Amenities</h4>
+        <h3>Amenities Included</h3>
       </div>
 
       <div class="col-md-9">
@@ -85,7 +89,7 @@
       </div>
 
     </div>
-    <hr/>
+
 
     <!-- Carousel -->
     <div class="row">
@@ -109,13 +113,15 @@
       <% end %>
     </div>
     <hr/>
+
+
     <!-- REVIEWS -->
     <div class="row" id="longtitude" data-long= "<%= @room.longitude %>">
       <div class="col-md-12">
-        <h3>
-          <%= pluralize(@guest_reviews.count, "Review") %>
+        <h4>
+          <%= pluralize(@guest_reviews.count, "Review") %><br>
           <span id="average_rating"></span>
-        </h3>
+        </h4>
         <div class="container">
           <div><%= render "reviews/guest_list" %></div>
         </div>
