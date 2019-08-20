@@ -1,14 +1,17 @@
 
 /*FOOTER*/
 
-footer {
-    background: #16222A;
-    background: -webkit-linear-gradient(59deg, #3A6073, #16222A);
-    background: linear-gradient(59deg, $app_blue, $app_dark);
-    color: $mild_yellow;
-    margin-top:100px;
-  }
-  
+
+
+.navbar-fixed-bottom {
+
+  // background: #16222A;
+  background: -webkit-linear-gradient(59deg, $app_blue, $app_dark);
+  background: linear-gradient(59deg, $app_blue, $app_dark);
+
+}
+
+ 
   footer a {
     color: $mild_yellow;
     font-size: 14px;
@@ -28,6 +31,7 @@ footer {
     font-size: 12px;
     padding: 10px;
     border-top: 1px solid #FFFFFF;
+    // 59deg, $app_blue, $app_dark
   }
   
   .footer-middle {

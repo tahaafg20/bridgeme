@@ -33,6 +33,8 @@
       </div>
     <% end %>
   <% end %>
+
+  <div  id="layout-body">
 <%= render 'shared/navbar' %>
     <% if current_user %>
         <input type="hidden" id="user_id" value="<%= current_user.id %>">
@@ -40,7 +42,12 @@
     <div class="container">
   <%= yield %>
 
-  </div><%= render 'shared/footer' %>
+  </div>
+  
+  <%= render 'shared/footer' %>
+
+
+  </div>
 
 
 

@@ -18,7 +18,7 @@ $app_dark :#444f5a;
     padding-right: 16px;
     border-bottom: 1px solid $app_dark;
     box-shadow: 0 0 4px rgba(0,0,0,.1);
-    color:#fff important;
+    // color:#fff important;
 }
 .nav-link img {
     border-radius: 50%;
@@ -102,6 +102,8 @@ $app_dark :#444f5a;
 .navbar .dropdown-menu {
     border-radius: 1px;
     border-color: #e5e5e5;
+    background-color:$app_blue;
+    opacity: 3em;
     box-shadow: 0 2px 8px rgba(0,0,0,.05);
 }
 .navbar .dropdown-menu li a {
@@ -144,16 +146,22 @@ $app_dark :#444f5a;
 .navbar a{
     color:$app_yellow !important;
     // background-color:$app_yellow;
-    font-size: 10px;
+    // font-size: 10px;
+    font-size:12px;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    // font-weight: bold;
+    padding-bottom: 50px;
+    padding-top:20px;
 }
 .nav{
-padding-top: 20px;
+padding-top: 18px;
 
 
 }
 
 .nav ul li.nav-item{
-    padding-top: 30px;;
+    padding-top: 30px;
     
     
     }
