@@ -13,12 +13,11 @@
                 <label>Price</label>
                 <%= f.text_field :price, placeholder: "eg: 100 (the currency is RM)", class: "form-control", required: true %>
               </div>
+            
+            <div class="row col-md-3">
+              <%= f.submit "Save", class: "btn btn-primary" %>
             </div>
-
-            <div class="text-center">
-              <%= f.submit "Save", class: "btn btn-form" %>
-            </div>
-
+          </div>
           <% end %>
         </div>
       </div>

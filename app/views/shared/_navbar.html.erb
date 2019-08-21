@@ -1,7 +1,4 @@
 
-
-
-
 <nav class="navbar navbar-default navbar-expand-lg navbar-light">
 	<div class="navbar-header d-flex col">
 		<a class="navbar-brand" href="<%=root_path%>">Bridge<b>me</b></a>  		
@@ -71,3 +68,15 @@
 		
 	</div>
 </nav>
+
+<% if (user_signed_in?) && !current_page?(root_path) && !current_page?("/rooms/#{params[:id]}")%>
+    <nav class="navbar navbar-default" style="background-color: #0E1854;">
+      <div class="container">
+        <ul class="nav navbar-nav">
+          <li <% if current_page?(dashboard_path) %> class="active" <% end %> ><%= link_to "Dashboard", dashboard_path %></li>
+          <li <% if current_page?(rooms_path) %> class="active" <% end %> ><%= link_to "Manage Listings", rooms_path %></li>
+          <li <% if current_page?(conversations_path) %> class="active" <% end %> ><%= link_to "Messages", conversations_path %></li>
+        </ul>
+      </div>
+    </nav>
+<% end %>

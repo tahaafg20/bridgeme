@@ -1,33 +1,23 @@
-
-<div class="row">
-  <div class="col-md-3">
-    <%= render 'room_menu' %>
-  </div>
-  <div class="col-md-9">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="container">
-          <%= form_for @room, :html => { :id => "form" } do |f| %>
-
-            <div class="row">
-              <div class="form-group">
-                <label>* Find your location and save it. </label>
-                  <%=f.text_field :address, id:"pac-input", placeholder:"Where is your address?", class:"form-control"%>
-      </div>
-
-      <div class="form-group">
+<%# <% if (!user_signed_in?) %> 
+          <%= form_for @organization, :html => { :id => "form" } do |f| %>
+          
+                <label>Organization Name</label>
+                <%=f.text_field :name %><br>
+      <label>Email</label>
+                <%=f.text_field :email %><br>
+      <label>Phone Number</label>
+      
+                <%=f.text_field :number%><br>
+     <%= f.select( :service, %w[Health Education Community-Center Sport])%>
+      <label>About</label>
+                <%=f.text_area :about %><br>
+                <label>Address</label>
+                <%=f.text_field :address, id:"pac-input",
+            placeholder:"Where is your address?"%><br>
                 <%=f.text_field :latitude, id:"lat", style:"display:none;"%>
-      </div>
-
-      <div class="form-group">
                 <%=f.text_field :longitude, id:"long", style:"display:none;"%>
-      </div>
-
       <div class="pac-card" id="pac-card">
-      <div id="latitude" data-lat= "<%= @room.latitude %>">
-        <%# <div id="title">
-          Autocomplete search
-        </div> %>
+      <div id="latitude" data-lat= "<%= @organization.latitude %>">
         <div id="type-selector" class="pac-controls">
         </div>
         <div id="strict-bounds-selector" class="pac-controls">
@@ -35,25 +25,18 @@
       </div>
       
     </div>
-      <div id="map" ></div>
+    <div id="map" ></div>
       </div>
-            <div class="row submit-btn" id="longtitude" data-long= "<%= @room.longitude%>">
-              <%= f.submit "Save", class: "btn btn-primary" %>
+            <div class="text-center" id="longtitude" data-long= "<%= @organization.longitude%>">
+              <%= f.submit "Save", class: "btn btn-form" %>
             </div>
 
           <% end %>
         </div>
       </div>
 
-    </div>
-  </div>
-</div>
-
-
-
-
-
- <script>
+<%# <% end %>
+<script>
       // This example requires the Places library. Include the libraries=places
       // parameter when you first load the API. For example:
       // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">

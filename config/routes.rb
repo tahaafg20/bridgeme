@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
- 
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
+  resources :organizations
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks',  registrations: 'users/registrations'}
   devise_scope :users do
     get "sign_out", :to => "devise/sessions#destroy"
@@ -53,7 +55,7 @@ Rails.application.routes.draw do
       resources :messages, only: [:index, :create]
     end
   
-    get '/host_calendar' => "calendars#host"
+    # get '/host_calendar' => "calendars#host"
     get '/payment_method' => "users#payment"
     get '/payout_method' => "users#payout"
     post '/add_card' => "users#add_card"
