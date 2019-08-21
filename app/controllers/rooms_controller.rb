@@ -17,7 +17,11 @@ class RoomsController < ApplicationController
     # end
 
     @room = current_user.rooms.build(room_params)
+<<<<<<< HEAD
     
+=======
+    byebug
+>>>>>>> 4b67a3b044f8004d4e8a3337ac14b285ebe22d88
     if @room.save
       redirect_to listing_room_path(@room), notice: "Saved..."
     else
@@ -43,7 +47,7 @@ class RoomsController < ApplicationController
   end
 
   def photo_upload
-    @photos = @room.photos
+    @photos = @room.images
   end
 
   def amenities
@@ -65,6 +69,11 @@ class RoomsController < ApplicationController
     redirect_back(fallback_location: request.referer)
   end
 
+  def destroy
+    @room = Room.find(params[:id])
+    @room.destroy
+    redirect_back(fallback_location: request.referer)
+  end
   # --- Reservations ---
   def preload
     today = Date.today
@@ -112,6 +121,10 @@ class RoomsController < ApplicationController
     end
 
     def room_params
+<<<<<<< HEAD
       params.require(:room).permit(:room_type, :accommodate,:bath_room, :listing_name, :summary,:cover, :images, :latitude, :longitude, :address, :is_tv, :is_kitchen, :is_air, :is_heating, :is_internet, :price, :active, :instant)
+=======
+      params.require(:room).permit( :room_type, :accommodate, :listing_name, :summary,:cover, :latitude, :longitude, :address, :is_tv, :is_kitchen, :is_air, :is_heating, :is_internet, :price, :active, :instant, images:[])
+>>>>>>> 4b67a3b044f8004d4e8a3337ac14b285ebe22d88
     end
 end

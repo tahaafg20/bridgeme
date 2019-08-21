@@ -16,11 +16,16 @@ class Room < ApplicationRecord
       }
     end
   
+<<<<<<< HEAD
     
     validates :room_type, presence: true
     validates :accommodate, presence: true
 
     validates :bath_room, presence: true
+=======
+    validates :room_type, presence: true
+    validates :accommodate, presence: true
+>>>>>>> 4b67a3b044f8004d4e8a3337ac14b285ebe22d88
     
     geocoded_by :address
     after_validation :geocode, if: :address_changed?

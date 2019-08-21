@@ -1,6 +1,6 @@
 
-<br><div class="panel panel-default">
-   <h3> *** Add Your Place To Our Website To Get Guests ***</h3>
+<div class="panel panel-default box-border">
+   <h3 class="headertext">Add Your Place To Our Website To Get Guests</h3>
   <div class="panel-body"><br><br>
     <div class="container">
 
@@ -8,12 +8,15 @@
 
         <div class="row">
 
+<<<<<<< HEAD
          
 
+=======
+>>>>>>> 4b67a3b044f8004d4e8a3337ac14b285ebe22d88
           <div class="col-md-4 select">
             <div class="form-group">
               <label>Room Type</label>
-              <%= f.select :room_type, [["Entire", "Entire"], ["Private", "Private"], ["Shared", "Shared"]],
+              <%= f.select :room_type, [["Small Room", "Small Room"], ["Middle Room", "Middle Room"], ["Master Room", "Master Room"]],
                             id: "room_type", prompt: "Select...", class: "form-control" %>
             </div>
           </div>
@@ -26,6 +29,7 @@
                             id: "accommodate", prompt: "Select...", class: "form-control" %>
             </div>
           </div>
+<<<<<<< HEAD
 
 
           <div class="col-md-4 select">
@@ -35,12 +39,14 @@
                             id: "bath_rooms", prompt: "Select...", class: "form-control" %>
             </div>
           </div>
+=======
+>>>>>>> 4b67a3b044f8004d4e8a3337ac14b285ebe22d88
         </div>
             <label>Room Cover Photo</label>
               <%= f.file_field :cover %>
               <label>Images</label>
               <%= f.file_field :images, multiple: true %><br>
-        <div><%= f.submit "Create My Room", class: "btn btn-normal" %></div>
+              <%= f.submit "Create My Room", class: "btn btn-lg" %>
 
       <% end %>
 

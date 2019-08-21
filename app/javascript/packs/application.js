@@ -13,6 +13,7 @@ require("@rails/activestorage").start()
 require("channels")
 require("jquery-ui")
 import 'bootstrap';
+import "swiper";
 import './geocomplete';
 import './jquery.raty';
 import 'moment';

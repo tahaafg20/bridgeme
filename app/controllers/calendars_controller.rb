@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 
     class CalendarsController < ApplicationController
+=======
+class CalendarsController < ApplicationController
+>>>>>>> 4b67a3b044f8004d4e8a3337ac14b285ebe22d88
         before_action :authenticate_user!
         include ApplicationHelper
       
@@ -61,5 +65,10 @@
           def calendar_params
             params.require(:calendar).permit([:price, :status, :start_date, :end_date])
           end
+<<<<<<< HEAD
       end
 
+=======
+      
+end
+>>>>>>> 4b67a3b044f8004d4e8a3337ac14b285ebe22d88

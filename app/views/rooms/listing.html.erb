@@ -10,13 +10,16 @@
           <%= form_for @room do |f| %>
 
             <div class="row">
+<<<<<<< HEAD
 
               
 
+=======
+>>>>>>> 4b67a3b044f8004d4e8a3337ac14b285ebe22d88
               <div class="col-md-4 select">
                 <div class="form-group">
                   <label>Room Type</label>
-                  <%= f.select :room_type, [["Entire", "Entire"], ["Private", "Private"], ["Shared", "Shared"]],
+                  <%= f.select :room_type, [["Small Room", "Small Room"], ["Middle Room", "Middle Room"], ["Master Room", "Master Room"]],
                                 id: "room_type", prompt: "Select...", class: "form-control" %>
                 </div>
               </div>
@@ -31,6 +34,7 @@
               </div>
 
              
+<<<<<<< HEAD
               <div class="col-md-4 select">
                 <div class="form-group">
                   <label>Bathrooms</label>
@@ -38,12 +42,14 @@
                                 id: "bath_rooms", prompt: "Select...", class: "form-control" %>
                 </div>
               </div>
+=======
+>>>>>>> 4b67a3b044f8004d4e8a3337ac14b285ebe22d88
             </div>
             <label>Room Cover Photo</label>
-            <%= f.file_field :cover %>
+              <%= f.file_field :cover %>
             <label>Images</label>
-            <%= f.file_field :images, multiple: true %><br>
-            <div><%= f.submit "Save", class: "btn btn-normal" %></div>
+              <%= f.file_field :images, multiple: true %><br>
+            <div><%= f.submit "Save", class: "btn btn-primary" %></div>
 
           <% end %>
         </div>
