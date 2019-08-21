@@ -1,6 +1,8 @@
 
  #layout-body {
-    min-height: 80vh !important; /* will cover the 100% of viewport */
+    min-height: 100vh !important; /* will cover the 100% of viewport */
+    -moz-min-height: 100vh;
+   -webkit-min-height: 100vh;
     overflow: hidden;
     display: block;
     position: relative;
