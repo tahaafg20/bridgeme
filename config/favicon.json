@@ -1,0 +1,55 @@
+{
+    "master_picture": "app/assets/images/master_brand.png",
+    "favicon_design": {
+        "ios": {
+            "picture_aspect": "no_change",
+            "assets": {
+                "ios6_and_prior_icons": true,
+                "ios7_and_later_icons": true,
+                "precomposed_icons": true,
+                "declare_only_default_icon": true
+            },
+            "app_name": "BridgeMe"
+        },
+        "desktop_browser": [
+
+        ],
+        "windows": {
+            "picture_aspect": "no_change",
+            "background_color": "#00aba9",
+            "on_conflict": "override",
+            "assets": {
+                "windows_80_ie_10_tile": true,
+                "windows_10_ie_11_edge_tiles": {
+                    "small": false,
+                    "medium": true,
+                    "big": false,
+                    "rectangle": false
+                }
+            },
+            "app_name": "BridgeMe"
+        },
+        "android_chrome": {
+            "picture_aspect": "no_change",
+            "theme_color": "#ffffff",
+            "manifest": {
+                "name": "BridgeMe",
+                "display": "standalone",
+                "orientation": "not_set",
+                "on_conflict": "override",
+                "declared": true
+            },
+            "assets": {
+                "legacy_icon": false,
+                "low_resolution_icons": false
+            }
+        }
+    },
+    "settings": {
+        "scaling_algorithm": "Mitchell",
+        "error_on_image_too_small": false,
+        "readme_file": true,
+        "html_code_file": true,
+        "use_path_as_is": false
+    }
+}
