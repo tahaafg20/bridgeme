@@ -17,7 +17,7 @@ class RoomsController < ApplicationController
     # end
 
     @room = current_user.rooms.build(room_params)
-    byebug
+    
     if @room.save
       redirect_to listing_room_path(@room), notice: "Saved..."
     else
@@ -27,6 +27,8 @@ class RoomsController < ApplicationController
   end
 
   def show
+  
+   
     @photos = @room.images
     @guest_reviews = @room.guest_reviews
   end
