@@ -1,41 +1,75 @@
-<%# <% if (!user_signed_in?) %> 
-          <%= form_for @organization, :html => { :id => "form" } do |f| %>
-          
-                <label>Organization Name</label>
-                <%=f.text_field :name %><br>
-      <label>Email</label>
-                <%=f.text_field :email %><br>
-      <label>Phone Number</label>
-      
-                <%=f.text_field :number%><br>
-     <%= f.select( :service, %w[Health Education Community-Center Sport])%>
-      <label>About</label>
-                <%=f.text_area :about %><br>
-                <label>Address</label>
-                <%=f.text_field :address, id:"pac-input",
-            placeholder:"Where is your address?"%><br>
+<div class="container form_wrapper">
+  <div class="row col-12 align-center">
+       
+      <%= form_for @organization, :html => { :id => "form" } do |f| %>
+
+      <div class="from-row col-md-5 col-sm-12  mb-3 background">   
+
+        <div class="form-group ">
+            <label>Organization Name</label>
+              <%=f.text_field :name, class: "form-control"%>
+        </div>
+
+        <div class="form-group ">
+            <label>Email</label>
+            <%=f.text_field :email, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+            <label>Phone Number</label>    
+            <%=f.text_field :number, class: "form-control" %>
+        </div>
+
+        <div class="form-group ">
+            <div class="form-group">
+            <label>Services</label>
+            <%= f.select( :service, %w[Health Education Community-Center Sport], prompt: "Select...", class: "form-control")%>
+          </div>
+        </div>
+
+        <div class="form-group">
+              <label>About</label>
+              <%=f.text_area :about, class: "form-control" %>
+        </div>
+        
+        <div class="form-group">
+            <label>Address</label>
+                <%=f.text_field :address, id:"pac-input",placeholder:"Where is your address?", class: "form-control"%><br>
                 <%=f.text_field :latitude, id:"lat", style:"display:none;"%>
                 <%=f.text_field :longitude, id:"long", style:"display:none;"%>
-      <div class="pac-card" id="pac-card">
-      <div id="latitude" data-lat= "<%= @organization.latitude %>">
-        <div id="type-selector" class="pac-controls">
-        </div>
-        <div id="strict-bounds-selector" class="pac-controls">
-        </div>
-      </div>
       
-    </div>
-    <div id="map" ></div>
-      </div>
-            <div class="text-center" id="longtitude" data-long= "<%= @organization.longitude%>">
-              <%= f.submit "Save", class: "btn btn-form" %>
+            <div class="pac-card" id="pac-card">
+                <div id="latitude" data-lat= "<%= @organization.latitude %>">
+                  <div id="type-selector" class="pac-controls"></div>
+                  <div id="strict-bounds-selector" class="pac-controls"></div>
+                </div>  
             </div>
-
-          <% end %>
         </div>
+        
       </div>
 
-<%# <% end %>
+  </div>
+</div>
+
+
+<div class="map-image container form_wrapper">
+  <div class="row col-12 align-center">
+
+    <div class="col-md-5 map">
+          <div class="map-image" id="map" ></div>
+    
+            <div class="col-md-5 submitbtn">
+              <div class="row" id="longtitude" data-long= "<%= @organization.longitude%>">
+                  <%= f.submit "Save", class: "btn btn-form" %>
+              </div>
+            <div>
+          <% end %>
+      </div>
+  </div>
+</div>
+
+
+
 <script>
       // This example requires the Places library. Include the libraries=places
       // parameter when you first load the API. For example:
@@ -45,7 +79,7 @@
         var ln = parseFloat(document.querySelector("#longtitude").dataset["long"])
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: lt, lng: ln},
-          zoom: 13
+          zoom: 14
         });
         console.log(lt)
                 console.log(ln)
