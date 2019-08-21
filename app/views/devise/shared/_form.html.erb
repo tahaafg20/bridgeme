@@ -1,0 +1,90 @@
+<h1 class="tip"><span id="brand_bridge">Bridge</span><span id="brand_me">me</span></h1><br>
+<h4 class="caption">A safe space for connecting and informing refugees</h4>
+<div class="cont">
+  <div class="form sign-in">
+
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+
+
+    <h2>Welcome back</h2>
+
+    <label>
+      <span>Email</span>
+      <%= f.email_field :email, autofocus: true%>
+
+    </label>
+    <label>
+      <span>Password</span>
+      <%= f.password_field :password, autocomplete: "off",autofocus:true %>
+
+    </label>
+    <p class="forgot-pass"><%= link_to "Forgot Password?", new_user_password_path %></p>
+    <p class="forgot-pass">
+        <%# <% if devise_mapping.rememberable? %>
+        <%# <label> %>
+          <%# <span>Remember</span> %>
+          <%# <%= f.check_box :remember_me %> 
+      <%# </label> %>
+      <%# <% end %> 
+        
+      </p>
+    <button type="button" class="submit form_btn"><%= f.submit "Log in"%></button>
+    <button type="button" class="fb-btn from_btn">Connect with <span>facebook</span></button>
+
+    <%end%>
+  </div>
+  <div class="sub-cont">
+    <div class="img">
+      <div class="img__text m--up">
+        <h2>New here?</h2>
+        <p>Sign up and discover great amount of new opportunities!</p>
+      </div>
+      <div class="img__text m--in">
+        <h2>One of us?</h2>
+        <p>If you already has an account, just sign in. We've missed you!</p>
+      </div>
+      <div class="img__btn">
+        <span class="m--up">Sign Up</span>
+        <span class="m--in">Sign In</span>
+      </div>
+    </div>
+    <div class="form sign-up">
+      <h2>Time to feel like home,</h2>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+
+      <label>
+        <span>Name</span>
+          <%= f.text_field :fullname, id:"inputUsername", autocomplete: "full name",autofocus:true %>
+      </label>
+      <label>
+        <span>Email</span>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email",id:"email"%>
+      </label>
+      <label>
+        <span>Password</span>
+      <%= f.password_field :password,aria_describedby:"emailHelp" %>
+      </label>
+      <label>
+      <span>Confirm password</span>
+        <%= f.password_field :password_confirmation,aria_describedby:"emailHelp" %>
+      </label>
+      <button type="button" class="submit"><%= f.submit "Register" %></button>
+      <button type="button" class="fb-btn">Join with <span>facebook</span></button>
+
+      <%end%>
+    </div>
+  </div>
+</div>
+
+<script>
+
+document.querySelector('.img__btn').addEventListener('click', function() {
+  document.querySelector('.cont').classList.toggle('s--signup');
+});
+
+
+</script>
