@@ -2,10 +2,12 @@
     <div class="col-md-4">
       <div class="panel panel-default">
         <div class="panel-heading preview">
+         <%= link_to room do %>
           <%= image_tag(url_for(room.cover),size:"300x300") %>
+          <%end%>
         </div>
         <div class="panel-body">
-          <%= link_to room.listing_name, room %><br/>
+         <%=room.listing_name%>  <br/>
           RM<%= room.price %>
         </div>
       </div>
