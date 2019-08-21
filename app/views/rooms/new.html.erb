@@ -10,16 +10,8 @@
 
           <div class="col-md-4 select">
             <div class="form-group">
-              <label>Home Type</label>
-              <%= f.select :home_type, [["Apartment", "Apartment"], ["Hotel", "Hotel"], ],
-                            id: "home_type", prompt: "Select...", class: "form-control" %>
-            </div>
-          </div>
-
-          <div class="col-md-4 select">
-            <div class="form-group">
               <label>Room Type</label>
-              <%= f.select :room_type, [["Entire", "Entire"], ["Private", "Private"], ["Shared", "Shared"]],
+              <%= f.select :room_type, [["Small Room", "Small Room"], ["Middle Room", "Middle Room"], ["Master Room", "Master Room"]],
                             id: "room_type", prompt: "Select...", class: "form-control" %>
             </div>
           </div>
@@ -38,28 +30,12 @@
                             id: "accommodate", prompt: "Select...", class: "form-control" %>
             </div>
           </div>
-
-          <div class="col-md-4 select">
-            <div class="form-group">
-              <label>Bedrooms</label>
-              <%= f.select :bed_room, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]],
-                            id: "bed_room", prompt: "Select...", class: "form-control" %>
-            </div>
-          </div>
-
-          <div class="col-md-4 select">
-            <div class="form-group">
-              <label>Bathrooms</label>
-              <%= f.select :bath_room, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]],
-                            id: "bath_rooms", prompt: "Select...", class: "form-control" %>
-            </div>
-          </div>
         </div>
             <label>Room Cover Photo</label>
               <%= f.file_field :cover %>
               <label>Images</label>
               <%= f.file_field :images, multiple: true %><br>
-              <%= f.submit "Create My Room", class: "btn btn-primary btn-lg" %>
+              <%= f.submit "Create My Room", class: "btn btn-lg" %>
 
       <% end %>
 

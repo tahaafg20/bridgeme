@@ -10,19 +10,10 @@
           <%= form_for @room do |f| %>
 
             <div class="row">
-
-              <div class="col-md-4 select">
-                <div class="form-group">
-                  <label>Home Type</label>
-                  <%= f.select :home_type, [["Apartment", "Apartment"], ["House", "House"], ["Bed & Breakfast", "Bed & Breakfast"]],
-                                id: "home_type", prompt: "Select...", class: "form-control" %>
-                </div>
-              </div>
-
               <div class="col-md-4 select">
                 <div class="form-group">
                   <label>Room Type</label>
-                  <%= f.select :room_type, [["Entire", "Entire"], ["Private", "Private"], ["Shared", "Shared"]],
+                  <%= f.select :room_type, [["Small Room", "Small Room"], ["Middle Room", "Middle Room"], ["Master Room", "Master Room"]],
                                 id: "room_type", prompt: "Select...", class: "form-control" %>
                 </div>
               </div>
@@ -42,21 +33,7 @@
                 </div>
               </div>
 
-              <div class="col-md-4 select">
-                <div class="form-group">
-                  <label>Bedrooms</label>
-                  <%= f.select :bed_room, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]],
-                                id: "bed_room", prompt: "Select...", class: "form-control" %>
-                </div>
-              </div>
-
-              <div class="col-md-4 select">
-                <div class="form-group">
-                  <label>Bathrooms</label>
-                  <%= f.select :bath_room, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]],
-                                id: "bath_rooms", prompt: "Select...", class: "form-control" %>
-                </div>
-              </div>
+             
             </div>
             <label>Room Cover Photo</label>
               <%= f.file_field :cover %>
