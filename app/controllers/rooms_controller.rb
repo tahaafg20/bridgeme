@@ -40,7 +40,7 @@ class RoomsController < ApplicationController
   end
 
   def photo_upload
-    @photos = @room.photos
+    @photos = @room.images
   end
 
   def amenities
@@ -114,6 +114,10 @@ class RoomsController < ApplicationController
     end
 
     def room_params
+<<<<<<< HEAD
+      params.require(:room).permit( :room_type, :accommodate, :listing_name, :summary,:cover, :latitude, :longitude, :address, :is_tv, :is_kitchen, :is_air, :is_heating, :is_internet, :price, :active, :instant, images:[])
+=======
       params.require(:room).permit(:room_type, :accommodate, :listing_name, :summary,:cover, :images, :latitude, :longitude, :address, :is_tv, :is_kitchen, :is_air, :is_heating, :is_internet, :price, :active, :instant)
+>>>>>>> master
     end
 end
