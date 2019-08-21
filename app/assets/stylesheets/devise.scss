@@ -1,0 +1,14 @@
+@import "config/colors";
+@import "config/fonts";
+@import "config/bootstrap_variables";
+// @import "config/swiper";
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "toastr";
+@import "fullcalendar";
+
+// Your CSS partials
+// @import "device_page/user_auth";
+@import "device_page/registration";
+@import "device_page/signin";

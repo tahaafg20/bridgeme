@@ -32,3 +32,123 @@
     <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class: "btn btn-facebook btn-block" %>
   </div>
 </div>
+
+
+
+<div class="container">
+        <div class="row">
+			<div class="col-md-5 mx-auto">
+			<div id="first">
+				<div class="myform form ">
+					 <div class="logo mb-3">
+						 <div class="col-md-12 text-center">
+							<h1>Login</h1>
+						 </div>
+					</div>
+                   <%# <form action="" method="post" name="login"> %>
+                   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+                           <%# <div class="alert alert-danger" role="alert"> %>
+                              <p style="color:red"><%= alert %></p>
+                               <p class=“notice” style="color:#3AAFA9;"><%= notice%></p>
+
+                           <%# </div> %>
+                           <div class="form-group">
+                              <%= f.label :email %><br />
+                              <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "Enter email", class:"form-control",id:"email" %>
+                           </div>
+                              <div class="form-group">
+                                <%= f.label  :password %><br />
+                                <%= f.password_field :password, autocomplete: "current-password" ,placeholder: "Enter Password", class:"form-control", id:"password"%>
+                              </div>
+
+
+                              <% if devise_mapping.rememberable? %>
+                              <div class="field">
+                                <%= f.check_box :remember_me %>
+                                <%= f.label :remember_me %>
+                              </div>
+                            <% end %>
+                           <%# </div> %>
+
+
+                           
+                           <div class="form-group">
+                              <p class="text-center">By signing up you accept our <a href="#">Terms Of Use</a></p>
+                           </div>
+                           <div class="col-md-12 text-center ">
+                              <%= f.submit "Log in", class: " btn btn-block mybtn btn-primary tx-tfm" %>
+                           </div>
+                           <div class="col-md-12 ">
+                              <div class="login-or">
+                                 <hr class="hr-or">
+                                 <span class="span-or">or</span>
+                              </div>
+                           </div>
+                           <div class="col-md-12 mb-3">
+                             <%- if devise_mapping.omniauthable? %>
+                             <p class="text-center">
+                                <%- resource_class.omniauth_providers.each do |provider| %>
+                          
+                                  <%= link_to omniauth_authorize_path(resource_name, provider) do %>
+                                    <i class="fab fa-facebook-f"> Sign up using <%=OmniAuth::Utils.camelize(provider)%></i>
+                                  <% end %>
+                                <% end %>
+                                </p> 
+                              <% end %>
+                           </div>
+                           <div class="form-group">
+                              <p class="text-center">Don't have account?
+                                  <%= link_to "Sign up", new_registration_path(resource_name) %><br />
+                              </p>
+
+                           </div>
+                            <% end %>
+
+                            
+                        <%# </form> %>
+                 
+				</div>
+			</div>
+			  
+		</div>
+	</div>
+</div>   
+
+
+
+<div class="container-fluid">
+  <div class="row no-gutter">
+    <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+    <div class="col-md-8 col-lg-6">
+      <div class="login d-flex align-items-center py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9 col-lg-8 mx-auto">
+              <h3 class="login-heading mb-4">Welcome back!</h3>
+              <form>
+                <div class="form-label-group">
+                  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                  <label for="inputEmail">Email address</label>
+                </div>
+
+                <div class="form-label-group">
+                  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                  <label for="inputPassword">Password</label>
+                </div>
+
+                <div class="custom-control custom-checkbox mb-3">
+                  <input type="checkbox" class="custom-control-input" id="customCheck1">
+                  <label class="custom-control-label" for="customCheck1">Remember password</label>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Sign in</button>
+                <div class="text-center">
+                  <a class="small" href="#">Forgot password?</a></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
