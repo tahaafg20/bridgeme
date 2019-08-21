@@ -18,11 +18,10 @@
             <div class="col-md-7">
               <h4><%= room.listing_name %></h4>
               <div class="panel-heading preview">
-                <%= image_tag(url_for(room.cover),size:"100x250") %>
-              </div>
+              <%= image_tag(url_for(room.cover),size:"100x250") %>
             </div>
-        
-            <div class="row right">
+            </div>
+            <div class="col-md-3 right">
               <%= link_to "Update", listing_room_path(room), class: "btn btn-form" %>
               <%= link_to "Delete",  room,  method: :delete, class: "btn btn-form", data: { confirm: 'Are you sure?' }  %>
             </div>
@@ -33,5 +32,3 @@
     </div>
   </div>
 </div>
-
-
