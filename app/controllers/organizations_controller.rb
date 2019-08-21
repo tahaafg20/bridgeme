@@ -4,13 +4,20 @@ class OrganizationsController < ApplicationController
   # GET /organizations
   # GET /organizations.json
   def index
+  
+    unless params[:search].empty?
+    @organizations= Organization.where(service:params[:search]) 
+   
+    else
     @organizations = Organization.all
     @arrOrganizations = @organizations.to_a
+    end
   end
 
   # GET /organizations/1
   # GET /organizations/1.json
   def show
+   
   end
 
   # GET /organizations/new
@@ -25,6 +32,7 @@ class OrganizationsController < ApplicationController
   # POST /organizations
   # POST /organizations.json
   def create
+   
     @organization = current_user.organizations.build(organization_params)
     respond_to do |format|
       if @organization.save

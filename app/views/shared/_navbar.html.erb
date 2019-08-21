@@ -17,10 +17,10 @@
 			<li class="nav-item dropdown">
 				<a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">Services <b class="caret"></b></a>
 				<ul class="dropdown-menu">					
-					<li><a href="#" class="dropdown-item">Community Center</a></li>
-					<li><a href="#" class="dropdown-item">Health</a></li>
-					<li><a href="#" class="dropdown-item">Education</a></li>
-					<li><a href="#" class="dropdown-item">Sport</a></li>
+					<li><%= link_to "Community Center ", organizations_path(:search => "Community-Center"),class:"dropdown-item"%></li>
+					<li><%= link_to "Health", organizations_path(:search => "Health"),class:"dropdown-item"%></li>
+					<li><%= link_to "Education", organizations_path(:search => "Education"),class:"dropdown-item"%></li>
+					<li><%= link_to "Sport", organizations_path(:search => "Sport"),class:"dropdown-item"%></li>
 				</ul>
 			</li>
 			<%# <li class="nav-item btn"><a href="#" class="nav-link">Portfolio</a></li>
