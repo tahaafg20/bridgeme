@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-md-3">
+    <ul class="sidebar-list">
+      <li class="sidebar-item"><%= link_to "Your Listings", rooms_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item"><%= link_to "Your Reservations", your_reservations_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item"><%= link_to "Your Trips", your_trips_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item"><%= link_to "Your Organizations", your_organizations_path, class: "sidebar-link active" %></li>
+    </ul>
+  </div>
+<div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Your Organizations
+      </div>
+      <div class="panel-body">
+        <% @organizations.each do |org| %>
+          <div class="row">
+            <div class="col-md-2">
+              <%= link_to org.name, organization_path(org) %><br/><br/>
+          </div>
+          <div class="col-md-3 right">
+              <%= link_to "Update", edit_organization_path(org), class: "btn btn-form" %>
+              <%= link_to "Delete",  org,  method: :delete, class: "btn btn-form", data: { confirm: 'Are you sure?' }  %>
+            </div>
+          <hr/>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<% flash.each do |key, value| %>
+      <div class="<%= flash_class(key) %>" style="text-align:center;">
+            <h1><%= value %></h1>
+      </div>
+<% end %>

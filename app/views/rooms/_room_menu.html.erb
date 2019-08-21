@@ -30,7 +30,7 @@
 </ul>
 <hr/>
 
-<% is_ready = !@room.active && !@room.price.blank? && !@room.listing_name.blank? && !@room.address.blank? %>
+<% is_ready = !@room.price.blank? && !@room.listing_name.blank? && !@room.address.blank? %>
 
 <%= form_for @room do |f| %>
   <%= f.hidden_field :active, value: true %>

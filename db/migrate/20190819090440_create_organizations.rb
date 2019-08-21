@@ -7,7 +7,7 @@ class CreateOrganizations < ActiveRecord::Migration[6.0]
       t.string :address
       t.string :service
       t.text :about
-
+      t.references :user, foreign_key: true
       t.timestamps
     end
   end

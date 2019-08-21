@@ -25,8 +25,7 @@ class OrganizationsController < ApplicationController
   # POST /organizations
   # POST /organizations.json
   def create
-    @organization = Organization.new(organization_params)
-
+    @organization = current_user.organizations.build(organization_params)
     respond_to do |format|
       if @organization.save
         format.html { redirect_to @organization, notice: 'Organization was successfully created.' }
@@ -34,6 +33,7 @@ class OrganizationsController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @organization.errors, status: :unprocessable_entity }
+        byebug
       end
     end
   end
