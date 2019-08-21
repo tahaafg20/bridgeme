@@ -14,7 +14,7 @@
 		<ul class="nav navbar-nav navbar-right">
 			<%# <li class="nav-item btn"><a href="#" class="nav-link">Home</a></li>
 			<li class="nav-item btn"><a href="#" class="nav-link">About</a></li>			 %>
-			<li class="nav-item btn dropdown">
+			<li class="nav-item dropdown">
 				<a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">Services <b class="caret"></b></a>
 				<ul class="dropdown-menu">					
 					<li><a href="#" class="dropdown-item">School</a></li>
@@ -25,20 +25,19 @@
 			</li>
 			<%# <li class="nav-item btn"><a href="#" class="nav-link">Portfolio</a></li>
 			<li class="nav-item btn"><a href="#" class="nav-link">Blog</a></li> %>
-			<li class="nav-item btn"><a href="#" class="nav-link">Contact</a></li>
-      <li class="nav-item btn btn-form">
+			<li class="nav-item "><a href="#" class="nav-link">Contact</a></li>
+      <li class="nav-item btn-form">
           <%# <button class="btn btn-form btn-small"> %>
             <%= link_to "Become a host", new_room_path, style: "text-decoration: none;" %>
           <%# </button> %>
       </li>
 
         <% if (!user_signed_in?) %>
-            <li class="nav-item btn user_auth"><%= link_to "Login", new_user_session_path %></li>
-            <li class="nav-item btn user_auth"><%= link_to "Sign Up", new_user_registration_path %></li>
+            <li class="nav-item user_auth"><%= link_to "Login", new_user_session_path %></li>
+            <li class="nav-item user_auth"><%= link_to "Sign Up", new_user_registration_path %></li>
         <% else %>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                    role="button" aria-haspopup="true" aria-expanded="false">
+            <li class="nav-item dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"role="button" aria-haspopup="true" aria-expanded="false">
                     
                     <%= current_user.fullname %> <span class="caret"></span>
               </a>
@@ -70,14 +69,3 @@
 	</div>
 </nav>
 
-<% if (user_signed_in?) && !current_page?(root_path) && !current_page?("/rooms/#{params[:id]}")%>
-    <nav class="navbar navbar-default" style="background-color: #0E1854;">
-      <div class="container">
-        <ul class="nav navbar-nav">
-          <li <% if current_page?(dashboard_path) %> class="active" <% end %> ><%= link_to "Dashboard", dashboard_path %></li>
-          <li <% if current_page?(rooms_path) %> class="active" <% end %> ><%= link_to "Manage Listings", rooms_path %></li>
-          <li <% if current_page?(conversations_path) %> class="active" <% end %> ><%= link_to "Messages", conversations_path %></li>
-        </ul>
-      </div>
-    </nav>
-<% end %>
