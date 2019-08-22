@@ -12,14 +12,11 @@
                   <div class="row conversation">
                     <% if conversation.messages.any? %>
                         <div class="col-md-2">
-                          
-                        </div>
-                        <div class="col-md-2">
                           <%= other.fullname %>
                           <%= conversation.messages.last.message_time %>
                         </div>
                         <div class="col-md-8">
-                          <%= conversation.messages.last.context %>
+                          <%= conversation.messages.last.content %>
                         </div>
                     <% end %>
                   </div>

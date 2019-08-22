@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-    before_action :authenticate_user!
+  before_action :authenticate_user!
   before_action :set_conversation
 
   def index
@@ -16,7 +16,7 @@ class MessagesController < ApplicationController
     @messages = @conversation.messages.order("created_at DESC")
 
     if @message.save
-      ActionCable.server.broadcast "conversation_#{@conversation.id}", message: render_message(@message)
+      # ActionCable.server.broadcast "conversation_#{@conversation.id}", message: render_message(@message)
       redirect_to conversation_messages_path(@conversation)
     end
   end
@@ -32,6 +32,6 @@ class MessagesController < ApplicationController
     end
 
     def message_params
-      params.require(:message).permit(:context, :user_id)
+      params.require(:message).permit(:content, :user_id)
     end
 end
