@@ -9,4 +9,12 @@
     padding-bottom: 200px; /* height of your footer */
 
    }
+
+   @media(max-width:987px){
+
+      #layout-body{
+      padding-bottom: 300px;
+      }
+
+   }
   
