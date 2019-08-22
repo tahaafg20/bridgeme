@@ -18,10 +18,6 @@ class Room < ApplicationRecord
   
     validates :room_type, presence: true
     validates :accommodate, presence: true
-<<<<<<< HEAD
-=======
-
->>>>>>> master
     
     geocoded_by :address
     after_validation :geocode, if: :address_changed?
