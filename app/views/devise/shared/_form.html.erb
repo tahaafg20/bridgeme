@@ -31,6 +31,8 @@
         
       </p>
     <button type="button" class="submit form_btn"><%= f.submit "Log in"%></button>
+     <%= link_to raw('<i class="fab fa-facebook"></i> Signin with facebook'), user_facebook_omniauth_authorize_path, class: "btn btn-facebook btn-block",icon:"fab fa-facebook"%>
+
     <button type="button" class="fb-btn from_btn">Connect with <span>facebook</span></button>
 
     <%end%>
@@ -73,6 +75,7 @@
         <%= f.password_field :password_confirmation,aria_describedby:"emailHelp" %>
       </label>
       <button type="button" class="submit"><%= f.submit "Register" %></button>
+      
       <button type="button" class="fb-btn">Join with <span>facebook</span></button>
 
       <%end%>
