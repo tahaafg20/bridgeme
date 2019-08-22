@@ -1,51 +1,18 @@
 
 .background{
     background-color: white;
-    padding :60px 60px 30px 60px;
+    padding :60px 60px 10px 60px;
     border-radius: 5px;
 }
 
-.map{
-     padding-top: 20px;
-     width: 100%;
-    //  margin:10px;
-    //  margin-left:20px;
+.map-box{     
+    padding :50px;    
  }
 
-// .center{
-//     // display:flex;
-//     justify-content: center;
-//     margin: 0 auto;
 
-// }
-
-.submitbtn{
-    margin-left: -15px;
-    padding-top: 15px;
+.map-radius{
+    border-radius: 5px;
 }
-
-
-.form_wrapper{
-
-    width:100%;
-    // align-items: center;
-    margin:auto 20% auto 28%;
-}
-
-.align-center{
-    margin: 0px;
-}
-
-.map{
-    width:44%;
-    margin-left: -15px;
-}
-
-
-// #map{
-//     width: 800px;
-// }
-
 
 //show page design
 
@@ -77,4 +44,14 @@ p{
     padding:80px;
     padding-top: -20px;
     border-radius: 10px;
+}
+
+
+.submitbtn{
+    margin-left: -15px;
+    padding-top: 15px;
+}
+
+.input-lg{
+    line-height: 40px;
 }
