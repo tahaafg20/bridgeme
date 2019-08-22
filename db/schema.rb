@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_19_100854) do
+ActiveRecord::Schema.define(version: 2019_08_21_022411) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,11 +77,13 @@ ActiveRecord::Schema.define(version: 2019_08_19_100854) do
     t.string "address"
     t.string "service"
     t.text "about"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.float "latitude"
     t.float "longitude"
     t.string "number"
+    t.index ["user_id"], name: "index_organizations_on_user_id"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -117,7 +119,6 @@ ActiveRecord::Schema.define(version: 2019_08_19_100854) do
   create_table "rooms", force: :cascade do |t|
     t.string "room_type"
     t.integer "accommodate"
-    t.integer "bath_room"
     t.string "listing_name"
     t.text "summary"
     t.string "address"
@@ -184,6 +185,7 @@ ActiveRecord::Schema.define(version: 2019_08_19_100854) do
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
   add_foreign_key "notifications", "users"
+  add_foreign_key "organizations", "users"
   add_foreign_key "reservations", "rooms"
   add_foreign_key "reservations", "users"
   add_foreign_key "reviews", "reservations"

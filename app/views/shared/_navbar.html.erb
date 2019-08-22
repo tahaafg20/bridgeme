@@ -17,15 +17,23 @@
 			<li class="nav-item dropdown">
 				<a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">Services <b class="caret"></b></a>
 				<ul class="dropdown-menu">					
-					<li><a href="#" class="dropdown-item">School</a></li>
-					<li><a href="#" class="dropdown-item">Clinic</a></li>
-					<li><a href="#" class="dropdown-item">Education</a></li>
-					<li><a href="#" class="dropdown-item">Sport</a></li>
+					<li><%= link_to "Community Center ", organizations_path(:search => "Community-Center"),class:"dropdown-item"%></li>
+					<li><%= link_to "Health", organizations_path(:search => "Health"),class:"dropdown-item"%></li>
+					<li><%= link_to "Education", organizations_path(:search => "Education"),class:"dropdown-item"%></li>
+					<li><%= link_to "Sport", organizations_path(:search => "Sport"),class:"dropdown-item"%></li>
 				</ul>
 			</li>
 			<%# <li class="nav-item btn"><a href="#" class="nav-link">Portfolio</a></li>
 			<li class="nav-item btn"><a href="#" class="nav-link">Blog</a></li> %>
+			
 			<li class="nav-item "><a href="#" class="nav-link">Contact</a></li>
+				
+      <li class="nav-item btn-form">
+         
+            <%= link_to "Add New Organization", new_organization_path, style: "text-decoration: none;" %>
+         
+      </li>
+			
       <li class="nav-item btn-form">
           <%# <button class="btn btn-form btn-small"> %>
             <%= link_to "Become a host", new_room_path, style: "text-decoration: none;" %>
