@@ -19,7 +19,7 @@
             <% @rooms.each do |room| %>
           <div class="row">
                 <div class="col-md-6">
-                  <h4><%= room.listing_name, room %></h4>
+                  <h4><%=link_to room.listing_name, room %></h4>
                   <div class="panel-heading preview">
                     <%= image_tag(url_for(room.cover), size:"100x350") %>
                   </div>

@@ -39,7 +39,14 @@
             <%= link_to "Become a host", new_room_path, style: "text-decoration: none;" %>
           <%# </button> %>
       </li>
-
+	  <% if (user_signed_in?) %>
+	  <li>
+              <%= link_to notifications_path do %>
+                <i class="fa fa-bell fa-2x icon-babu"></i>
+                <span class="badge" id="navbar_num_of_unread"><%= current_user.unread if current_user.unread > 0 %></span>
+              <% end %>
+        </li>
+		<% end %>
         <% if (!user_signed_in?) %>
             <li class="nav-item user_auth"><%= link_to "Login", new_user_session_path %></li>
             <li class="nav-item user_auth"><%= link_to "Sign Up", new_user_registration_path %></li>
