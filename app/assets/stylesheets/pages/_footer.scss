@@ -3,11 +3,15 @@
 
 
 
-.navbar-fixed-bottom {
+.fixed-bottom{
 
-  // background: #16222A;
   background: -webkit-linear-gradient(59deg, $app_blue, $app_dark);
   background: linear-gradient(59deg, $app_blue, $app_dark);
+  position: relative;
+  margin-bottom: 0%;
+  width: 100%;
+  height:200px;
+
 
 }
 
@@ -26,12 +30,17 @@
   .footer-pad h4{
       color:$app_yellow;
   }
+  .footer-pad .social-header{
+    color:white;
+  }
   
   .copy {
     font-size: 12px;
     padding: 10px;
     border-top: 1px solid #FFFFFF;
     // 59deg, $app_blue, $app_dark
+  //   background: -webkit-linear-gradient(59deg, $app_blue, $app_dark);
+  // background: linear-gradient(59deg, $app_blue, $app_dark);
   }
   
   .footer-middle {
@@ -121,4 +130,26 @@
   .social-network a {
     background-color: #F9F9F9;
   }
+
+  @media (min-width:775px) and (max-width: 1000px){
+
+
+.fixed-bottom{
+
+
+  height:275px;
+  // display:none;
+
+
+}
+  }
+
+  @media (max-width:775px){
+
+    .fixed-bottom{
+      height: 550px;
+    }
+  }
+
+
   

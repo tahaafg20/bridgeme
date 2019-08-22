@@ -1,0 +1,31 @@
+.edit__profile{
+
+    background:#fff;
+    height: 700px;
+    margin-top:20px;
+}
+
+.form-group div input {
+        display: block;
+        width: 100%;
+        margin-top: 5px;
+        padding-bottom: 5px;
+        font-size: 16px;
+        // border-bottom: 1px solid $app_blue;
+        text-align: center;
+        // background:transparent;
+
+
+        &__input{
+            // border-bottom: none;
+            background-color:$app_blue !important;
+
+            &:hover{
+                background:$app_blue;
+                color:#fff;
+            }
+        
+}
+
+  }
+  
