@@ -11,6 +11,7 @@
     "jquery": "^3.4.1",
     "jquery-ui": "^1.12.1",
     "jquery-ujs": "^1.2.2",
+    "object-fit-images": "^3.2.4",
     "popper.js": "^1.15.0",
     "raty": "^1.0.5",
     "swiper": "^4.5.0",

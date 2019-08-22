@@ -2,19 +2,22 @@
 @import "config/colors";
 @import "config/fonts";
 @import "config/bootstrap_variables";
-// @import "config/swiper";
+@import "config/swiper";
+// @import "@node_modules/swiper";
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "toastr";
 @import "fullcalendar";
 @import "pages/index";
+@import "./home_page_scss/index_home.scss";
+// @import "/node_modules/swiper/src/swiper.scss";
 
-body {
-  color: #565a5c;
-  background-color: #E8DEDB;
-  font-family: "Varela Round", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-}
+// body {
+//   color: #565a5c;
+//   background-color: #E8DEDB;
+//   font-family: "Varela Round", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+// }
 
 a {
   color: #0E1854;
@@ -145,6 +148,6 @@ a {
 }
 
 
-@import "./pages/index";
+// @import "./pages/index";
 
 
