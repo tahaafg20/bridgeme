@@ -3,6 +3,7 @@ class MessagesController < ApplicationController
   before_action :set_conversation
 
   def index
+    
     if current_user == @conversation.sender || current_user == @conversation.recipient
       @other = current_user == @conversation.sender ? @conversation.recipient : @conversation.sender
       @messages = @conversation.messages.order("created_at DESC")
