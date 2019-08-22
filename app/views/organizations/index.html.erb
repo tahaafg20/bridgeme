@@ -1,16 +1,13 @@
-<div id="main">
-  <div id="left">
-    <div class="row">
-      <br/>
-      <div class="row" id="organization_listing">
+<div class="row" id="main">
+  <div class="col-md-12 widen-text-box" id="">
+
         <%= render partial: "organizations/organizations_list", locals: {organizations: @arrOrganizations} %>
       </div>
-
-    </div>
+      <div class="row" class="col-md-12" id="organization_listing">
   </div>
   
 
-  <div id="right">
+  <div id="">
     <!-- GOOGLE MAP WILL BE HERE -->
 
     <div id="map" ></div>

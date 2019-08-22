@@ -1,7 +1,7 @@
 
 <nav class="navbar navbar-default navbar-expand-lg navbar-light">
 	<div class="navbar-header d-flex col">
-		<a class="navbar-brand" href="<%=root_path%>">Bridge<b>me</b></a>  		
+		<a class="navbar-brand" href="<%=root_path%>"><strong>Bridge </strong><b>me</b></a>  		
 		<button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle navbar-toggler ml-auto">
 			<span class="navbar-toggler-icon"></span>
 			<span class="icon-bar"></span>
@@ -9,14 +9,15 @@
 			<span class="icon-bar"></span>
 		</button>
 	</div>
+	
 	<!-- Collection of nav links, forms, and other content for toggling -->
-	<div id="navbarCollapse" class="collapse navbar-collapse justify-content-end">
+	<div id="navbarCollapse" class="collapse navbar-collapse justify-content-end va">
 		<ul class="nav navbar-nav navbar-right">
 			<%# <li class="nav-item btn"><a href="#" class="nav-link">Home</a></li>
 			<li class="nav-item btn"><a href="#" class="nav-link">About</a></li>			 %>
 			<li class="nav-item dropdown">
-				<a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">Services <b class="caret"></b></a>
-				<ul class="dropdown-menu">					
+				<a data-toggle="dropdown" class="nav-link dropdown-toggle navbar-text-color" href="#">Services <b class="caret"></b></a>
+				<ul class="dropdown-menu navbar-text-color">					
 					<li><%= link_to "Community Center ", organizations_path(:search => "Community-Center"),class:"dropdown-item"%></li>
 					<li><%= link_to "Health", organizations_path(:search => "Health"),class:"dropdown-item"%></li>
 					<li><%= link_to "Education", organizations_path(:search => "Education"),class:"dropdown-item"%></li>
@@ -26,30 +27,37 @@
 			<%# <li class="nav-item btn"><a href="#" class="nav-link">Portfolio</a></li>
 			<li class="nav-item btn"><a href="#" class="nav-link">Blog</a></li> %>
 			
-			<li class="nav-item "><a href="#" class="nav-link">Contact</a></li>
+			<li class="nav-item "><a href="#" class="nav-link navbar-text-color">Contact</a></li>
 				
-      <li class="nav-item btn-form">
+      <li class="nav-item btn-form navbar-text-color">
          
-            <%= link_to "Add New Organization", new_organization_path, style: "text-decoration: none;" %>
+            <%= link_to "Add New Organization", new_organization_path, style: "text-decoration: none; " %>
          
       </li>
 			
-      <li class="nav-item btn-form">
+      <li class="nav-item btn-form navbar-text-color">
           <%# <button class="btn btn-form btn-small"> %>
-            <%= link_to "Become a host", new_room_path, style: "text-decoration: none;" %>
+            <%= link_to "Become a host", new_room_path, style: "text-decoration: none; color:white;" %>
           <%# </button> %>
       </li>
-
+	  <% if (user_signed_in?) %>
+	  <li>
+              <%= link_to notifications_path do %>
+                <i class="fa fa-bell fa-2x icon-babu"></i>
+                <span class="badge" id="navbar_num_of_unread"><%= current_user.unread if current_user.unread > 0 %></span>
+              <% end %>
+        </li>
+		<% end %>
         <% if (!user_signed_in?) %>
             <li class="nav-item user_auth"><%= link_to "Login", new_user_session_path %></li>
             <li class="nav-item user_auth"><%= link_to "Sign Up", new_user_registration_path %></li>
         <% else %>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown navbar-text-color">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"role="button" aria-haspopup="true" aria-expanded="false">
                     
                     <%= current_user.fullname %> <span class="caret"></span>
               </a>
-              <ul class="dropdown-menu">
+              <ul class="dropdown-menu navbar-text-color">
                 <li><%= link_to "Dashboard", dashboard_path %></li>
                 <li><%= link_to "Manage Listing", rooms_path %></li>
                 <li><%= link_to "List Your Space", new_room_path %></li>

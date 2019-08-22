@@ -1,20 +1,25 @@
 <!-- Image -->
 <div class="row">
   <div class="col-md-12">
-    <%= image_tag @room.cover, width: "50%" %>
+
+    <div class="col-md-8">
+      <%= image_tag @room.cover, width: "50%" %>
+    </div>
+    
   </div>
 </div>
 <br/>
 
 <div class="row">
-
+   <div class="col-md-12">
+   
   <!-- LEFT PANEL -->
-  <div class="col-md-8">
+     <div class="col-md-8">
 
-  <div>
-     Hosted By (<%= @room.user.fullname %>)
-  </div>
-  <hr>
+      <div>
+        Hosted By (<%= @room.user.fullname %>)
+      </div>
+      <hr>
 
   
     <!-- Listing Name -->
@@ -39,8 +44,8 @@
         </div>
 
         <div class="col-md-3">
-          <i class="fa fa-bed fa-2x icon"></i><br>
-          <%= pluralize(@room.accommodate, "Guest") %>
+          <i class="fa fa-home fa-2x "></i><br>
+          <%= pluralize(@room.room_type, "") %>
         </div>
 
       </div>
@@ -83,7 +88,6 @@
 
     </div>
 
-
     <!-- Carousel -->
     <div class="row">
       <% if @photos.length > 0 %>
@@ -94,6 +98,17 @@
           </div>
       <% end %>
     </div>
+
+
+          <!-- RIGHT PANEL -->
+    <div class="col-md-4">
+    <!-- Reservation Form -->
+      <%= render 'reservations/form' %>
+    </div>
+
+  </div>
+   
+
     <hr/>
 
 
@@ -145,11 +160,7 @@
   
 
 
-  <!-- RIGHT PANEL -->
-  <div class="col-md-4">
-    <!-- Reservation Form -->
-    <%= render 'reservations/form' %>
-  </div>
+ 
 </div>
 
 <script>
@@ -161,3 +172,4 @@ $(document).ready(function() {
   });
 });
 </script>
+ 
