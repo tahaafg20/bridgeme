@@ -41,7 +41,7 @@ class OrganizationsController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @organization.errors, status: :unprocessable_entity }
-        byebug
+        
       end
     end
   end
