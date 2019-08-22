@@ -4,6 +4,7 @@ class RoomsController < ApplicationController
   before_action :is_authorised, only: [:listing, :pricing, :description, :photo_upload, :amenities, :location, :update]
 
   def index
+  
     @rooms = current_user.rooms
   end
 
@@ -26,6 +27,7 @@ class RoomsController < ApplicationController
   end
 
   def show
+   
     @photos = @room.images
     @guest_reviews = @room.guest_reviews
   end
@@ -114,10 +116,6 @@ class RoomsController < ApplicationController
     end
 
     def room_params
-<<<<<<< HEAD
       params.require(:room).permit( :room_type, :accommodate, :listing_name, :summary,:cover, :latitude, :longitude, :address, :is_tv, :is_kitchen, :is_air, :is_heating, :is_internet, :price, :active, :instant, images:[])
-=======
-      params.require(:room).permit(:room_type, :accommodate, :listing_name, :summary,:cover, :images, :latitude, :longitude, :address, :is_tv, :is_kitchen, :is_air, :is_heating, :is_internet, :price, :active, :instant)
->>>>>>> master
     end
 end
