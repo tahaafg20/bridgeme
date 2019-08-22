@@ -1,0 +1,16 @@
+@mixin signUpActive {
+    .cont.s--signup & {
+      @content;
+    }
+}
+
+
+$contW: 900px;
+$imgW: 260px;
+$formW: $contW - $imgW;
+$switchAT: 1.2s;
+
+$inputW: 260px;
+$btnH: 36px;
+
+$diffRatio: ($contW - $imgW) / $contW;
