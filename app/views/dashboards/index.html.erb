@@ -1,10 +1,18 @@
 <div class="row">
-  <div class="col-md-2">
+  <div class="col-md-3">
     <div class="center">
       
     </div>
     <div class="panel panel-default">
-    <div class="panel-heading", style="border-radius:10px;"><%=link_to current_user.fullname, user_path(current_user) %></div>
+      <div class="background-board">
+        <div class="btn btn-secondary btn-lg btn-block"><%=link_to current_user.fullname, user_path(current_user) %></div>
+        <div class="btn btn-secondary btn-lg btn-block"><%= link_to "Manage Listings", rooms_path %></div>
+        <div class="btn btn-secondary btn-lg btn-block"><%= link_to "Messages", conversations_path %></div>
+       <div class="btn btn-secondary btn-lg btn-block"><%= link_to "Messages", conversations_path %></div>
+       <div class="btn btn-secondary btn-lg btn-block"><%= link_to notifications_path do %>
+              You have <span id="num_of_unread"><%= current_user.unread %></span> notification(s).
+          <% end %>
+      </div>
       <%# <div class="panel-body"> %>
         <%# <ul class="sidebar-list"> %>
           <%# if current_user.confirmation_token %>

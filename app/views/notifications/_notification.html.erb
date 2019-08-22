@@ -1,6 +1,8 @@
 <div class="panel">
   <div class="panel-body">
-    <strong><%= notification.content %></strong>
+  <%sender_id = Conversation.where(recipient_id: notification.user_id)[0].sender_id%>
+  <%# <%recipien_id = Conversation.where(sender_id: notification.user_id).reverse.first.recipient_id%> 
+    <strong><%=link_to notification.content, notification.message%></strong>
     <span class="pull-right"><%= notification.created_at.to_formatted_s(:short) %></span>
   </div>
 </div>

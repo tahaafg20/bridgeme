@@ -1,31 +1,53 @@
 
 <div class="row">
-  <div class="col-md-8">
-    <div class="row">
-      <div class="col-md-8" id="longtitude" data-long= "<%= @organization.longitude %>">
-        <h1><%= @organization.name %></h1>
-        <%= @organization.address %>
-      </div>
-      <div class="col-md-4 text-center">
-        This Organization offers (<%= @organization.service %>) Services
-      </div>
-    </div>
-    <hr/>
-    
-      <div class="row text-center">
-         Phone Number: <div><%= @organization.number %></div>
-      </div>
-    </div>
-    <hr/>
+  <div class="col-md-3">
+   </div>
+      <div class="col-md-6 info-box">
 
-    <!-- About -->
-    
-    <!-- GOOGLE MAP -->
-    <div class="row" id="latitude" data-lat= "<%= @organization.latitude %>">
+          <h1 >Organization Info</h1>
+          <div class="form-group " id="longtitude" data-long= "<%= @organization.longitude %>">
 
-      <div id="map" style="width: 100%; height: 400px"></div>
+            <label>Organization Name:</label>
+            <h2 class="org-name"><%= @organization.name %></h2>
+            <hr>
+            <label>Organization Address:</label> 
+            <p><%= @organization.address %></p>
+             <hr>
+          </div>
+         
 
-     <script> 
+          <div class="form-group">
+            <p>This Organization offers (<%= @organization.service  %>) Services</p>
+          </div>
+          <hr>
+        
+        <div class="form-group">
+         <p> Phone Number: <div><%= @organization.number %></p></div>
+        </div>
+     
+        <hr/>
+
+
+
+
+        <!-- About -->
+      
+        <!-- GOOGLE MAP -->
+        <div class="row" id="latitude" data-lat= "<%= @organization.latitude %>">
+
+      <div class="map1">
+        <div id="map" style="map1"></div>
+      </div>
+      </div>
+</div>
+
+
+
+
+
+
+
+<script> 
   var lt = parseFloat(document.querySelector("#latitude").dataset["lat"])
   var ln = parseFloat(document.querySelector("#longtitude").dataset["long"])
   console.log(lt)

@@ -3,7 +3,7 @@
 }
 
 .panel-default{
-    border-radius: 15px;
+    border-radius: 12px;
 }
 
 .submit-button{
@@ -12,3 +12,23 @@
 .btn{
     padding: 10px;
 }
+
+.update{
+    font-style: italic;
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+.margin-fixing{
+    margin-left: -19px;
+}
+
+.btn-lg{
+    color:white;
+    background-color: #2994b2;
+    
+}
+.btn-lg:hover{
+    background-color: blue;
+}
+

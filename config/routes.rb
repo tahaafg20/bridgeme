@@ -57,13 +57,10 @@ Rails.application.routes.draw do
       resources :messages, only: [:index, :create]
     end
   
-    # get '/host_calendar' => "calendars#host"
     get '/payment_method' => "users#payment"
     get '/payout_method' => "users#payout"
     post '/add_card' => "users#add_card"
   
-    get '/notification_settings' => 'settings#edit'
-    post '/notification_settings' => 'settings#update'
   
     get '/notifications' => 'notifications#index'
   
