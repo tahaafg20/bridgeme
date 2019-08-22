@@ -10,7 +10,7 @@
           <%= form_for @room do |f| %>
 
             <div class="row">
-              <div class="col-md-4 select">
+              <div class="col-md-4 select margin-fixing">
                 <div class="form-group">
                   <label>Room Type</label>
                   <%= f.select :room_type, [["Small Room", "Small Room"], ["Middle Room", "Middle Room"], ["Master Room", "Master Room"]],
@@ -25,7 +25,7 @@
                 <%# </div> %>
               <%# </div> %>
 
-              <div class="col-md-4 select">
+              <div class="col-md-4 select margin-fixing">
                 <div class="form-group">
                   <label>Accommodate</label>
                   <%= f.select :accommodate, [["1", 1], ["2", 2], ["3", 3], ["4+", 4]],

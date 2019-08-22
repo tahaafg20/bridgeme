@@ -10,6 +10,9 @@ class Conversation < ApplicationRecord
   }
 
   scope :between, -> (user_A, user_B) {
+<<<<<<< HEAD
     where("(conversations.sender_id = ? AND conversations.recipient_id = ?) OR conversations.sender_id = ? AND conversations.recipient_id = ?", user_A, user_B, user_B, user_A)
+=======
+   
   }
 end
