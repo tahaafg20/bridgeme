@@ -1,6 +1,10 @@
 class NotificationsController < ApplicationController
   before_action :authenticate_user!
 
+  def create
+    
+  end
+
   def index
     current_user.unread = 0
     current_user.save
