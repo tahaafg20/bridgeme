@@ -1,0 +1,90 @@
+
+<div class="row">
+  <div class="col-md-3">
+   </div>
+      <div class="col-md-6 info-box">
+
+          <h1 >Organization Info</h1>
+          <div class="form-group " id="longtitude" data-long= "<%= @ngo.longitude %>">
+
+            <label>Organization Name:</label>
+            <h2 class="org-name"><%= @ngo.name %></h2>
+            <hr>
+            <label>Organization Address:</label> 
+            <p><%= @ngo.address %></p>
+             <hr>
+          </div>
+         
+
+          <div class="form-group">
+            <p>Services Provided by this organization: <%= @ngo.services  %></p>
+          </div>
+          <hr>
+        
+        <div class="form-group">
+         <p> Phone Number: <div><%= @ngo.number %></p></div>
+        </div>
+
+        <% if !@ngo.link.nil? %>
+        <div class="form-group">
+         <p> The link to this organization's webpage: <div><%=link_to @ngo.name, "/#{@ngo.link}" %></p></div>
+        </div>
+        <%end%>
+
+
+        <div class="form-group">
+         <p> Accepted Documents: <div><%= @ngo.accepted_documents %></p></div>
+        </div>
+
+        <div class="form-group">
+         <p> About this organization: <div><%= @ngo.about %></p></div>
+        </div>
+
+        <%if @ngo.status == true%>
+          <div class="form-group">
+          <p> <%=@ngo.name%> is open for Registration.</p></div>
+          </div>
+        <%elsif @ngo.status == false%>
+        <div class="form-group">
+          <p> <%=@ngo.name%> is not open for Registration at the moment.</p></div>
+          </div>
+          <%end%>
+          </div>
+        <hr/>
+
+
+
+
+        <!-- About -->
+      <br>
+        <!-- GOOGLE MAP -->
+        <div class="row" id="latitude" data-lat= "<%= @ngo.latitude %>">
+
+      <div class="map1">
+        <div id="map" style="map1"></div>
+      </div>
+      </div>
+</div>
+<script> 
+  var lt = parseFloat(document.querySelector("#latitude").dataset["lat"])
+  var ln = parseFloat(document.querySelector("#longtitude").dataset["long"])
+  console.log(lt)
+  console.log(ln)
+  var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat:lt, lng:ln},
+          
+          zoom: 8
+        });
+        var marker = new google.maps.Marker({
+          position: {lat:lt, lng:ln},
+          map: map,
+          title: 'Hello World!'
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLwih_dEjx7rHvO04och6w_zABvfO8Dcw&callback=initMap"
+    async defer></script> 
+    </div>
+    <hr/>
