@@ -2,11 +2,12 @@ class ConversationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    # byebug
+     byebug
     @conversations = Conversation.involving(current_user)
   end
 
   def create
+    byebug
     if Conversation.between(params[:sender_id], params[:recipient_id]).present?
       @conversation = Conversation.between(params[:sender_id], params[:recipient_id]).first
     else

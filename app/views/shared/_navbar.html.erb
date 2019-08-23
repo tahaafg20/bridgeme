@@ -44,7 +44,7 @@
 	  <li>
               <%= link_to notifications_path do %>
                 <i class="fa fa-bell fa-2x icon-babu"></i>
-                <span class="badge" id="navbar_num_of_unread"><%= current_user.unread if current_user.unread > 0 %></span>
+                <span class="badge" id="navbar_num_of_unread"><%= current_user.unread if current_user.unread > 1 %></span>
               <% end %>
         </li>
 		<% end %>
@@ -61,6 +61,7 @@
                 <li><%= link_to "Dashboard", dashboard_path %></li>
                 <li><%= link_to "Manage Listing", rooms_path %></li>
                 <li><%= link_to "List Your Space", new_room_path %></li>
+						  	<li><%= link_to "List Your Organization", new_organization_path%></li>
                 <li><%= link_to "Your Reservations", your_reservations_path %></li>
                 <li><%= link_to "Your Trips", your_trips_path %></li>
                 <li role="separator" class="divider"></li>
