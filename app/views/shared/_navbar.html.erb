@@ -18,23 +18,25 @@
 			<li class="nav-item dropdown">
 				<a data-toggle="dropdown" class="nav-link dropdown-toggle navbar-text-color" href="#">Services <b class="caret"></b></a>
 				<ul class="dropdown-menu navbar-text-color">					
-					<li><%= link_to "Community Center ", organizations_path(:search => "Community-Center"),class:"dropdown-item"%></li>
-					<li><%= link_to "Health", organizations_path(:search => "Health"),class:"dropdown-item"%></li>
-					<li><%= link_to "Education", organizations_path(:search => "Education"),class:"dropdown-item"%></li>
-					<li><%= link_to "Sport", organizations_path(:search => "Sport"),class:"dropdown-item"%></li>
+					<li><%= link_to "Community Center ", organizations_path,class:"dropdown-item"%></li>
+					<li><%= link_to "Health", healths_path,class:"dropdown-item"%></li>
+					<li><%= link_to "Education", educations_path,class:"dropdown-item"%></li>
+					<li><%= link_to "NGO", organizations_path,class:"dropdown-item"%></li>
 				</ul>
 			</li>
 			<%# <li class="nav-item btn"><a href="#" class="nav-link">Portfolio</a></li>
 			<li class="nav-item btn"><a href="#" class="nav-link">Blog</a></li> %>
 			
-			<li class="nav-item "><a href="#" class="nav-link navbar-text-color">Contact</a></li>
-				
-      <li class="nav-item btn-form navbar-text-color">
-         
-            <%= link_to "Add New Organization", new_organization_path, style: "text-decoration: none; " %>
-         
-      </li>
-			
+			<li class="nav-item "><a href="#" class="nav-link navbar-text-color">Contact</a></li> 
+				<li class="nav-item dropdown">
+				<a data-toggle="dropdown" class="nav-link dropdown-toggle navbar-text-color" href="#">Add New Organization <b class="caret"></b></a>
+				<ul class="dropdown-menu navbar-text-color">					
+					<li><%= link_to "Community Center ", new_community_path%></li>
+					<li><%= link_to "Health", new_health_path,class:"dropdown-item"%></li>
+					<li><%= link_to "Education",  new_education_path%></li>
+					<li><%= link_to "NGO", organizations_path(:search => "Sport"),class:"dropdown-item"%></li>
+				</ul>
+			</li>
       <li class="nav-item btn-form navbar-text-color">
           <%# <button class="btn btn-form btn-small"> %>
             <%= link_to "Become a host", new_room_path, style: "text-decoration: none; color:white;" %>
@@ -44,7 +46,7 @@
 	  <li>
               <%= link_to notifications_path do %>
                 <i class="fa fa-bell fa-2x icon-babu"></i>
-                <span class="badge" id="navbar_num_of_unread"><%= current_user.unread if current_user.unread > 0 %></span>
+                <span class="badge" id="navbar_num_of_unread"><%= current_user.unread if current_user.unread > 1 %></span>
               <% end %>
         </li>
 		<% end %>

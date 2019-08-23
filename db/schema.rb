@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_23_072734) do
+ActiveRecord::Schema.define(version: 2019_08_23_101148) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,9 @@ ActiveRecord::Schema.define(version: 2019_08_23_072734) do
     t.float "latitude"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "link"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_communities_on_user_id"
   end
 
   create_table "conversations", force: :cascade do |t|
@@ -81,6 +84,27 @@ ActiveRecord::Schema.define(version: 2019_08_23_072734) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "address"
+    t.string "link"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_educations_on_user_id"
+  end
+
+  create_table "healths", force: :cascade do |t|
+    t.string "name"
+    t.string "number"
+    t.string "link"
+    t.string "email"
+    t.text "services"
+    t.text "about"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "status"
+    t.string "accepted_documents"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_healths_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -91,6 +115,24 @@ ActiveRecord::Schema.define(version: 2019_08_23_072734) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "ngos", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "number"
+    t.float "longitude"
+    t.float "latitude"
+    t.string "email"
+    t.text "services"
+    t.text "about"
+    t.boolean "status"
+    t.string "link"
+    t.string "accepted_documents"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_ngos_on_user_id"
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -116,6 +158,14 @@ ActiveRecord::Schema.define(version: 2019_08_23_072734) do
     t.float "longitude"
     t.string "number"
     t.index ["user_id"], name: "index_organizations_on_user_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -214,11 +264,16 @@ ActiveRecord::Schema.define(version: 2019_08_23_072734) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "calendars", "rooms"
+  add_foreign_key "communities", "users"
+  add_foreign_key "educations", "users"
+  add_foreign_key "healths", "users"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
+  add_foreign_key "ngos", "users"
   add_foreign_key "notifications", "messages"
   add_foreign_key "notifications", "users"
   add_foreign_key "organizations", "users"
+  add_foreign_key "posts", "users"
   add_foreign_key "reservations", "rooms"
   add_foreign_key "reservations", "users"
   add_foreign_key "reviews", "reservations"

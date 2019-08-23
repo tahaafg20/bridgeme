@@ -37,8 +37,11 @@
 <% end -%>
 
     <button type="button" class="submit form_btn"><%= f.submit "Log in"%></button>
-     <%= link_to raw('<i class="fab fa-facebook"></i> Signin with facebook'), user_facebook_omniauth_authorize_path, class: "btn btn-facebook btn-block",icon:"fab fa-facebook"%>
-
+        <%- if devise_mapping.omniauthable? %>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
+  <% end -%>
+<% end -%>
     <button type="button" class="fb-btn from_btn">Connect with <span>facebook</span></button>
 
     <%end%>

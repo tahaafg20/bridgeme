@@ -25,4 +25,5 @@ class Message < ApplicationRecord
 >>>>>>> 4eaadf2eca67b198f7b7c290ce30a19d96d15d6e
       end
     end
+  end
 end
