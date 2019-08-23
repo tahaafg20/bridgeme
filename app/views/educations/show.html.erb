@@ -25,9 +25,9 @@
          <p> Phone Number: <div><%= @education.number %></p></div>
         </div>
 
-        <% if !@community.link.nil? %>
+        <% if !@education.link.nil? %>
         <div class="form-group">
-         <p> The link to this organization's webpage: <div><%=link_to @community.name, "/#{@community.link}"
+         <p> The link to this organization's webpage: <div><%=link_to @education.name, "/#{@education.link}"%>
         </div>
         <%end%>
 
