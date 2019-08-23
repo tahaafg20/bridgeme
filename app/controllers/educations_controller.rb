@@ -27,8 +27,7 @@ class EducationsController < ApplicationController
   # POST /educations
   # POST /educations.json
   def create
-    @education = Education.new(education_params)
-
+    @education = current_user.educations.build(education_params)
     respond_to do |format|
       if @education.save
         byebug
