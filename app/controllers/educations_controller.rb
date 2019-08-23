@@ -7,6 +7,7 @@ class EducationsController < ApplicationController
   # GET /educations.json
   def index
     @educations = Education.all
+    @arrEducations = @educations.to_a
   end
 
   # GET /educations/1
