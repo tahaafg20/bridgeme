@@ -5,26 +5,44 @@
       <div class="col-md-6 info-box">
 
           <h1 >Organization Info</h1>
-          <div class="form-group " id="longtitude" data-long= "<%= @organization.longitude %>">
+          <div class="form-group " id="longtitude" data-long= "<%= @education.longitude %>">
 
             <label>Organization Name:</label>
-            <h2 class="org-name"><%= @organization.name %></h2>
+            <h2 class="org-name"><%= @education.name %></h2>
             <hr>
             <label>Organization Address:</label> 
-            <p><%= @organization.address %></p>
+            <p><%= @education.address %></p>
              <hr>
           </div>
          
 
           <div class="form-group">
-            <p>This Organization offers (<%= @organization.service  %>) Services</p>
+            <p>Services Provided by this organization: <%= @education.services  %></p>
           </div>
           <hr>
         
         <div class="form-group">
-         <p> Phone Number: <div><%= @organization.number %></p></div>
+         <p> Phone Number: <div><%= @education.number %></p></div>
         </div>
-     
+
+        <div class="form-group">
+         <p> Accepted Documents: <div><%= @education.accepted_documents %></p></div>
+        </div>
+
+        <div class="form-group">
+         <p> About this organization: <div><%= @education.about %></p></div>
+        </div>
+
+        <%if @education.status == true%>
+          <div class="form-group">
+          <p> <%=@education.name%> is open for Registration.</p></div>
+          </div>
+        <%elsif @education.status == false%>
+        <div class="form-group">
+          <p> <%=@education.name%> is not open for Registration at the moment.</p></div>
+          </div>
+          <%end%>
+          </div>
         <hr/>
 
 
@@ -33,7 +51,7 @@
         <!-- About -->
       
         <!-- GOOGLE MAP -->
-        <div class="row" id="latitude" data-lat= "<%= @organization.latitude %>">
+        <div class="row" id="latitude" data-lat= "<%= @education.latitude %>">
 
       <div class="map1">
         <div id="map" style="map1"></div>
