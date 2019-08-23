@@ -31,6 +31,7 @@ class EducationsController < ApplicationController
 
     respond_to do |format|
       if @education.save
+        byebug
         format.html { redirect_to @education, notice: 'Education was successfully created.' }
         format.json { render :show, status: :created, location: @education }
       else
@@ -72,6 +73,6 @@ class EducationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def education_params
-      params.require(:education).permit(:name, :number, :email, :about, :accepted_documents, :services, :status, :latitude, :longitude, :address)
+      params.require(:education).permit(:name, :number, :email, :about, :accepted_documents, :services, :status, :latitude, :longitude, :address, :link)
     end
 end

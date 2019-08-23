@@ -18,7 +18,7 @@
 
         <div class="form-group ">
             <label>Country</label>
-              <%= f.input_field :country, as: :country %>
+              <%= f.country_select :country%>
         </div>
 
         <div class="form-group ">
@@ -39,6 +39,10 @@
         <div class="form-group">
               <label>About</label>
               <%=f.text_area :about, class: "form-control input-lg" %>
+        </div>
+        <div class="form-group ">
+            <label>The link to your webpage:</label>    
+            <%=f.text_field :link, class: "form-control input-lg" %>
         </div>
 
         <div class="form-group">

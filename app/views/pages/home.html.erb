@@ -1,30 +1,294 @@
+<div class="jumbotron jumbotron-fluid bg-dark">
+  
+  <div class="jumbotron-background">
+    <%# <img src="https://placeimg.com/2000/1000/nature" class="blur "> %>
+
+    <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="https://placeimg.com/2000/1000/dog" class="blur "></div>
+      <div class="swiper-slide"><img src="https://placeimg.com/2000/1000/nature" class="blur "></div>
+      <div class="swiper-slide"><img src="https://placeimg.com/2000/1000/love" class="blur "></div>
+      <div class="swiper-slide"><img src="https://placeimg.com/2000/1000/music" class="blur "></div>
+      <div class="swiper-slide"><img src="https://placeimg.com/2000/1000/rain" class="blur "></div>
+      <div class="swiper-slide"><img src="https://placeimg.com/2000/1000/beautiful" class="blur "></div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+  </div>
+
+  <div class="container text-white">
+
+    <%# <h1 class="display-4">Hello, world!</h1>
+    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p> %>
+
+    <div class="search-bar mt-5 p-3 p-lg-1 pl-lg-4" id="search-bar">
+              <form action="#">
+              <%= form_tag search_path, method: :get do %>
+                <div class="row">
+                  <div class="col-lg-4 d-flex align-items-center form-group">
+                    <%# <input type="text" name="search" placeholder="What are you searching for?" class="form-control border-0 shadow-0"> %>
+                   <%= text_field_tag :name_search, params[:name_search], placeholder: "What are you searching for?", class: "form-control border-0 shadow-0"%>
+
+                  </div>
+                  <div class="col-lg-3 d-flex align-items-center form-group">
+                    <div class="input-label-absolute input-label-absolute-right w-100">
+                      <label for="location" class="label-absolute"><i class="fa fa-crosshairs"></i><span class="sr-only">City</span></label>
+                      <%# <input type="text" name="location" placeholder="Location" id="location" class="form-control border-0 shadow-0"> %>
+                      <%= text_field_tag :place, params[:place], placeholder: "Where do you want to go?", class: "form-control border-0 shadow-0"%>
+
+                    </div>
+                  </div>
+                  <div class="col-lg-3 d-flex align-items-center form-group no-divider">
+                    <div class="dropdown bootstrap-select">
+                    <%# <select title="Categories" data-style="btn-form-control" class="selectpicker" tabindex="-98"><option class="bs-title-option" value=""></option> 
+                      <%# <option value="small">Restaurants</option>
+                      <option value="medium">Hotels</option>
+                      <option value="large">Cafes</option>
+                      <option value="x-large">Garages</option> %>
+                    <%# </select> %>
+                    <button type="button" class="btn dropdown-toggle bs-placeholder btn-form-control" data-toggle="dropdown" role="button" title="Categories" aria-expanded="true">
+                    <div class="filter-option">
+                    <div class="filter-option-inner">
+                    <div class="filter-option-inner-inner">Categories</div>
+                    </div> 
+                    </div>
+                    </button>
+
+                    <%# <%= select_tag "Categories", options_from_collection_for_select(@services, "id", "name")%> 
+
+
+                    <div class="dropdown-menu" role="combobox" x-placement="bottom-start" style="max-height: 434.891px; overflow: hidden; min-height: 153px; position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 42px, 0px);">
+                    <div class="inner show" role="listbox" aria-expanded="false" tabindex="-1" style="max-height: 418.891px; overflow-y: auto; min-height: 137px;">
+                    <ul class="dropdown-menu inner show">
+                      <li>
+                        <a role="option" class="dropdown-item" aria-disabled="true" tabindex="0" aria-selected="false"><span class="text">Restaurants</span>
+                        </a>
+                        </li>
+                        
+                        <li>
+                          <a role="option" class="dropdown-item" aria-disabled="false" tabindex="0" aria-selected="false">
+                          <span class="text">Hotels</span>
+                          </a>
+                          </li>
+                          <li>
+                          <a role="option" class="dropdown-item" aria-disabled="false" tabindex="0" aria-selected="false">
+                          <span class="text">Cafes</span>
+                          </a>
+                          </li>
+                          <li>
+                          <a role="option" class="dropdown-item" aria-disabled="false" tabindex="0" aria-selected="false">
+                          <span class="text">Garages</span></a>
+                          </li>
+                          </ul>
+                          </div>
+                          </div>
+                          </div>
+                  </div>
+                  <div class="col-lg-2" >
+                    <button type="submit" id="button_search" class="btn btn-primary btn-block rounded-xl h-100">Search </button>
+                  </div>
+                </div>
+                <% end %> 
+              </form>
+            </div>
+    <hr class="my-4">
+    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+    <a class="btn btn-primary btn-small" href="#" role="button">Learn more</a>
+
+  </div>
+  <!-- /.container -->
+  
+ 
+</div>
+<!-- /.jumbotron -->
+
+
+    <%# ------------------ %>
+
+
+<%# ========== search bar ============ %>
+
+
 <!-- HOMES -->
 <div>
+
+
 <h3>Homes</h3></div>
 <br/>
-<div class="row">
+
+<%# <div class="row">
   <%= render partial: "rooms/rooms_list", locals: {rooms: @rooms} %>
+<%# </div> %>
+
+<!-- CITIES -->
+<div><h3>Display orginzations here</h3></div>
+<br/> 
+
+<div class="row">
+  <div class="col-md-3 col-sm-12">
+    <a href="http://localhost:3000/search?utf8=%E2%9C%93&search=los+angeles">
+      <div class="discovery-card" style="background-image: url('/assets/LA.jpg')"></div>
+    </a>
+  </div>
+  <div class="col-md-3 col-sm-12">
+    <a href="http://localhost:3000/search?utf8=%E2%9C%93&search=london">
+      <div class="discovery-card" style="background-image: url('/assets/LD.jpg')"></div>
+    </a>
+  </div>
+  <div class="col-md-3 col-sm-12">
+    <a href="http://localhost:3000/search?utf8=%E2%9C%93&search=paris">
+      <div class="discovery-card" style="background-image: url('/assets/PR.jpg')"></div>
+    </a>
+  </div>
+  <div class="col-md-3 col-sm-12">
+    <a href="http://localhost:3000/search?utf8=%E2%9C%93&search=miami">
+      <div class="discovery-card" style="background-image: url('/assets/MI.jpg')"></div>
+    </a>
+  </div>
 </div>
+
 </div>
-<script>
-  $('#start_date').datepicker({
-    dateFormat: 'dd-mm-yy',
-    minDate: 0,
-    maxDate: '3m',
-    onSelect: function(selected) {
-      $('#end_date').datepicker("option", "minDate", selected);
-      $('#end_date').attr("disabled", false);
-    }
-  });
-  $('#end_date').datepicker({
-    dateFormat: 'dd-mm-yy',
-    minDate: 0,
-    maxDate: '3m',
-    onSelect: function(selected) {
-      $('#start_date').datepicker("option", "maxDate", selected);
-    }
-  });
-  $(function() {
-    $("#autolocation").geocomplete();
-  })
-</script>
+
+<%# ----------------- %>
+
+
+
+  <!-- Portfolio Grid -->
+  <section class="bg-light page-section" id="portfolio">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">Nearby Room rentals</h2>
+          <h3 class="section-subheading text-muted">Best Values</h3>
+        </div>
+      </div>
+
+      <%# <div class="row"> %>
+
+      <%@display_rooms =Room.all.order("created_at DESC").limit(6) %>
+
+      <%unless @display_rooms.empty? %>
+
+      <%@display_rooms.each do |apartment|%>
+
+  <%@id = apartment.id%>
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link" data-toggle="modal" href="#<%=@id%>">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+              
+            </div>
+
+            <%# <div class="img-fluid"> %>
+
+            <%= image_tag(url_for(apartment.cover),size:"339x300") %>
+
+            <%# </div> %>
+            
+          </a>
+          <div class="portfolio-caption">
+            <%# <h4><%=room.home_type</h4> %>
+            <p class="text-muted"><%=apartment.room_type%></p>
+            <%unless apartment.address.nil?%>
+
+             <h4>Address</h4>
+              <p class="text-muted"><%=apartment.address%></p>
+
+              <%else%>
+                  <p class="text-muted">Address not available</p>
+              <%end%>
+          </div>
+        </div>
+
+        
+
+
+
+        <!---Modal --->
+
+<div class="portfolio-modal modal fade" id="<%=@id%>" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2 class="text-uppercase">Project Name</h2>
+                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                <img class="img-fluid d-block mx-auto"  src="<%=image_url('img/portfolio/02-full.jpg')%>" alt="">
+                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                <ul class="list-inline">
+                  <li>Date: January 2017</li>
+                  <li>Client: Explore</li>
+                  <li>Category: Graphic Design</li>
+                </ul>
+                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%# <%end%> 
+
+  <%end%>
+
+
+        <%else%>
+
+          <h3>No rooms to display!</h3>
+        <%end%>
+      </div>
+    </div>
+  </section>
+
+<!---Modal --->
+<%# 
+<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2 class="text-uppercase">Project Name</h2>
+                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                <img class="img-fluid d-block mx-auto"  src="<%=image_url('img/portfolio/02-full.jpg')%>
+                <%# <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                <ul class="list-inline">
+                  <li>Date: January 2017</li>
+                  <li>Client: Explore</li>
+                  <li>Category: Graphic Design</li>
+                </ul>
+                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 
+ %>
+
+

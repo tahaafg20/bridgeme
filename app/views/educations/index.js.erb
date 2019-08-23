@@ -1,2 +1,2 @@
-$('#organization_listing').html('<%= j render partial: "educations/educations_list", locals: {educations: @arrEducations} %>')
-initialize(<%= raw @arrOrganizations.to_json %>)
+$('#education_listing').html('<%= j render partial: "educations/educations_list", locals: {educations: @arrEducations} %>')
+initialize(<%= raw @arrEducations.to_json %>)

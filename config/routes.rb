@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :posts
+  resources :ngos
+  resources :healths
   resources :communities
   resources :educations
   require 'sidekiq/web'
