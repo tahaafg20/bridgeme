@@ -1,5 +1,6 @@
 class HealthsController < ApplicationController
   before_action :set_health, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /healths
   # GET /healths.json
