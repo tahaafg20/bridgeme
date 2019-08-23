@@ -1,0 +1,22 @@
+
+<%= simple_form_for(@community) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :email %>
+    <%= f.input :number %>
+    <%= f.input :country %>
+    <%= f.input :services %>
+    <%= f.input :about %>
+    <%= f.input :status %>
+    <%= f.input :address %>
+    <%= f.input :longitude %>
+    <%= f.input :latitude %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

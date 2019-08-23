@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @community.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @community.email %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @community.number %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @community.country %>
+</p>
+
+<p>
+  <strong>Services:</strong>
+  <%= @community.services %>
+</p>
+
+<p>
+  <strong>About:</strong>
+  <%= @community.about %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @community.status %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @community.address %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @community.longitude %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @community.latitude %>
+</p>
+
+<%= link_to 'Edit', edit_community_path(@community) %> |
+<%= link_to 'Back', communities_path %>
