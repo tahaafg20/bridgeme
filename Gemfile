@@ -8,6 +8,7 @@ gem 'rails', '~> 6.0.0.rc2'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 gem 'jquery-rails'
+gem 'country-select'
 gem 'geocoder', '~> 1.4'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5'

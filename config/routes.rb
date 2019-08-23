@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :healths
+  resources :communities
+  resources :educations
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
   resources :organizations
