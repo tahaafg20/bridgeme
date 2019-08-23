@@ -23,3 +23,85 @@ $border-radius-lg: 2px;
 $border-radius-sm: 2px;
 
 // Override other variables below!
+
+
+.btn-block {
+        display: block;
+        width: 100%;
+    }
+.btn-primary {
+    color: #fff !important;
+    background-color:$app_blue !important;
+    border-color:none !important;
+    width:auto;
+
+    height: 100% !important;
+    
+}
+.btn-lg{
+    color: #fff !important;
+    height: 40px;
+    font-size: 15px !important;
+    background-color: #2994b2 !important;
+    overflow: auto;
+    border-color: transparent !important;
+}
+
+
+.btn-small{
+    color: #fff !important;
+    height: 35px;
+    font-size: 30px;
+    background-color: #2994b2 !important;
+    // overflow: auto;
+    border-color: transparent !important;
+    text-align: center !important;
+    margin-bottom:20px !important;
+}
+.btn {
+    display: inline-block;
+    // font-weight: 400;
+    color: $app_blue;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.15);
+    // text-emphasis-color: blue;
+
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: #fff;
+    border: 1px solid transparent;
+    padding: .525rem .75rem;
+    // padding: .645rem .80rem;
+    // font-size: .6rem;
+    line-height: 1.6;
+    border-radius: .4rem;
+    transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+button, [type="button"], [type="reset"], [type="submit"] {
+    -webkit-appearance: button;
+}
+button, select {
+    text-transform: none;
+}
+button, input {
+    overflow: visible;
+}
+input, button, select, optgroup, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+button {
+    border-radius: 0;
+}
+*, *::before, *::after {
+    // box-sizing: border-box;
+}
