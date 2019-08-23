@@ -18,29 +18,23 @@
 			<li class="nav-item dropdown">
 				<a data-toggle="dropdown" class="nav-link dropdown-toggle navbar-text-color" href="#">Services <b class="caret"></b></a>
 				<ul class="dropdown-menu navbar-text-color">					
-					<li><%= link_to "Community Center ", organizations_path(:search => "Community-Center"),class:"dropdown-item"%></li>
-					<li><%= link_to "Health", organizations_path(:search => "Health"),class:"dropdown-item"%></li>
+					<li><%= link_to "Community Center ", organizations_path,class:"dropdown-item"%></li>
+					<li><%= link_to "Health", healths_path,class:"dropdown-item"%></li>
 					<li><%= link_to "Education", educations_path,class:"dropdown-item"%></li>
-					<li><%= link_to "Sport", organizations_path(:search => "Sport"),class:"dropdown-item"%></li>
+					<li><%= link_to "NGO", organizations_path,class:"dropdown-item"%></li>
 				</ul>
 			</li>
 			<%# <li class="nav-item btn"><a href="#" class="nav-link">Portfolio</a></li>
 			<li class="nav-item btn"><a href="#" class="nav-link">Blog</a></li> %>
 			
-			<li class="nav-item "><a href="#" class="nav-link navbar-text-color">Contact</a></li>
-				
-      <li class="nav-item btn-form navbar-text-color">
-         
-            <%= link_to "Organization", new_organization_path, style: "text-decoration: none; " %>
-         
-      </li>
+			<li class="nav-item "><a href="#" class="nav-link navbar-text-color">Contact</a></li> 
 				<li class="nav-item dropdown">
 				<a data-toggle="dropdown" class="nav-link dropdown-toggle navbar-text-color" href="#">Add New Organization <b class="caret"></b></a>
 				<ul class="dropdown-menu navbar-text-color">					
 					<li><%= link_to "Community Center ", new_community_path%></li>
-					<li><%= link_to "Health", organizations_path(:search => "Health"),class:"dropdown-item"%></li>
+					<li><%= link_to "Health", new_health_path,class:"dropdown-item"%></li>
 					<li><%= link_to "Education",  new_education_path%></li>
-					<li><%= link_to "Sport", organizations_path(:search => "Sport"),class:"dropdown-item"%></li>
+					<li><%= link_to "NGO", organizations_path(:search => "Sport"),class:"dropdown-item"%></li>
 				</ul>
 			</li>
       <li class="nav-item btn-form navbar-text-color">

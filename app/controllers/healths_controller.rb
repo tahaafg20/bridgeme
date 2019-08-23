@@ -5,6 +5,7 @@ class HealthsController < ApplicationController
   # GET /healths.json
   def index
     @healths = Health.all
+    @arrHealths = @healths.to_a
   end
 
   # GET /healths/1
