@@ -21,5 +21,4 @@ class Message < ApplicationRecord
         Notification.create(content: "New message from #{sender.fullname}", user_id: self.conversation.sender_id, message_id: self.id)
       end
     end
-  end
 end
