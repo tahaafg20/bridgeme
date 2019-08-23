@@ -1,4 +1,3 @@
-
 <div class="row">
   <div class="col-md-12">
 
@@ -7,18 +6,13 @@
   </div>
    <%# this create margin-left to col-md-3 %>  
 
-      <%= form_for @community, :html => { :id => "form" } do |f| %>
+      <%= form_for @health, :html => { :id => "form" } do |f| %>
 
       <div class="col-md-6 background">   
 
         <div class="form-group ">
-            <label>Community Name</label>
+            <label>Organization Name</label>
               <%=f.text_field :name, class: "form-control input-lg"%>
-        </div>
-
-        <div class="form-group ">
-            <label>Country</label>
-              <%= f.country_select :country%>
         </div>
 
         <div class="form-group ">
@@ -35,6 +29,12 @@
             <label>Services</label>    
             <%=f.text_area :services, class: "form-control input-lg" %>
         </div>
+        <div class="form-group ">
+            <div class="form-group">
+            <label>Accepted documents</label>
+            <%= f.select( :accepted_documents, ["Passport", "UNHCR ID", "Both (UNHCR ID & Passport)" ], prompt: "Select...", class: "form-control input-lg")%>
+          </div>
+        </div>
 
         <div class="form-group">
               <label>About</label>
@@ -46,7 +46,7 @@
         </div>
 
         <div class="form-group">
-              <label>Registration Status (Please tick if your Community is open for registering)</label>
+              <label>Registration Status (Please tick if your organization is open for new patients)</label>
               <%=f.check_box :status, class: "form-control input-lg" %>
         </div>
         
@@ -57,7 +57,7 @@
                 <%=f.text_field :longitude, id:"long", style:"display:none;"%>
       
             <div class="pac-card" id="pac-card">
-                <div id="latitude" data-lat= "<%= @community.latitude %>">
+                <div id="latitude" data-lat= "<%= @health.latitude %>">
                   <div id="type-selector" class="pac-controls"></div>
                   <div id="strict-bounds-selector" class="pac-controls"></div>
                 </div>  
@@ -76,7 +76,7 @@
           <div class="map-image map-radius" id="map" ></div>
     
             <div class="col-md-5 submitbtn">
-              <div class="row" id="longtitude" data-long= "<%= @community.longitude%>">
+              <div class="row" id="longtitude" data-long= "<%= @health.longitude%>">
                   <%= f.submit "Save", class: "btn btn-success" %>
               </div>
             <div>

@@ -25,6 +25,13 @@
          <p> Phone Number: <div><%= @education.number %></p></div>
         </div>
 
+        <% if !@community.link.nil? %>
+        <div class="form-group">
+         <p> The link to this organization's webpage: <div><%=link_to @community.name, "/#{@community.link}"
+        </div>
+        <%end%>
+
+
         <div class="form-group">
          <p> Accepted Documents: <div><%= @education.accepted_documents %></p></div>
         </div>
@@ -49,7 +56,7 @@
 
 
         <!-- About -->
-      
+       <br>
         <!-- GOOGLE MAP -->
         <div class="row" id="latitude" data-lat= "<%= @education.latitude %>">
 

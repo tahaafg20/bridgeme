@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_23_072734) do
+ActiveRecord::Schema.define(version: 2019_08_23_085259) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 2019_08_23_072734) do
     t.float "latitude"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "link"
   end
 
   create_table "conversations", force: :cascade do |t|
@@ -81,6 +82,23 @@ ActiveRecord::Schema.define(version: 2019_08_23_072734) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "address"
+    t.string "link"
+  end
+
+  create_table "healths", force: :cascade do |t|
+    t.string "name"
+    t.string "number"
+    t.string "link"
+    t.string "email"
+    t.text "services"
+    t.text "about"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "status"
+    t.string "accepted_documents"
   end
 
   create_table "messages", force: :cascade do |t|

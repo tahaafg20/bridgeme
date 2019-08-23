@@ -4,61 +4,61 @@
    </div>
       <div class="col-md-6 info-box">
 
-          <h1 >Community Center Info</h1>
-          <div class="form-group " id="longtitude" data-long= "<%= @community.longitude %>">
+          <h1 >Organization Info</h1>
+          <div class="form-group " id="longtitude" data-long= "<%= @health.longitude %>">
 
-            <label>Community Center Name:</label>
-            <h2 class="org-name"><%= @community.name %></h2>
+            <label>Organization Name:</label>
+            <h2 class="org-name"><%= @health.name %></h2>
             <hr>
             <label>Organization Address:</label> 
-            <p><%= @community.address %></p>
-            <hr>
-            <div class="form-group">
-            <p> Community Country: <div><%= @community.country %></p></div>
-          </div>
+            <p><%= @health.address %></p>
              <hr>
           </div>
          
-         
+
           <div class="form-group">
-            <p>Services Provided by this organization: <%= @community.services  %></p>
+            <p>Services Provided by this organization: <%= @health.services  %></p>
           </div>
           <hr>
         
         <div class="form-group">
-         <p> Phone Number: <div><%= @community.number %></p></div>
+         <p> Phone Number: <div><%= @health.number %></p></div>
         </div>
-        <% if !@community.link.nil? %>
+
+        <% if !@health.link.nil? %>
         <div class="form-group">
-         <p> The link to this organization's webpage: <div><%=link_to @community.name, "/#{@community.link}"
+         <p> The link to this organization's webpage: <div><%=link_to @health.name, "/#{@health.link}" %></p></div>
         </div>
         <%end%>
 
+
         <div class="form-group">
-         <p> The Link To The Website: <div><%= @community.number %></p></div>
+         <p> Accepted Documents: <div><%= @health.accepted_documents %></p></div>
         </div>
 
-        <%if @community.status == true%>
-          <div class="form-group">
-          <p> <%=@community.name%> is open for Registration.</p></div>
-          </div>
-        <%elsif @community.status == false%>
         <div class="form-group">
-          <p> <%=@community.name%> is not open for Registration at the moment.</p></div>
+         <p> About this organization: <div><%= @health.about %></p></div>
+        </div>
+
+        <%if @health.status == true%>
+          <div class="form-group">
+          <p> <%=@health.name%> is open for Registration.</p></div>
+          </div>
+        <%elsif @health.status == false%>
+        <div class="form-group">
+          <p> <%=@health.name%> is not open for Registration at the moment.</p></div>
           </div>
           <%end%>
           </div>
         <hr/>
-        
-          
 
 
 
 
         <!-- About -->
-      
+      <br>
         <!-- GOOGLE MAP -->
-        <div class="row" id="latitude" data-lat= "<%= @community.latitude %>">
+        <div class="row" id="latitude" data-lat= "<%= @health.latitude %>">
 
       <div class="map1">
         <div id="map" style="map1"></div>
