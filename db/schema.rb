@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_23_085259) do
+ActiveRecord::Schema.define(version: 2019_08_23_093850) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -109,6 +109,22 @@ ActiveRecord::Schema.define(version: 2019_08_23_085259) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "ngos", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "number"
+    t.float "longitude"
+    t.float "latitude"
+    t.string "email"
+    t.text "services"
+    t.text "about"
+    t.boolean "status"
+    t.string "link"
+    t.string "accepted_documents"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "notifications", force: :cascade do |t|
