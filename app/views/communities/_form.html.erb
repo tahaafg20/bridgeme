@@ -16,22 +16,32 @@
               <%=f.text_field :name, class: "form-control input-lg"%>
         </div>
 
-        <div class="form-group ">
+        <div class="form-row form-group ">
+           <div class="form-group col-md-6 box-align-adjust country-padding">
             <label>Country</label>
-              <%= f.country_select :country%>
+            <%= f.country_select :country%>
+          </div>
+
+          <div class="form-group col-md-6 box-align">
+              <label>Email</label>
+              <%=f.text_field :email, class: "form-control input-lg" %>
+          </div>
         </div>
 
-        <div class="form-group ">
-            <label>Email</label>
-            <%=f.text_field :email, class: "form-control input-lg" %>
+
+        <div class="form-row form-group ">
+           <div class="form-group col-md-6 box-align-adjust">
+              <label>Phone Number</label>    
+              <%=f.text_field :number, class: "form-control input-lg" %>
+            </div>
+
+            <div class="form-group col-md-6 box-align">
+              <label>The link to your webpage:</label>    
+              <%=f.text_field :link, class: "form-control input-lg" %>
+            </div>
         </div>
 
-        <div class="form-group">
-            <label>Phone Number</label>    
-            <%=f.text_field :number, class: "form-control input-lg" %>
-        </div>
-
-        <div class="form-group ">
+        <div class="form-row form-group ">
             <label>Services</label>    
             <%=f.text_area :services, class: "form-control input-lg" %>
         </div>
@@ -39,10 +49,6 @@
         <div class="form-group">
               <label>About</label>
               <%=f.text_area :about, class: "form-control input-lg" %>
-        </div>
-        <div class="form-group ">
-            <label>The link to your webpage:</label>    
-            <%=f.text_field :link, class: "form-control input-lg" %>
         </div>
 
         <div class="form-group">
@@ -77,7 +83,7 @@
     
             <div class="col-md-5 submitbtn">
               <div class="row" id="longtitude" data-long= "<%= @community.longitude%>">
-                  <%= f.submit "Save", class: "btn btn-success" %>
+                  <%= f.submit "Save", class: "btn btn-primary" %>
               </div>
             <div>
           <% end %>
