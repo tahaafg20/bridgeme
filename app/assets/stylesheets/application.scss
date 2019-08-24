@@ -11,11 +11,11 @@
 @import "pages/index";
 @import "./pages/index";
 
-body {
-  color: #565a5c;
-  background-color: #E8DEDB;
-  font-family: "Varela Round", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-}
+// body {
+//   color: #565a5c;
+//   background-color: #E8DEDB;
+//   font-family: "Varela Round", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+// }
 
 a {
   color: #0E1854;
@@ -130,7 +130,7 @@ a {
   text-align: center;
   font-size: 16px;
   font-weight: 600;
-  color: #00A699;
+  color: $app_blue;
 }
 
 // HOME PAGE

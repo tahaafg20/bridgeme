@@ -30,15 +30,19 @@
       <%# <% end %> 
         
       </p>
-    <button type="button" class="submit form_btn"><%= f.submit "Log in"%></button>
-        <%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
+    <button type="button" class="submit form_btn"><%= f.submit "Log in"%></button> 
+     <%- if devise_mapping.omniauthable? %>
+      <%- resource_class.omniauth_providers.each do |provider| %>
+      <button type="button" class="fb-btn form_btn">
+        <%= link_to ("Join with <span>facebook</span>").html_safe, omniauth_authorize_path(resource_name, provider)%>
+      </button>
+    </a>
   <% end -%>
-<% end -%>
-    <button type="button" class="fb-btn from_btn">Connect with <span>facebook</span></button>
+<% end -%> 
 
-    <%end%>
+<%end%>
+
+
   </div>
   <div class="sub-cont">
     <div class="img">
@@ -60,7 +64,6 @@
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
 
-
       <label>
         <span>Name</span>
           <%= f.text_field :fullname, id:"inputUsername", autocomplete: "full name",autofocus:true %>
@@ -78,7 +81,13 @@
         <%= f.password_field :password_confirmation,aria_describedby:"emailHelp" %>
       </label>
       <button type="button" class="submit"><%= f.submit "Register" %></button>
-      <button type="button" class="fb-btn">Join with <span>facebook</span></button>
+        <%- if devise_mapping.omniauthable? %>
+      <%- resource_class.omniauth_providers.each do |provider| %>
+      <button type="button" class="fb-btn form_btn">
+        <%= link_to ("Join with <span>facebook</span>").html_safe, omniauth_authorize_path(resource_name, provider)%>
+    </button>
+  <% end -%>
+<% end -%> 
 
       <%end%>
     </div>
