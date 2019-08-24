@@ -1,0 +1,15 @@
+
+
+<%@communities.each do |community| %>
+    <div class="col-md-4">
+        <div class="panel-body">
+          <%= link_to community.name, community %><%unless community.link.nil?%><a href="<%=community.link%>"><i style="margin-right: 0.5em; color: #EEEEEE;" class="icon-home icon-4x"></i>organization Link</a><%end%>
+        <br/>  Phone Number: <%= community.number %> <br> <%= community.address %>
+
+        <br/> About        : <%=community.about%>   
+       
+        <br/> Services: <%=community.services%>
+       </div>
+    </div>
+<% end %>
+

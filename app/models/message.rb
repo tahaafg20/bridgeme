@@ -22,4 +22,3 @@ class Message < ApplicationRecord
       end
     end
   end
-end

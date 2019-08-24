@@ -1,0 +1,14 @@
+
+
+<% @ngos.each do |ngo| %>
+    <div class="col-md-4">
+        <div class="panel-body">
+          <%= link_to ngo.name, ngo %><%unless ngo.link.nil?%><a href="<%=ngo.link%>"title="Website name"><i style="margin-right: 0.5em; color: #EEEEEE;" class="icon-home icon-4x"></i>organization Link</a><%end%>
+        <br/>  Phone Number: <%= ngo.number %> <br> <%= ngo.address %>
+
+        <br/> About        : <%=ngo.about%>   
+        <br/> Accepted documents: <%=ngo.accepted_documents%>
+        <br/> Services: <%=ngo.services%>
+       </div>
+    </div>
+<% end %>

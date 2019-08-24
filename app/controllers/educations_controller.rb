@@ -31,7 +31,7 @@ class EducationsController < ApplicationController
 
     respond_to do |format|
       if @education.save
-        byebug
+        # byebug
         format.html { redirect_to @education, notice: 'Education was successfully created.' }
         format.json { render :show, status: :created, location: @education }
       else

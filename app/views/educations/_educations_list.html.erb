@@ -2,7 +2,7 @@
 <% @educations.each do |education| %>
     <div class="col-md-4">
         <div class="panel-body">
-          <%= link_to education.name, education %><%unless education.number.empty?%><a href="<%education.number%>"title="Website name"><i style="margin-right: 0.5em; color: #EEEEEE;" class="icon-home icon-4x"></i>organization Link</a><%end%>
+          <%= link_to education.name, education %><%unless education.link.nil?%><a href="<%=education.link%>"title="Website name"><i style="margin-right: 0.5em; color: #EEEEEE;" class="icon-home icon-4x"></i>organization Link</a><%end%>
         <br/>  Phone Number: <%= education.number %> <br> <%= education.address %>
 
         <br/> About        : <%=education.about%>   

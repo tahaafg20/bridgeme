@@ -5,6 +5,7 @@ class NgosController < ApplicationController
   # GET /ngos.json
   def index
     @ngos = Ngo.all
+    @arrNgos = @ngos.to_a
   end
 
   # GET /ngos/1
