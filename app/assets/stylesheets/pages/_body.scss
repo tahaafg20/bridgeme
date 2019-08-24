@@ -1,12 +1,14 @@
 
  #layout-body {
     min-height: 100vh !important; /* will cover the 100% of viewport */
-    -moz-min-height: 100vh;
-   -webkit-min-height: 100vh;
+    -moz-min-height: 100vh !important;
+   -webkit-min-height: 100vh !important;
     overflow: hidden;
     display: block;
     position: relative;
-    padding-bottom: 200px; /* height of your footer */
+    padding-bottom: 200px;/* height of your footer */
+    -webkit-padding-bottom:200px; 
+    -moz-padding-bottom:200px;
 
    }
 
