@@ -1,5 +1,6 @@
 class NgosController < ApplicationController
   before_action :set_ngo, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /ngos
   # GET /ngos.json
@@ -25,8 +26,7 @@ class NgosController < ApplicationController
   # POST /ngos
   # POST /ngos.json
   def create
-    @ngo = Ngo.new(ngo_params)
-
+    @ngo = current_user.ngos.build(ngo_params)
     respond_to do |format|
       if @ngo.save
         format.html { redirect_to @ngo, notice: 'Ngo was successfully created.' }
