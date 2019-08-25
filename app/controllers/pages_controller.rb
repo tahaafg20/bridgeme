@@ -1,12 +1,12 @@
 class PagesController < ApplicationController
   def home
-   if !params[:search].nil? 
+   if !params[:search1].nil? 
    
-    @rooms=Room.search params[:search], fields: [:address,:summary,:listing_name]
-    @educations=Education.search params[:search], fields: [:name,:accepted_documents,:address,:services]
-    @healths=Health.search params[:search], fields: [:name,:accepted_documents,:address,:services]
-    @communities=Community.search params[:search], fields: [:name,:accepted_documents,:address,:services]
-    @ngos=Ngo.search params[:search], fields: [:name,:accepted_documents,:address,:services]
+    @rooms=Room.search params[:search1], fields: [:address,:summary,:listing_name]
+    @educations=Education.search params[:search1], fields: [:name,:accepted_documents,:address,:services]
+    @healths=Health.search params[:search1], fields: [:name,:accepted_documents,:address,:services]
+    @communities=Community.search params[:search1], fields: [:name,:accepted_documents,:address,:services, :country]
+    @ngos=Ngo.search params[:search1], fields: [:name,:accepted_documents,:address,:services]
   
   else
     @rooms = Room.where(active: true).limit(3)

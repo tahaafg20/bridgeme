@@ -47,7 +47,7 @@
               <%= link_to notifications_path do %>
                 <i class="fa fa-bell fa-2x icon-babu"></i>
 						
-                <span class="badge" id="navbar_num_of_unread"><%= current_user.unread if current_user.unread > 1 %></span>
+                <span class="badge" id="navbar_num_of_unread"><%= current_user.unread if current_user.unread > 0 %></span>
               <% end %>
         </li>
 		<% end %>
@@ -75,16 +75,13 @@
 		</ul>
 		<ul class="nav navbar-nav  ml-auto">
 			<li class="navbar-form-wrapper">
-				<form class="navbar-form form-inline navbar-right">
-					<div class="input-group search-box">								
-						<input type="text" id="search" class="form-control" placeholder=" Search Here...">
-						<span class="input-group-addon"><i class="fas fa-search"></i></span>
-					</div>
-				</form>
+			<%= form_tag search_path, class: "navbar-form navbar-left", method: :get do %>
+				<div class="form-group">
+					<%= text_field_tag :search, params[:search], placeholder: "Anywhere", class: "form-control" %>
+				</div>
+			<% end %>
 			</li>
-	
 		</ul>
-		
 	</div>
 </nav>
 

@@ -259,7 +259,7 @@ ActiveRecord::Schema.define(version: 2019_08_25_042835) do
     t.string "unconfirmed_email"
     t.string "phone_number"
     t.text "description"
-    t.integer "unread", default: 1
+    t.integer "unread", default: 0
     t.string "merchant_id"
     t.string "merchant_provider"
     t.string "merchant_access_code"

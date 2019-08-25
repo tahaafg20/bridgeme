@@ -5,7 +5,7 @@ class CommunitiesController < ApplicationController
   # GET /communities
   # GET /communities.json
   def index
-    @communities = Community.all
+    @communities = current_user.communities
     @arrCommunities = @communities.to_a
   end
   def index1
@@ -27,7 +27,7 @@ class CommunitiesController < ApplicationController
 
   def new_post1
     current_community = Community.find(params[:id])
-    @post = current_community.posts.build(params.require(:post).permit(:content, :id))
+    @post = current_community.posts.build(params.require(:post).permit(:content, :id, images:[]))
     
     if @post.save
       redirect_back(fallback_location: request.referer, notice: "Saved...")
@@ -53,7 +53,7 @@ class CommunitiesController < ApplicationController
   def update_post
     @post = Post.find_by(id: params[:id])
     respond_to do |format|
-      if @post.update(params.require(:post).permit(:content, :id))
+      if @post.update(params.require(:post).permit(:content, :id, images:[]))
         format.html { redirect_to "/communities/#{@post.community.id}/new_post", notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @post}
       else
@@ -120,6 +120,6 @@ class CommunitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def community_params
-      params.require(:community).permit(:name, :email, :link, :number, :country, :services, :about, :status, :link, :address, :longitude, :latitude, :authenticity_token, :id)
+      params.require(:community).permit(:name, :email, :link, :number, :country, :services, :about, :status, :link, :address, :longitude, :latitude, :authenticity_token, :id, images:[])
     end
 end

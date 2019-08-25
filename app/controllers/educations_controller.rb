@@ -6,7 +6,7 @@ class EducationsController < ApplicationController
   # GET /educations
   # GET /educations.json
   def index
-    @educations = Education.all
+    @educations = current_user.educations
     @arrEducations = @educations.to_a
   end
   def index1
@@ -28,7 +28,7 @@ class EducationsController < ApplicationController
 
   def new_post1
     current_education = Education.find(params[:id])
-    @post = current_education.posts.build(params.require(:post).permit(:content, :id))
+    @post = current_education.posts.build(params.require(:post).permit(:content, :id, images:[]))
     
     if @post.save
       redirect_back(fallback_location: request.referer, notice: "Saved...")
@@ -63,7 +63,7 @@ class EducationsController < ApplicationController
   def update_post
     @post = Post.find_by(id: params[:id])
     respond_to do |format|
-      if @post.update(params.require(:post).permit(:content, :id))
+      if @post.update(params.require(:post).permit(:content, :id, images:[]))
         format.html { redirect_to "/educations/#{@post.education.id}/new_post", notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @post}
       else
@@ -122,6 +122,6 @@ class EducationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def education_params
-      params.require(:education).permit(:name, :number, :email, :about, :accepted_documents, :services, :status, :latitude, :longitude, :address, :link)
+      params.require(:education).permit(:name, :number, :email, :about, :accepted_documents, :services, :status, :latitude, :longitude, :address, :link, images:[])
     end
 end

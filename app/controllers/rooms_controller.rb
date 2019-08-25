@@ -4,7 +4,6 @@ class RoomsController < ApplicationController
   before_action :is_authorised, only: [:listing, :pricing, :description, :photo_upload, :amenities, :location, :update]
 
   def index
-  
     @rooms = current_user.rooms
   end
 
@@ -19,8 +18,7 @@ class RoomsController < ApplicationController
 
     @room = current_user.rooms.build(room_params)
     if @room.save
-      @room.reindex
-      redirect_to @room, notice: "Saved..."
+      redirect_to listing_room_path(@room), notice: "Saved..."
     else
       flash[:alert] = "Something went wrong..."
       render :new
@@ -28,7 +26,6 @@ class RoomsController < ApplicationController
   end
 
   def show
-   
     @photos = @room.images
     @guest_reviews = @room.guest_reviews
   end
@@ -43,7 +40,7 @@ class RoomsController < ApplicationController
   end
 
   def photo_upload
-    @photos = @room.images
+    @photos = @room.photos
   end
 
   def amenities
@@ -62,15 +59,9 @@ class RoomsController < ApplicationController
     else
       flash[:alert] = "Something went wrong..."
     end
-    redirect_to @room
-  end
-
-  def destroy
- 
-    @room = Room.find(params[:id])
-    @room.destroy
     redirect_back(fallback_location: request.referer)
   end
+
   # --- Reservations ---
   def preload
     today = Date.today
@@ -118,6 +109,6 @@ class RoomsController < ApplicationController
     end
 
     def room_params
-      params.require(:room).permit( :room_type, :accommodate, :listing_name, :summary,:cover, :latitude, :longitude, :address, :is_tv, :is_kitchen, :is_air, :is_heating, :is_internet, :price, :active, :instant, images:[])
+      params.require(:room).permit(:home_type, :room_type, :accommodate, :bed_room, :bath_room, :listing_name, :summary,:cover, :images, :address, :is_tv, :is_kitchen, :is_air, :is_heating, :is_internet, :price, :active, :instant)
     end
 end

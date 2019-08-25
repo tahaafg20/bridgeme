@@ -2,9 +2,9 @@
 
   <div class="row">
   <%= form_tag root_path, :method => 'get', class: 'input-group'  do %>
-    <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Search for...' %>
+    <%= text_field_tag :search1, params[:search1], class: 'form-control', placeholder: 'Search for...' %>
     <span class="input-group-btn">
-      <%= submit_tag "search", class: "btn btn-default" %>
+      <%= submit_tag "Search", class: "btn btn-default" %>
     </span>
   <% end %>
 </div>
