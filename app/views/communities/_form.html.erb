@@ -1,9 +1,10 @@
 
-<div class="row">
+<div class="row org_new text-center">
   <div class="col-md-12">
 
-  <%# this create margin-left to col-md-3 %>
   <div class="col-md-3">
+   <%# this create margin-left to col-md-3 %>
+  what is here?
   </div>
    <%# this create margin-left to col-md-3 %>  
 
@@ -16,32 +17,22 @@
               <%=f.text_field :name, class: "form-control input-lg"%>
         </div>
 
-        <div class="form-row form-group ">
-           <div class="form-group col-md-6 box-align-adjust country-padding">
+        <div class="form-group ">
             <label>Country</label>
-            <%= f.country_select :country%>
-          </div>
-
-          <div class="form-group col-md-6 box-align">
-              <label>Email</label>
-              <%=f.text_field :email, class: "form-control input-lg" %>
-          </div>
+              <%= f.country_select :country%>
         </div>
 
-
-        <div class="form-row form-group ">
-           <div class="form-group col-md-6 box-align-adjust">
-              <label>Phone Number</label>    
-              <%=f.text_field :number, class: "form-control input-lg" %>
-            </div>
-
-            <div class="form-group col-md-6 box-align">
-              <label>The link to your webpage:</label>    
-              <%=f.text_field :link, class: "form-control input-lg" %>
-            </div>
+        <div class="form-group ">
+            <label>Email</label>
+            <%=f.text_field :email, class: "form-control input-lg" %>
         </div>
 
-        <div class="form-row form-group ">
+        <div class="form-group">
+            <label>Phone Number</label>    
+            <%=f.text_field :number, class: "form-control input-lg" %>
+        </div>
+
+        <div class="form-group ">
             <label>Services</label>    
             <%=f.text_area :services, class: "form-control input-lg" %>
         </div>
@@ -49,6 +40,10 @@
         <div class="form-group">
               <label>About</label>
               <%=f.text_area :about, class: "form-control input-lg" %>
+        </div>
+        <div class="form-group ">
+            <label>The link to your webpage:</label>    
+            <%=f.text_field :link, class: "form-control input-lg" %>
         </div>
 
         <div class="form-group">
@@ -75,21 +70,27 @@
 </div>
 
 
-<div class="row">
+
+<div class="row org_new org_map text-center">
   <div class="col-md-12">
-    <div class="col-md-3"></div>
+    <div class="col-md-3">
+    what is here?
+    </div>
       <div class="col-md-6 map-box background">
           <div class="map-image map-radius" id="map" ></div>
     
-            <div class="col-md-5 submitbtn">
+            <div class="form-group col-md-5 submitbtn">
               <div class="row" id="longtitude" data-long= "<%= @community.longitude%>">
-                  <%= f.submit "Save", class: "btn btn-primary" %>
+                  <%= f.submit "Save", class: "btn btn-normal org_btn"%>
               </div>
             <div>
           <% end %>
       </div>
         
   </div>
+</div>
+
+</div>
 </div>
 
 

@@ -1,30 +1,182 @@
-<!-- HOMES -->
-<div>
-<h3>Homes</h3></div>
-<br/>
-<div class="row">
-  <%= render partial: "rooms/rooms_list", locals: {rooms: @rooms} %>
+<div class="jumbotron jumbotron-fluid bg-dark">
+  
+    <div class="jumbotron-background">
+    <%# <img src="https://placeimg.com/2000/1000/dog" class="blur "> %>
+      <div class="swiper-container ">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="https://placeimg.com/2000/1000/dog" class="blur "></div>
+          <div class="swiper-slide"><img src="https://placeimg.com/2000/1000/nature" class="blur "></div>
+          <div class="swiper-slide"><img src="https://placeimg.com/2000/1000/love" class="blur "></div>
+          <div class="swiper-slide"><img src="https://placeimg.com/2000/1000/music" class="blur "></div>
+      </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+  </div>
+
+  <div class="container text-white">
+ <%= form_tag search_path, method: :get do %>
+    <div class="search_container">
+      <%# <input type="text" maxlength= "12" placeholder="Search..." class="searchbar"> %>
+      <%= text_field_tag :search, params[:search], placeholder: "What are you searching for?",class: "searchbar",maxlength:"12"%>
+      <img src="https://images-na.ssl-images-amazon.com/images/I/41gYkruZM2L.png" alt="Magnifying Glass" class="button">
+    </div>
+
+  <%end%>
+
+    <hr class="my-4">
+    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+
+  </div>
+  <!-- /.container -->
+  
+ 
 </div>
-</div>
+<!-- /.jumbotron -->
+
+
+<%# ========== search bar ============ %>
+
+
+  <!-- Portfolio Grid -->
+  <section class="bg-light page-section" id="portfolio">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">Nearby Room rentals</h2>
+          <h3 class="section-subheading text-muted">Best Values</h3>
+        </div>
+      </div>
+
+      <%# <div class="row"> %>
+
+      <%@display_rooms =Room.all.order("created_at DESC").limit(6) %>
+
+      <%unless @display_rooms.empty? %>
+
+      <%@display_rooms.each do |apartment|%>
+
+  <%@id = apartment.id%>
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link" data-toggle="modal" href="#portfolio_<%=@id%>">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+              
+            </div>
+
+            <%# <div class="img-fluid"> %>
+
+            <%= image_tag(url_for(apartment.cover),size:"300x300") %>
+
+            <%# </div> %>
+            
+          </a>
+          <div class="portfolio-caption">
+            <%# <h4><%=room.home_type</h4> %>
+            <p class="text-muted"><%=apartment.room_type%></p>
+            <%unless apartment.address.nil?%>
+
+             <h4>Address</h4>
+              <p class="text-muted"><%=apartment.address%></p>
+
+              <%else%>
+                  <p class="text-muted">Address not available</p>
+              <%end%>
+          </div>
+        </div>
+
+        
+
+
+
+        <!---Modal --->
+<%# do not use %>
+<div class="portfolio-modal modal fade" id="pIIIIIortfolio_<%=@id%>" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2 class="text-uppercase">Project Name</h2>
+                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                <img class="img-fluid d-block mx-auto"  src="<%=image_url('img/portfolio/02-full.jpg')%>" alt="">
+                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                <ul class="list-inline">
+                  <li>Date: January 2017</li>
+                  <li>Client: Explore</li>
+                  <li>Category: Graphic Design</li>
+                </ul>
+                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <%# </div> %>
+
+  <%# <%end%> 
+
+  <%end%>
+
+
+        <%else%>
+
+          <h3>No rooms to display!</h3>
+        <%end%>
+      </div>
+    </div>
+  </section>
+
+<!---Modal --->
+<%# 
+<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2 class="text-uppercase">Project Name</h2>
+                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                <img class="img-fluid d-block mx-auto"  src="<%=image_url('img/portfolio/02-full.jpg')%>
+                <%# <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                <ul class="list-inline">
+                  <li>Date: January 2017</li>
+                  <li>Client: Explore</li>
+                  <li>Category: Graphic Design</li>
+                </ul>
+                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 
+ %>
 <script>
-  $('#start_date').datepicker({
-    dateFormat: 'dd-mm-yy',
-    minDate: 0,
-    maxDate: '3m',
-    onSelect: function(selected) {
-      $('#end_date').datepicker("option", "minDate", selected);
-      $('#end_date').attr("disabled", false);
-    }
-  });
-  $('#end_date').datepicker({
-    dateFormat: 'dd-mm-yy',
-    minDate: 0,
-    maxDate: '3m',
-    onSelect: function(selected) {
-      $('#start_date').datepicker("option", "maxDate", selected);
-    }
-  });
-  $(function() {
-    $("#autolocation").geocomplete();
-  })
+$(function () { objectFitImages() });
+
 </script>
+

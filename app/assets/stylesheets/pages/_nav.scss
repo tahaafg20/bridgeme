@@ -5,37 +5,37 @@ $app_blue :#2994b2;
 $app_dark :#444f5a;
 
 //added styles for navbar
-strong{
-    color:white !important;
-}
+// strong{
+//     color:white !important;
+// }
 b{
     color:$app_yellow !important;
 }
 
-.navbar-text{
-    color: white;
-}
+// .navbar-text{
+//     color: white;
+// }
 
-.navbar-text-color{
-    color:white !important;
-}
-.dropdown-menu{
-    border-radius: 5px;
-}
-.fa-search{
-    margin-top:-5px;
-}
+// .navbar-text-color{
+//     color:white !important;
+// }
+// .dropdown-menu{
+//     border-radius: 5px;
+// }
+// .fa-search{
+//     margin-top:-5px;
+// }
 
-//added styles for navbar
+// //added styles for navbar
 
 
 
-.form-inline {
-    display: inline-block;
-}
-.navbar-header.col {
-    padding: 0 !important;
-}	
+// .form-inline {
+//     display: inline-block;
+// }
+// .navbar-header.col {
+//     padding: 0 !important;
+// }	
 .navbar {		
     // background: #fff;
     background:$app_blue;
@@ -55,7 +55,7 @@ b{
     // color:white !important;
 }
 .navbar .navbar-brand {
-    color: #555 !important;
+    color: $app_dark !important;
     padding-left: 0;
     font-size: 20px;
     padding-right: 50px;
@@ -63,22 +63,42 @@ b{
     padding-top:30px;
 
 }
+// .navbar .navbar-brand b {
+//     font-weight: bold;
+//     color: white;
+
+// }
+// .navbar ul.nav li a:hover, .navbar ul.nav li a:focus {
+//     color:$app_dark !important;
+//     border-radius: 3px;
+//     // background-color: $app_blue !important;
+// }
+// .navbar ul.nav li.active a, .navbar ul.nav li.active a:hover, .navbar ul.nav li.active a:focus {
+//     color: $app_blue !important;
+//     background: transparent !important;
+//     background-color: $app_blue !important;
+//     padding-top:30px !important;
+//     border-radius: 3px;
+// }
+
+.fa-bell{
+    color:white !important;
+}
+
 .navbar .navbar-brand b {
     font-weight: bold;
-    color: white;
+    color: $app_yellow;
 
 }
-.navbar ul.nav li a:hover, .navbar ul.nav li a:focus {
-    color:black !important;
-    border-radius: 3px;
-    // background-color: $app_blue !important;
+.navbar ul.nav li a:hover,.fa-bell ul.nav .navbar li a:focus {
+    color: $app_blue!important;
+    background-color:$mild_yellow;
+    border-radius: 20px;
 }
 .navbar ul.nav li.active a, .navbar ul.nav li.active a:hover, .navbar ul.nav li.active a:focus {
-    color: $app_blue !important;
+    color: $app_dark !important;
     background: transparent !important;
-    background-color: $app_blue !important;
     padding-top:30px !important;
-    border-radius: 3px;
 }
 // form .search-box {
 //     position: relative;
@@ -212,8 +232,8 @@ b{
 .navbar a{
     color:white !important;
     // background-color:$app_yellow;
-    // font-size: 10px;
-    font-size:16px;
+    font-size: 10px;
+    // font-size:16px;
     letter-spacing: .2em;
     text-transform: uppercase;
     font-weight: bold;

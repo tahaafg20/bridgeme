@@ -25,7 +25,7 @@
   
   .sidebar-link:hover, .sidebar-link:focus {
     color: $app_blue;
-    text-decoration: none;
+    text-decoration: $app_yellow;
   }
   
   .active.sidebar-link {

@@ -17,34 +17,35 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/hot-sneaks/jquery-ui.css">
-    <link rel="stylesheet" href="    https://d19m59y37dris4.cloudfront.net/directory/1-2/vendor/nouislider/nouislider.css">
     <script src="https://use.fontawesome.com/releases/v5.10.1/js/all.js" data-mutate-approach="sync"></script>
   </head>
   <body>
-  <%# ALERT & NOTICE %>
-  <% if notice != nil || alert != nil %>
-    <% if notice != nil %>
-      <div class=“notification form-actions text-center alert alert-success” role=“alert”>
-        <button type=“button” class=“notice close” data-dismiss=“alert” aria-label=“Close”><span aria-hidden=“true”>&times;</span></button>
-        <strong><%= notice %></strong>
-      </div>
-    <% else %>
-      <div class=“notification text-center alert alert-alert” role=“alert”>
-        <button type=“button” class=“alert close” data-dismiss=“alert” aria-label=“Close”><span aria-hidden=“true”>&times;</span></button>
-        <strong><%= alert %></strong>
-      </div>
-    <% end %>
-  <% end %>
-
+ 
   <div id="layout-body">
 <%= render 'shared/navbar' %>
     <% if current_user %>
         <input type="hidden" id="user_id" value="<%= current_user.id %>">
     <% end %>
-    <div class="container">
+    <%# <div class="container"> %>
+
+
+     <% if notice != nil || alert != nil %>
+    <% if notice != nil %>
+      <div class="notification form-actions text-center alert alert-success" role="alert">
+        <button type="button" class="notice close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong><%= notice %></strong>
+      </div>
+    <% else %>
+      <div class="notification text-center alert alert-alert" role="alert">
+        <button type="button" class="alert close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong><%= alert %></strong>
+      </div>
+    <% end %>
+  <% end %>
+  
   <%= yield %>
 
-  </div>
+  <%# </div> %>
   
   </div>
     <%= render 'shared/footer' %>

@@ -1,10 +1,10 @@
 // CALENDAR
 .fc-content.Waiting {
-    background-color: #C9CC6D;
+    background-color: $app_yellow;
   }
   
   .fc-past {
-    background-color: lightgray;
+    background-color: $mild_yellow;
   }
   
   .fc-day {
@@ -12,7 +12,7 @@
   }
   
   .fc-content {
-    background-color: #00A699;
+    background-color: $app_blue;
     height: 40px;
     border-radius: 20px;
   }
@@ -31,13 +31,13 @@
   
   .day-price {
     position: absolute;
-    color: #EAA90B;
+    color: $app_blue;
     bottom: 2px;
     right: 2px;
   }
   
   .badge {
-    background-color: #FF5A5F;
+    background-color: $app_yellow;
     position: relative;
     top: -15px;
     left: -5px;
@@ -50,7 +50,7 @@
   
   #add-card label {
     position: relative;
-    color: #6A7C94;
+    color: $app_dark;
     font-weight: 400;
     height: 48px;
     line-height: 48px;
@@ -68,7 +68,7 @@
     font-weight: 400;
     border: 1px solid #CFD7DF;
     border-radius: 24px;
-    color: #32315E;
+    color: $app_dark;
     outline: none;
     height: 48px;
     line-height: 48px;
@@ -84,14 +84,14 @@
   
   .field:focus,
   .field.StripeElement--focus {
-    border-color: #F99A52;
+    border-color: $app_yellow;
   }
   
   #add-card button {
     float: left;
     display: block;
-    background-image: linear-gradient(-180deg, #F8B563 0%, #F99A52 100%);
-    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.10), inset 0 -1px 0 0 #E57C45;
+    background-image: linear-gradient(-180deg,$mild_yellow 0%, $mild_yellow 100%);
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.10), inset 0 -1px 0 0 $app_yellow;
     color: white;
     border-radius: 24px;
     border: 0;
@@ -105,11 +105,11 @@
   }
   
   #add-card button:focus {
-    background: #EF8C41;
+    background: $mild_yellow;
   }
   
   #add-card button:active {
-    background: #E17422;
+    background:$mild_yellow;
   }
   
   .outcome {
