@@ -19,6 +19,24 @@ class EducationsController < ApplicationController
   def show
   end
 
+  def new_post
+    @post = Post.new
+    @education = Education.find(params[:id])
+    
+    @education_id = Education.find(params[:id]).id
+  end
+
+  def new_post1
+    current_education = Education.find(params[:id])
+    @post = current_education.posts.build(params.require(:post).permit(:content, :id))
+    
+    if @post.save
+      redirect_to @post, notice: "Saved..."
+    else
+      flash[:alert] = "Something went wrong..."
+      render :new_post
+    end
+  end
   # GET /educations/new
   def new
     @education = Education.new
@@ -26,6 +44,33 @@ class EducationsController < ApplicationController
 
   # GET /educations/1/edit
   def edit
+  end
+
+  def edit_post
+    @post = Post.find_by(id: params[:id])
+    @education_id = @post.education.id
+  end
+
+  def post_destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    respond_to do |format|
+      format.html { redirect_to "/educations/#{@post.education.id}/new_post", notice: 'Post was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+  
+  def update_post
+    @post = Post.find_by(id: params[:id])
+    respond_to do |format|
+      if @post.update(params.require(:post).permit(:content, :id))
+        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        format.json { render :show, status: :ok, location: @post}
+      else
+        format.html { render :edit }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # POST /educations

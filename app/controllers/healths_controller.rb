@@ -14,6 +14,23 @@ class HealthsController < ApplicationController
     @arrHealths = @healths.to_a
   end
 
+  def new_post
+    @post = Post.new
+    @health = Health.find(params[:id])
+    @health_id = Health.find(params[:id]).id
+  end
+
+  def new_post1
+    current_health = Health.find(params[:id])
+    @post = current_health.posts.build(params.require(:post).permit(:content, :id))
+    
+    if @post.save
+      redirect_to @post, notice: "Saved..."
+    else
+      flash[:alert] = "Something went wrong..."
+      render :new_post
+    end
+  end
   # GET /healths/1
   # GET /healths/1.json
   def show

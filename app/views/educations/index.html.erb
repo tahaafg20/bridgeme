@@ -23,8 +23,9 @@
                 </div>
 
               <div class="col-md-3 right">
-                <%= link_to "Update", edit_education_path(education), class: "btn btn-form update" %>
-                <%= button_to "Delete",  education,  method: :delete, class: "btn btn-form update", data: { confirm: 'Are you sure?' }  %>
+                <%= link_to "Manage Posts about this organization","educations/#{education.id}/new_post" , class: "btn btn-form update" %>
+                <%= link_to "Update Organization", edit_education_path(education), class: "btn btn-form update" %>
+                <%= button_to "Delete Organization",  education,  method: :delete, class: "btn btn-form update", data: { confirm: 'Are you sure?' }  %>
               </div>
           </div>
             <% end %>
