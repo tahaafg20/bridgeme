@@ -19,6 +19,7 @@ class RoomsController < ApplicationController
 
     @room = current_user.rooms.build(room_params)
     if @room.save
+      @room.reindex
       redirect_to @room, notice: "Saved..."
     else
       flash[:alert] = "Something went wrong..."
@@ -65,6 +66,7 @@ class RoomsController < ApplicationController
   end
 
   def destroy
+ 
     @room = Room.find(params[:id])
     @room.destroy
     redirect_back(fallback_location: request.referer)

@@ -78,6 +78,7 @@ class CommunitiesController < ApplicationController
     @community = current_user.communities.build(community_params)
     respond_to do |format|
       if @community.save
+        @community.reindex
         format.html { redirect_to @community, notice: 'Community was successfully created.' }
         format.json { render :show, status: :created, location: @community }
       else

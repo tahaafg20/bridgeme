@@ -21,7 +21,7 @@ class MessagesController < ApplicationController
       # ActionCable.server.broadcast "conversation_#{@conversation.id}", message: render_message(@message)
       redirect_to conversation_messages_path(@conversation)
     end
-    byebug
+    # byebug
   end
 
   private

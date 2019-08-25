@@ -34,7 +34,7 @@
 					<li><%= link_to "Community Center ", new_community_path%></li>
 					<li><%= link_to "Health", new_health_path,class:"dropdown-item"%></li>
 					<li><%= link_to "Education",  new_education_path%></li>
-					<li><%= link_to "NGO", new_ngo_path(:search => "Sport"),class:"dropdown-item"%></li>
+					<li><%= link_to "NGO", new_ngo_path%></li>
 				</ul>
 			</li>
       <li class="nav-item btn-form navbar-text-color">
@@ -46,6 +46,7 @@
 	  <li>
               <%= link_to notifications_path do %>
                 <i class="fa fa-bell fa-2x icon-babu"></i>
+						
                 <span class="badge" id="navbar_num_of_unread"><%= current_user.unread if current_user.unread > 1 %></span>
               <% end %>
         </li>

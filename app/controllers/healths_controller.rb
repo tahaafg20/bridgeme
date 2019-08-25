@@ -51,8 +51,9 @@ class HealthsController < ApplicationController
   def create
     @health = current_user.healths.build(health_params)
     respond_to do |format|
-      byebug
+   
       if @health.save
+        @health.reindex
         format.html { redirect_to @health, notice: 'Health was successfully created.' }
         format.json { render :show, status: :created, location: @health }
       else

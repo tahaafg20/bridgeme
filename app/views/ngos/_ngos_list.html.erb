@@ -1,6 +1,7 @@
 <% @ngos.each do |ngo| %>
     <div class="col-md-4">
-        <div class="panel-body">
+       <div class="panel panel-default">
+        <div class="panel-heading preview">
           <%= link_to ngo.name, ngo %><%unless ngo.number.empty?%><a href="<%ngo.number%>"title="Website name"><i style="margin-right: 0.5em; color: #EEEEEE;" class="icon-home icon-4x"></i>organization Link</a><%end%>
         <br/>  Phone Number: <%= ngo.number %> <br> <%= ngo.address %>
 
@@ -8,5 +9,6 @@
         <br/> Accepted documents: <%=ngo.accepted_documents%>
         <br/> Services: <%=ngo.services%>
        </div>
+    </div>
     </div>
 <% end %>

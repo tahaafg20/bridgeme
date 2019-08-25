@@ -1,6 +1,7 @@
 <% @communities.each do |community| %>
     <div class="col-md-4">
-        <div class="panel-body">
+       <div class="panel panel-default">
+        <div class="panel-heading preview">
           <%= link_to community.name, community %>
           <br/> Country: <%=community.country%>
           <%unless community.number.empty?%><a href="<%community.number%>"title="Website name"><i style="margin-right: 0.5em; color: #EEEEEE;" class="icon-home icon-4x"></i>organization Link</a><%end%>
@@ -10,5 +11,6 @@
         <br/> Services: <%=community.services%>
         
        </div>
+    </div>
     </div>
 <% end %>

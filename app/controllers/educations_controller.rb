@@ -79,7 +79,8 @@ class EducationsController < ApplicationController
     @education = current_user.educations.build(education_params)
     respond_to do |format|
       if @education.save
-        byebug
+        @education.reindex
+        # byebug
         format.html { redirect_to @education, notice: 'Education was successfully created.' }
         format.json { render :show, status: :created, location: @education }
       else
