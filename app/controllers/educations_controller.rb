@@ -9,6 +9,10 @@ class EducationsController < ApplicationController
     @educations = Education.all
     @arrEducations = @educations.to_a
   end
+  def index1
+    @educations = Education.all
+    @arrEducations = @educations.to_a
+  end
 
   # GET /educations/1
   # GET /educations/1.json

@@ -6,6 +6,11 @@ class CommunitiesController < ApplicationController
   # GET /communities.json
   def index
     @communities = Community.all
+    @arrCommunities = @communities.to_a
+  end
+  def index1
+    @communities = Community.all
+    @arrCommunities = @communities.to_a
   end
 
   # GET /communities/1

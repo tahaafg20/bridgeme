@@ -5,7 +5,7 @@
       <div class="col-md-6 info-box">
 
           <h1 >Community Center Info</h1>
-          <div class="form-group " id="longtitude" data-long= "<%= @community.longitude %>">
+          <div class="form-group" id="longtitude" data-long= "<%= @community.longitude %>">
 
             <label>Community Center Name:</label>
             <h2 class="org-name"><%= @community.name %></h2>
@@ -30,7 +30,7 @@
         </div>
         <% if !@community.link.nil? %>
         <div class="form-group">
-         <p> The link to this organization's webpage: <div><%=link_to @community.name, "/#{@community.link}"
+         <p> The link to this organization's webpage: <div><%=link_to @community.name, "/#{@community.link}"%>
         </div>
         <%end%>
 

@@ -152,6 +152,14 @@ GEM
       warden (~> 1.2.3)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
+    elasticsearch (7.3.0)
+      elasticsearch-api (= 7.3.0)
+      elasticsearch-transport (= 7.3.0)
+    elasticsearch-api (7.3.0)
+      multi_json
+    elasticsearch-transport (7.3.0)
+      faraday
+      multi_json
     erubi (1.8.0)
     execjs (2.7.0)
     faraday (0.15.4)
@@ -336,6 +344,10 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    searchkick (4.1.0)
+      activemodel (>= 5)
+      elasticsearch (>= 6)
+      hashie
     selenium-webdriver (3.142.3)
       childprocess (>= 0.5, < 2.0)
       rubyzip (~> 1.2, >= 1.2.2)
@@ -445,6 +457,7 @@ DEPENDENCIES
   ransack!
   sass-rails (~> 5)
   sassc-rails (>= 2.1.0)
+  searchkick
   selenium-webdriver
   sidekiq
   simple_form
