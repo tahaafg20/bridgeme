@@ -34,6 +34,7 @@ class NgosController < ApplicationController
     @ngo = current_user.ngos.build(ngo_params)
     respond_to do |format|
       if @ngo.save
+        @ngo.reindex
         format.html { redirect_to @ngo, notice: 'Ngo was successfully created.' }
         format.json { render :show, status: :created, location: @ngo }
       else
