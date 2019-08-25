@@ -13,7 +13,7 @@
 
         <div class="form-group ">
             <label>Community Name</label>
-              <%=f.text_field :name, class: "form-control input-lg"%>
+              <%=f.text_field :name, class: "form-control input-lg",:required => true%>
         </div>
 
         <div class="form-row form-group ">
@@ -24,7 +24,7 @@
 
           <div class="form-group col-md-6 box-align">
               <label>Email</label>
-              <%=f.text_field :email, class: "form-control input-lg" %>
+              <%=f.email_field :email, class: "form-control input-lg" ,:required => true%>
           </div>
         </div>
 
@@ -32,18 +32,20 @@
         <div class="form-row form-group ">
            <div class="form-group col-md-6 box-align-adjust">
               <label>Phone Number</label>    
-              <%=f.text_field :number, class: "form-control input-lg" %>
+              <%=f.phone_field :number, class: "form-control input-lg" ,:required => true%>
             </div>
 
             <div class="form-group col-md-6 box-align">
               <label>The link to your webpage:</label>    
-              <%=f.text_field :link, class: "form-control input-lg" %>
+              <%=f.url_field :link, class: "form-control input-lg" %>
             </div>
         </div>
 
         <div class="form-row form-group ">
             <label>Services</label>    
-            <%=f.text_area :services, class: "form-control input-lg" %>
+            
+            <%=f.text_area :services, class: "form-control input-lg",:required => true %>
+          
         </div>
 
         <div class="form-group">
@@ -58,7 +60,7 @@
         
         <div class="form-group">
             <label>Address</label>
-                <%=f.text_field :address, id:"pac-input",placeholder:"Where is your address?", class: "form-control"%><br>
+                <%=f.text_field :address, id:"pac-input",placeholder:"Where is your address?", class: "form-control",:required => true%><br>
                 <%=f.text_field :latitude, id:"lat", style:"display:none;"%>
                 <%=f.text_field :longitude, id:"long", style:"display:none;"%>
       
