@@ -35,7 +35,7 @@
           
         </div>
             <label>Room Cover Photo</label>
-              <%= f.file_field :cover %>
+              <%= f.file_field :cover ,:required => true  %>
               <label>Images</label>
               <%= f.file_field :images, multiple: true %><br>
               <%= f.submit "Create My Room", class: "btn btn-primary " %>

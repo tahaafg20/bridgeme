@@ -1,9 +1,28 @@
+<!-- HOMES -->
+
+  <div class="row">
+  <%= form_tag root_path, :method => 'get', class: 'input-group'  do %>
+    <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Search for...' %>
+    <span class="input-group-btn">
+      <%= submit_tag "search", class: "btn btn-default" %>
+    </span>
+  <% end %>
+</div>
+
+
 <div>
 <h3>Homes</h3></div>
 <br/>
 <div class="row">
   <%= render partial: "rooms/rooms_list", locals: {rooms: @rooms} %>
 </div>
+<div class="row">
+  <%= render partial: "educations/educations_list", locals: {educations: @educations} %>
+  <%= render partial: "healths/healths_list", locals: {healths: @healths} %>
+  <%= render partial: "communities/communities_list", locals: {communities: @communities} %>
+  <%= render partial: "ngos/ngos_list", locals: {ngos: @ngos} %>
+</div>
+
 </div>
 <script>
   $('#start_date').datepicker({

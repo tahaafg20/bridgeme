@@ -80,6 +80,7 @@ class NgosController < ApplicationController
     @ngo = current_user.ngos.build(ngo_params)
     respond_to do |format|
       if @ngo.save
+        @ngo.reindex
         redirect_back(fallback_location: request.referer, notice: "Saved...")
         format.json { render :show, status: :created, location: @ngo }
       else

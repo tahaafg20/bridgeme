@@ -2,13 +2,15 @@
 
 <%@healths.each do |health| %>
     <div class="col-md-4">
-        <div class="panel-body">
-          <%= link_to health.name, health %><%unless health.link.nil?%><a href="<%health.link%>"><i style="margin-right: 0.5em; color: #EEEEEE;" class="icon-home icon-4x"></i>organization Link</a><%end%>
+       <div class="panel panel-default">
+        <div class="panel-heading preview">
+          <%= link_to health.name, health %><%unless health.link.nil?%><a href="<%=health.link%>"><i style="margin-right: 0.5em; color: #EEEEEE;" class="icon-home icon-4x"></i>organization Link</a><%end%>
         <br/>  Phone Number: <%= health.number %> <br> <%= health.address %>
 
         <br/> About        : <%=health.about%>   
         <br/> Accepted documents: <%=health.accepted_documents%>
         <br/> Services: <%=health.services%>
        </div>
+    </div>
     </div>
 <% end %>
