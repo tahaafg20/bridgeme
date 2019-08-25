@@ -1,10 +1,10 @@
 <div class="row">
   <div class="col-md-3">
-    <ul class="sidebar-list">
-      <li class="sidebar-item"><%= link_to "Your Listings", rooms_path, class: "sidebar-link" %></li>
-      <li class="sidebar-item"><%= link_to "Your Reservations", your_reservations_path, class: "sidebar-link" %></li>
-      <li class="sidebar-item"><%= link_to "Your Trips", your_trips_path, class: "sidebar-link active" %></li>
-      <li class="sidebar-item"><%= link_to "Your Organizations", your_organizations_path, class: "sidebar-link " %></li>
+    <ul class="sidebar-list background">
+      <li class="sidebar-item dshb-btn btn btn-lg btn-block"><%= link_to "Your Listings", rooms_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item dshb-btn btn btn-lg btn-block"><%= link_to "Your Reservations", your_reservations_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item dshb-btn btn btn-lg btn-block"><%= link_to "Your Trips", your_trips_path, class: "sidebar-link active" %></li>
+      <li class="sidebar-item dshb-btn btn btn-lg btn-block"><%= link_to "Your Organizations", your_organizations_path, class: "sidebar-link " %></li>
     </ul>
   </div>
   
@@ -13,30 +13,90 @@
       <div class="panel-heading">
         Your Trips
       </div>
-      <div class="panel-body">
+      <div class="panel-body d-flex flex-row">
         <% @trips.each do |trip| %>
-          <div class="row">
-            <div class="col-md-2">
+          <div class="row ">
+            <div class="col-md-2 col-sm-2">
               <%= trip.start_date.strftime('%v') %>
               <p><%= trip.status %></p>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-2 col-sm-12  your_trip">
               <%= link_to room_path(trip.room) do %>
                 <%= image_tag url_for(trip.room.cover) %>
               <% end %>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-5 col-sm-12 text-sm-left text-center">
               <%= link_to trip.room.listing_name, room_path(trip.room) %><br/><br/>
               <span>
-                
                 <%= link_to user_path(trip.room.user) do %>
                     <%= trip.room.user.fullname %>
                 <% end %>
               </span>
             </div>
-            <div class="col-md-3 text-right">
+            <%# <div class="col-md-3 col-sm-6 text-sm-left text-md-right">
               <%= render partial: "reviews/guest_form", locals: {reservation: trip} if trip.Approved? %>
+            <%# </div> %>
+
+
+<!-- Trigger the modal with a button -->
+<br><button type="button" class="btn btn-normal" data-toggle="modal" data-target="#myModal_<%= trip.id %>">
+  Review Host
+</button>
+
+<!-- Modal -->
+<%= form_for current_user.guest_reviews.new do |f| %>
+<div id="myModal_<%= trip.id %>" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+  <div>
+
+    <!-- Modal content-->
+    <div class="modal-content">
+    
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title text-left">Review Your Host</h4>
+      </div>
+      <div class="modal-body">
+        
+            <div class="form-group text-center">
+              <div id="stars"></div>
             </div>
+            <div class="form-group">
+              <%= f.text_area :comment, rows: 3, class: "form-control" %>
+            </div>
+
+            <%= f.hidden_field :room_id, value: trip.room.id %>
+            <%= f.hidden_field :reservation_id, value: trip.id %>
+            <%= f.hidden_field :host_id, value: trip.room.user.id %>
+
+            <div class="text-center">
+              <%= f.submit "Add Review", class: "btn btn-normal" %>
+            </div>
+       
+      </div>
+    </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+
+ <% end %>
+
+<script>
+$(document).ready(function() {
+  $('#stars').raty({
+    path: '/assets',
+    scoreName: 'guest_review[star]',
+    score: 1
+  });
+});
+</script>
+
           </div>
           <hr/>
         <% end %>

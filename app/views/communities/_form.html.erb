@@ -1,9 +1,10 @@
 
-<div class="row">
+<div class="row org_new text-center">
   <div class="col-md-12">
 
   <%# this create margin-left to col-md-3 %>
   <div class="col-md-3">
+  what is here?
   </div>
    <%# this create margin-left to col-md-3 %>  
 
@@ -69,21 +70,27 @@
 </div>
 
 
-<div class="row">
+
+<div class="row org_new org_map text-center">
   <div class="col-md-12">
-    <div class="col-md-3"></div>
+    <div class="col-md-3">
+    what is here?
+    </div>
       <div class="col-md-6 map-box background">
           <div class="map-image map-radius" id="map" ></div>
     
-            <div class="col-md-5 submitbtn">
+            <div class="form-group col-md-5 submitbtn">
               <div class="row" id="longtitude" data-long= "<%= @community.longitude%>">
-                  <%= f.submit "Save", class: "btn btn-success" %>
+                  <%= f.submit "Save", class: "btn btn-normal org_btn"%>
               </div>
             <div>
           <% end %>
       </div>
         
   </div>
+</div>
+
+</div>
 </div>
 
 

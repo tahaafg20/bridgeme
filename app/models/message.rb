@@ -22,3 +22,4 @@ class Message < ApplicationRecord
       end
     end
   end
+# end (extra end)
