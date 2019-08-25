@@ -1,12 +1,13 @@
 class PagesController < ApplicationController
   def home
-   if !params[:search].nil? 
+   if !params[:search1].nil? 
    
-    @rooms=Room.search params[:search], fields: [:address,:summary,:listing_name]
-    @educations=Education.search params[:search], fields: [:name,:accepted_documents,:address,:services]
-    @healths=Health.search params[:search], fields: [:name,:accepted_documents,:address,:services]
-    @communities=Community.search params[:search], fields: [:name,:accepted_documents,:address,:services]
-    @ngos=Ngo.search params[:search], fields: [:name,:accepted_documents,:address,:services]
+    @rooms=Room.search params[:search1], fields: [:address,:summary,:listing_name]
+    @educations=Education.search params[:search1], fields: [:name,:accepted_documents,:address,:services]
+    @healths=Health.search params[:search1], fields: [:name,:accepted_documents,:address,:services]
+    @communities=Community.search params[:search1], fields: [:name,:accepted_documents,:address,:services, :country]
+    @ngos=Ngo.search params[:search1], fields: [:name,:accepted_documents,:address,:services]
+    @posts = Post.search params[:search1], fields: [:content]
   
   else
     @rooms = Room.where(active: true).limit(3)
@@ -14,6 +15,7 @@ class PagesController < ApplicationController
     @healths=Health.limit(1)
     @communities=Community.limit(1)
     @ngos=Ngo.limit(1)
+    @posts = Post.all
    end
     
   end
@@ -34,7 +36,7 @@ class PagesController < ApplicationController
     # STEP 3
     @search = @rooms_address.ransack(params[:q])
     @rooms = @search.result
-
+    @posts = Post.all
     @arrRooms = @rooms.to_a
 
     # STEP 4

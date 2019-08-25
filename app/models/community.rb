@@ -8,7 +8,8 @@ class Community < ApplicationRecord
         {
         name: name,
         address: address,
-        services: services 
+        services: services,
+        country: country
         }
        end
     

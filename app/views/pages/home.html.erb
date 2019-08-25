@@ -2,9 +2,9 @@
 
   <div class="row">
   <%= form_tag root_path, :method => 'get', class: 'input-group'  do %>
-    <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Search for...' %>
+    <%= text_field_tag :search1, params[:search1], class: 'form-control', placeholder: 'Search for...' %>
     <span class="input-group-btn">
-      <%= submit_tag "search", class: "btn btn-default" %>
+      <%= submit_tag "Search", class: "btn btn-default" %>
     </span>
   <% end %>
 </div>
@@ -22,7 +22,40 @@
   <%= render partial: "communities/communities_list", locals: {communities: @communities} %>
   <%= render partial: "ngos/ngos_list", locals: {ngos: @ngos} %>
 </div>
-
+<div class="col-md-12">
+<div id="chat">
+        <%@posts.each do |post|%>
+            <div class="panel">
+                <div class="panel-body">
+                <%if !post.community.nil?%>
+                    <div class="row-space-2">
+                    <%= post.community.name %>
+                  </div>
+                <%end%>
+                <%if !post.health.nil?%>
+                    <div class="row-space-2">
+                    <%= post.health.name %>
+                  </div>
+                <%end%>
+                <%if !post.ngo.nil?%>
+                    <div class="row-space-2">
+                    <%= post.ngo.name %>
+                  </div>
+                <%end%>
+                <%if !post.education.nil?%>
+                    <div class="row-space-2">
+                    <%= post.education.name %>
+                  </div>
+                <%end%>
+                    <div class="row-space-2">
+                    <%= post.content %>
+                    </div>
+                    <%post.images.each do |image|%>
+                    <%=image_tag url_for(image), size:"250x250"%>
+                    <%end%>
+                </div>
+                </div>
+        <%end%>
 </div>
 <script>
   $('#start_date').datepicker({
