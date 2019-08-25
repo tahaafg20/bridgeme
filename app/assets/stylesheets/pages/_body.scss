@@ -47,7 +47,10 @@ width:100%;
    margin-right:46%;
 }
 @media (min-width:990px) and (max-width:1100px){
+  .org_map .org_btn{
    margin-right:50%;
+
+  }
 }
 @media (max-width:980px){
    .org_map .org_btn{
@@ -134,6 +137,7 @@ width:100%;
 #main {
   height: 100%;
   overflow: hidden;
+  margin:10%;
 }
 
 #left {
@@ -143,11 +147,12 @@ width:100%;
 }
 
 #right {
-  position: fixed;
+  // position: fixed;
   top: 0;
   right: 0;
-  width: 450px;
+  width: 100%;
   height: 100%;
+  // margin-bottom: -30%;
 }
 #map{
   height: 400px !important;  /* The height is 400 pixels */

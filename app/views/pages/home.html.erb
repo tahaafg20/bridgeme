@@ -4,7 +4,7 @@
     <%# <img src="https://placeimg.com/2000/1000/dog" class="blur "> %>
       <div class="swiper-container ">
         <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="https://placeimg.com/2000/1000/dog" class="blur "></div>
+          <div class="swiper-slide"><img src="<%=asset_path('swiper_img/07jpg')%>" class="blur "></div>
           <div class="swiper-slide"><img src="https://placeimg.com/2000/1000/nature" class="blur "></div>
           <div class="swiper-slide"><img src="https://placeimg.com/2000/1000/love" class="blur "></div>
           <div class="swiper-slide"><img src="https://placeimg.com/2000/1000/music" class="blur "></div>
@@ -36,7 +36,41 @@
 <!-- /.jumbotron -->
 
 
-<%# ========== search bar ============ %>
+<%# ====== list of service ========= %>
+
+<div class="service_link">
+
+<div class="header_caption">
+
+<h2>Are you local or refugee affiliate?</h2>
+
+</div>
+
+<list>
+  <item>
+    <%=icon('fas', 'building',"Add your Organization")%>
+  </item>
+  <item>
+  <%=icon('fas', 'map',"Find Refugees community to support")%>
+
+  </item>
+  <item>
+    <%=icon('fas', 'map',"Give Education")%>
+
+  </item>
+</list>
+
+
+
+</div>
+
+
+
+
+
+<%# ============ vv ============= %>
+
+
 
 
   <!-- Portfolio Grid -->
@@ -69,7 +103,7 @@
 
             <%# <div class="img-fluid"> %>
 
-            <%= image_tag(url_for(apartment.cover),size:"300x300") %>
+            <%= image_tag(url_for(apartment.cover),style:"height:300px;width:100%;") %>
 
             <%# </div> %>
             
@@ -80,7 +114,7 @@
             <%unless apartment.address.nil?%>
 
              <h4>Address</h4>
-              <p class="text-muted"><%=apartment.address%></p>
+              <p class="text-muted" limit="20"><%=apartment.address%></p>
 
               <%else%>
                   <p class="text-muted">Address not available</p>
