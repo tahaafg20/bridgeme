@@ -23,13 +23,17 @@
                 </div>
 
               <div class="col-md-3 right">
-                <%= link_to "Update", edit_health_path(health), class: "btn btn-form update" %>
-                <%= button_to "Delete",  health,  method: :delete, class: "btn btn-form update", data: { confirm: 'Are you sure?' }  %>
+              <%= link_to "Manage Posts about this organization","healths/#{health.id}/new_post" ,class: "btn btn-form update" %>
+                <%= link_to "Update Organization", edit_health_path(health), class: "btn btn-form update" %>
+                <%= button_to "Delete Organization",  health,  method: :delete, class: "btn btn-form update", data: { confirm: 'Are you sure?' }  %>
+                
               </div>
           </div>
+          <hr>
             <% end %>
         </div>
       </div>
+      
     </div>
     
 </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_23_101148) do
+ActiveRecord::Schema.define(version: 2019_08_25_042835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -165,6 +165,14 @@ ActiveRecord::Schema.define(version: 2019_08_23_101148) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
+    t.bigint "health_id"
+    t.bigint "education_id"
+    t.bigint "community_id"
+    t.bigint "ngo_id"
+    t.index ["community_id"], name: "index_posts_on_community_id"
+    t.index ["education_id"], name: "index_posts_on_education_id"
+    t.index ["health_id"], name: "index_posts_on_health_id"
+    t.index ["ngo_id"], name: "index_posts_on_ngo_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -273,6 +281,10 @@ ActiveRecord::Schema.define(version: 2019_08_23_101148) do
   add_foreign_key "notifications", "messages"
   add_foreign_key "notifications", "users"
   add_foreign_key "organizations", "users"
+  add_foreign_key "posts", "communities"
+  add_foreign_key "posts", "educations"
+  add_foreign_key "posts", "healths"
+  add_foreign_key "posts", "ngos"
   add_foreign_key "posts", "users"
   add_foreign_key "reservations", "rooms"
   add_foreign_key "reservations", "users"

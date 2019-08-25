@@ -1,5 +1,6 @@
 class Ngo < ApplicationRecord
     belongs_to :user
+    has_many :posts
     searchkick 
     def search_data
         {
@@ -9,4 +10,5 @@ class Ngo < ApplicationRecord
         services: services 
         }
        end
+   
 end

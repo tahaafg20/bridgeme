@@ -1,5 +1,6 @@
 class Education < ApplicationRecord
     belongs_to :user
+    has_many :posts
     searchkick 
     def search_data
         {
@@ -9,4 +10,5 @@ class Education < ApplicationRecord
         services: services 
         }
        end
+  
 end

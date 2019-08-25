@@ -20,7 +20,7 @@ class RoomsController < ApplicationController
     @room = current_user.rooms.build(room_params)
     if @room.save
       @room.reindex
-      redirect_to listing_room_path(@room), notice: "Saved..."
+      redirect_to @room, notice: "Saved..."
     else
       flash[:alert] = "Something went wrong..."
       render :new
@@ -62,7 +62,7 @@ class RoomsController < ApplicationController
     else
       flash[:alert] = "Something went wrong..."
     end
-    redirect_back(fallback_location: request.referer)
+    redirect_to @room
   end
 
   def destroy

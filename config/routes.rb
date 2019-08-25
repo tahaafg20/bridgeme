@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :posts
+  resources :posts, except: [:create]
   resources :ngos
   resources :healths
   resources :communities
@@ -50,6 +50,27 @@ Rails.application.routes.draw do
     get '/ngos1' => 'ngos#index1'
     get 'search' => 'pages#search'
     get 'dashboard' => 'dashboards#index'
+    get 'communities/:id/new_post' => 'communities#new_post'
+    get 'healths/:id/new_post' => 'healths#new_post'
+    get 'educations/:id/new_post' => 'educations#new_post'
+    get 'ngos/:id/new_post' => 'ngos#new_post'
+    post 'communities/:id/new_post' => 'communities#new_post1'
+    post 'healths/:id/new_post' => 'healths#new_post1'
+    post 'educations/:id/new_post' => 'educations#new_post1'
+    post 'ngos/:id/new_post' => 'ngos#new_post1'
+    get "communities/posts/:id/edit" => 'communities#edit_post'
+    patch "communities/posts/:id/edit" => 'communities#update_post'
+    get "communities/posts/:id/destroy" => 'communities#post_destroy'
+    get "educations/posts/:id/edit" => 'educations#edit_post'
+    patch "educations/posts/:id/edit" => 'educations#update_post'
+    get "educations/posts/:id/destroy" => 'educations#post_destroy'
+    get "healths/posts/:id/edit" => 'healths#edit_post'
+    patch "healths/posts/:id/edit" => 'healths#update_post'
+    get "healths/posts/:id/destroy" => 'healths#post_destroy'
+    get "ngos/posts/:id/edit" => 'ngos#edit_post'
+    patch "ngos/posts/:id/edit" => 'ngos#update_post'
+    get "ngos/posts/:id/destroy" => 'ngos#post_destroy'
+    
 
   
     resources :reservations, only: [:approve, :decline] do
@@ -65,9 +86,9 @@ Rails.application.routes.draw do
       resources :messages, only: [:index, :create]
     end
   
-    get '/payment_method' => "users#payment"
-    get '/payout_method' => "users#payout"
-    post '/add_card' => "users#add_card"
+    # get '/payment_method' => "users#payment"
+    # get '/payout_method' => "users#payout"
+    # post '/add_card' => "users#add_card"
   
   
     get '/notifications' => 'notifications#index'

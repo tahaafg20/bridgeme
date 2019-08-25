@@ -19,6 +19,23 @@ class NgosController < ApplicationController
   def show
   end
 
+  def new_post
+    @post = Post.new
+    @ngo = Ngo.find(params[:id])
+    @ngo_id = Ngo.find(params[:id]).id
+  end
+
+  def new_post1
+    current_ngo = Ngo.find(params[:id])
+    @post = current_ngo.posts.build(params.require(:post).permit(:content, :id))
+    
+    if @post.save
+      redirect_to @post, notice: "Saved..."
+    else
+      flash[:alert] = "Something went wrong..."
+      render :new_post
+    end
+  end
   # GET /ngos/new
   def new
     @ngo = Ngo.new

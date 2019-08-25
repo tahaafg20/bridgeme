@@ -1,5 +1,6 @@
 class Community < ApplicationRecord
     belongs_to :user
+    has_many :posts
     searchkick 
     def search_data
         {
@@ -8,4 +9,5 @@ class Community < ApplicationRecord
         services: services 
         }
        end
+    
 end
