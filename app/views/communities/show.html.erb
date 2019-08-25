@@ -65,6 +65,25 @@
       </div>
       </div>
 </div>
+<!-- NEAR BY communities -->
+    <div class="row">
+      <h3>Near by</h3>
+      <% for community in @community.nearbys(10) %>
+          <div class="col-md-4">
+            <div class="panel panel-default">
+              <div class="panel-heading preview">
+              
+                <%= link_to community.name, community %>
+                <br/> About        : <%=community.about%>   
+                <br/> Services: <%=community.services%>
+                (<%= community.distance.round(2) %> kms away)
+              </div>
+            </div>
+          </div>
+      <% end %>
+    </div>
+
+
 <script> 
   var lt = parseFloat(document.querySelector("#latitude").dataset["lat"])
   var ln = parseFloat(document.querySelector("#longtitude").dataset["long"])
