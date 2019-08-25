@@ -22,6 +22,7 @@ class NgosController < ApplicationController
   def new_post
     @post = Post.new
     @ngo = Ngo.find(params[:id])
+    @posts = @ngo.posts.order("created_at DESC")
     @ngo_id = Ngo.find(params[:id]).id
   end
 
@@ -30,12 +31,40 @@ class NgosController < ApplicationController
     @post = current_ngo.posts.build(params.require(:post).permit(:content, :id))
     
     if @post.save
-      redirect_to @post, notice: "Saved..."
+      redirect_to "ngos/#{current_ngo.id}/new_post", notice: "Saved..."
     else
       flash[:alert] = "Something went wrong..."
       render :new_post
     end
   end
+
+  def edit_post
+    @post = Post.find_by(id: params[:id])
+    @ngo_id = @post.ngo.id
+  end
+
+  def post_destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    respond_to do |format|
+      format.html { redirect_to "/ngos/#{@post.ngo.id}/new_post", notice: 'Post was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+  
+  def update_post
+    @post = Post.find_by(id: params[:id])
+    respond_to do |format|
+      if @post.update(params.require(:post).permit(:content, :id))
+        format.html { redirect_to "/ngos/#{@post.ngo.id}/new_post", notice: 'Post was successfully updated.' }
+        format.json { render :show, status: :ok, location: @post}
+      else
+        format.html { render :edit }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # GET /ngos/new
   def new
     @ngo = Ngo.new
@@ -51,7 +80,7 @@ class NgosController < ApplicationController
     @ngo = current_user.ngos.build(ngo_params)
     respond_to do |format|
       if @ngo.save
-        format.html { redirect_to @ngo, notice: 'Ngo was successfully created.' }
+        redirect_back(fallback_location: request.referer, notice: "Saved...")
         format.json { render :show, status: :created, location: @ngo }
       else
         format.html { render :new }
@@ -65,7 +94,7 @@ class NgosController < ApplicationController
   def update
     respond_to do |format|
       if @ngo.update(ngo_params)
-        format.html { redirect_to @ngo, notice: 'Ngo was successfully updated.' }
+        redirect_to "ngos/#{@ngo.id}/new_post", notice: 'Ngo was successfully updated.'
         format.json { render :show, status: :ok, location: @ngo }
       else
         format.html { render :edit }

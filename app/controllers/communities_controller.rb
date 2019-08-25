@@ -30,7 +30,7 @@ class CommunitiesController < ApplicationController
     @post = current_community.posts.build(params.require(:post).permit(:content, :id))
     
     if @post.save
-      redirect_to @post, notice: "Saved..."
+      redirect_back(fallback_location: request.referer, notice: "Saved...")
     else
       flash[:alert] = "Something went wrong..."
       render :new_post
@@ -54,7 +54,7 @@ class CommunitiesController < ApplicationController
     @post = Post.find_by(id: params[:id])
     respond_to do |format|
       if @post.update(params.require(:post).permit(:content, :id))
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        format.html { redirect_to "/communities/#{@post.community.id}/new_post", notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @post}
       else
         format.html { render :edit }
