@@ -44,7 +44,10 @@ Rails.application.routes.draw do
     get '/your_trips' => 'reservations#your_trips'
     get '/your_reservations' => 'reservations#your_reservations'
     get '/your_organizations' => 'reservations#your_organizations'
-  
+    get '/healths1' => 'healths#index1'
+    get '/educations1' => 'educations#index1'
+    get '/communities1' => 'communities#index1'
+    get '/ngos1' => 'ngos#index1'
     get 'search' => 'pages#search'
     get 'dashboard' => 'dashboards#index'
 

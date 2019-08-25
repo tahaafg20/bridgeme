@@ -1,54 +1,35 @@
- <div class="row" id="main">
- <div class="col-md-12 widen-text-box" id="">
-
-        <%= render partial: "healths/healths_list", locals: {healths: @arrHealths} %>
+<div class="row">
+  <div class="col-md-3">
+    <ul class="sidebar-list background-board">
+      <li class="sidebar-item btn btn-default btn-block"><%= link_to "Your Health Related Organizations", healths_path, class: "sidebar-link active" %></li>
+      <li class="sidebar-item btn btn-default btn-block"><%= link_to "Your Education Related Organizations", educations_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item btn btn-default btn-block"><%= link_to "Your Community Centers", communities_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item btn btn-default btn-block"><%= link_to "Your NGO Organizations", ngos_path, class: "sidebar-link" %></li>
+    </ul>
+  </div>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-heading" style="display:flex; justify-content:center;">
+        Health Related Organizations
       </div>
-      <div class="row" class="col-md-12" id="health_listing">
-  </div>
-  
+      <div class="panel-body">
 
-  <div id="">
-    <!-- GOOGLE MAP WILL BE HERE -->
+        <div class="panel-body">
 
-    <div id="map" ></div>
+            <% @healths.each do |health| %>
+          <div class="row">
+                <div class="col-md-6">
+                  <h4><%=link_to health.name, health %></h4>
+                </div>
+
+              <div class="col-md-3 right">
+                <%= link_to "Update", edit_health_path(health), class: "btn btn-form update" %>
+                <%= button_to "Delete",  health,  method: :delete, class: "btn btn-form update", data: { confirm: 'Are you sure?' }  %>
+              </div>
+          </div>
+            <% end %>
+        </div>
+      </div>
     </div>
-    </div>
-
-    <%# <script src="https://maps.googleapis.com/maps/api/js"></script> %>
     
-    <script>
-        function initialize(organizations) {
-          var location = {lat: 44.5403, lng: -78.5463}
-
-          if (organizations.length > 0) {
-            // debugger
-            location = {lat: organizations[0].latitude, lng: organizations[0].longitude}
-          }
-
-          var map = new google.maps.Map(document.getElementById('map'), {
-            center: location,
-            zoom: 12
-          });
-
-          var marker, inforwindow;
-
-          organizations.forEach(function(organization) {
-            marker = new google.maps.Marker({
-              position: {lat: organization.latitude, lng: organization.longitude},
-              map: map
-            });
-
-            inforwindow = new google.maps.InfoWindow({
-              content: "<div class='map_price'>" + organization.name + "</div>"
-            });
-
-            inforwindow.open(map, marker);
-          })
-        }
-
-        google.maps.event.addDomListener(window, 'load', function() {
-          initialize(<%= raw @arrHealths.to_json %>)
-        });
-    </script>
-  </div>
 </div>

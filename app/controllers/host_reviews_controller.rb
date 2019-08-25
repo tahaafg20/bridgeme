@@ -14,7 +14,7 @@ class HostReviewsController < ApplicationController
                         reservation_id: @reservation.id,
                         guest_id: host_review_params[:guest_id]
                       ).first
-byebug
+
       if @has_reviewed.nil?
           # Allow to review
           @host_review = current_user.host_reviews.create(host_review_params)

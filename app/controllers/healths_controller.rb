@@ -9,6 +9,11 @@ class HealthsController < ApplicationController
     @arrHealths = @healths.to_a
   end
 
+  def index1
+    @healths = Health.all
+    @arrHealths = @healths.to_a
+  end
+
   # GET /healths/1
   # GET /healths/1.json
   def show

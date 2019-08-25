@@ -9,6 +9,11 @@ class NgosController < ApplicationController
     @arrNgos = @ngos.to_a
   end
 
+  def index1
+    @ngos = Ngo.all
+    @arrNgos = @ngos.to_a
+  end
+
   # GET /ngos/1
   # GET /ngos/1.json
   def show

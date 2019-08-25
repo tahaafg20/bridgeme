@@ -8,6 +8,10 @@ class CommunitiesController < ApplicationController
     @communities = Community.all
     @arrCommunities = @communities.to_a
   end
+  def index1
+    @communities = Community.all
+    @arrCommunities = @communities.to_a
+  end
 
   # GET /communities/1
   # GET /communities/1.json
