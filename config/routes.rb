@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :posts, except: [:create]
+  resources :posts, except: [:create, :update, :show, :destroy, :edit]
   resources :ngos
   resources :healths
   resources :communities
@@ -33,7 +33,7 @@ Rails.application.routes.draw do
         get 'preload'
         get 'preview'
       end
-      resources :photos, only: [:create, :destroy]
+      # resources :photos, only: [:create, :destroy]
       resources :reservations, only: [:create]
       resources :calendars
     end

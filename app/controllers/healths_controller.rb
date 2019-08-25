@@ -17,6 +17,7 @@ class HealthsController < ApplicationController
   def new_post
     @post = Post.new
     @health = Health.find(params[:id])
+    @posts = @health.posts.order("created_at DESC")
     @health_id = Health.find(params[:id]).id
   end
 
@@ -25,7 +26,7 @@ class HealthsController < ApplicationController
     @post = current_health.posts.build(params.require(:post).permit(:content, :id))
     
     if @post.save
-      redirect_to @post, notice: "Saved..."
+      redirect_back(fallback_location: request.referer, notice: "Saved...")
     else
       flash[:alert] = "Something went wrong..."
       render :new_post
@@ -76,6 +77,32 @@ class HealthsController < ApplicationController
     end
   end
 
+  def edit_post
+    @post = Post.find_by(id: params[:id])
+    @health_id = @post.health.id
+  end
+
+  def post_destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    respond_to do |format|
+      format.html { redirect_to "/healths/#{@post.health.id}/new_post", notice: 'Post was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+  
+  def update_post
+    @post = Post.find_by(id: params[:id])
+    respond_to do |format|
+      if @post.update(params.require(:post).permit(:content, :id))
+        format.html { redirect_to "/healths/#{@post.health.id}/new_post", notice: 'Post was successfully updated.' }
+        format.json { render :show, status: :ok, location: @post}
+      else
+        format.html { render :edit }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
+    end
+  end
   # DELETE /healths/1
   # DELETE /healths/1.json
   def destroy

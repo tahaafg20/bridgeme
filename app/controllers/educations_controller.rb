@@ -22,7 +22,7 @@ class EducationsController < ApplicationController
   def new_post
     @post = Post.new
     @education = Education.find(params[:id])
-    
+    @posts = @education.posts.order("created_at DESC")
     @education_id = Education.find(params[:id]).id
   end
 
@@ -31,7 +31,7 @@ class EducationsController < ApplicationController
     @post = current_education.posts.build(params.require(:post).permit(:content, :id))
     
     if @post.save
-      redirect_to @post, notice: "Saved..."
+      redirect_back(fallback_location: request.referer, notice: "Saved...")
     else
       flash[:alert] = "Something went wrong..."
       render :new_post
@@ -64,7 +64,7 @@ class EducationsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     respond_to do |format|
       if @post.update(params.require(:post).permit(:content, :id))
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        format.html { redirect_to "/educations/#{@post.education.id}/new_post", notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @post}
       else
         format.html { render :edit }
