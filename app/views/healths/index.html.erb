@@ -21,13 +21,13 @@
                 <div class="col-md-6">
                   <h4><%=link_to health.name, health %></h4>
                 </div>
-
+              <% if current_user.id == health.user.id%>
               <div class="col-md-3 right">
               <%= link_to "Manage Posts about this organization","healths/#{health.id}/new_post" ,class: "btn btn-form update" %>
                 <%= link_to "Update Organization", edit_health_path(health), class: "btn btn-form update" %>
                 <%= button_to "Delete Organization",  health,  method: :delete, class: "btn btn-form update", data: { confirm: 'Are you sure?' }  %>
-                
               </div>
+              <%end%>
           </div>
           
             <% end %>

@@ -24,31 +24,34 @@
 </div>
 <div class="col-md-12">
 <div id="chat">
-        <%@posts.each do |post|%>
+        <%@posts.reverse.each do |post|%>
             <div class="panel">
                 <div class="panel-body">
                 <%if !post.community.nil?%>
                     <div class="row-space-2">
-                    <%= post.community.name %>
+                    <h4>Community Center Name: <%=link_to post.community.name, community_path(post.community) %></h4>
                   </div>
                 <%end%>
                 <%if !post.health.nil?%>
                     <div class="row-space-2">
-                    <%= post.health.name %>
+                    <h4>Organization Name: <%=link_to post.health.name, health_path(post.health) %></h4> 
                   </div>
                 <%end%>
                 <%if !post.ngo.nil?%>
                     <div class="row-space-2">
-                    <%= post.ngo.name %>
+                    <h4>NGO Name: <%=link_to post.ngo.name, ngo_path(post.ngo) %></h4> 
                   </div>
                 <%end%>
                 <%if !post.education.nil?%>
                     <div class="row-space-2">
-                    <%= post.education.name %>
+                    <h4>Organization Name: <%=link_to post.education.name, education_path(post.education)%></h4>
                   </div>
                 <%end%>
                     <div class="row-space-2">
                     <%= post.content %>
+                    </div>
+                    <div class="row-space-2">
+                    Post Writer: <%=link_to post.user.fullname, user_path(post.user) %>
                     </div>
                     <%post.images.each do |image|%>
                     <%=image_tag url_for(image), size:"250x250"%>
