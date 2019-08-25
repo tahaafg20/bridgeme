@@ -7,6 +7,7 @@ class PagesController < ApplicationController
     @healths=Health.search params[:search1], fields: [:name,:accepted_documents,:address,:services]
     @communities=Community.search params[:search1], fields: [:name,:accepted_documents,:address,:services, :country]
     @ngos=Ngo.search params[:search1], fields: [:name,:accepted_documents,:address,:services]
+    @posts = Post.search params[:search1], fields: [:content]
   
   else
     @rooms = Room.where(active: true).limit(3)
@@ -14,6 +15,7 @@ class PagesController < ApplicationController
     @healths=Health.limit(1)
     @communities=Community.limit(1)
     @ngos=Ngo.limit(1)
+    @posts = Post.all
    end
     
   end
@@ -34,7 +36,7 @@ class PagesController < ApplicationController
     # STEP 3
     @search = @rooms_address.ransack(params[:q])
     @rooms = @search.result
-
+    @posts = Post.all
     @arrRooms = @rooms.to_a
 
     # STEP 4
