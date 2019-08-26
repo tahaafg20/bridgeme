@@ -62,7 +62,12 @@ class RoomsController < ApplicationController
     end
     redirect_back(fallback_location: request.referer)
   end
-
+  
+  def destroy
+    @room = Room.find(params[:id])
+    @room.destroy
+    redirect_back(fallback_location: request.referer)
+  end
   # --- Reservations ---
   def preload
     today = Date.today
@@ -112,4 +117,5 @@ class RoomsController < ApplicationController
     def room_params
       params.require(:room).permit(:home_type, :room_type, :accommodate, :bed_room, :bath_room, :listing_name, :summary,:cover, :images, :address, :is_tv, :is_kitchen, :is_air, :is_heating, :is_internet, :price, :active, :instant)
     end
+    
 end

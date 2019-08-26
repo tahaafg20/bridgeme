@@ -1,15 +1,9 @@
 
-
 <div class="row org_new text-center">
   <div class="col-md-12">
-
-  <%# this create margin-left to col-md-3 %>
-  <div class="col-md-3">
-  what is here?
-  </div>
-   <%# this create margin-left to col-md-3 %>  
-
-      <%= form_for @health, :html => { :id => "form" } do |f| %>
+  <div class="col-md-3"> </div>
+  
+     <%= form_for @health, :html => { :id => "form" } do |f| %>
 
       <div class="col-md-6 background">   
 
@@ -67,17 +61,9 @@
             </div>
         </div>     
       </div>
-  
- </div>
-</div>
-<%# </div> %>
-
-
-<div class="row org_new org_map text-center">
+  <div class="row org_new org_map text-center">
   <div class="col-md-12">
-    <div class="col-md-3">
-    what is here?
-    </div>
+    <div class="col-md-3"></div>
       <div class="col-md-6 map-box background">
           <div class="map-image map-radius" id="map" ></div>
     
@@ -85,12 +71,12 @@
               <div class="row" id="longtitude" data-long= "<%= @health.longitude%>">
                   <%= f.submit "Save", class: "btn btn-normal org_btn" %>
               </div>
-            <div>
+            </div>
           <% end %>
       </div>
-        
-  </div>
+     </div>
 </div>
+ </div>
 </div>
 </div>
 

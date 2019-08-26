@@ -78,103 +78,70 @@
   <section class="bg-light page-section" id="portfolio">
     <div class="container">
       <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Nearby Room rentals</h2>
-          <h3 class="section-subheading text-muted">Best Values</h3>
-        </div>
-      </div>
-
-   
-
-      <%@display_rooms =Room.all.order("created_at DESC").limit(6) %>
-
-      <%unless @display_rooms.empty? %>
-
-      <%@display_rooms.each do |apartment|%>
-
-  <%@id = apartment.id%>
-        <div class="col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" data-toggle="modal" href="#portfolio_<%=@id%>">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                <i class="fas fa-plus fa-3x"></i>
-              </div>
-              
-            </div>
-         <%= image_tag(url_for(apartment.cover),style:"height:300px;width:100%;") %>
-          </a>
-          <div class="portfolio-caption">
-           
-            <p class="text-muted"><%=apartment.room_type%></p>
-            <%unless apartment.address.nil?%>
-
-             <h4>Address</h4>
-              <p class="text-muted" limit="20"><%=apartment.address%></p>
-
-              <%else%>
-                  <p class="text-muted">Address not available</p>
-              <%end%>
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">Nearby Room rentals</h2>
+            <h3 class="section-subheading text-muted">Best Values</h3>
           </div>
-        </div>
-
-  <%end%>
-
-
-      
-        <%end%>
       </div>
-    </div>
-  </section>
 
-<div>
-<div class="row">
-  <%= render partial: "rooms/rooms_list", locals: {rooms: @rooms} %>
-</div>
-<div class="row">
+    <div class="row">
+      <%= render partial: "rooms/rooms_list", locals: {rooms: @rooms} %>
+    </div>
+      
+   <div class="row">
   <%= render partial: "educations/educations_list", locals: {educations: @educations} %>
   <%= render partial: "healths/healths_list", locals: {healths: @healths} %>
   <%= render partial: "communities/communities_list", locals: {communities: @communities} %>
   <%= render partial: "ngos/ngos_list", locals: {ngos: @ngos} %>
-</div>
-<div class="col-md-12">
+  </div>
+
+<div class="row">
 <div id="chat">
-<%unless @posts.empty?%>
-        <%@posts.reverse.each do |post|%>
-            <div class="panel">
-                <div class="panel-body">
-                <%if !post.community.nil?%>
-                    <div class="row-space-2">
-                    <h4>Community Center Name: <%=link_to post.community.name, community_path(post.community) %></h4>
-                  </div>
-                <%end%>
-                <%if !post.health.nil?%>
-                    <div class="row-space-2">
-                    <h4>Organization Name: <%=link_to post.health.name, health_path(post.health) %></h4> 
-                  </div>
-                <%end%>
-                <%if !post.ngo.nil?%>
-                    <div class="row-space-2">
-                    <h4>NGO Name: <%=link_to post.ngo.name, ngo_path(post.ngo) %></h4> 
-                  </div>
-                <%end%>
-                <%if !post.education.nil?%>
-                    <div class="row-space-2">
-                    <h4>Organization Name: <%=link_to post.education.name, education_path(post.education)%></h4>
-                  </div>
-                <%end%>
-                    <div class="row-space-2">
-                    <%= post.content %>
-                    </div>
-                    <div class="row-space-2">
-                    Post Writer: <%=link_to post.user.fullname, user_path(post.user) %>
-                    </div>
-                    <%post.images.each do |image|%>
-                    <%=image_tag url_for(image), size:"250x250"%>
+    <%unless @posts.empty?%>
+            <%@posts.reverse.each do |post|%>
+                <div class="panel">
+                    <div class="panel-body">
+                    <%if !post.community.nil?%>
+                        <div class="row-space-2">
+                        <h4>Community Center Name: <%=link_to post.community.name, community_path(post.community) %></h4>
+                      </div>
                     <%end%>
-                </div>
-                </div>
-        <%end%>
-<%end%>
+                    <%if !post.health.nil?%>
+                        <div class="row-space-2">
+                        <h4>Organization Name: <%=link_to post.health.name, health_path(post.health) %></h4> 
+                      </div>
+                    <%end%>
+                    <%if !post.ngo.nil?%>
+                        <div class="row-space-2">
+                        <h4>NGO Name: <%=link_to post.ngo.name, ngo_path(post.ngo) %></h4> 
+                      </div>
+                    <%end%>
+                    <%if !post.education.nil?%>
+                        <div class="row-space-2">
+                        <h4>Organization Name: <%=link_to post.education.name, education_path(post.education)%></h4>
+                      </div>
+                    <%end%>
+                        <div class="row-space-2">
+                        <%= post.content %>
+                        </div>
+                        <div class="row-space-2">
+                        Post Writer: <%=link_to post.user.fullname, user_path(post.user) %>
+                        </div>
+                        <%post.images.each do |image|%>
+                        <%=image_tag url_for(image), size:"250x250"%>
+                        <%end%>
+                    </div>
+                    </div>
+              <%end%>
+    <%end%>
+
+
+   </div>
+   </section>
+
+
+
+
 <script>
 $(function () { objectFitImages() });
 
