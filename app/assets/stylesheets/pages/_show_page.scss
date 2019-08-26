@@ -28,3 +28,37 @@
 // .icon2{
 //     margin-left: 20px;
 // }
+
+.display-box{
+    // box-shadow: 2px 2px 2px gray;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    // background-color: gray;
+    padding:10px;
+    margin-bottom: 20px;
+}
+
+.image-radius{
+    border-radius: 5px;
+}
+.image-radius-top{
+    border-radius: 3px;
+}
+ul.list-style{
+    list-style-type: circle;
+}
+.map-top-margin{
+    margin-top: 30px;
+}
+.amentities-margin{
+    margin-left: -40px;
+}
+.title{
+    margin-left: 15px;
+}
+h4{
+    font-weight: bold;
+}
+ul li{
+    line-height: 1.5625;
+}
