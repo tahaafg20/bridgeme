@@ -25,7 +25,8 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
    
-    @post = Post.new(post_params)
+  byebug
+    @post = current_user.posts.build(post_params)
     respond_to do |format|
       if @post.save
         @post.reindex

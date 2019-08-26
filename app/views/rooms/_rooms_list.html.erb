@@ -1,6 +1,6 @@
 <% rooms.each do |room| %>
           <div class="col-md-4 col-sm-6 portfolio-item" >
-          <!--      <a class="portfolio-link" data-toggle="modal" href="#portfolio_<%=room.id%>">  -->
+        
           <%= link_to room, :class => 'portfolio-link' do%>
             <div class="portfolio-hover">
               <div class="portfolio-hover-content">
@@ -14,13 +14,22 @@
           <div class="portfolio-caption">
            
             <h4 class="text-muted"><%=room.room_type%></h4>
-              RM<%= room.price %>
-           
+              RM<%= room.price %><br>
+              <span id="average_rating"></span>
           </div>
         </div>
-
+<script>
+$(document).ready(function() {
+  $('#average_rating').raty({
+    path: '/assets',
+    readOnly: true,
+    score: <%= room.average_rating %>
+  });
+});
+</script>
 
 <% end %>
+
 
      
 
