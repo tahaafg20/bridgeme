@@ -36,6 +36,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
+gem "administrate"
 gem 'mailgun-ruby', '~>1.1.6'
 gem 'devise'
 gem 'omniauth-facebook'

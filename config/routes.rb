@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  namespace :admin do
+      resources :users
+
+      root to: "users#index"
+    end
   resources :posts, except: [:create, :update, :show, :destroy, :edit]
   resources :ngos
   resources :healths
@@ -6,7 +11,6 @@ Rails.application.routes.draw do
   resources :educations
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
-  resources :organizations
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks',  registrations: 'users/registrations'}
   devise_scope :users do
     get "sign_out", :to => "devise/sessions#destroy"
@@ -43,7 +47,6 @@ Rails.application.routes.draw do
   
     get '/your_trips' => 'reservations#your_trips'
     get '/your_reservations' => 'reservations#your_reservations'
-    get '/your_organizations' => 'reservations#your_organizations'
     get '/healths1' => 'healths#index1'
     get '/educations1' => 'educations#index1'
     get '/communities1' => 'communities#index1'
