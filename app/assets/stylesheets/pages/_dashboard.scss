@@ -3,13 +3,20 @@
     background-color: white;
     border-radius: 5px;
     padding:30px;
-    color:white;
+    // color:white;
+
+    // padding-bottom: 200px;
 }
 
-// .btn-block{
-//     margin-top: -5px;
-// }
 
-// .text-color{
-//     color:white;
-// }
+
+.btn-block{
+    margin-top: -5px;
+}
+
+.dshb-btn a{
+
+    color:$app_yellow !important;
+    font-size: 12px;
+
+}

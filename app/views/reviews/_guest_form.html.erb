@@ -1,20 +1,26 @@
+
+
 <!-- Trigger the modal with a button -->
 <br><button type="button" class="btn btn-normal" data-toggle="modal" data-target="#myModal_<%= reservation.id %>">
   Review Host
 </button>
 
 <!-- Modal -->
+<%= form_for current_user.guest_reviews.new do |f| %>
 <div id="myModal_<%= reservation.id %>" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
+  <div>
+
     <!-- Modal content-->
     <div class="modal-content">
+    
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title text-left">Review Your Host</h4>
       </div>
       <div class="modal-body">
-        <%= form_for current_user.guest_reviews.new do |f| %>
+        
             <div class="form-group text-center">
               <div id="stars"></div>
             </div>
@@ -29,12 +35,19 @@
             <div class="text-center">
               <%= f.submit "Add Review", class: "btn btn-normal" %>
             </div>
-        <% end %>
+       
       </div>
+    </div>
+
     </div>
 
   </div>
 </div>
+
+
+
+
+ <% end %>
 
 <script>
 $(document).ready(function() {
