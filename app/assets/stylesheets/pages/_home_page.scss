@@ -1,18 +1,20 @@
 .jumbotron {
   position:relative;
   overflow:hidden;
-  height: 400px;;
-    margin-top:-20px;
+  height: 560px;;
+    margin-top:-18px;
 }
 
 .jumbotron .container {
   position:relative;
   z-index:2;
   
-  background:rgba(0,0,0,0.2);
+  // background:rgba(0,0,0,0.2);
   padding:2rem;
-  border:1px solid rgba(0,0,0,0.1);
+  background: transparent;
+  // border:1px solid rgba(0,0,0,0.1);
   border-radius:3px;
+  margin-top:10%;
 }
 
 .jumbotron-background {
@@ -26,47 +28,6 @@
   opacity:0.5;
 }
 
-img.blur {
-	-webkit-filter: blur(4px);
-	filter: blur(4px);
-  filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='4');
-
-}
-
-// .jumbotron {
-//   position:relative;
-//   overflow:hidden;
-//   width:100%;
-//   // background-image:url('https://placeimg.com/2000/1000/man');
-//   background-size:cover;
-// 
-// }
-
-// .jumbotron .container {
-//   position:relative;
-//   z-index:2;
-//   color:#fff;
-//   margin-top:14rem;
-//   background:rgba(0,0,0,0.2);
-//   padding:2rem;
-//   border:1px solid rgba(0,0,0,0.1);
-//   border-radius:3px;
-//   // width:100%;
-// }
-
-// .jumbotron-background {
-//   object-fit:cover;
-//   // font-family: 'object-fit: cover;';
-//   // object-fit: cover;
-//   position:absolute;
-//   top:0;
-//   z-index:1;
-//   // width:100%;
-//   height:100%;
-//   opacity:0.5;
-//   background-size: cover;
-// }
-
 // img.blur {
 // 	-webkit-filter: blur(4px);
 // 	filter: blur(4px);
@@ -74,25 +35,6 @@ img.blur {
 
 // }
 
-// @import url('https://fonts.googleapis.com/css?family=Sarabun');
-
-// *,
-// *::after,
-// *::before {
-//   margin: 0;
-//   padding: 0;
-//   box-sizing: inherit;
-// }
-
-// // html {
-// //   font-size: 62.5%;
-// // }
-
-// // body {
-// //   box-sizing: border-box;
-// //   background-color:   rgba(229,229,229, .3);
-// //   font-family: 'Sarabun', sans-serif;
-// // }
 
 .search_container {
   width: 25rem;
@@ -111,7 +53,9 @@ h1 {
 
 .searchbar {
   font-size: 2.4rem;
-  width: 29rem;
+  // width: 29rem;
+  width: 90rem;
+  // width:100%!important;
   height: 6rem;
   border: none;
   outline: none;
@@ -127,7 +71,7 @@ h1 {
 }
 
 .searchbar:hover {
-  width: 32rem;
+  width: 92rem;
   height: 7rem;
 }
 
@@ -135,7 +79,8 @@ h1 {
   height: 2rem;
   position: absolute;
   top: 1rem;
-  right: -2rem;
+  right: -62rem;
+  // right: -2rem;
   transition: all .2s;
   transition-delay: .1s;
   
@@ -149,13 +94,85 @@ h1 {
   height: 2.5rem;
   top: 1.8rem;
   // left: ;
-  right:-3em;
+  // right:-3em;
+  right:-64rem;
 }
 
 .searchbar::placeholder {
   opacity: .5;
   color:$app_dark;
 }
+
+@media (max-width:890px){
+
+
+
+.searchbar {
+  width: 29rem;
+  height: 6rem;
+  
+}
+
+.searchbar:hover {
+  width: 32rem;
+  height: 7rem;
+}
+
+.button {
+ 
+  right: -2rem;
+  transition-delay: .2s;
+  
+}
+
+.searchbar:hover + .button {
+  // height: 2.5rem;
+  // top: 1.8rem;
+  // // left: ;
+  right:-3em;
+  // right:-64em;
+}
+
+}
+
+
+
+
+
+.service_link{
+  padding: 50px;
+  height: 300px;
+  width:100%;
+  height: 300px;
+  // margin-left:10%;
+  justify-items: center;
+  align-items: baseline !important;
+  text-align: center;
+  font-weight: 500;
+  font-size: 3rem;
+  // padding
+
+
+}
+
+.header_caption h2{
+
+  font-size:6rem;
+}
+  
+list {
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+
+}
+  
+  item {
+    padding: 25px;
+
+  }
 
 
 

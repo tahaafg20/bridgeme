@@ -85,12 +85,16 @@ b{
     color:white !important;
 }
 
+.fa-bell:hover{
+    color:$app_blue !important;
+    background:$mild_yellow;
+}
+
 .navbar .navbar-brand b {
     font-weight: bold;
     color: $app_yellow;
-
 }
-.navbar ul.nav li a:hover,.fa-bell ul.nav .navbar li a:focus {
+.navbar ul.nav li a:hover,ul.nav .navbar li a:focus {
     color: $app_blue!important;
     background-color:$mild_yellow;
     border-radius: 20px;
