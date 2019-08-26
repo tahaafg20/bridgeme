@@ -14,8 +14,9 @@ require("channels")
 require("jquery-ui")
 import 'bootstrap';
 import "swiper";
+import "./swiper";
 import './geocomplete';
-import './jquery.raty';
+// import './jquery.raty';
 window.jQuery = $;
 window.$ = $;
 
