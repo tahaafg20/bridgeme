@@ -65,6 +65,26 @@
       </div>
       </div>
 </div>
+
+<!-- NEAR BY educations -->
+    <div class="row">
+      <h3>Near by</h3>
+      <% for education in @education.nearbys(10) %>
+          <div class="col-md-4">
+            <div class="panel panel-default">
+              <div class="panel-heading preview">
+              
+                <%= link_to education.name, education %>
+                <br/> About        : <%=education.about%>   
+                <br/> Accepted documents: <%=education.accepted_documents%>
+                <br/> Services: <%=education.services%>
+                (<%= education.distance.round(2) %> kms away)
+              </div>
+            </div>
+          </div>
+      <% end %>
+    </div>
+
 <script> 
   var lt = parseFloat(document.querySelector("#latitude").dataset["lat"])
   var ln = parseFloat(document.querySelector("#longtitude").dataset["long"])
@@ -88,3 +108,4 @@
     async defer></script> 
     </div>
     <hr/>
+

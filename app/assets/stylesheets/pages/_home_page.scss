@@ -2,7 +2,7 @@
   position:relative;
   overflow:hidden;
   height: 600px;;
-    margin-top:-18px;
+    margin-top:-20px;
 }
 
 .jumbotron .container {
@@ -32,6 +32,7 @@
 .power-text{
 
   color:#fff;
+  // opacity:0.5; 
 }
 
 // img.blur {
@@ -118,6 +119,7 @@ h1 {
 .searchbar {
   width: 29rem;
   height: 6rem;
+
   
 }
 
@@ -168,12 +170,16 @@ h1 {
   font-size:6rem;
 }
   
-list {
+.badge_banner {
   height: 200px;
   // display: flex;
   // flex-direction: row;
   // justify-content: space-between;
   width: 100%;
+  background-color:$app_blue !important;
+  color:white;
+  border-radius:10px;
+  margin-top:20px;
 
 }
   
@@ -189,7 +195,10 @@ margin-top:-20px;
 margin-bottom: -11%;
 }
 
-.search_hero .right{
+.search_hero .right.breadgrumb{
+
+  font-size:23px;
+
 
 }
 
@@ -308,6 +317,7 @@ a:visited:not([rel='external']) {
 
 .c-navigation-breadcrumbs {
   margin-top:2em;
+  font-size: 20px;
   &__directory {
     display: flex;
   }

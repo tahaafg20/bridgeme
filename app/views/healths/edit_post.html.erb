@@ -1,0 +1,24 @@
+<div class="col-md-3">
+  </div>
+   <%# this create margin-left to col-md-3 %>  
+
+      <%= form_for @post, url:"/healths/posts/#{@post.id}/edit", :html => { :id => "form" } do |f| %>
+        <%# <%= hidden_field_tag :authenticity_token, form_authenticity_token %> 
+      <div class="col-md-6 background">   
+
+        <div class="form-group ">
+            <label>Post Content</label>
+              <%=f.text_field :content, class: "form-control input-lg"%>
+        </div>
+        <div class="form-group ">
+            <label>Add Photos</label>
+              <%=f.file_field :images, multiple:true%>
+        </div>
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <div class="form-group ">
+            <%= f.submit "Post", class: "btn btn-primary" %>
+        </div>
+      </div>
+      <%end%>
+    </div>
+  </div>

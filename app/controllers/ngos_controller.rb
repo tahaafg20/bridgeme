@@ -5,12 +5,64 @@ class NgosController < ApplicationController
   # GET /ngos
   # GET /ngos.json
   def index
+    @ngos = current_user.ngos
+    @arrNgos = @ngos.to_a
+  end
+
+  def index1
     @ngos = Ngo.all
+    @arrNgos = @ngos.to_a
   end
 
   # GET /ngos/1
   # GET /ngos/1.json
   def show
+  end
+
+  def new_post
+    @post = Post.new
+    @ngo = Ngo.find(params[:id])
+    @posts = @ngo.posts.order("created_at DESC")
+    @ngo_id = Ngo.find(params[:id]).id
+  end
+
+  def new_post1
+    current_ngo = Ngo.find(params[:id])
+    @post = current_ngo.posts.build(params.require(:post).permit(:content, :id, images:[]))
+    
+    if @post.save
+      redirect_to "ngos/#{current_ngo.id}/new_post", notice: "Saved..."
+    else
+      flash[:alert] = "Something went wrong..."
+      render :new_post
+    end
+  end
+
+  def edit_post
+    @post = Post.find_by(id: params[:id])
+    @ngo_id = @post.ngo.id
+  end
+
+  def post_destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    respond_to do |format|
+      format.html { redirect_to "/ngos/#{@post.ngo.id}/new_post", notice: 'Post was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+  
+  def update_post
+    @post = Post.find_by(id: params[:id])
+    respond_to do |format|
+      if @post.update(params.require(:post).permit(:content, :id, images:[]))
+        format.html { redirect_to "/ngos/#{@post.ngo.id}/new_post", notice: 'Post was successfully updated.' }
+        format.json { render :show, status: :ok, location: @post}
+      else
+        format.html { render :edit }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # GET /ngos/new
@@ -28,7 +80,8 @@ class NgosController < ApplicationController
     @ngo = current_user.ngos.build(ngo_params)
     respond_to do |format|
       if @ngo.save
-        format.html { redirect_to @ngo, notice: 'Ngo was successfully created.' }
+        @ngo.reindex
+        redirect_back(fallback_location: request.referer, notice: "Saved...")
         format.json { render :show, status: :created, location: @ngo }
       else
         format.html { render :new }
@@ -42,7 +95,7 @@ class NgosController < ApplicationController
   def update
     respond_to do |format|
       if @ngo.update(ngo_params)
-        format.html { redirect_to @ngo, notice: 'Ngo was successfully updated.' }
+        redirect_to "ngos/#{@ngo.id}/new_post", notice: 'Ngo was successfully updated.'
         format.json { render :show, status: :ok, location: @ngo }
       else
         format.html { render :edit }
@@ -69,6 +122,6 @@ class NgosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ngo_params
-      params.require(:ngo).permit(:name, :address, :number, :longitude, :latitude, :email, :services, :about, :status, :link, :accepted_documents)
+      params.require(:ngo).permit(:name, :address, :number, :longitude, :latitude, :email, :services, :about, :status, :link, :accepted_documents, images:[])
     end
 end

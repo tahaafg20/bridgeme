@@ -2,7 +2,7 @@ class Room < ApplicationRecord
   enum instant: {Request: 0, Instant: 1}
     has_many_attached :images
     has_one_attached :cover
-    # searchkick
+    searchkick
     belongs_to :user
     has_many :reservations
     has_many :guest_reviews

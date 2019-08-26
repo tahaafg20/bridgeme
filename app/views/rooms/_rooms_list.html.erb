@@ -1,16 +1,29 @@
 <% rooms.each do |room| %>
-    <div class="col-md-4">
-      <div class="panel panel-default">
-        <div class="panel-heading preview">
-         <%= link_to room do %>
-          <%= image_tag(url_for(room.cover),size:"300x300") %>
-          <%end%>
+          <div class="col-md-4 col-sm-6 portfolio-item" >
+          <!--      <a class="portfolio-link" data-toggle="modal" href="#portfolio_<%=room.id%>">  -->
+          <%= link_to room, :class => 'portfolio-link' do%>
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+         <%= image_tag(url_for(room.cover),style:"height:300px;width:100%;") %>
+        
+         <%end%>
+            
+          <div class="portfolio-caption">
+           
+            <h4 ><%=room.room_type%></h4>
+              <p class="text-muted">RM<%= room.price %></p>
+           
+          </div>
         </div>
 
-        <div class="panel-body">
-         <%=room.listing_name%>  <br/>
-          RM<%= room.price %>
-        </div>
-      </div>
-    </div>
+
 <% end %>
+
+     
+
+  
+
+  

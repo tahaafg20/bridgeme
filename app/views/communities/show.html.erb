@@ -5,7 +5,7 @@
       <div class="col-md-6 info-box">
 
           <h1 >Community Center Info</h1>
-          <div class="form-group " id="longtitude" data-long= "<%= @community.longitude %>">
+          <div class="form-group" id="longtitude" data-long= "<%= @community.longitude %>">
 
             <label>Community Center Name:</label>
             <h2 class="org-name"><%= @community.name %></h2>
@@ -30,7 +30,7 @@
         </div>
         <% if !@community.link.nil? %>
         <div class="form-group">
-         <p> The link to this organization's webpage: <div><%=link_to @community.name, "/#{@community.link}"
+         <p> The link to this organization's webpage: <div><%=link_to @community.name, "/#{@community.link}"%>
         </div>
         <%end%>
 
@@ -65,6 +65,25 @@
       </div>
       </div>
 </div>
+<!-- NEAR BY communities -->
+    <div class="row">
+      <h3>Near by</h3>
+      <% for community in @community.nearbys(10) %>
+          <div class="col-md-4">
+            <div class="panel panel-default">
+              <div class="panel-heading preview">
+              
+                <%= link_to community.name, community %>
+                <br/> About        : <%=community.about%>   
+                <br/> Services: <%=community.services%>
+                (<%= community.distance.round(2) %> kms away)
+              </div>
+            </div>
+          </div>
+      <% end %>
+    </div>
+
+
 <script> 
   var lt = parseFloat(document.querySelector("#latitude").dataset["lat"])
   var ln = parseFloat(document.querySelector("#longtitude").dataset["long"])

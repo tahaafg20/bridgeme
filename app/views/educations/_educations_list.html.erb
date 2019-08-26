@@ -1,13 +1,28 @@
 
 <% @educations.each do |education| %>
-    <div class="col-md-4">
-        <div class="panel-body">
-          <%= link_to education.name, education %><%unless education.number.empty?%><a href="<%education.number%>"title="Website name"><i style="margin-right: 0.5em; color: #EEEEEE;" class="icon-home icon-4x"></i>organization Link</a><%end%>
-        <br/>  Phone Number: <%= education.number %> <br> <%= education.address %>
-
-        <br/> About        : <%=education.about%>   
-        <br/> Accepted documents: <%=education.accepted_documents%>
-        <br/> Services: <%=education.services%>
-       </div>
+<div class="box_show">
+    <div class="container">
+     	<div class="row">
+			    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+					<div class="box-part text-center">    
+                  <i class="icon_show fas fa-university fa-4x" aria-hidden="true"></i>   
+						<div class="title_show">
+							<h4><%= link_to education.name, education %></h4>
+              <br/>  Phone Number: <%= education.number %> <br> <%= education.address %>
+						</div>
+                        
+						<div class="text_show">
+							<span><%= education.services.first(20)%></span>
+						</div>       
+            <%unless education.link.nil?%>
+            <a class="org_link" href="<%=education.link%>">visit our website</a>
+            <%end%>
+                        
+					 </div>
+				</div>	 	
+		</div>		
     </div>
+</div>
+
 <% end %>
+

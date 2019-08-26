@@ -1,3 +1,6 @@
+<!-- HOMES -->
+
+  
 <div class="jumbotron jumbotron-fluid bg-dark">
   
     <div class="jumbotron-background">
@@ -14,15 +17,19 @@
       </div>
   </div>
 
-  <div class="container text-white">
- <%= form_tag search_path, method: :get do %>
-    <div class="search_container">
-      <%# <input type="text" maxlength= "12" placeholder="Search..." class="searchbar"> %>
-      <%= text_field_tag :search, params[:search], placeholder: "What are you searching for?",class: "searchbar",maxlength:"12"%>
-      <img src="https://images-na.ssl-images-amazon.com/images/I/41gYkruZM2L.png" alt="Magnifying Glass" class="button">
-    </div>
+ <div class="container text-white">
+  <%= form_tag root_path, :method => 'get'  do %>
+   <%# <a onsubmit="#portfolio"> %>
 
-  <%end%>
+  <div class="search_container">
+    <%= text_field_tag :search1, params[:search1], class:"searchbar", placeholder: "What are you searching for?",maxlength:"120" %>
+    <input hidden type="submit" id="second_submit" formaction="#portfolio" visibility="hidden"> 
+
+    <img src="https://images-na.ssl-images-amazon.com/images/I/41gYkruZM2L.png" alt="Magnifying Glass" class="button">
+     <%# </a> %>
+   <% end %>
+  
+</div>
 
     <hr class="my-4">
     <p class="power-text">It uses utility classes for typography and spacing to space content out within the larger container.</p>
@@ -33,35 +40,37 @@
   
  
 </div>
-<%# </div> %>
 <!-- /.jumbotron -->
 
 
 <%# ====== list of service ========= %>
 
-<div class="service_link">
+<%# <div class="service_link">
 
 <div class="header_caption">
 
 <h2>Are you local or refugee affiliate?</h2>
 
-</div>
+</div> %>
 
-<list class="row col-12">
-  <item class="col-md-4 col-sm-12 col-xs-12">
- <p><span><%=icon('fas', 'building')%></span><br><h4>Organizations</h4></p>  </item>
-  <item class="col-md-4 col-sm-12 col-xs-12">
- <p><span><%=icon('fas', 'university')%></span> <br><h4>Schools</h4></p>
-  </item>
-  <item class="col-md-4 col-sm-12 col-xs-12">
-    <p><span><%=icon('fas', 'map')%></span> <br><h4>Clinic</h4></p>
+<%# <div class="row col-12 badge_banner"> %>
+  <%# <item class="col-md-4 col-sm-12 col-xs-12"> %>
+ <%# <p><span><%=icon('fas', 'building')%>
+ <%# </span><br><h4>Organizations</h4></p>  </item> %> 
+  <%# <item class="col-md-4 col-sm-12 col-xs-12"> %>
+ <%# <p><span><%=icon('fas', 'university')%>
+ <%# </span> <br><h4>Schools</h4></p> %>
+  <%# </item> %>
+  <%# <item class="col-md-4 col-sm-12 col-xs-12"> %>
+    <%# <p><span><%=icon('fas', 'map')%>
+    <%# </span> <br><h4>Clinic</h4></p> %>
 
-  </item>
-</list>
+  <%# </item> %>
+<%# </div> %>
 
 
 
-</div>
+<%# </div> %>
 
 
 
@@ -76,140 +85,96 @@
   <section class="bg-light page-section" id="portfolio">
     <div class="container">
       <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Nearby Room rentals</h2>
-          <h3 class="section-subheading text-muted">Best Values</h3>
-        </div>
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">Nearby Room rentals</h2>
+            <h3 class="section-subheading text-muted">Best Values</h3>
+          </div>
       </div>
 
-      <%# <div class="row"> %>
 
-      <%@display_rooms =Room.all.order("created_at DESC").limit(6) %>
-
-      <%unless @display_rooms.empty? %>
-
-      <%@display_rooms.each do |apartment|%>
-
-  <%@id = apartment.id%>
-        <div class="col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" data-toggle="modal" href="#portfolio_<%=@id%>">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                <i class="fas fa-plus fa-3x"></i>
-              </div>
-              
-            </div>
-
-            <%# <div class="img-fluid"> %>
-
-            <%= image_tag(url_for(apartment.cover),style:"height:300px;width:100%;") %>
-
-            <%# </div> %>
-            
-          </a>
-          <div class="portfolio-caption">
-            <%# <h4><%=room.home_type</h4> %>
-            <p class="text-muted"><%=apartment.room_type%></p>
-            <%unless apartment.address.nil?%>
-
-             <h4>Address</h4>
-              <p class="text-muted" limit="20"><%=apartment.address%></p>
-
-              <%else%>
-                  <p class="text-muted">Address not available</p>
-              <%end%>
-          </div>
-        </div>
-
-        
-
-
-
-        <!---Modal --->
-<%# do not use %>
-<div class="portfolio-modal modal fade" id="pIIIIIortfolio_<%=@id%>" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-          <div class="lr">
-            <div class="rl"></div>
-          </div>
-        </div>
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8">
-              <div class="modal-body">
-                <!-- Project Details Go Here -->
-                <h2 class="text-uppercase">Project Name</h2>
-                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                <%# <img class="img-fluid d-block mx-auto"  src="<%=image_url('img/portfolio/02-full.jpg')%>" alt=""> %>
-                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                <ul class="list-inline">
-                  <li>Date: January 2017</li>
-                  <li>Client: Explore</li>
-                  <li>Category: Graphic Design</li>
-                </ul>
-                <button class="btn btn-primary" data-dismiss="modal" type="button">
-                  <i class="fas fa-times"></i>
-                  Close Project</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="row">
+      <%= render partial: "rooms/rooms_list", locals: {rooms: @rooms} %>
     </div>
+    </div> 
+<%# <div class="container"> %>
+   <div class="row">
+  <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">Organizations</h2>
+            <h3 class="section-subheading text-muted">For refugees</h3>
+          </div>
+  <div class="row"> 
+    <%= render partial: "educations/educations_list", locals: {educations: @educations} %>
+  </div>
+  <div class="row">
+  <%= render partial: "healths/healths_list", locals: {healths: @healths} %>
+  </div>
+
+    <div class="row">
+
+  <%= render partial: "communities/communities_list", locals: {communities: @communities} %>
+
+  </div>
+
+    <div class="row">
+
+  <%= render partial: "ngos/ngos_list", locals: {ngos: @ngos} %>
+
+  </div>
+
   <%# </div> %>
+  <%# </div> %>
+  </div>
 
-  <%# <%end%> 
+<div class="row">
+<div id="chat">
+    <%unless @posts.empty?%>
+            <%@posts.reverse.each do |post|%>
+                <div class="panel">
+                    <div class="panel-body">
+                    <%if !post.community.nil?%>
+                        <div class="row-space-2">
+                        <h4>Community Center Name: <%=link_to post.community.name, community_path(post.community) %></h4>
+                      </div>
+                    <%end%>
+                    <%if !post.health.nil?%>
+                        <div class="row-space-2">
+                        <h4>Organization Name: <%=link_to post.health.name, health_path(post.health) %></h4> 
+                      </div>
+                    <%end%>
+                    <%if !post.ngo.nil?%>
+                        <div class="row-space-2">
+                        <h4>NGO Name: <%=link_to post.ngo.name, ngo_path(post.ngo) %></h4> 
+                      </div>
+                    <%end%>
+                    <%if !post.education.nil?%>
+                        <div class="row-space-2">
+                        <h4>Organization Name: <%=link_to post.education.name, education_path(post.education)%></h4>
+                      </div>
+                    <%end%>
+                        <div class="row-space-2">
+                        <%= post.content %>
+                        </div>
+                        <div class="row-space-2">
+                        Post Writer: <%=link_to post.user.fullname, user_path(post.user) %>
+                        </div>
+                        <%post.images.each do |image|%>
+                        <%=image_tag url_for(image), size:"250x250"%>
+                        <%end%>
+                    </div>
+                    </div>
+              <%end%>
+    <%end%>
 
-  <%end%>
 
-
-        <%else%>
-
-          <h3>No rooms to display!</h3>
-        <%end%>
-      </div>
     </div>
+
+   </div>
   </section>
 
-<!---Modal --->
-<%# 
-<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-          <div class="lr">
-            <div class="rl"></div>
-          </div>
-        </div>
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8 mx-auto">
-              <div class="modal-body">
-                <!-- Project Details Go Here -->
-                <h2 class="text-uppercase">Project Name</h2>
-                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                <img class="img-fluid d-block mx-auto"  src="<%=image_url('img/portfolio/02-full.jpg')%>
-                <%# <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                <ul class="list-inline">
-                  <li>Date: January 2017</li>
-                  <li>Client: Explore</li>
-                  <li>Category: Graphic Design</li>
-                </ul>
-                <button class="btn btn-primary" data-dismiss="modal" type="button">
-                  <i class="fas fa-times"></i>
-                  Close Project</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> 
- %>
+
+
+
 <script>
 $(function () { objectFitImages() });
 
 </script>
-

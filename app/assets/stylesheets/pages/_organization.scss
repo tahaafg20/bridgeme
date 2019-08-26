@@ -60,3 +60,60 @@ p{
 .widen-text-box{
     width: 100%;
 }
+
+
+// ========= this part include the styling for home page orgs display =======
+
+/* body{
+    background: #eee;
+} */
+
+.title_show h4{
+    color:$app_blue;
+}
+
+h4:hover{
+    color:$app_blue;
+    font-size:1.4em;
+    text-align: center;
+    // right: 50%;
+    // transition-duration: 1s;    
+
+
+}
+.text_show span{
+    font-size:15px;
+}
+.org_link{
+  text-decoration:none; 
+  color: $app_blue !important;
+  border-bottom:2px solid $app_yellow;
+}
+.org_link:hover{
+    border-bottom:2px solid $app_blue;
+    transition-duration: 2s;    
+}
+.box-show{
+    // padding:60px 0px;
+
+    overflow: hidden;
+  
+}
+
+.box-part{
+    background:#FFF;
+    border-radius:20px;
+    padding:60px 50px;
+    margin:30px 0px;
+    // width: 380px;
+  border: 1px solid $app_blue;
+  box-shadow: 0.2px 0.2px 20px 0.2px;
+  
+}
+.text_show{
+    margin:20px 0px;
+}
+
+.fa-4x{
+     color:$app_blue!important;
+}

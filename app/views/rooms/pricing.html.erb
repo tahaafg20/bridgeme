@@ -1,3 +1,7 @@
+
+
+
+
 <div class="row">
   <div class="col-md-3">
     <%= render 'room_menu' %>
@@ -11,7 +15,8 @@
             <div class="row">
               <div class="form-group ">
                 <label>Price</label>
-                <%= f.text_field :price, placeholder: "eg: 100 (the currency is RM)", class: "form-control", required: true %>
+                <%= f.number_field :price, placeholder: "eg: 100 (the currency is RM)",id:"validationprice", class: "form-control is-valid",pattern:"^(\+?6?01)[0|1|2|3|4|6|7|8|9]-*[0-9]{7,8}$", required: true %>
+          
               </div>
             
             <div class="row pricing-btn">
@@ -25,3 +30,19 @@
     </div>
   </div>
 </div>
+<script>
+validationprice.addEventListener("keyup", function (event) {
+  const  isValidMobile = validationprice.checkValidity();
+  if ( isValidMobile ) {
+    validationprice.classList.remove("is-invalid");
+    validationprice.classList.add("is-valid");
+           
+  }
+  else
+  {
+   validationprice.classList.remove("is-valid");
+    validationprice.classList.add("is-invalid");
+               
+  }
+});
+</script>

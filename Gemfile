@@ -9,6 +9,10 @@ gem 'rails', '~> 6.0.0.rc2'
 gem 'puma', '~> 3.11'
 gem 'jquery-rails'
 gem 'country-select'
+gem 'capistrano'
+gem 'capistrano-rails'
+gem 'capistrano-passenger'
+gem 'capistrano-rbenv'
 gem 'geocoder', '~> 1.4'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5'
@@ -32,6 +36,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
+gem "administrate"
 gem 'mailgun-ruby', '~>1.1.6'
 gem 'devise'
 gem 'omniauth-facebook'

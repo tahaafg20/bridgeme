@@ -1,3 +1,6 @@
+<body>
+
+
 <!-- Image -->
 
 <div class="container">
@@ -9,10 +12,10 @@
 
       <!-- RIGHT PANEL controller-->
       <div class="col-md-8">
-          <div>
-            <%= image_tag @room.cover, width: "100%",class:"image-radius-top" %>
-            Hosted By (<%= @room.user.fullname %>)
-          </div>
+         <div>
+           <%= image_tag @room.cover, size:"800x600",class:"image-radius-top" %><br>
+           Hosted By (<%= @room.user.fullname %>)
+         </div>
 
           <!-- total Review count  -->
           <div class="">
@@ -114,7 +117,32 @@
 </div>
 
 
-  <script> 
+ 
+
+    
+
+<!-- NEAR BY ROOMS -->
+    <div class="row">
+      <h3>Near by</h3>
+      <% for room in @room.nearbys(10) %>
+          <div class="col-md-4">
+            <div class="panel panel-default">
+              <div class="panel-heading preview">
+                <%= image_tag url_for(room.cover),height: "50%",width: "50%" %>
+              </div>
+              <div class="panel-body">
+                <%= link_to room.listing_name, room %><br/>
+                (<%= room.distance.round(2) %> kms away)
+              </div>
+            </div>
+          </div>
+      <% end %>
+    </div>
+
+  </div> 
+  
+</div>
+    <script> 
   var lt = parseFloat(document.querySelector("#latitude").dataset["lat"])
   var ln = parseFloat(document.querySelector("#longtitude").dataset["long"])
   var map;
@@ -133,18 +161,7 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLwih_dEjx7rHvO04och6w_zABvfO8Dcw&callback=initMap"
     async defer></script> 
-    </div>
-
-    <!-- NEAR BY ROOMS -->
-
-
-  </div> 
-  
-
-
- 
-</div>
-
+   
 <script>
 $(document).ready(function() {
   $('#average_rating').raty({
@@ -154,4 +171,4 @@ $(document).ready(function() {
   });
 });
 </script>
- 
+ </body>

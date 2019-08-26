@@ -5,7 +5,6 @@ class Reservation < ApplicationRecord
   
     belongs_to :user
     belongs_to :room
-    belongs_to :organization, required: false
   
     scope :current_week_revenue, -> (user) {
       joins(:room)
