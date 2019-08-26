@@ -127,9 +127,14 @@
     transition: all 0.8s;
   }
   
-  .social-network a {
-    background-color: green;
+  .social-network a:hover {
+    background-color: $app_blue;
   }
+// .fa-facebook, .fa-linkedin{
+//   // width: 50px;
+//   // height: 0px;
+//   padding-top: 5px;
+// }
 
   @media (min-width:775px) and (max-width: 1000px){
 
