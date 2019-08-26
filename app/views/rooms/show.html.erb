@@ -1,3 +1,4 @@
+
 <!-- Image -->
 
 <div class="container">
@@ -9,13 +10,13 @@
 
       <!-- RIGHT PANEL controller-->
       <div class="col-md-8">
-          <div>
-            <%= image_tag @room.cover, width: "100%",class:"image-radius-top" %>
+          <div class="col-sm-12 ">
+            <%= image_tag @room.cover, width: "100%", class:"image-radius-top" %>
             Hosted By (<%= @room.user.fullname %>)
           </div>
 
           <!-- total Review count  -->
-          <div class="">
+          <div class="col-sm-12">
             <h4>
                 <%= pluralize(@guest_reviews.count, "Review") %><br>
                 <span id="average_rating"></span>
@@ -24,7 +25,7 @@
           <hr>
 
           <!-- Carousel -->
-          <div>
+          <div >
             <% if @photos.length > 0 %>
                 <% @photos.each do |photo| %>
                   <%= image_tag(url_for(photo),size:"200x200", class:"image-radius") %>
@@ -112,7 +113,6 @@
     </div>
   </div>
 </div>
-
 
   <script> 
   var lt = parseFloat(document.querySelector("#latitude").dataset["lat"])
