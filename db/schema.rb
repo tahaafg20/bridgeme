@@ -145,21 +145,6 @@ ActiveRecord::Schema.define(version: 2019_08_25_042835) do
     t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
-  create_table "organizations", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "address"
-    t.string "service"
-    t.text "about"
-    t.bigint "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.float "latitude"
-    t.float "longitude"
-    t.string "number"
-    t.index ["user_id"], name: "index_organizations_on_user_id"
-  end
-
   create_table "posts", force: :cascade do |t|
     t.string "content"
     t.datetime "created_at", precision: 6, null: false
@@ -280,7 +265,6 @@ ActiveRecord::Schema.define(version: 2019_08_25_042835) do
   add_foreign_key "ngos", "users"
   add_foreign_key "notifications", "messages"
   add_foreign_key "notifications", "users"
-  add_foreign_key "organizations", "users"
   add_foreign_key "posts", "communities"
   add_foreign_key "posts", "educations"
   add_foreign_key "posts", "healths"

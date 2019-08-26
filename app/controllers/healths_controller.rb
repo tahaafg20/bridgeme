@@ -24,8 +24,9 @@ class HealthsController < ApplicationController
   def new_post1
     current_health = Health.find(params[:id])
     @post = current_health.posts.build(params.require(:post).permit(:content, :id, images:[]))
-    
+    @post.user_id = current_user.id
     if @post.save
+      @post.reindex
       redirect_back(fallback_location: request.referer, notice: "Saved...")
     else
       flash[:alert] = "Something went wrong..."

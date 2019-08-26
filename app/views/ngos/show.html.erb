@@ -27,7 +27,7 @@
 
         <% if !@ngo.link.nil? %>
         <div class="form-group">
-         <p> The link to this organization's webpage: <div><%=link_to @ngo.name, "/#{@ngo.link}" %></p></div>
+        <p> The link to this organization's webpage: <div><a href="<%=@ngo.link%>"><%=@ngo.link%></a></p></div>
         </div>
         <%end%>
 
@@ -72,9 +72,8 @@
       <% for ngo in @ngo.nearbys(10) %>
           <div class="col-md-4">
             <div class="panel panel-default">
-              <div class="panel-heading preview">
-              
-                <%= link_to health.name, ngo %>
+             <div class="panel-heading preview">
+               <a href="<%=@ngo.link%>"><%=@ngo.link%></a>         
                 <br/> About        : <%=ngo.about%>   
                 <br/> Accepted documents: <%=ngo.accepted_documents%>
                 <br/> Services: <%=ngo.services%>
