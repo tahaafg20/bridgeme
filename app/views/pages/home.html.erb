@@ -1,64 +1,6 @@
 <!-- HOMES -->
 
-  <div class="row">
-  <%= form_tag root_path, :method => 'get', class: 'input-group'  do %>
-    <%= text_field_tag :search1, params[:search1], class: 'form-control', placeholder: 'Search for...' %>
-    <span class="input-group-btn">
-      <%= submit_tag "Search", class: "btn btn-default" %>
-    </span>
-  <% end %>
-</div>
-
-
-<div>
-<h3>Homes</h3></div>
-<br/>
-<div class="row">
-  <%= render partial: "rooms/rooms_list", locals: {rooms: @rooms} %>
-</div>
-<div class="row">
-  <%= render partial: "educations/educations_list", locals: {educations: @educations} %>
-  <%= render partial: "healths/healths_list", locals: {healths: @healths} %>
-  <%= render partial: "communities/communities_list", locals: {communities: @communities} %>
-  <%= render partial: "ngos/ngos_list", locals: {ngos: @ngos} %>
-</div>
-<div class="col-md-12">
-<div id="chat">
-        <%@posts.reverse.each do |post|%>
-            <div class="panel">
-                <div class="panel-body">
-                <%if !post.community.nil?%>
-                    <div class="row-space-2">
-                    <h4>Community Center Name: <%=link_to post.community.name, community_path(post.community) %></h4>
-                  </div>
-                <%end%>
-                <%if !post.health.nil?%>
-                    <div class="row-space-2">
-                    <h4>Organization Name: <%=link_to post.health.name, health_path(post.health) %></h4> 
-                  </div>
-                <%end%>
-                <%if !post.ngo.nil?%>
-                    <div class="row-space-2">
-                    <h4>NGO Name: <%=link_to post.ngo.name, ngo_path(post.ngo) %></h4> 
-                  </div>
-                <%end%>
-                <%if !post.education.nil?%>
-                    <div class="row-space-2">
-                    <h4>Organization Name: <%=link_to post.education.name, education_path(post.education)%></h4>
-                  </div>
-                <%end%>
-                    <div class="row-space-2">
-                    <%= post.content %>
-                    </div>
-                    <div class="row-space-2">
-                    Post Writer: <%=link_to post.user.fullname, user_path(post.user) %>
-                    </div>
-                    <%post.images.each do |image|%>
-                    <%=image_tag url_for(image), size:"250x250"%>
-                    <%end%>
-                </div>
-                </div>
-        <%end%>
+  
 <div class="jumbotron jumbotron-fluid bg-dark">
   
     <div class="jumbotron-background">
@@ -274,4 +216,62 @@
 $(function () { objectFitImages() });
 
 </script>
+<div class="row">
+  <%= form_tag root_path, :method => 'get', class: 'input-group'  do %>
+    <%= text_field_tag :search1, params[:search1], class: 'form-control', placeholder: 'Search for...' %>
+    <span class="input-group-btn">
+      <%= submit_tag "Search", class: "btn btn-default" %>
+    </span>
+  <% end %>
+</div>
 
+
+<div>
+<h3>Homes</h3></div>
+<br/>
+<div class="row">
+  <%= render partial: "rooms/rooms_list", locals: {rooms: @rooms} %>
+</div>
+<div class="row">
+  <%= render partial: "educations/educations_list", locals: {educations: @educations} %>
+  <%= render partial: "healths/healths_list", locals: {healths: @healths} %>
+  <%= render partial: "communities/communities_list", locals: {communities: @communities} %>
+  <%= render partial: "ngos/ngos_list", locals: {ngos: @ngos} %>
+</div>
+<div class="col-md-12">
+<div id="chat">
+        <%@posts.reverse.each do |post|%>
+            <div class="panel">
+                <div class="panel-body">
+                <%if !post.community.nil?%>
+                    <div class="row-space-2">
+                    <h4>Community Center Name: <%=link_to post.community.name, community_path(post.community) %></h4>
+                  </div>
+                <%end%>
+                <%if !post.health.nil?%>
+                    <div class="row-space-2">
+                    <h4>Organization Name: <%=link_to post.health.name, health_path(post.health) %></h4> 
+                  </div>
+                <%end%>
+                <%if !post.ngo.nil?%>
+                    <div class="row-space-2">
+                    <h4>NGO Name: <%=link_to post.ngo.name, ngo_path(post.ngo) %></h4> 
+                  </div>
+                <%end%>
+                <%if !post.education.nil?%>
+                    <div class="row-space-2">
+                    <h4>Organization Name: <%=link_to post.education.name, education_path(post.education)%></h4>
+                  </div>
+                <%end%>
+                    <div class="row-space-2">
+                    <%= post.content %>
+                    </div>
+                    <div class="row-space-2">
+                    Post Writer: <%=link_to post.user.fullname, user_path(post.user) %>
+                    </div>
+                    <%post.images.each do |image|%>
+                    <%=image_tag url_for(image), size:"250x250"%>
+                    <%end%>
+                </div>
+                </div>
+        <%end%>
