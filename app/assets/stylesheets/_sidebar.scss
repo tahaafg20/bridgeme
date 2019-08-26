@@ -5,11 +5,19 @@
   }
   
   .sidebar-item {
-    padding: 10px 0;
+    // padding: 10px 0;
     font-size: 16px;
-    color: #82888a;
+    color: $app_blue;
+    text-decoration: none;
+    
   }
   
+  .sidebar-item:hover {
+    // padding: 10px 0;
+    font-size: 16px;
+    color: $app_blue;
+    
+  }
   .sidebar-link {
     color: #82888a;
     text-decoration: none;
@@ -21,7 +29,7 @@
   }
   
   .active.sidebar-link {
-    color: #565A5C;
+    color: rgb(32, 32, 32);
     font-weight: bold;
     text-decoration: none;
   }
