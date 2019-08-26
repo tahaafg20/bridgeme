@@ -9,24 +9,20 @@ class User < ApplicationRecord
          after_commit :send_pending_devise_notifications
          validates :fullname, presence: true, length: {maximum: 50}
 
-         has_many :rooms
-         has_many :ngos
-         has_many :educations
-         has_many :healths
-         has_many :communities
-         has_many :posts
-         has_many :reservations
-         has_many :organizations
+         has_many :rooms, dependent: :destroy
+         has_many :ngos, dependent: :destroy
+         has_many :educations, dependent: :destroy
+         has_many :healths, dependent: :destroy
+         has_many :communities, dependent: :destroy
+         has_many :posts, dependent: :destroy
+         has_many :reservations, dependent: :destroy
          has_many :guest_reviews, class_name: "GuestReview", foreign_key: "guest_id"
          has_many :host_reviews, class_name: "HostReview", foreign_key: "host_id"
-         has_many :notifications
+         has_many :notifications, dependent: :destroy
        
-         has_one :setting
-         after_create :add_setting
          
-         def add_setting
-          Setting.create(user: self, enable_sms: true, enable_email: true)
-        end
+         
+         
 
         def send_devise_notification(notification, *args)
           devise_mailer.send(notification, self, *args).deliver_later

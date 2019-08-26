@@ -25,7 +25,7 @@
          <p> Phone Number: <div><%= @education.number %></p></div>
         </div>
 
-        <% if !@education.link.nil? %>
+        <% if !@education.link.size > 0  %>
         <div class="form-group">
          <p> The link to this organization's webpage: <div><a href="<%=@education.link%>"><%=@education.link%></a></p></div>
         </div>

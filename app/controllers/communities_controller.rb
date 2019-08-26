@@ -28,7 +28,6 @@ class CommunitiesController < ApplicationController
   def new_post1
     current_community = Community.find(params[:id])
     @post = current_community.posts.build(params.require(:post).permit(:content, :id, images:[]))
-    
     @post.user_id = current_user.id
     if @post.save
       @post.reindex

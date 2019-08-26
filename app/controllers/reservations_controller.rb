@@ -52,9 +52,7 @@ class ReservationsController < ApplicationController
     @rooms = current_user.rooms
   end
 
-  def your_organizations
-    @organizations = current_user.organizations
-  end
+ 
 
   def approve
     charge(@reservation.room, @reservation)
@@ -84,7 +82,7 @@ class ReservationsController < ApplicationController
 
         if charge
           reservation.Approved!
-          ReservationMailer.send_email_to_guest(reservation.user, room).deliver_later if reservation.user.setting.enable_email
+          ReservationMailer.send_email_to_guest(reservation.user, room).deliver_later 
           flash[:notice] = "Reservation created successfully!"
         else
           reservation.Declined!

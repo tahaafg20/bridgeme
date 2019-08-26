@@ -1,6 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  config.action_mailer.default_url_options = { host: 'golshanstay.site' }
+  config.action_mailer.default_url_options = { host: 'bridgeme.site' }
 
   # Code is not reloaded between requests.
   config.cache_classes = true
@@ -60,14 +60,14 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.mailgun_settings = {
     api_key: Rails.application.credentials.mailgun[:mailgun_api],
-    domain: 'golshanstay.site',
+    domain: 'bridgeme.site',
   }
 
   config.action_mailer.smtp_settings = {
   address:              'smtp.gmail.com',
   port:                 587,
-  domain:               'golshanstay.site',
-  user_name:            'golshanstay@gmail.com',
+  domain:               'bridgeme.site',
+  user_name:            'bridgeme2019@gmail.com',
   password:             Rails.application.credentials.email[:email_password],
   authentication:       'plain',
   enable_starttls_auto: true

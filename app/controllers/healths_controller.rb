@@ -51,6 +51,7 @@ class HealthsController < ApplicationController
   # POST /healths.json
   def create
     @health = current_user.healths.build(health_params)
+    
     respond_to do |format|
    
       if @health.save
