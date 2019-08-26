@@ -28,6 +28,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     respond_to do |format|
       if @post.save
+        @post.reindex
         format.html { redirect_to "#{org}/#{org_id}/new_post", notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else

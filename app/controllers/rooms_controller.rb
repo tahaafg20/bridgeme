@@ -19,6 +19,7 @@ class RoomsController < ApplicationController
 
     @room = current_user.rooms.build(room_params)
     if @room.save
+      @room.reindex
       redirect_to listing_room_path(@room), notice: "Saved..."
     else
       flash[:alert] = "Something went wrong..."
@@ -62,7 +63,7 @@ class RoomsController < ApplicationController
       redirect_to listing_room_path(@room), notice: "Something went wrong..."
     end
   end
-
+  
   def destroy
     @room = Room.find(params[:id])
     @room.destroy
@@ -117,4 +118,5 @@ class RoomsController < ApplicationController
     def room_params
       params.require(:room).permit( :room_type, :accommodate, :listing_name, :summary,:cover, :latitude, :longitude, :address, :is_tv, :is_kitchen, :is_air, :is_heating, :is_internet, :price, :active, :instant, images:[])
     end
+    
 end
