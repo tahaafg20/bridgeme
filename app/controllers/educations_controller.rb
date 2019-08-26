@@ -29,7 +29,7 @@ class EducationsController < ApplicationController
   def new_post1
     current_education = Education.find(params[:id])
     @post = current_education.posts.build(params.require(:post).permit(:content, :id, images:[]))
-    
+    @post.user_id = current_user.id
     if @post.save
       redirect_back(fallback_location: request.referer, notice: "Saved...")
     else
