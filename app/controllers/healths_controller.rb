@@ -26,9 +26,9 @@ class HealthsController < ApplicationController
   # POST /healths
   # POST /healths.json
   def create
-    @health = Health.new(health_params)
-
+    @health = current_user.healths.build(health_params)
     respond_to do |format|
+      byebug
       if @health.save
         format.html { redirect_to @health, notice: 'Health was successfully created.' }
         format.json { render :show, status: :created, location: @health }
@@ -71,6 +71,6 @@ class HealthsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def health_params
-      params.require(:health).permit(:name, :number, :link, :email, :services, :about, :address, :latitude, :longitude)
+      params.require(:health).permit(:name, :number, :link, :email, :services, :about, :address, :latitude, :longitude, :accepted_documents, :status)
     end
 end

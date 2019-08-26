@@ -6,6 +6,8 @@ $(document).ready(function () {
 var swiper = new Swiper('.swiper-container', {
 
 
+
+speed: 3000,
 effect: "fade",
 fadeEffect: {
 crossFade: true

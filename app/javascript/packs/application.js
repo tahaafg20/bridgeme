@@ -14,20 +14,11 @@ require("channels")
 require("jquery-ui")
 import 'bootstrap';
 import "swiper";
+import "./swiper";
 import './geocomplete';
-import './jquery.raty';
-import "swiper/dist/js/swiper.esm.bundle";
-import "swiper/dist/js/swiper";
-import './swiper';
-import 'object-fit-images';
-// window.jQuery = $;
-// window.$ = $;
-
-
-// import './js/agency';
-import './js/jqBootstrapValidation';
-import './js/agency.min.js';
-import './object_fit'
+// import './jquery.raty';
+window.jQuery = $;
+window.$ = $;
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

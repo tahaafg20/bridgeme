@@ -1,18 +1,15 @@
 <div class="row">
-  <div class="col-md-3">
-
-  
+  <div class="col-lg-3 col-md-6 col-sm-12">
     <div class="center">
       
     </div>
     <div class="">
       <div class="background-board">
-        <div class="btn btn-lg btn-block "><%=link_to current_user.fullname, user_path(current_user) %></div>
-        <div class="btn btn-lg btn-block"><%= link_to "Manage Listings", rooms_path %></div>
-        <div class="btn btn-lg btn-block"><%= link_to "Messages", conversations_path %></div>
-       <div class="btn btn-lg btn-block"><%= link_to "Messages", conversations_path %></div>
-       <div class="btn btn-lg btn-block"><%= link_to notifications_path do %>
-              You have <span id="num_of_unread"><%= current_user.unread %></span> notification(s).
+        <div class="dshb-btn btn btn-lg btn-block "><%=link_to current_user.fullname, user_path(current_user) %></div>
+        <div class="dshb-btn btn btn-lg btn-block"><%= link_to "Manage Listings", rooms_path %></div>
+        <div class="dshb-btn btn btn-lg btn-block"><%= link_to "Messages", conversations_path %></div>
+       <div class="dshb-btn btn btn-lg btn-block"><%= link_to notifications_path do %>
+              <span id="num_of_unread"><%= current_user.unread %></span> notification(s).
           <% end %>
       </div>
 
@@ -35,7 +32,7 @@
     </div>
   </div>
 
-  <div class="col-md-9">
+  <div class="col-lg-9 col-md-6 col-sm-12">
 
     <!-- Notification -->
     <%# <div class="panel panel-default">
@@ -53,5 +50,7 @@
         <%= render partial: "rooms/rooms_list", locals: {rooms: @rooms} %>
       </div>
     </div>
+
+</div>
 
 </div>

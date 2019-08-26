@@ -93,6 +93,11 @@
     cursor: pointer;
     // border:none;
   }
+
+  button a{
+    // appearance: button;
+    text-decoration: none !important;
+  }
   
   .img {
     overflow: hidden;

@@ -1,100 +1,32 @@
 <div class="jumbotron jumbotron-fluid bg-dark">
   
-  <div class="jumbotron-background">
-    <%# <img src="https://placeimg.com/2000/1000/nature" class="blur "> %>
-
-    <div class="swiper-container">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide"><img src="https://placeimg.com/2000/1000/dog" class="blur "></div>
-      <div class="swiper-slide"><img src="https://placeimg.com/2000/1000/nature" class="blur "></div>
-      <div class="swiper-slide"><img src="https://placeimg.com/2000/1000/love" class="blur "></div>
-      <div class="swiper-slide"><img src="https://placeimg.com/2000/1000/music" class="blur "></div>
-      <div class="swiper-slide"><img src="https://placeimg.com/2000/1000/rain" class="blur "></div>
-      <div class="swiper-slide"><img src="https://placeimg.com/2000/1000/beautiful" class="blur "></div>
-    </div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-  </div>
+    <div class="jumbotron-background">
+    <%# <img src="https://placeimg.com/2000/1000/dog" class="blur "> %>
+      <div class="swiper-container ">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="https://placeimg.com/2000/1000/dog" class="blur "></div>
+          <div class="swiper-slide"><img src="https://placeimg.com/2000/1000/nature" class="blur "></div>
+          <div class="swiper-slide"><img src="https://placeimg.com/2000/1000/love" class="blur "></div>
+          <div class="swiper-slide"><img src="https://placeimg.com/2000/1000/music" class="blur "></div>
+      </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
   </div>
 
   <div class="container text-white">
+ <%= form_tag search_path, method: :get do %>
+    <div class="search_container">
+      <%# <input type="text" maxlength= "12" placeholder="Search..." class="searchbar"> %>
+      <%= text_field_tag :search, params[:search], placeholder: "What are you searching for?",class: "searchbar",maxlength:"12"%>
+      <img src="https://images-na.ssl-images-amazon.com/images/I/41gYkruZM2L.png" alt="Magnifying Glass" class="button">
+    </div>
 
-    <%# <h1 class="display-4">Hello, world!</h1>
-    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p> %>
+  <%end%>
 
-    <div class="search-bar mt-5 p-3 p-lg-1 pl-lg-4" id="search-bar">
-              <form action="#">
-              <%= form_tag search_path, method: :get do %>
-                <div class="row">
-                  <div class="col-lg-4 d-flex align-items-center form-group">
-                    <%# <input type="text" name="search" placeholder="What are you searching for?" class="form-control border-0 shadow-0"> %>
-                   <%= text_field_tag :name_search, params[:name_search], placeholder: "What are you searching for?", class: "form-control border-0 shadow-0"%>
-
-                  </div>
-                  <div class="col-lg-3 d-flex align-items-center form-group">
-                    <div class="input-label-absolute input-label-absolute-right w-100">
-                      <label for="location" class="label-absolute"><i class="fa fa-crosshairs"></i><span class="sr-only">City</span></label>
-                      <%# <input type="text" name="location" placeholder="Location" id="location" class="form-control border-0 shadow-0"> %>
-                      <%= text_field_tag :place, params[:place], placeholder: "Where do you want to go?", class: "form-control border-0 shadow-0"%>
-
-                    </div>
-                  </div>
-                  <div class="col-lg-3 d-flex align-items-center form-group no-divider">
-                    <div class="dropdown bootstrap-select">
-                    <%# <select title="Categories" data-style="btn-form-control" class="selectpicker" tabindex="-98"><option class="bs-title-option" value=""></option> 
-                      <%# <option value="small">Restaurants</option>
-                      <option value="medium">Hotels</option>
-                      <option value="large">Cafes</option>
-                      <option value="x-large">Garages</option> %>
-                    <%# </select> %>
-                    <button type="button" class="btn dropdown-toggle bs-placeholder btn-form-control" data-toggle="dropdown" role="button" title="Categories" aria-expanded="true">
-                    <div class="filter-option">
-                    <div class="filter-option-inner">
-                    <div class="filter-option-inner-inner">Categories</div>
-                    </div> 
-                    </div>
-                    </button>
-
-                    <%# <%= select_tag "Categories", options_from_collection_for_select(@services, "id", "name")%> 
-
-
-                    <div class="dropdown-menu" role="combobox" x-placement="bottom-start" style="max-height: 434.891px; overflow: hidden; min-height: 153px; position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 42px, 0px);">
-                    <div class="inner show" role="listbox" aria-expanded="false" tabindex="-1" style="max-height: 418.891px; overflow-y: auto; min-height: 137px;">
-                    <ul class="dropdown-menu inner show">
-                      <li>
-                        <a role="option" class="dropdown-item" aria-disabled="true" tabindex="0" aria-selected="false"><span class="text">Restaurants</span>
-                        </a>
-                        </li>
-                        
-                        <li>
-                          <a role="option" class="dropdown-item" aria-disabled="false" tabindex="0" aria-selected="false">
-                          <span class="text">Hotels</span>
-                          </a>
-                          </li>
-                          <li>
-                          <a role="option" class="dropdown-item" aria-disabled="false" tabindex="0" aria-selected="false">
-                          <span class="text">Cafes</span>
-                          </a>
-                          </li>
-                          <li>
-                          <a role="option" class="dropdown-item" aria-disabled="false" tabindex="0" aria-selected="false">
-                          <span class="text">Garages</span></a>
-                          </li>
-                          </ul>
-                          </div>
-                          </div>
-                          </div>
-                  </div>
-                  <div class="col-lg-2" >
-                    <button type="submit" id="button_search" class="btn btn-primary btn-block rounded-xl h-100">Search </button>
-                  </div>
-                </div>
-                <% end %> 
-              </form>
-            </div>
     <hr class="my-4">
     <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-    <a class="btn btn-primary btn-small" href="#" role="button">Learn more</a>
+    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
 
   </div>
   <!-- /.container -->
@@ -104,54 +36,7 @@
 <!-- /.jumbotron -->
 
 
-    <%# ------------------ %>
-
-
 <%# ========== search bar ============ %>
-
-
-<!-- HOMES -->
-<div>
-
-
-<h3>Homes</h3></div>
-<br/>
-
-<%# <div class="row">
-  <%= render partial: "rooms/rooms_list", locals: {rooms: @rooms} %>
-<%# </div> %>
-
-<!-- CITIES -->
-<div><h3>Display orginzations here</h3></div>
-<br/> 
-
-<div class="row">
-  <div class="col-md-3 col-sm-12">
-    <a href="http://localhost:3000/search?utf8=%E2%9C%93&search=los+angeles">
-      <div class="discovery-card" style="background-image: url('/assets/LA.jpg')"></div>
-    </a>
-  </div>
-  <div class="col-md-3 col-sm-12">
-    <a href="http://localhost:3000/search?utf8=%E2%9C%93&search=london">
-      <div class="discovery-card" style="background-image: url('/assets/LD.jpg')"></div>
-    </a>
-  </div>
-  <div class="col-md-3 col-sm-12">
-    <a href="http://localhost:3000/search?utf8=%E2%9C%93&search=paris">
-      <div class="discovery-card" style="background-image: url('/assets/PR.jpg')"></div>
-    </a>
-  </div>
-  <div class="col-md-3 col-sm-12">
-    <a href="http://localhost:3000/search?utf8=%E2%9C%93&search=miami">
-      <div class="discovery-card" style="background-image: url('/assets/MI.jpg')"></div>
-    </a>
-  </div>
-</div>
-
-</div>
-
-<%# ----------------- %>
-
 
 
   <!-- Portfolio Grid -->
@@ -174,7 +59,7 @@
 
   <%@id = apartment.id%>
         <div class="col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" data-toggle="modal" href="#<%=@id%>">
+          <a class="portfolio-link" data-toggle="modal" href="#portfolio_<%=@id%>">
             <div class="portfolio-hover">
               <div class="portfolio-hover-content">
                 <i class="fas fa-plus fa-3x"></i>
@@ -184,7 +69,7 @@
 
             <%# <div class="img-fluid"> %>
 
-            <%= image_tag(url_for(apartment.cover),size:"339x300") %>
+            <%= image_tag(url_for(apartment.cover),size:"300x300") %>
 
             <%# </div> %>
             
@@ -208,8 +93,8 @@
 
 
         <!---Modal --->
-
-<div class="portfolio-modal modal fade" id="<%=@id%>" tabindex="-1" role="dialog" aria-hidden="true">
+<%# do not use %>
+<div class="portfolio-modal modal fade" id="pIIIIIortfolio_<%=@id%>" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="close-modal" data-dismiss="modal">
@@ -219,7 +104,7 @@
         </div>
         <div class="container">
           <div class="row">
-            <div class="col-lg-8 mx-auto">
+            <div class="col-lg-8">
               <div class="modal-body">
                 <!-- Project Details Go Here -->
                 <h2 class="text-uppercase">Project Name</h2>
@@ -240,7 +125,7 @@
         </div>
       </div>
     </div>
-  </div>
+  <%# </div> %>
 
   <%# <%end%> 
 
@@ -290,5 +175,8 @@
     </div>
   </div> 
  %>
+<script>
+$(function () { objectFitImages() });
 
+</script>
 
