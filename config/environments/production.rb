@@ -67,7 +67,7 @@ Rails.application.configure do
   address:              'smtp.gmail.com',
   port:                 587,
   domain:               'bridgeme.site',
-  user_name:            'golshanstay@gmail.com',
+  user_name:            'bridgeme2019@gmail.com',
   password:             Rails.application.credentials.email[:email_password],
   authentication:       'plain',
   enable_starttls_auto: true
