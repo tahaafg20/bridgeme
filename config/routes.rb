@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       resources :guest_reviews
       resources :host_reviews
       resources :messages
+      resources :rooms
       root to: "users#index"
     end
   resources :posts, except: [:create, :update, :show, :destroy, :edit]
