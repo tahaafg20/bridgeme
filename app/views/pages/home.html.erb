@@ -97,11 +97,14 @@
                     <%if !post.community.nil?%>
                         <div class="row-space-2">
                         <h4>Community Center Name: <%=link_to post.community.name, community_path(post.community) %></h4>
+                        <h4>Date added: <%=link_to post.community.created_at, community_path(post.community) %></h4>
+                    
                       </div>
                     <%end%>
                     <%if !post.health.nil?%>
                         <div class="row-space-2">
                         <h4>Organization Name: <%=link_to post.health.name, health_path(post.health) %></h4> 
+                        <h4>Date added: <%=link_to post.health.updated_at.to_s(:my_datetime) %></h4> 
                       </div>
                     <%end%>
                     <%if !post.ngo.nil?%>
