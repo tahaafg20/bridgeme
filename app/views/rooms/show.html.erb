@@ -54,8 +54,9 @@
             <div class="col-md-6 ">
             <h4>Amenities Included</h4>
             <hr>
-            <div class="col-sm-12 amentities-margin icon-babu ">
-              <ul>
+            <div class="col-sm-12 amentities-margin amenities icon-babu ">
+            <ul>
+           
                 <li class="<%= 'text-line-through' if !@room.is_tv %>">TV &nbsp; <i class="fas fa-tv "></i></li>
                 <li class="<%= 'text-line-through' if !@room.is_kitchen %>">Kitchen &nbsp; <i class="fas fa-utensils"></i></li>
                 <li class="<%= 'text-line-through' if !@room.is_internet %>">Internet &nbsp; <i class="fas fa-wifi"></i></li>
@@ -131,6 +132,10 @@
             </div>
 
   </div>
+
+   <div class="panel-body" id="portfolio" >
+        <%= render partial: "rooms/rooms_list", locals: {rooms: @rooms} %>
+    </div>
 </div>
 
   <script> 
@@ -152,9 +157,10 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLwih_dEjx7rHvO04och6w_zABvfO8Dcw&callback=initMap"
     async defer></script> 
-    </div>
+   
+<script>
 
-    <!-- NEAR BY ROOMS -->
+$(document).on('turbolinks:load', function() {
 
 
   </div> 
@@ -173,4 +179,4 @@ $(document).ready(function() {
   });
 });
 </script>
- 
+// <%# <script> 

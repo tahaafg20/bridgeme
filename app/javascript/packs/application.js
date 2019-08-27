@@ -15,8 +15,8 @@ require("jquery-ui")
 import 'bootstrap';
 import "swiper";
 import "./swiper";
+import "./object_fit";
 import './geocomplete';
-// import './jquery.raty';
 window.jQuery = $;
 window.$ = $;
 

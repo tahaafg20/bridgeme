@@ -12,7 +12,7 @@ class PagesController < ApplicationController
   else
     @rooms = Room.limit(3).order("created_at DESC")
     @educations=Education.limit(1).order("created_at DESC")
-    @healths=Health.limit(1)
+    @healths=Health.limit(1).order("created_at DESC")
     @communities=Community.limit(1).order("created_at DESC")
     @ngos=Ngo.limit(1).order("created_at DESC")
     @posts = Post.all
