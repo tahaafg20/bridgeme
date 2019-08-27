@@ -23,10 +23,10 @@ class User < ApplicationRecord
          
          
          
-
         def send_devise_notification(notification, *args)
           devise_mailer.send(notification, self, *args).deliver_later
         end
+        
          def self.from_omniauth(auth)
           user = User.where(email: auth.info.email).first
           if user
