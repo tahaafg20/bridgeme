@@ -10,7 +10,8 @@ class PagesController < ApplicationController
     @posts = Post.search params[:search1], fields: [:content]
   
   else
-    @rooms = Room.limit(3)
+    @rooms=Room.limit(3).order("created_at DESC")
+   
     @educations=Education.limit(1)
     @healths=Health.limit(1)
     @communities=Community.limit(1)
