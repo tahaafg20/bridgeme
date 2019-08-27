@@ -15,6 +15,7 @@ require("jquery-ui")
 import 'bootstrap';
 import "swiper";
 import "./swiper";
+import "object-fit-images";
 import "./object_fit";
 import './geocomplete';
 window.jQuery = $;

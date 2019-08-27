@@ -15,7 +15,7 @@ class PagesController < ApplicationController
     @healths=Health.limit(1).order("created_at DESC")
     @communities=Community.limit(1).order("created_at DESC")
     @ngos=Ngo.limit(1).order("created_at DESC")
-    @posts = Post.all
+    @posts = Post.all.limit(6).order("created_at ASC")
     
    end
     

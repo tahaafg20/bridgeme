@@ -342,6 +342,18 @@ $space-separator: 10px;
 
 // TOOLS - MIXINS
 
+.breadcrumbs{
+  height: 100px;
+  width:100%;
+  margin-left:20px;
+  position: relative;
+  // margin-bottom: -70% !important;
+}
+
+#hero_crumbs{
+  margin-left:47%;
+}
+
 @mixin text-underline($color: currentColor) {
   background-image: linear-gradient($color, $color);
   background-size: auto 1px;
@@ -510,6 +522,28 @@ a:visited:not([rel='external']) {
 }
 
 
+// @media (max-width: 500px) {
+
+//     .home_item {
+//       .home_item:nth-last-child(n+2):after {
+//         display: inline-block;
+//         content: '\200b';
+//         // "Greater-than sign" indicates higher-level page.
+//         background: url(icon-svg-uri('chevron-right', $color-separator)) center / $size-icon $size-icon no-repeat;
+//         width: $size-icon;
+//         margin: 0 $space-separator;
+//       }
+//     }
+
+//     .home_link {
+//       display: block;
+//       float: left;
+//     }
+//   }
+
+// }
+
+
 
 // ========= end search results page ========
 
@@ -542,13 +576,13 @@ a:visited:not([rel='external']) {
     right: 20px;
     transform: rotate(90deg);
     color:$app_blue !important;
-    z-index: 500 !important;
+    z-index: 1000 !important;
   }
   .swiper-button-prev {
     left: 20px;
     transform: rotate(90deg);
     color:$app_blue !important;
-    z-index: 500 !important;
+    z-index: 1000!important;
   }
 }
 
