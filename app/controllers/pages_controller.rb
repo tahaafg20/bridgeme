@@ -10,7 +10,7 @@ class PagesController < ApplicationController
     @posts = Post.search params[:search1], fields: [:content]
   
   else
-    @rooms = Room.where(active: true).limit(3)
+    @rooms = Room.limit(3)
     @educations=Education.limit(1)
     @healths=Health.limit(1)
     @communities=Community.limit(1)

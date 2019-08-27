@@ -1,7 +1,19 @@
 Rails.application.routes.draw do
   namespace :admin do
       resources :users
-
+      resources :ngos
+      resources :healths
+      resources :educations
+      resources :communities
+      resources :posts
+      resources :reservations
+      resources :calendars
+      resources :reviews
+      resources :notifications
+      resources :conversations
+      resources :guest_reviews
+      resources :host_reviews
+      resources :messages
       root to: "users#index"
     end
   resources :posts, except: [:create, :update, :show, :destroy, :edit]

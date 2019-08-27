@@ -29,8 +29,9 @@ class NgosController < ApplicationController
   def new_post1
     current_ngo = Ngo.find(params[:id])
     @post = current_ngo.posts.build(params.require(:post).permit(:content, :id, images:[]))
-    
+    @post.user_id = current_user.id
     if @post.save
+      @post.reindex
       redirect_to "ngos/#{current_ngo.id}/new_post", notice: "Saved..."
     else
       flash[:alert] = "Something went wrong..."
@@ -78,6 +79,7 @@ class NgosController < ApplicationController
   # POST /ngos.json
   def create
     @ngo = current_user.ngos.build(ngo_params)
+   
     respond_to do |format|
       if @ngo.save
         @ngo.reindex

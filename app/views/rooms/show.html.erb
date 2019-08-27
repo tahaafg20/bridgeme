@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-<body>
-
-=======
->>>>>>> f5a95a2268fdfce5d8b1fc81fb4ea7cf37c9f3f8
 
 <!-- Image -->
 
@@ -15,17 +10,10 @@
 
       <!-- RIGHT PANEL controller-->
       <div class="col-md-8">
-<<<<<<< HEAD
-         <div>
-           <%= image_tag @room.cover, size:"800x600",class:"image-radius-top" %><br>
-           Hosted By (<%= @room.user.fullname %>)
-         </div>
-=======
           <div class="col-sm-12 ">
             <%= image_tag @room.cover, class:"img-fluid image-radius-top rounded float-left" %><br>
             Hosted By (<%= @room.user.fullname %>)
           </div>
->>>>>>> f5a95a2268fdfce5d8b1fc81fb4ea7cf37c9f3f8
 
           <!-- total Review count  -->
           <div class="col-sm-12">
@@ -170,12 +158,18 @@
     async defer></script> 
    
 <script>
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
+
   $('#average_rating').raty({
     path: '/assets',
     readOnly: true,
     score: <%= @room.average_rating %>
   });
+
 });
 </script>
+<script>
+
+
+
  </body>

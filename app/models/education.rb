@@ -1,6 +1,6 @@
 class Education < ApplicationRecord
     belongs_to :user
-    has_many :posts
+    has_many :posts, dependent: :destroy
      
     geocoded_by :address
     after_validation :geocode, if: :address_changed?
