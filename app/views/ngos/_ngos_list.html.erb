@@ -1,14 +1,23 @@
-<% @ngos.each do |ngo| %>
-    <div class="col-md-4">
-       <div class="panel panel-default">
-        <div class="panel-heading preview">
-          <%= link_to ngo.name, ngo %><%unless ngo.number.empty?%><a href="<%ngo.number%>"title="Website name"><i style="margin-right: 0.5em; color: #EEEEEE;" class="icon-home icon-4x"></i>organization Link</a><%end%>
-        <br/>  Phone Number: <%= ngo.number %> <br> <%= ngo.address %>
 
-        <br/> About        : <%=ngo.about%>   
-        <br/> Accepted documents: <%=ngo.accepted_documents%>
-        <br/> Services: <%=ngo.services%>
-       </div>
-    </div>
-    </div>
+<% @ngos.each do |ngo| %>
+<div class=" col-lg-4 col-md-4 col-sm-6 col-xs-12 box_show">
+					<div class="box-part text-center">    
+                  <i class="icon_show fas fa-building fa-4x" aria-hidden="true"></i>   
+						<div class="title_show">
+							<h4><%= link_to ngo.name, ngo %></h4>				
+			  <br/>
+			  Phone Number: <%= ngo.number %> <br> <%= ngo.address.first(20)... %>
+						</div>
+                        
+						<div class="text_show">
+							<span><%= ngo.services.first(20)%></span>
+						</div>       
+				<%unless ngo.link.nil?%>
+				<a class="org_link" href="<%=ngo.link%>">visit our website</a>
+				<%end%>
+	</div>		
+</div>
+
 <% end %>
+
+

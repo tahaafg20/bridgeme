@@ -7,7 +7,7 @@
       <div class="background-board">
         <div class="dshb-btn btn btn-lg btn-block "><%=link_to current_user.fullname, user_path(current_user) %></div>
         <div class="dshb-btn btn btn-lg btn-block"><%= link_to "Manage Listings", rooms_path %></div>
-        <div class="dshb-btn btn btn-lg btn-block"><%= link_to "Manage  Organizations", healths_path %></div>
+        <div class="dshb-btn btn btn-lg btn-block"><%= link_to "Manage Organizations", healths_path %></div>
         <div class="dshb-btn btn btn-lg btn-block"><%= link_to "Messages", conversations_path %></div>
        <div class="dshb-btn btn btn-lg btn-block"><%= link_to notifications_path do %>
               <span id="num_of_unread"><%= current_user.unread %></span> notification(s).

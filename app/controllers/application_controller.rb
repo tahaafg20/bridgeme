@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  @display_rooms = Room.all.order("created_at DESC").limit(6)
+
   protected
 
   def after_sign_in_path_for(resource_or_scope)

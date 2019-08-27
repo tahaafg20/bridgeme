@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
   before_action :set_conversation
 
   def index
-    
+    # byebug
     if current_user == @conversation.sender || current_user == @conversation.recipient
       @other = current_user == @conversation.sender ? @conversation.recipient : @conversation.sender
       @messages = @conversation.messages.order("created_at DESC")
@@ -14,10 +14,11 @@ class MessagesController < ApplicationController
 
   def create
     @message = @conversation.messages.new(message_params)
+  
     @messages = @conversation.messages.order("created_at DESC")
     
     if @message.save
-      
+      # byebug
       # ActionCable.server.broadcast "conversation_#{@conversation.id}", message: render_message(@message)
       redirect_to conversation_messages_path(@conversation)
     end

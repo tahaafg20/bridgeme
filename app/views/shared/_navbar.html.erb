@@ -27,6 +27,7 @@
 			<%# <li class="nav-item btn"><a href="#" class="nav-link">Portfolio</a></li>
 			<li class="nav-item btn"><a href="#" class="nav-link">Blog</a></li> %>
 			
+			<%# <li class="nav-item "><a href="#" class="nav-link navbar-text-color">Contact</a></li>  %>
 			<%# <li class="nav-item "><a href="#" class="nav-link navbar-text-color">Contact</a></li> %>
 				<li class="nav-item dropdown">
 				<a data-toggle="dropdown" class="nav-link dropdown-toggle navbar-text-color" href="#">Add Organization <b class="caret"></b></a>
@@ -45,7 +46,7 @@
 	  <% if (user_signed_in?) %>
 	  <li>
               <%= link_to notifications_path do %>
-                <i class="fa fa-bell fa-2x icon-babu"></i>
+                <i class="fa fa-envelope fa-2x icon-babu"></i>
 						
                 <span class="badge" id="navbar_num_of_unread"><%= current_user.unread if current_user.unread > 0 %></span>
               <% end %>
@@ -76,8 +77,9 @@
 		<ul class="nav navbar-nav  ml-auto">
 			<li class="navbar-form-wrapper">
 			<%= form_tag search_path, class: "navbar-form navbar-left", method: :get do %>
-				<div class="form-group">
-					<%= text_field_tag :search, params[:search], placeholder: "Anywhere", class: "form-control" %>
+				<div class="input-group search-box">
+					<%= text_field_tag :search, params[:search], placeholder: "Anywhere", class: "form-control",:id=>"search"  %>
+					<span class="input-group-addon"><i class="fas fa-search"></i></span>
 				</div>
 			<% end %>
 			</li>

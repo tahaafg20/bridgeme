@@ -7,9 +7,9 @@ $app_blue :#2994b2;
 $app_dark :#444f5a;
 
 //added styles for navbar
-strong{
-    color:white !important;
-}
+// strong{
+//     color:white !important;
+// }
 b{
     color:$app_yellow !important;
 }
@@ -71,7 +71,7 @@ b{
 
 }
 .navbar ul.nav li a:hover, .navbar ul.nav li a:focus {
-    color:black !important;
+    color:$app_dark !important;
     border-radius: 3px;
     // background-color: $app_blue !important;
 }
@@ -97,7 +97,7 @@ b{
     border-color: white;		
 }
 .search-box .input-group-addon {
-    min-width: 35px;
+    min-width: 35px !important;
     border: none;
     background: transparent;
     position: absolute;
@@ -212,10 +212,10 @@ b{
 
 
 .navbar a{
-    color:white !important;
+    color:$app_yellow !important;
     // background-color:$app_yellow;
     // font-size: 10px;
-    font-size:16px;
+    font-size:12px;
     letter-spacing: .2em;
     text-transform: uppercase;
     font-weight: bold;
