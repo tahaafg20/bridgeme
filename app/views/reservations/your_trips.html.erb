@@ -1,10 +1,10 @@
-<div class="container">
-<div class="row">
+
+<div class="row" style="margin: 0px 50px 0px 50px;">
   <div class="col-md-3">
     <ul class="sidebar-list background">
-      <li class="sidebar-item dshb-btn btn btn-lg btn-block"><%= link_to "Your Listings", rooms_path, class: "sidebar-link" %></li>
-      <li class="sidebar-item dshb-btn btn btn-lg btn-block"><%= link_to "Your Reservations", your_reservations_path, class: "sidebar-link" %></li>
-      <li class="sidebar-item dshb-btn btn btn-lg btn-block"><%= link_to "Your Trips", your_trips_path, class: "sidebar-link active" %></li>
+      <li class="sidebar-item dshb-btn btn btn-lg btn-block"><%= link_to "Listings", rooms_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item dshb-btn btn btn-lg btn-block"><%= link_to "Reservations", your_reservations_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item dshb-btn btn btn-lg btn-block"><%= link_to "Trips", your_trips_path, class: "sidebar-link active" %></li>
     </ul>
   </div>
   
@@ -110,4 +110,3 @@ $(document).ready(function() {
             <h1><%= value %></h1>
       </div>
 <% end %>
-</div>

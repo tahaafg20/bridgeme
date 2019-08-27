@@ -28,6 +28,7 @@
     <% if current_user %>
         <input type="hidden" id="user_id" value="<%= current_user.id %>">
     <% end %>
+    <%# <div class="container"> %>
 
  
       <% if notice != nil || alert != nil %>
@@ -37,7 +38,7 @@
           <strong><%= notice %></strong>
         </div>
       <% else %>
-        <div class="notification text-center alert alert-alert" role="alert">
+        <div class="notification form-actions text-center alert alert-alert" role="alert">
           <button type="button" class="alert close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <strong><%= alert %></strong>
         </div>
