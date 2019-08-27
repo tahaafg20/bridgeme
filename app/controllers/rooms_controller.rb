@@ -30,7 +30,7 @@ class RoomsController < ApplicationController
   end
 
   def show
-   
+  #  byebug
     @photos = @room.images
     @guest_reviews = @room.guest_reviews
   end

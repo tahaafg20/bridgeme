@@ -198,7 +198,7 @@
           <p class="post-date">Posted on <time datetime=""><%=post.education.created_at.to_s(:my_datetime)%></time> 
 
     <%end%>
-    <%# <%byebug%>
+    
       by <a class="post-author" href="#"><%=link_to post.user.fullname, user_path(post.user) %></a>
     </p>
     
@@ -210,8 +210,7 @@
   </div>
 </div>
 
-<%# </div>
-</div> %>
+
 
 <%end%>
     <%end%>

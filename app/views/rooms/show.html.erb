@@ -116,26 +116,14 @@
         <!-- NEAR BY ROOMS -->
             <div class="col-md-12" style="margin-top: 40px;">
               <h3 style="margin-left:15px;">Near by Rooms</h3>
-              <% for room in @room.nearbys(10) %>
-                  <div class="col-md-4">
-                    <div class="panel panel-default">
-                      <div class="panel-heading preview">
-                        <%= image_tag url_for(room.cover),size:"200x200" %>
-                      </div>
-                      <div class="panel-body">
-                        <%= link_to room.listing_name, room %><br/>
-                        (<%= room.distance.round(2) %> kms away)
-                      </div>
-                    </div>
-                  </div>
-              <% end %>
+              <div class="panel-body" id="portfolio" >
+        <%= render partial: "rooms/rooms_list", locals: {rooms: @room.nearbys(10)} %>
+          </div>
             </div>
 
   </div>
 
-   <div class="panel-body" id="portfolio" >
-        <%= render partial: "rooms/rooms_list", locals: {rooms: @rooms} %>
-    </div>
+   
 </div>
 
   <script> 
@@ -179,4 +167,4 @@ $(document).ready(function() {
   });
 });
 </script>
-// <%# <script> 
+
