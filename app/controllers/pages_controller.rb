@@ -10,14 +10,22 @@ class PagesController < ApplicationController
     @posts = Post.search params[:search1], fields: [:content]
   
   else
-    @rooms = Room.limit(3)
-    @educations=Education.limit(1)
+    @rooms = Room.limit(3).order("created_at DESC")
+    @educations=Education.limit(1).order("created_at DESC")
     @healths=Health.limit(1)
-    @communities=Community.limit(1)
-    @ngos=Ngo.limit(1)
+    @communities=Community.limit(1).order("created_at DESC")
+    @ngos=Ngo.limit(1).order("created_at DESC")
     @posts = Post.all
+    
    end
     
+  end
+
+  def post_search
+
+    @posts = Post.all
+
+
   end
 
   def search

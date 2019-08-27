@@ -412,14 +412,14 @@ a:visited:not([rel='external']) {
   .swiper-button-next {
     right: 20px;
     transform: rotate(90deg);
-    color:$app_blue;
-    z-index: 30;
+    color:$app_blue !important;
+    z-index: 500 !important;
   }
   .swiper-button-prev {
     left: 20px;
     transform: rotate(90deg);
-    color:$app_blue;
-    z-index: 30;
+    color:$app_blue !important;
+    z-index: 500 !important;
   }
 }
 

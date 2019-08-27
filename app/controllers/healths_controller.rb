@@ -78,6 +78,10 @@ class HealthsController < ApplicationController
       end
     end
   end
+  def show_post
+    @post = Post.find_by(id: params[:id])
+    @health_id = @post.health.id
+  end
 
   def edit_post
     @post = Post.find_by(id: params[:id])

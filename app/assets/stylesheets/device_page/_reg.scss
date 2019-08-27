@@ -46,6 +46,7 @@
     font-size: 20px;
     margin: 2px auto 20px;
     text-align: center;
+    color:$mild_yellow;
   }
   
   .cont {
@@ -306,6 +307,10 @@
     }
   }
 
+  .bt-m{
+    visibility: hidden;
+  }
+
 
 @media only screen and (max-width: 890px) {
 
@@ -314,43 +319,65 @@
         width:100%;
     }
 
+    .bt-m{
+      visibility: visible;
+    }
+
 
         
-  .cont {
-    // overflow: hidden;
-    position: relative;
-    width: 100%;
-    height: 550px;
-    margin: 0 auto 30px;
-    background:$mild_yellow;
-    // display: flex;
-    // flex-direction: column;
+  // .cont {
+  //   // overflow: hidden;
+  //   // position: relative;
+  //   // width: 100%;
+  //   height: 550px;
+  //   // margin: 0 auto 30px;
+  //   // background:$mild_yellow;
+  //   display: flex !important;
+  //   flex-direction: column!important;
     
-  }
+  // }
   
-  .form {
-    position: relative;
-    width: $formW;
-    height: 100%;
-    transition: transform $switchAT ease-in-out;
-    padding: 50px 30px 0;
-    color:$app_dark;
-    // order:2;
-  }
+  // .form {
+  //   position: relative;
+  //   width: $formW;
+  //   height: 100%;
+  //   transition: transform $switchAT ease-in-out;
+  //   padding: 50px 30px 0;
+  //   color:$app_dark;
+  //   // order:2;
+  // }
   
-  .sub-cont {
-    overflow: hidden;
-    order: 1;
-    // position: absolute;
-    left: $formW;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    padding-bottom: $imgW;
-    background:$mild_yellow;
-    transition: transform $switchAT ease-in-out;
+  // .sub-cont {
+  //   // overflow: hidden;
+  //   order: 1;
+  //   // position: absolute;
+  //   left: $formW;
+  //   top: 0;
+  //   width: 100%;
+  //   height: 100%;
+  //   padding-bottom: $imgW;
+  //   background:$mild_yellow;
+  //   transition: transform $switchAT ease-in-out;
+  //   @include signUpActive {
+  //     transform: translate3d($formW * -1,0,0);
+  //   }
+  // }
+
+  .sign-in {
+    transition-timing-function: ease-out;
+  
     @include signUpActive {
-      transform: translate3d($formW * -1,0,0);
+      transition-timing-function: ease-in-out;
+      // transition-duration: $switchAT;
+      // transform: translate3d($formW,0,0);
+    }
+  }
+  
+  .sign-up {
+    transform: translate3d($contW * -1,0,0);
+  
+    @include signUpActive {
+      transform: translate3d(0,0,0);
     }
   }
 

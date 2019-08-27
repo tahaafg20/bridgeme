@@ -101,20 +101,23 @@ p{
 .box-show{
     // padding:60px -30px;
 
-    // overflow: hidden;
-    // height: 500px;
+    overflow: hidden;
+    height: 500px;
   
 }
 
 .box-part{
     background:#FFF;
     border-radius:20px;
-    padding:60px 50px;
+    padding:60px 0px;
     margin:30px 0px;
-    // width: 380px;
-  border: 1px solid $app_blue;
-  box-shadow: 0.2px 0.2px 20px 0.2px;
-  height: 450px;
+    margin-right:-12px;
+    max-width: 100%;
+    border: 1px solid $app_blue;
+//   box-shadow: 0.2px 0.2px 20px 0.2px;
+    box-shadow: 0 5px 15px 0 #777;
+
+  height: 380px;
 //   overflow: hidden;
 
   
@@ -125,4 +128,16 @@ p{
 
 .fa-4x{
      color:$app_blue!important;
+}
+@media screen and(max-width:890px){
+.box-part{
+   
+    // padding:30px 20px;
+    margin-right:7%;
+    margin-left:7%;
+    // max-width:100%;
+ 
+
+  
+}
 }

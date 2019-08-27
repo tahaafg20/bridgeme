@@ -16,17 +16,15 @@
         <div class="swiper-button-prev"></div>
       </div>
   </div>
+  
 
  <div class="container text-white">
   <%= form_tag root_path, :method => 'get'  do %>
-   <%# <a onsubmit="#portfolio"> %>
-
   <div class="search_container">
     <%= text_field_tag :search1, params[:search1], class:"searchbar", placeholder: "What are you searching for?",maxlength:"120" %>
     <input hidden type="submit" id="second_submit" formaction="#portfolio" visibility="hidden"> 
 
     <img src="https://images-na.ssl-images-amazon.com/images/I/41gYkruZM2L.png" alt="Magnifying Glass" class="button">
-     <%# </a> %>
    <% end %>
   
 </div>
@@ -87,49 +85,87 @@
     </div>
   </div>
 </div>
+
+<%# <hr width="60%" style="color:red !important;"/> %>
+
+<%# <hr/> %>
   
-<div class="row">
-<div id="chat">
-    <%unless @posts.empty?%>
-            <%@posts.reverse.each do |post|%>
-                <div class="panel">
-                    <div class="panel-body">
-                    <%if !post.community.nil?%>
-                        <div class="row-space-2">
-                        <h4>Community Center Name: <%=link_to post.community.name, community_path(post.community) %></h4>
-                        <h4>Date added: <%=link_to post.community.created_at, community_path(post.community) %></h4>
-                    
-                      </div>
-                    <%end%>
-                    <%if !post.health.nil?%>
-                        <div class="row-space-2">
-                        <h4>Organization Name: <%=link_to post.health.name, health_path(post.health) %></h4> 
-                        <h4>Date added: <%=link_to post.health.updated_at.to_s(:my_datetime) %></h4> 
-                      </div>
-                    <%end%>
-                    <%if !post.ngo.nil?%>
-                        <div class="row-space-2">
-                        <h4>NGO Name: <%=link_to post.ngo.name, ngo_path(post.ngo) %></h4> 
-                      </div>
-                    <%end%>
-                    <%if !post.education.nil?%>
-                        <div class="row-space-2">
-                        <h4>Organization Name: <%=link_to post.education.name, education_path(post.education)%></h4>
-                      </div>
-                    <%end%>
-                        <div class="row-space-2">
-                        <%= post.content %>
-                        </div>
-                        <div class="row-space-2">
-                        Post Writer: <%=link_to post.user.fullname, user_path(post.user) %>
-                        </div>
-                        <%post.images.each do |image|%>
-                        <%=image_tag url_for(image), size:"250x250"%>
-                        <%end%>
-                    </div>
-                    </div>
-              <%end%>
+<%# <div class="row">
+<div id="chat"> %>
+
+<div class="container">
+  <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">Posts</h2>
+            <h3 class="section-subheading text-muted">by organizations</h3>
+          </div>
+ <%unless @posts.empty?%>
+      <%@posts.reverse.each do |post|%>
+
+    <div class="post">
+  <div class="post-image post-image-1">
+   <img src="https://images.freeimages.com/images/large-previews/bf4/the-road-through-the-woods-1449194.jpg" alt="">
+
+ <%post.images.each do |image|%>
+    <%=image_tag url_for(image)%>
+  <%end%>
+  </div>
+  <div class="post-content">
+
+
+
+
+  <%if !post.community.nil?%>
+        <div class="row-space-2">
+        <p><i>Tag</i>: <span class="org_tag badge badge-danger"><%=link_to post.community.name, community_path(post.community) %></span><span class="org_tag badge badge-pill badge-danger">community</span></p>
+    
+      </div>
+
+      <p class="post-date">Posted on <time datetime=""><%=post.community.created_at.to_s(:my_datetime)%></time> 
+
     <%end%>
+    <%if !post.health.nil?%>
+        <div class="row-space-2">
+        <p><i>Tag</i>: <span class="org_tag badge badge-pill badge-danger"><%=link_to post.health.name, health_path(post.health) %></span><span class="org_tag badge badge-pill badge-danger">Health</span></p> 
+
+      </div>
+          <p class="post-date">Posted on <time datetime=""><%=post.health.created_at.to_s(:my_datetime)%></time> 
+
+    <%end%>
+    <%if !post.ngo.nil?%>
+        <div class="row-space-2">
+        <p><i>Tag</i>: <span class="org_tag badge badge-danger"><%=link_to post.ngo.name, ngo_path(post.ngo) %></span><span class="org_tag badge badge-pill badge-danger">ngo</span></p> 
+      </div>
+          <p class="post-date">Posted on <time datetime=""><%=post.ngo.created_at.to_s(:my_datetime)%></time> 
+
+    <%end%>
+    <%if !post.education.nil?%>
+        <div class="row-space-2">
+        <p><i>Tag</i>: <span class="org_tag badge badge-danger"><%=link_to post.education.name, education_path(post.education)%></span><span class="org_tag badge badge-pill badge-danger">education</span></p>
+      </div>
+          <p class="post-date">Posted on <time datetime=""><%=post.education.created_at.to_s(:my_datetime)%></time> 
+
+    <%end%>
+    <%# <%byebug%>
+      by <a class="post-author" href="#"><%=link_to post.user.fullname, user_path(post.user) %></a>
+    </p>
+    
+    <%# <h2 class="post-title">A Long Road to Lorem Ipsum Dolor Sit Amet</h2> %>
+    <div class="post-excerpt">
+    <p><%= post.content.first(240)%></p>
+    </div>
+    <a class="post-link" href="#">Read More</a>
+  </div>
+</div>
+
+<%# </div>
+</div> %>
+
+<%end%>
+    <%end%>
+
+    </div>
+    </div>
 
 
     </div>

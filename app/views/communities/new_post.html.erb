@@ -25,21 +25,54 @@
       <%end%>
     </div>
   </div><br>
-    <div id="chat">
+    <div id="chat" class="_posts">
         <%@posts.each do |post|%>
-            <div class="panel">
-                <div class="panel-body">
-                    <strong><%= post.community.name %></strong>
-                    <span class="pull-right"><%=link_to "Edit The Post", "/communities/posts/#{post.id}/edit", :method=> :put %> | <%=link_to "Delete The Post", "/communities/posts/#{post.id}/destroy", method: "delete", remote: false, data: { confirm: 'Are you sure?' }  %></span>
-                    <br/>
-                    <div class="row-space-2">
-                    <%= post.content %>
-                    </div>
-                    <%post.images.each do |image|%>
-                    <%=image_tag url_for(image), size:"250x250"%>
-                    <%end%>
-                </div>
-                </div>
+            <div class="post">
+  <div class="post-image post-image-1">
+<!--     <img src="https://images.freeimages.com/images/large-previews/bf4/the-road-through-the-woods-1449194.jpg" alt=""> -->
+
+ <%post.images.each do |image|%>
+  <%=image_tag url_for(image)%>
+  <%end%>
+  </div>
+  <div class="post-content">
+
+
+
+
+  <%if !post.community.nil?%>
+        <div class="row-space-2">
+        <p><i>Tag</i>: <span class="org_tag badge badge-danger"><%=link_to post.community.name, community_path(post.community) %></span><span class="org_tag badge badge-pill badge-danger">community</span></p>
+    
+      </div>
+    <%end%>
+    <%if !post.health.nil?%>
+        <div class="row-space-2">
+        <p><i>Tag</i>: <span class="org_tag badge badge-pill badge-danger"><%=link_to post.health.name, health_path(post.health) %></span><span class="org_tag badge badge-pill badge-danger">Health</span></p> 
+      </div>
+    <%end%>
+    <%if !post.ngo.nil?%>
+        <div class="row-space-2">
+        <p><i>Tag</i>: <span class="org_tag badge badge-danger"><%=link_to post.ngo.name, ngo_path(post.ngo) %></span><span class="org_tag badge badge-pill badge-danger">ngo</span></p> 
+      </div>
+    <%end%>
+    <%if !post.education.nil?%>
+        <div class="row-space-2">
+        <p><i>Tag</i>: <span class="org_tag badge badge-danger"><%=link_to post.education.name, education_path(post.education)%></span><span class="org_tag badge badge-pill badge-danger">education</span></p>
+      </div>
+    <%end%>
+    <p class="post-date">Posted on <time datetime=""><%=link_to post.health.updated_at.to_s(:my_datetime) %></time> 
+      by <a class="post-author" href="#"><%=link_to post.user.fullname, user_path(post.user) %></a>
+    </p>
+    <%# <h2 class="post-title">A Long Road to Lorem Ipsum Dolor Sit Amet</h2> %>
+    <div class="post-excerpt">
+    <p><%= post.content%></p>
+    </div>
+    <%# <a class="post-link" href="#">Read More</a> %>
+
+    <span class="pull-right"><%=link_to "Edit The Post", "/educations/posts/#{post.id}/edit", :method=> :put %> | <%=link_to "Delete The Post", "/educations/posts/#{post.id}/destroy", method: "delete", remote: false, data: { confirm: 'Are you sure?' }  %></span>
+  </div>
+</div>
         <%end%>
     </div>
   
