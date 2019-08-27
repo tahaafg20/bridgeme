@@ -28,7 +28,7 @@
         <div class="form-group">
          <p> Phone Number: <div><%= @community.number %></p></div>
         </div>
-        <% if !@community.link.size > 0  %>
+        <% if @community.link.size > 0  %>
         <div class="form-group">
         <p> The link to this organization's webpage: <div><a href="<%=@community.link%>"><%=@community.link%></a></p></div>
         </div>

@@ -15,6 +15,7 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
+  config.action_mailer.perform_deliveries = true
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
   # or in config/master.key. This key is used to decrypt credentials (and other encrypted files).
   # config.require_master_key = true
@@ -38,7 +39,7 @@ Rails.application.configure do
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :amazon
-
+  config.active_job.queue_adapter = :sidekiq
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
   # config.action_cable.url = 'wss://example.com/cable'
@@ -58,10 +59,10 @@ Rails.application.configure do
   # config.cache_store = :mem_cache_store
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.mailgun_settings = {
-    api_key: Rails.application.credentials.mailgun[:mailgun_api],
-    domain: 'bridgeme.site',
-  }
+  # config.action_mailer.mailgun_settings = {
+  #   api_key: Rails.application.credentials.mailgun[:mailgun_api],
+  #   domain: 'bridgeme.site',
+  # }
 
   config.action_mailer.smtp_settings = {
   address:              'smtp.gmail.com',
@@ -88,7 +89,7 @@ Rails.application.configure do
 
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
-
+  
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
