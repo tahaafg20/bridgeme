@@ -1,52 +1,59 @@
 <div class="container">
-<div class="row">
-  <div class="col-md-3">
-    <%= render 'room_menu' %>
-  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'room_menu' %>
+    </div>
+
   <div class="col-md-9">
     <div class="panel panel-default">
       <div class="panel-body">
-        <div class="container">
-          <%= form_for @room, :html => { :id => "form" } do |f| %>
+        <div class="container" style="margin-left: 25px;">
+
+            <%= form_for @room, :html => { :id => "form" } do |f| %>
 
             <div class="row">
               <div class="form-group">
-                <label>* Find your location and save it. </label>
+                <div class="col-md-8">
+                  <label>* Find your location and save it. </label>
+                </div>
+                <div class="col-md-6">
                   <%=f.text_field :address, id:"pac-input", placeholder:"Where is your address?", class:"form-control"%>
-      </div>
+                </div>
+              </div>
 
-      <div class="form-group">
+              <div class="form-group">
                 <%=f.text_field :latitude, id:"lat", style:"display:none;"%>
-      </div>
+              </div>
 
-      <div class="form-group">
+              <div class="form-group">
                 <%=f.text_field :longitude, id:"long", style:"display:none;"%>
-      </div>
+              </div>
 
-      <div class="pac-card" id="pac-card">
-      <div id="latitude" data-lat= "<%= @room.latitude %>">
-        <%# <div id="title">
-          Autocomplete search
-        </div> %>
-        <div id="type-selector" class="pac-controls">
-        </div>
-        <div id="strict-bounds-selector" class="pac-controls">
-        </div>
-      </div>
-      
-    </div>
-      <div class="map-radius" id="map" ></div>
-      </div>
-            <div class="row submit-btn" id="longtitude" data-long= "<%= @room.longitude%>">
-              <%= f.submit "Save", class: "btn btn-primary" %>
+              <div class="pac-card" id="pac-card"></div>
+              <div id="latitude" data-lat= "<%= @room.latitude %>"></div>
+       
+              <div id="type-selector" class="pac-controls"></div>
+        
+              <div id="strict-bounds-selector" class="pac-controls"></div>
             </div>
 
-          <% end %>
-        </div>
-      </div>
+            <div class="col-md-8" style="margin-left: -15px; margin-top:20px;">
+                 <div class="map-radius" id="map" ></div>
+            </div>
 
-    </div>
+            <div class="col-md-8">
+              <div class="row submit-btn" id="longtitude" data-long= "<%= @room.longitude%>">
+                <%= f.submit "Save", class: "btn btn-primary" %>
+              </div>
+            </div>
+            <% end %>
+
+             </div>
+          </div>
+      </div>
+    </div>     
   </div>
+
 </div>
 </div>
 

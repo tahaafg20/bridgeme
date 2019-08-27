@@ -1,4 +1,4 @@
-<div class="row org_new text-center ">
+<div class="row">
   <div class="col-md-12">
 
   <div class="col-md-3">  </div>
@@ -61,33 +61,24 @@
                 </div>  
             </div>
         </div>     
-      </div>
- 
-  <div class="col-md-12">
-    <div class="col-md-3"></div>
-      <div class="col-md-6 map-box background">
-          <div class="map-image map-radius" id="map" ></div>
     
-            <div class="col-md-5 submitbtn">
-              <div class="row" id="longtitude" data-long= "<%= @education.longitude%>">
-                  <%= f.submit "Save", class: "btn btn-primary" %>
+         <div class="map-image map-radius" id="map" ></div>
+         <div class="col-md-5 submitbtn">
+              <div class="row" id="longtitude" data-long= "<%= @community.longitude%>">
+                  <%= f.submit "Save", class: "btn btn-normal org_btn" %>
               </div>
             </div>
-     <% end %>  
+
+          <%end%>   
+     </div>
 
 
- </div>
+
+
+  <%# <div class="col-md-3"></div> %>
+
 </div>
-
-
-
-  </div>
 </div>
-
-
- </div>
-</div>
-
 
 
 <script>

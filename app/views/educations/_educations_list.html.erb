@@ -1,9 +1,6 @@
 
 <% @educations.each do |education| %>
 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 box_show">
-    <div class="container">
-     	<%# <div class="row"> %>
-			    <%# <div class=""> %>
 					<div class="box-part text-center">    
                   <i class="icon_show fas fa-university fa-4x" aria-hidden="true"></i>   
 						<div class="title_show">
@@ -17,10 +14,6 @@
             <%unless education.link.nil?%>
             <a class="org_link" href="<%=education.link%>">visit our website</a>
             <%end%>
-                        
-					 <%# </div> %>
-				<%# </div>	 	 %>
-		</div>		
     </div>
 </div>
 

@@ -1,26 +1,18 @@
 
 <% @healths.each do |health| %>
 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 box_show">
-    <div class="container">
-     	<%# <div class="row"> %>
-			    <%# <div class=""> %>
 					<div class="box-part text-center">    
                   <i class="icon_show fas fa-hospital fa-4x" aria-hidden="true"></i>   
 						<div class="title_show">
 							<h4><%= link_to health.name, health %></h4>
               <br/>  Phone Number: <%= health.number %> <br> <%= health.address.first(20)... %>
 						</div>
-                        
 						<div class="text_show">
 							<span><%= health.services.first(20)%></span>
 						</div>       
             <%unless health.link.nil?%>
             <a class="org_link" href="<%=health.link%>">visit our website</a>
             <%end%>
-                        
-					 <%# </div> %>
-				<%# </div>	 	 %>
-		</div>		
     </div>
 </div>
 

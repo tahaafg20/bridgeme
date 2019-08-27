@@ -1,4 +1,4 @@
-
+<div class="container">
 <div class="row">
   <div class="col-md-3">
     <%= render 'room_menu' %>
@@ -6,25 +6,29 @@
   <div class="col-md-9">
     <div class="panel panel-default">
       <div class="panel-body">
-        <div class="container">
+        <div class="container" style="margin-left: 15px;">
           <%= form_for @room do |f| %>
 
             <div class="row">
-              <div class="form-group ">
-                <label>Price</label>
+              <div class="col-md-8">
+                <div class="form-group ">
+                  <label>Price</label>
                 <%= f.number_field :price, placeholder: "eg: 100 (the currency is RM)",id:"validationprice", class: "form-control is-valid",pattern:"^(\+?6?01)[0|1|2|3|4|6|7|8|9]-*[0-9]{7,8}$", required: true %>
           
               </div>
-            
+            </div>
+
+          <div class="col-md-8">
             <div class="row pricing-btn">
               <%= f.submit "Save", class: "btn btn-primary" %>
             </div>
           </div>
           <% end %>
+          </div>
         </div>
       </div>
 
     </div>
   </div>
 </div>
-
+</div>
