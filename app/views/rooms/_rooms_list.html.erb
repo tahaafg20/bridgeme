@@ -13,11 +13,17 @@
          <%end%>
             
           <div class="portfolio-caption">
-           
-            <h4 class="text-muted"><%=room.room_type%></h4>
+             <h4 class="text-muted"><%=room.room_type%></h4>
               RM<%= room.price %><br>
-              <span id="average_rating"></span>
-         
+              <%room.average_rating.times do%>
+            <i class="fas fa-star star-yellow"></i>
+            <%end%>
+             <%(5-room.average_rating).times do%>
+               <i class="fas fa-star text-muted"></i>
+               <%end%>
+            
+                                        
+                                   	  
 <script>
 $(document).on('turbolinks:load', function() {
 
