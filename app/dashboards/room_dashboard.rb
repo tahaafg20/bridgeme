@@ -73,8 +73,8 @@ class RoomDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :images
-    :cover
+    :images,
+    :cover,
     :user,
     :reservations,
     :guest_reviews,
