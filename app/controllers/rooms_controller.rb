@@ -20,6 +20,7 @@ class RoomsController < ApplicationController
     @room = current_user.rooms.build(room_params)
     if @room.save
       @room.reindex
+     
       redirect_to listing_room_path(@room), notice: "Saved..."
     else
       flash[:alert] = "Something went wrong..."
@@ -58,10 +59,11 @@ class RoomsController < ApplicationController
     new_params = room_params.merge(active: true) if is_ready_room
 
     if @room.update(new_params)
-      redirect_to listing_room_path(@room), notice: "Saved..."
+      flash[:notice] = "Saved..."
     else
-      redirect_to listing_room_path(@room), notice: "Something went wrong..."
+      flash[:alert] = "Something went wrong..."
     end
+    redirect_back(fallback_location: request.referer)
   end
   
   def destroy
