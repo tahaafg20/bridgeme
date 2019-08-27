@@ -20,6 +20,7 @@ class EducationsController < ApplicationController
   end
 
   def new_post
+    
     @post = Post.new
     @education = Education.find(params[:id])
     @posts = @education.posts.order("created_at DESC")
@@ -27,10 +28,12 @@ class EducationsController < ApplicationController
   end
 
   def new_post1
+    
     current_education = Education.find(params[:id])
     @post = current_education.posts.build(params.require(:post).permit(:content, :id, images:[]))
-    
+    @post.user_id = current_user.id
     if @post.save
+      @post.reindex
       redirect_back(fallback_location: request.referer, notice: "Saved...")
     else
       flash[:alert] = "Something went wrong..."

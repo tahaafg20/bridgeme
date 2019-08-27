@@ -160,12 +160,18 @@
     async defer></script> 
    
 <script>
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
+
   $('#average_rating').raty({
     path: '/assets',
     readOnly: true,
     score: <%= @room.average_rating %>
   });
+
 });
 </script>
+<script>
+
+
+
  </body>

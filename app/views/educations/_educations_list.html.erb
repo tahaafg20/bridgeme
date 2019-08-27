@@ -1,14 +1,14 @@
 
 <% @educations.each do |education| %>
-<div class="box_show">
+<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 box_show">
     <div class="container">
-     	<div class="row">
-			    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+     	<%# <div class="row"> %>
+			    <%# <div class=""> %>
 					<div class="box-part text-center">    
                   <i class="icon_show fas fa-university fa-4x" aria-hidden="true"></i>   
 						<div class="title_show">
 							<h4><%= link_to education.name, education %></h4>
-              <br/>  Phone Number: <%= education.number %> <br> <%= education.address %>
+              <br/>  Phone Number: <%= education.number %> <br> <%= education.address.first(20)... %>
 						</div>
                         
 						<div class="text_show">
@@ -18,8 +18,8 @@
             <a class="org_link" href="<%=education.link%>">visit our website</a>
             <%end%>
                         
-					 </div>
-				</div>	 	
+					 <%# </div> %>
+				<%# </div>	 	 %>
 		</div>		
     </div>
 </div>
