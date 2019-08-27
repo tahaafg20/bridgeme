@@ -81,7 +81,7 @@ class NgosController < ApplicationController
     respond_to do |format|
       if @ngo.save
         @ngo.reindex
-        redirect_back(fallback_location: request.referer, notice: "Saved...")
+        format.html { redirect_to @ngo, notice: 'The organization was successfully created.' }
         format.json { render :show, status: :created, location: @ngo }
       else
         format.html { render :new }
