@@ -17,21 +17,24 @@
         <div class="panel-body">
 
             <% @rooms.each do |room| %>
-          <div class="row">
-                <div class="col-md-6">
+          <div class="row" style="border: 1px solid #ECECEC;padding:30px 0px 30px 30px; border-radius: 5px; margin-bottom: 10px;">
+                <div class="col-md-8">
                   <h4><%=link_to room.listing_name, room %></h4>
                   <div class="panel-heading preview">
-                    <%# <%= image_tag(url_for(room.cover), size:"350x300") %> 
+                    <%= image_tag(url_for(room.cover), size:"300x350") %> 
                   </div>
                 </div>
-
-              <div class="col-md-3 right pt-6">
+              
+              <div class="col-md-3 right" style="margin-top: 60px;">
                 <%= link_to "Update", listing_room_path(room), class: "btn btn-form update" %>
+                </div>
+                <div class="col-md-3 right" style="margin-top: 10px;" >
                 <%= button_to "Delete",  room,  method: :delete, class: "btn btn-form update", data: { confirm: 'Are you sure?' }  %>
               </div>
           </div>
+        
             <% end %>
-
+             
           
         </div>
       </div>
