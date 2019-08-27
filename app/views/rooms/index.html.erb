@@ -1,10 +1,10 @@
-<div class="container">
-<div class="row">
+<%# <div class="container"> %>
+<div class="row" style="margin: 0px 50px 0px 50px;">
   <div class="col-md-3">
     <ul class="sidebar-list background">
-      <li class="sidebar-item btn btn-lg btn-block dshb-btn"><%= link_to "Your Listings", rooms_path, class: "sidebar-link active" %></li>
-      <li class="sidebar-item  btn btn-lg btn-block dshb-btn"><%= link_to "Your Reservations", your_reservations_path, class: "sidebar-link" %></li>
-      <li class="sidebar-item btn btn-lg btn-block dshb-btn"><%= link_to "Your Trips", your_trips_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item btn btn-lg btn-block dshb-btn"><%= link_to "Listings", rooms_path, class: "sidebar-link active" %></li>
+      <li class="sidebar-item  btn btn-lg btn-block dshb-btn"><%= link_to "Reservations", your_reservations_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item btn btn-lg btn-block dshb-btn"><%= link_to "Trips", your_trips_path, class: "sidebar-link" %></li>
     </ul>
   </div>
   <div class="col-md-9">
@@ -21,7 +21,7 @@
                 <div class="col-md-8">
                   <h4><%=link_to room.listing_name, room %></h4>
                   <div class="panel-heading preview">
-                    <%= image_tag(url_for(room.cover), size:"300x350") %> 
+                    <%= image_tag(url_for(room.cover), size:"300x400") %> 
                   </div>
                 </div>
               
@@ -42,4 +42,4 @@
     
 </div>
 </div>
-</div>
+<%# </div> %>
