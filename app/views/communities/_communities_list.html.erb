@@ -1,0 +1,27 @@
+
+<% @communities.each do |community| %>
+<div class="box_show">
+    <div class="container">
+     	<div class="row">
+			    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+					<div class="box-part text-center">    
+                  <i class="icon_show fas fa-city fa-4x" aria-hidden="true"></i>   
+						<div class="title_show">
+							<h4><%= link_to community.name, community %></h4>
+              <br/>  Phone Number: <%= community.number %> <br> <%= community.address %>
+						</div>
+                        
+						<div class="text_show">
+							<span><%= community.services.first(20)%></span>
+						</div>       
+            <%unless community.link.nil?%>
+            <a class="org_link" href="<%=community.link%>">visit our website</a>
+            <%end%>
+                        
+					 </div>
+				</div>	 	
+		</div>		
+    </div>
+</div>
+
+<% end %>

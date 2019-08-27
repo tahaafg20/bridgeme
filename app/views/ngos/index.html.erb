@@ -1,47 +1,37 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-3">
+    <ul class="sidebar-list background-board">
+      <li class="sidebar-item btn btn-lg btn-block dshb-btn"><%= link_to "Your Health Related Organizations", healths_path, class: "sidebar-link " %></li>
+      <li class="sidebar-item btn btn-lg btn-block dshb-btn"><%= link_to "Your Education Related Organizations", educations_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item btn btn-lg btn-block dshb-btn"><%= link_to "Your Community Centers", communities_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item btn btn-lg btn-block dshb-btn"><%= link_to "Your NGO Organizations", ngos_path, class: "sidebar-link active" %></li>
+    </ul>
+  </div>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-heading" style="display:flex; justify-content:center;">
+        NGO Organizations
+      </div>
+      <div class="panel-body">
 
-<h1>Ngos</h1>
+        <div class="panel-body">
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Number</th>
-      <th>Longitude</th>
-      <th>Latitude</th>
-      <th>Email</th>
-      <th>Services</th>
-      <th>About</th>
-      <th>Status</th>
-      <th>Link</th>
-      <th>Accepted documents</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @ngos.each do |ngo| %>
-      <tr>
-        <td><%= ngo.name %></td>
-        <td><%= ngo.address %></td>
-        <td><%= ngo.number %></td>
-        <td><%= ngo.longitude %></td>
-        <td><%= ngo.latitude %></td>
-        <td><%= ngo.email %></td>
-        <td><%= ngo.services %></td>
-        <td><%= ngo.about %></td>
-        <td><%= ngo.status %></td>
-        <td><%= ngo.link %></td>
-        <td><%= ngo.accepted_documents %></td>
-        <td><%= link_to 'Show', ngo %></td>
-        <td><%= link_to 'Edit', edit_ngo_path(ngo) %></td>
-        <td><%= link_to 'Destroy', ngo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Ngo', new_ngo_path %>
+            <% @ngos.each do |ngo| %>
+          <div class="row">
+                <div class="col-md-6">
+                  <h4><%=link_to ngo.name, ngo %></h4>
+                </div>
+              <% if current_user.id == ngo.user.id%>
+              <div class="col-md-3 right">
+                <%= link_to "Manage Posts about this organization","ngos/#{ngo.id}/new_post" , class: "btn btn-form update" %>
+                <%= link_to "Update Organization", edit_ngo_path(ngo), class: "btn btn-form update" %>
+                <%= button_to "Delete Organization",  ngo,  method: :delete, class: "btn btn-form update", data: { confirm: 'Are you sure?' }  %>
+              </div>
+              <%end%>
+          </div>
+            <% end %>
+        </div>
+      </div>
+    </div>
+    
+</div>

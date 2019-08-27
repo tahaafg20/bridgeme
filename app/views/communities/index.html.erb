@@ -1,45 +1,37 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-3">
+    <ul class="sidebar-list background-board">
+      <li class="sidebar-item btn btn-lg btn-block dshb-btn"><%= link_to "Your Health Related Organizations", healths_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item btn btn-lg btn-block dshb-btn"><%= link_to "Your Education Related Organizations", educations_path, class: "sidebar-link" %></li>
+      <li class="sidebar-item btn btn-lg btn-block dshb-btn"><%= link_to "Your Community Centers", communities_path, class: "sidebar-link active" %></li>
+      <li class="sidebar-item btn btn-lg btn-block dshb-btn"><%= link_to "Your NGO Organizations", ngos_path, class: "sidebar-link" %></li>
+    </ul>
+  </div>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-heading" style="display:flex; justify-content:center;">
+        Community Centers
+      </div>
+      <div class="panel-body">
 
-<h1>Communities</h1>
+        <div class="panel-body">
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Number</th>
-      <th>Country</th>
-      <th>Services</th>
-      <th>About</th>
-      <th>Status</th>
-      <th>Address</th>
-      <th>Longitude</th>
-      <th>Latitude</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @communities.each do |community| %>
-      <tr>
-        <td><%= community.name %></td>
-        <td><%= community.email %></td>
-        <td><%= community.number %></td>
-        <td><%= community.country %></td>
-        <td><%= community.services %></td>
-        <td><%= community.about %></td>
-        <td><%= community.status %></td>
-        <td><%= community.address %></td>
-        <td><%= community.longitude %></td>
-        <td><%= community.latitude %></td>
-        <td><%= link_to 'Show', community %></td>
-        <td><%= link_to 'Edit', edit_community_path(community) %></td>
-        <td><%= link_to 'Destroy', community, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Community', new_community_path %>
+            <% @communities.each do |community| %>
+          <div class="row">
+                <div class="col-md-6">
+                  <h4><%=link_to community.name, community %></h4>
+                </div>
+              <% if current_user.id == community.user.id%>
+              <div class="col-md-3 right">
+                <%= link_to "Manage Posts about this organization","communities/#{community.id}/new_post" , class: "btn btn-form update" %>
+                <%= link_to "Update Organization", edit_community_path(community), class: "btn btn-form update" %>
+                <%= button_to "Delete Organization",  community,  method: :delete, class: "btn btn-form update", data: { confirm: 'Are you sure?' }  %>
+              </div>
+              <%end%>
+          </div>
+            <% end %>
+        </div>
+      </div>
+    </div>
+    
+</div>

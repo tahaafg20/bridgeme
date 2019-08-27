@@ -1,20 +1,19 @@
-
+// .notification added for homepage
 .notification{
-  width: 30%;
+  width: 25%;
   // height: 30px;
-  padding: -10px;
-  margin-top: -10px;
-  margin-bottom: 10px;
+  // padding: -10px;
+  // margin-top: -10px;
+  // margin-bottom: 10px;
 }
+.alert-alert{
+  background-color: pink;
+  color: red;
+}
+
 .pricing-btn{
   margin-left: 2px;
  }
-
-
-
-
-
-
 
 
  #layout-body {
@@ -52,7 +51,7 @@ a {
 }
 
 .container {
-  width: 80%;
+  width: 100%;
 }
 // organization form 
 .org_new{
@@ -61,12 +60,19 @@ a {
 width:100%;
 }
 
+.submitbtn{
+  margin-left: -108px;
+  padding-top: 40px;
+}
+
 .org_map .org_btn{
-   margin-right:46%;
+  margin-right:30%;
+  margin-left:30%;
 }
 @media (min-width:990px) and (max-width:1100px){
   .org_map .org_btn{
-   margin-right:50%;
+    margin-right:30%;
+      margin-left:30%;
 
   }
 }
@@ -76,10 +82,26 @@ width:100%;
       margin-left:30%;
    }
 
+   .submitbtn{
+    margin-left: -15px;
+    // padding-top: 15px;
+  }
+
 }
 
 .text-babu, .icon-babu {
   color: $app_blue;
+}
+.fa-envelope{
+  color:#fff;
+  // margin-bottom: 20px !important;
+  font-size:20px;
+
+}
+
+.fa-envelope:hover{
+  // background:#fff;
+  color:black;
 }
 
 .text-red, .icon-red {

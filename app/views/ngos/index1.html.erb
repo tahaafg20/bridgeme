@@ -1,0 +1,47 @@
+ <div class="row" id="main">
+ <div class="col-md-12 widen-text-box" id="">
+
+        <%= render partial: "ngos/ngos_list", locals: {ngos: @arrNgos} %>
+      </div>
+      <div class="row" class="col-md-12" id="ngo_listing">
+  </div>
+  
+
+  <div id="">
+    <!-- GOOGLE MAP WILL BE HERE -->
+
+    <div id="map" ></div>
+    </div>
+    </div>
+
+    <%# <script src="https://maps.googleapis.com/maps/api/js"></script> %>
+    
+    <script>
+        function initialize(organizations) {
+          var location = {lat: 44.5403, lng: -78.5463}
+          if (organizations.length > 0) {
+            // debugger
+            location = {lat: organizations[0].latitude, lng: organizations[0].longitude}
+          }
+          var map = new google.maps.Map(document.getElementById('map'), {
+            center: location,
+            zoom: 12
+          });
+          var marker, inforwindow;
+          organizations.forEach(function(organization) {
+            marker = new google.maps.Marker({
+              position: {lat: organization.latitude, lng: organization.longitude},
+              map: map
+            });
+            inforwindow = new google.maps.InfoWindow({
+              content: "<div class='map_price'>" + organization.name + "</div>"
+            });
+            inforwindow.open(map, marker);
+          })
+        }
+        google.maps.event.addDomListener(window, 'load', function() {
+          initialize(<%= raw @arrNgos.to_json %>)
+        });
+    </script>
+  </div>
+</div>

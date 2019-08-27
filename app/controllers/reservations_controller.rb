@@ -52,9 +52,7 @@ class ReservationsController < ApplicationController
     @rooms = current_user.rooms
   end
 
-  def your_organizations
-    @organizations = current_user.organizations
-  end
+ 
 
   def approve
     charge(@reservation.room, @reservation)
