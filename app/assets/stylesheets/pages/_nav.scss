@@ -7,9 +7,9 @@ $app_blue :#2994b2;
 $app_dark :#444f5a;
 
 //added styles for navbar
-strong{
-    color:white !important;
-}
+// strong{
+//     color:white !important;
+// }
 b{
     color:$app_yellow !important;
 }
@@ -71,7 +71,7 @@ b{
 
 }
 .navbar ul.nav li a:hover, .navbar ul.nav li a:focus {
-    color:black !important;
+    color:$app_dark !important;
     border-radius: 3px;
     // background-color: $app_blue !important;
 }
