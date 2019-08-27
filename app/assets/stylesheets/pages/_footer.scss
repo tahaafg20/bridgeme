@@ -1,14 +1,16 @@
 
 /*FOOTER*/
 
-
+// footer{
+//   text-align: center;
+// }
 
 .fixed-bottom{
 
   background: -webkit-linear-gradient(59deg, $app_blue, $app_dark);
   background: linear-gradient(59deg, $app_blue, $app_dark);
   position: absolute !important;
-  margin-bottom: 0%;
+  margin-bottom: 0%!important;
   width: 100%;
   height:200px;
 
@@ -68,23 +70,23 @@
   
   /* footer social icons */
   
-  .social-network a.icoFacebook:hover {
-    background-color: #3B5998;
-  }
+  // .social-network a.icoFacebook:hover {
+  //   background-color: #3B5998;
+  // }
   
-  .social-network a.icoLinkedin:hover {
-    background-color: #007bb7;
-  }
+  // .social-network a.icoLinkedin:hover {
+  //   background-color: #007bb7;
+  // }
   
-  .social-network a.icoFacebook:hover i,
-  .social-network a.icoLinkedin:hover i {
-    color: #fff;
-  }
+  // .social-network a.icoFacebook:hover i,
+  // .social-network a.icoLinkedin:hover i {
+  //   color: #fff;
+  // }
   
-  .social-network a.socialIcon:hover,
-  .socialHoverClass {
-    color: #44BCDD;
-  }
+  // .social-network a.socialIcon:hover,
+  // .socialHoverClass {
+  //   color: #44BCDD;
+  // }
   
   .social-circle li a {
     display: inline-block;
@@ -127,9 +129,14 @@
     transition: all 0.8s;
   }
   
-  .social-network a {
-    background-color: #F9F9F9;
+  .social-network a:hover {
+    background-color: $app_blue;
   }
+// .fa-facebook, .fa-linkedin{
+//   // width: 50px;
+//   // height: 0px;
+//   padding-top: 5px;
+// }
 
   @media (min-width:775px) and (max-width: 1000px){
 

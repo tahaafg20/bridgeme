@@ -21,38 +21,43 @@
     <script src="https://use.fontawesome.com/releases/v5.10.1/js/all.js" data-mutate-approach="sync"></script>
   </head>
   <body>
-  <%# ALERT & NOTICE %>
-  <% if notice != nil || alert != nil %>
-    <% if notice != nil %>
-      <div class=“notification form-actions text-center alert alert-success” role=“alert”>
-        <button type=“button” class=“notice close” data-dismiss=“alert” aria-label=“Close”><span aria-hidden=“true”>&times;</span></button>
-        <strong><%= notice %></strong>
-      </div>
-    <% else %>
-      <div class=“notification text-center alert alert-alert” role=“alert”>
-        <button type=“button” class=“alert close” data-dismiss=“alert” aria-label=“Close”><span aria-hidden=“true”>&times;</span></button>
-        <strong><%= alert %></strong>
-      </div>
-    <% end %>
-  <% end %>
-
+ 
   <div id="layout-body">
+  
 <%= render 'shared/navbar' %>
     <% if current_user %>
         <input type="hidden" id="user_id" value="<%= current_user.id %>">
     <% end %>
-    <%# <div class="container"> %>
-  <%= yield %>
 
-  <%# </div> %>
-  
-  </div>
+ 
+      <% if notice != nil || alert != nil %>
+      <% if notice != nil %>
+        <div class="notification form-actions text-center alert alert-success" role="alert">
+          <button type="button" class="notice close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <strong><%= notice %></strong>
+        </div>
+      <% else %>
+        <div class="notification text-center alert alert-alert" role="alert">
+          <button type="button" class="alert close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <strong><%= alert %></strong>
+        </div>
+      <% end %>
+    <% end %>
+
+     <%# </div> %>
+    
+    <%= yield %>
+    </div>
+ 
     <%= render 'shared/footer' %>
 
+  <%# </div> %>
 
 
 
-    
+<%# 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>   %>
     
 <%# <script src="https://js.stripe.com/v3/"></script> %>
 <script>

@@ -1,16 +1,19 @@
 
-
-<%@healths.each do |health| %>
-    <div class="col-md-4">
-       <div class="panel panel-default">
-        <div class="panel-heading preview">
-          <%= link_to health.name, health %><%unless health.link.nil?%><a href="<%=health.link%>"><i style="margin-right: 0.5em; color: #EEEEEE;" class="icon-home icon-4x"></i>organization Link</a><%end%>
-        <br/>  Phone Number: <%= health.number %> <br> <%= health.address %>
-
-        <br/> About        : <%=health.about%>   
-        <br/> Accepted documents: <%=health.accepted_documents%>
-        <br/> Services: <%=health.services%>
-       </div>
+<% @healths.each do |health| %>
+<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 box_show">
+					<div class="box-part text-center">    
+                  <i class="icon_show fas fa-hospital fa-4x" aria-hidden="true"></i>   
+						<div class="title_show">
+							<h4><%= link_to health.name, health %></h4>
+              <br/>  Phone Number: <%= health.number %> <br> <%= health.address.first(20)... %>
+						</div>
+						<div class="text_show">
+							<span><%= health.services.first(20)%></span>
+						</div>       
+            <%unless health.link.nil?%>
+            <a class="org_link" href="<%=health.link%>">visit our website</a>
+            <%end%>
     </div>
-    </div>
+</div>
+
 <% end %>

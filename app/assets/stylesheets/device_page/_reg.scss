@@ -108,6 +108,7 @@
     width: $imgW;
     height: 100%;
     padding-top: 360px;
+
   
     &:before {
       content: '';
@@ -120,6 +121,7 @@
     //   padding-top:360px !important;
       background-image: url(asset_path('master_brand.png'));
       background-size: 630px;
+    object-fit: cover;
       transition: transform $switchAT ease-in-out;
     }
   
