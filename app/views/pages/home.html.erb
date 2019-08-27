@@ -45,32 +45,6 @@
 
 <%# ====== list of service ========= %>
 
-<%# <div class="service_link">
-
-<div class="header_caption">
-
-<h2>Are you local or refugee affiliate?</h2>
-
-</div> %>
-
-<%# <div class="row col-12 badge_banner"> %>
-  <%# <item class="col-md-4 col-sm-12 col-xs-12"> %>
- <%# <p><span><%=icon('fas', 'building')%>
- <%# </span><br><h4>Organizations</h4></p>  </item> %> 
-  <%# <item class="col-md-4 col-sm-12 col-xs-12"> %>
- <%# <p><span><%=icon('fas', 'university')%>
- <%# </span> <br><h4>Schools</h4></p> %>
-  <%# </item> %>
-  <%# <item class="col-md-4 col-sm-12 col-xs-12"> %>
-    <%# <p><span><%=icon('fas', 'map')%>
-    <%# </span> <br><h4>Clinic</h4></p> %>
-
-  <%# </item> %>
-<%# </div> %>
-
-
-
-<%# </div> %>
 
 
 
@@ -92,39 +66,28 @@
       </div>
 
 
-    <div class="row">
-      <%= render partial: "rooms/rooms_list", locals: {rooms: @rooms} %>
-    </div>
+      <div class="row">
+        <%= render partial: "rooms/rooms_list", locals: {rooms: @rooms} %>
+      </div>
     </div> 
-<%# <div class="container"> %>
-   <div class="row">
+
+
+  <div class="container">
+  <div class="row">
   <div class="col-lg-12 text-center">
             <h2 class="section-heading text-uppercase">Organizations</h2>
             <h3 class="section-subheading text-muted">For refugees</h3>
           </div>
-  <div class="row"> 
-    <%= render partial: "educations/educations_list", locals: {educations: @educations} %>
+          </div>
+    <div class="row"> 
+      <%= render partial: "communities/communities_list", locals: {communities: @communities} %>
+      <%= render partial: "educations/educations_list", locals: {educations: @educations} %>
+      <%= render partial: "healths/healths_list", locals: {healths: @healths}%>
+      <%= render partial: "ngos/ngos_list", locals: {ngos: @ngos}%>
+    </div>
   </div>
-  <div class="row">
-  <%= render partial: "healths/healths_list", locals: {healths: @healths} %>
   </div>
-
-    <div class="row">
-
-  <%= render partial: "communities/communities_list", locals: {communities: @communities} %>
-
-  </div>
-
-    <div class="row">
-
-  <%= render partial: "ngos/ngos_list", locals: {ngos: @ngos} %>
-
-  </div>
-
-  <%# </div> %>
-  <%# </div> %>
-  </div>
-
+  
 <div class="row">
 <div id="chat">
     <%unless @posts.empty?%>
@@ -169,6 +132,7 @@
     </div>
 
    </div>
+   <%# </div> %>
   </section>
 
 

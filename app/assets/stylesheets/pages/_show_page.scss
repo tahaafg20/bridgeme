@@ -40,6 +40,7 @@
 
 .image-radius{
     border-radius: 5px;
+    padding-top: 5px;
 }
 .image-radius-top{
     border-radius: 3px;
@@ -72,3 +73,15 @@ ul li{
 // .indenting-p{
 //    margin-left: 10px; 
 // }
+
+.image-bottom-padding{
+    margin-bottom: 20px;
+    margin-left: -15px;
+}
+.image-radius-top{
+    margin-left: -15px;
+}
+.img-fluid{
+    max-width: 100%;
+    height: auto;
+}
