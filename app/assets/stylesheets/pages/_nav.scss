@@ -97,7 +97,7 @@ b{
     border-color: white;		
 }
 .search-box .input-group-addon {
-    min-width: 35px;
+    min-width: 35px !important;
     border: none;
     background: transparent;
     position: absolute;
@@ -212,10 +212,10 @@ b{
 
 
 .navbar a{
-    color:white !important;
+    color:$app_yellow !important;
     // background-color:$app_yellow;
     // font-size: 10px;
-    font-size:14px;
+    font-size:12px;
     letter-spacing: .2em;
     text-transform: uppercase;
     font-weight: bold;

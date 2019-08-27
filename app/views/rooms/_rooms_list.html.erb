@@ -15,8 +15,26 @@
           <div class="portfolio-caption">
            
             <h4 class="text-muted"><%=room.room_type%></h4>
-              RM<%= room.price %><br>
-              <span id="average_rating"></span>
+
+
+            <div class="row col-12 rating_showbox">
+
+            <div class="col-sm-6">
+              <h6><span>RM<%= room.price %></span></h6><br>
+          </div>
+
+          <div class="col-sm-6">
+              <%room.average_rating.times do%>
+           <i class="fas fa-star star-yellow"></i>
+           <%end%>
+
+            <%(5-room.average_rating).times do%>
+              <i class="fas fa-star text-muted"></i>
+              <%end%>
+
+          </div>
+
+        </div>
          
 <script>
 $(document).on('turbolinks:load', function() {

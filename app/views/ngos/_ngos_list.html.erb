@@ -1,14 +1,10 @@
 
 <% @ngos.each do |ngo| %>
 <div class=" col-lg-4 col-md-4 col-sm-6 col-xs-12 box_show">
-    <div class="container">
-     	<%# <div class="row"> %>
-			    <%# <div class=""> %>
 					<div class="box-part text-center">    
                   <i class="icon_show fas fa-building fa-4x" aria-hidden="true"></i>   
 						<div class="title_show">
-							<h4><%= link_to ngo.name, ngo %></h4>
-							
+							<h4><%= link_to ngo.name, ngo %></h4>				
 			  <br/>
 			  Phone Number: <%= ngo.number %> <br> <%= ngo.address.first(20)... %>
 						</div>
@@ -16,14 +12,10 @@
 						<div class="text_show">
 							<span><%= ngo.services.first(20)%></span>
 						</div>       
-            <%unless ngo.link.nil?%>
-            <a class="org_link" href="<%=ngo.link%>">visit our website</a>
-            <%end%>
-                        
-					 <%# </div> %>
-				<%# </div>	 	 %>
-		</div>		
-    </div>
+				<%unless ngo.link.nil?%>
+				<a class="org_link" href="<%=ngo.link%>">visit our website</a>
+				<%end%>
+	</div>		
 </div>
 
 <% end %>
