@@ -28,9 +28,9 @@
         <div class="form-group">
          <p> Phone Number: <div><%= @community.number %></p></div>
         </div>
-        <% if !@community.link.nil? %>
+        <% if !@community.link.size > 0  %>
         <div class="form-group">
-         <p> The link to this organization's webpage: <div><%=link_to @community.name, "/#{@community.link}"%>
+        <p> The link to this organization's webpage: <div><a href="<%=@community.link%>"><%=@community.link%></a></p></div>
         </div>
         <%end%>
 
@@ -72,9 +72,8 @@
           <div class="col-md-4">
             <div class="panel panel-default">
               <div class="panel-heading preview">
-              
-                <%= link_to community.name, community %>
-                <br/> About        : <%=community.about%>   
+              <a href="<%=@community.link%>"><%=@community.link%></a>
+               <br/> About        : <%=community.about%>   
                 <br/> Services: <%=community.services%>
                 (<%= community.distance.round(2) %> kms away)
               </div>
