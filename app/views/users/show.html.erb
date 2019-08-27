@@ -30,10 +30,10 @@
         <div class="description row-space-3">
           <%= @user.description %>
         </div>
-
-        <div class="row">
-          <%= render partial: "rooms/rooms_list", locals: {rooms: @rooms} %>
+       <div class="panel-body" id="portfolio" >
+        <%= render partial: "rooms/rooms_list", locals: {rooms: @rooms} %>
         </div>
+       
         <br/><hr>
         
         <h4>Reviews From Guests (<%= @guest_reviews.count %>)</h4>
