@@ -27,7 +27,7 @@
     </div>
 
     <script>
-    $(document).ready(function() {
+   $(document).on('turbolinks:load', function() {
       $('#star_<%= r.id %>').raty({
         path: '/assets',
         readOnly: true,
