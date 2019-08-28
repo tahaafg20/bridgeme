@@ -48,35 +48,41 @@
           </div>
           <%end%>
           </div>
-        <hr/>
+        <%# <hr/> %>
 
 
         <!-- About -->
       
         <!-- GOOGLE MAP -->
-        <div class="row" id="latitude" data-lat= "<%= @community.latitude %>">
 
-      <div class="map1">
-        <div id="map" style="map1"></div>
-      </div>
-      </div>
+          <div class="col-md-3">
+          </div>
+        
+     <div class="col-md-6 info-box">
+     <div class="col-md-6 info-box" id="latitude" data-lat= "<%= @community.latitude %>">
+        <div class="map-image map-radius" id="map" ></div>
+    </div>
+
 </div>
 <!-- NEAR BY communities -->
-    <div class="row">
+    <%# <div class="row">
       <h3>Near by</h3>
       <% for community in @community.nearbys(10) %>
-          <div class="col-md-4">
+          <%# <div class="col-md-4">
             <div class="panel panel-default">
               <div class="panel-heading preview">
-              <a href="<%=@community.link%>"><%=@community.link%></a>
-               <br/> About        : <%=community.about%>   
-                <br/> Services: <%=community.services%>
-                (<%= community.distance.round(2) %> kms away)
-              </div>
-            </div>
+              <a href="<%=@community.link%>
+              <%# "><%=@community.link%>
+              <%# </a> %>
+               <%# <br/> About        : <%=community.about%>   
+                <%# <br/> Services: <%=community.services%>
+                <%# (<%= community.distance.round(2) %> 
+                <%# kms away) %>
+              <%# </div> %>
+            <%# </div> 
           </div>
       <% end %>
-    </div>
+    <%# </div>  %> 
 
 
 <script> 

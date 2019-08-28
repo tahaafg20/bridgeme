@@ -19,28 +19,12 @@
     </li>
 
     <li class="c-navigation-breadcrumbs__item" property="itemListElement" typeof="ListItem">
-      <a class="c-navigation-breadcrumbs__link" href="https://example.com/articles/" property="item" typeof="WebPage">
-        <span property="name">Articles</span>
+      <a class="c-navigation-breadcrumbs__link" href="<%=new_community_path%>" property="item" typeof="WebPage">
+        <span property="name">Addd community center</span>
       </a>
       <meta property="position" content="2">
     </li>
-      
-    <li class="c-navigation-breadcrumbs__item" property="itemListElement" typeof="ListItem">
-      <a class="c-navigation-breadcrumbs__link" href="<%=search_path%>" aria-current="location" property="item" typeof="WebPage">
-        <span property="name">results</span>
-      </a>
-      <meta property="position" content="1">
-    </li>
- <li class="c-navigation-breadcrumbs__item" property="itemListElement" typeof="ListItem">
-      <!--
-      `aria-current: location`: Screen readers announce this item as "Current location { text }"
-      The breadcrumb corresponding to the current location should not be an enabled link.
-      -->
-      <a class="c-navigation-breadcrumbs__link" property="name">Shared Vocabulary</a>
-      <meta property="item" typeof="WebPage" content="https://example.com/articles/development/shared-vocabulary">
-      <meta property="position" content="4">
-    </li>
-      
+
   </ol>
 </nav>
 <!-- /c-navigation-breadcrumbs -->

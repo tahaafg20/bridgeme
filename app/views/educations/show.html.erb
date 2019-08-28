@@ -56,35 +56,20 @@
 
 
         <!-- About -->
-       <br>
+       <%# <br> %>
         <!-- GOOGLE MAP -->
-        <div class="row" id="latitude" data-lat= "<%= @education.latitude %>">
-
-      <div class="map1">
-        <div id="map" style="map1"></div>
-      </div>
-      </div>
+            <div class="col-md-3">
+          </div>
+        
+     <div class="col-md-6 info-box">
+     <div class="col-md-6 info-box" id="latitude" data-lat= "<%= @community.latitude %>">
+        <div class="map-image map-radius" id="map" ></div>
+    </div>
 </div>
 
 <!-- NEAR BY educations -->
-    <div class="row">
-      <h3>Near by</h3>
-     
-      <% for education in @education.nearbys(10) %>
-       
-          <div class="col-md-4">
-            <div class="panel panel-default">
-              <div class="panel-heading preview">
-            <a href="<%=@education.link%>"><%=@education.link%></a>
-                <br/> About        : <%=education.about%>   
-                <br/> Accepted documents: <%=education.accepted_documents%>
-                <br/> Services: <%=education.services%>
-                (<%= education.distance.round(2) %> kms away)
-              </div>
-            </div>
-          </div>
-      <% end %>
-    </div>
+    <%# check commented code in community show page for future use %>
+
 
 <script> 
   var lt = parseFloat(document.querySelector("#latitude").dataset["lat"])
