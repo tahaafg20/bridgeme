@@ -36,9 +36,9 @@ class PagesController < ApplicationController
 
     # STEP 2
     if session[:loc_search] && session[:loc_search] != ""
-      @rooms_address = Room.where(active: true).near(session[:loc_search], 5, order: 'distance')
+      @rooms_address = Room.all.near(session[:loc_search], 5, order: 'distance')
     else
-      @rooms_address = Room.where(active: true).all
+      @rooms_address = Room.all
     end
 
     # STEP 3
