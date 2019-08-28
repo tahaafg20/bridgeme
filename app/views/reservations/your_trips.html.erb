@@ -1,3 +1,47 @@
+<%# <div class="container"> %>
+
+
+<div class="breadcrumbs">
+
+<%# ======== breadcrumb ========== %>
+<nav class="c-navigation-breadcrumbs" aria-label="Breadcrumb" vocab="https://schema.org/" typeof="BreadcrumbList">
+  <ol class="c-navigation-breadcrumbs__directory">
+
+    <!-- Duplicating the "Home" link in both the global navigation and the breadcrumb trail is not recommended. -->
+    <li class="c-navigation-breadcrumbs__item" property="itemListElement" typeof="ListItem">
+      <a class="c-navigation-breadcrumbs__link" href="<%=root_path%>" property="item" typeof="WebPage">
+        <svg class="o-inline-svg-icon o-inline-svg-icon--baseline" aria-hidden="true">
+          <title>Home</title> <!-- Tooltip -->
+          <use href="#icon-home"></use>
+        </svg>
+        <span class="u-visually-hidden" property="name">Home</span>
+      </a>
+      <meta property="position" content="1">
+    </li>
+
+    <li class="c-navigation-breadcrumbs__item" property="itemListElement" typeof="ListItem" aria-current="location">
+      <a class="c-navigation-breadcrumbs__link" href="<%=rooms_path%>" property="item" typeof="WebPage">
+        <span property="name">Rental menagements</span>
+      </a>
+      <meta property="position" content="2">
+    </li>
+      
+  </ol>
+</nav>
+<!-- /c-navigation-breadcrumbs -->
+
+<svg aria-hidden="true">
+  <defs>
+    <!-- Icon design by Cole Bemis - https://feathericons.com/ -->
+    <symbol id="icon-home" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+      <polyline points="9 22 9 12 15 12 15 22"></polyline>
+    </symbol>
+  </defs>
+</svg>
+</div>
+
+<%# ==== end of breadcrumb ==== %>
 
 <div class="row" style="margin: 0px 50px 0px 50px;">
   <div class="col-md-3">

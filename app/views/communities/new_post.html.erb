@@ -1,3 +1,64 @@
+
+<div class="breadcrumbs">
+
+<%# ======== breadcrumb ========== %>
+<nav class="c-navigation-breadcrumbs" aria-label="Breadcrumb" vocab="https://schema.org/" typeof="BreadcrumbList">
+  <ol class="c-navigation-breadcrumbs__directory">
+
+    <!-- Duplicating the "Home" link in both the global navigation and the breadcrumb trail is not recommended. -->
+    <li class="c-navigation-breadcrumbs__item" property="itemListElement" typeof="ListItem">
+      <a class="c-navigation-breadcrumbs__link" href="<%=root_path%>" property="item" typeof="WebPage">
+        <svg class="o-inline-svg-icon o-inline-svg-icon--baseline" aria-hidden="true">
+          <title>Home</title> <!-- Tooltip -->
+          <use href="#icon-home"></use>
+        </svg>
+        <span class="u-visually-hidden" property="name">Home</span>
+      </a>
+      <meta property="position" content="1">
+    </li>
+
+    <li class="c-navigation-breadcrumbs__item" property="itemListElement" typeof="ListItem">
+      <a class="c-navigation-breadcrumbs__link" href="https://example.com/articles/" property="item" typeof="WebPage">
+        <span property="name">Dashboard</span>
+      </a>
+      <meta property="position" content="2">
+    </li>
+      
+    <li class="c-navigation-breadcrumbs__item" property="itemListElement" typeof="ListItem">
+      <a class="c-navigation-breadcrumbs__link" href="<%=communities_path%>"  property="item" typeof="WebPage">
+        <span property="name">community</span>
+      </a>
+      <meta property="position" content="3">
+    </li>
+
+    <li class="c-navigation-breadcrumbs__item" property="itemListElement" typeof="ListItem">
+      <!--
+      `aria-current: location`: Screen readers announce this item as "Current location { text }"
+      The breadcrumb corresponding to the current location should not be an enabled link.
+      -->
+      <a class="c-navigation-breadcrumbs__link" property="name" aria-current="location">Create post</a>
+      <meta property="item" typeof="WebPage" content="https://loremipsum.io/generator/?n=5&t=s">
+      <meta property="position" content="4">
+    </li>
+      
+  </ol>
+</nav>
+<!-- /c-navigation-breadcrumbs -->
+
+<svg aria-hidden="true">
+  <defs>
+    <!-- Icon design by Cole Bemis - https://feathericons.com/ -->
+    <symbol id="icon-home" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+      <polyline points="9 22 9 12 15 12 15 22"></polyline>
+    </symbol>
+  </defs>
+</svg>
+</div>
+
+<%# ==== end of breadcrumb ==== %>
+
+
 <div class="row">
     <div class="col-md-12">
 
@@ -43,6 +104,8 @@
   <%if !post.community.nil?%>
         <div class="row-space-2">
         <p><i>Tag</i>: <span class="org_tag badge badge-danger"><%=link_to post.community.name, community_path(post.community) %></span><span class="org_tag badge badge-pill badge-danger">community</span></p>
+        <p class="post-date">Posted on <time datetime=""><%=link_to post.community.updated_at.to_s(:my_datetime) %></time> 
+
     
       </div>
     <%end%>
@@ -61,7 +124,6 @@
         <p><i>Tag</i>: <span class="org_tag badge badge-danger"><%=link_to post.education.name, education_path(post.education)%></span><span class="org_tag badge badge-pill badge-danger">education</span></p>
       </div>
     <%end%>
-    <p class="post-date">Posted on <time datetime=""><%=link_to post.health.updated_at.to_s(:my_datetime) %></time> 
       by <a class="post-author" href="#"><%=link_to post.user.fullname, user_path(post.user) %></a>
     </p>
     <%# <h2 class="post-title">A Long Road to Lorem Ipsum Dolor Sit Amet</h2> %>

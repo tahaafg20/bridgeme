@@ -58,6 +58,7 @@
         <!-- About -->
       <br>
         <!-- GOOGLE MAP -->
+<<<<<<< HEAD
         <div class="row" id="latitude" data-lat= "<%= @ngo.latitude %>">
 
       <div class="map1">
@@ -71,7 +72,20 @@
       <h3>Near by</h3>
      
          <%= render partial: "ngos/ngos_list", locals: {ngos: @ngo.nearbys(10)}%>
+=======
+           <div class="col-md-3">
+          </div>
+        
+     <div class="col-md-6 info-box">
+     <div class="col-md-6 info-box" id="latitude" data-lat= "<%= @community.latitude %>">
+        <div class="map-image map-radius" id="map" ></div>
+>>>>>>> 8afe8a5ff786b417415c4fea3ab8df7d32c4f6dd
     </div>
+</div>
+
+<!-- NEAR BY healths -->
+    <%# check commented code in community show page for future use %>
+
 
 
 

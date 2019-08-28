@@ -56,14 +56,15 @@
 
 
         <!-- About -->
-       <br>
+       <%# <br> %>
         <!-- GOOGLE MAP -->
-        <div class="row" id="latitude" data-lat= "<%= @education.latitude %>">
-
-      <div class="map1">
-        <div id="map" style="map1"></div>
-      </div>
-      </div>
+            <div class="col-md-3">
+          </div>
+        
+     <div class="col-md-6 info-box">
+     <div class="col-md-6 info-box" id="latitude" data-lat= "<%= @community.latitude %>">
+        <div class="map-image map-radius" id="map" ></div>
+    </div>
 </div>
 
 <!-- NEAR BY educations -->
@@ -72,6 +73,8 @@
      
          <%= render partial: "educations/educations_list", locals: {educations: @education.nearbys(10)} %>
     </div>
+    <%# check commented code in community show page for future use %>
+
 
 <script> 
   var lt = parseFloat(document.querySelector("#latitude").dataset["lat"])
