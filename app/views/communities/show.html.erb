@@ -1,23 +1,24 @@
+<div class="container">
+  <div class="row">
+      <div class="col-md-2"></div>
 
-<div class="row">
-  <div class="col-md-3">
-   </div>
-      <div class="col-md-6 info-box">
+      <div class="col-md-9 info-box">
 
           <h1 >Community Center Info</h1>
           <div class="form-group" id="longtitude" data-long= "<%= @community.longitude %>">
 
-            <label>Community Center Name:</label>
+          <label>Community Center Name:</label>
             <h2 class="org-name"><%= @community.name %></h2>
-            <hr>
-            <label>Organization Address:</label> 
+          <hr>
+          <label>Organization Address:</label> 
             <p><%= @community.address %></p>
+          <hr>
+
+          <div class="form-group">
+            <p> Community Country: <div><%= @community.country %></p>
+          </div>
             <hr>
-            <div class="form-group">
-            <p> Community Country: <div><%= @community.country %></p></div>
-          </div>
-             <hr>
-          </div>
+          
          
          
           <div class="form-group">
@@ -25,58 +26,81 @@
           </div>
           <hr>
         
-        <div class="form-group">
-         <p> Phone Number: <div><%= @community.number %></p></div>
-        </div>
-        <% if @community.link.size > 0  %>
-        <div class="form-group">
-        <p> The link to this organization's webpage: <div><a href="<%=@community.link%>"><%=@community.link%></a></p></div>
-        </div>
-        <%end%>
-
-        <div class="form-group">
-         <p> The Link To The Website: <div><%= @community.number %></p></div>
-        </div>
-
-        <%if @community.status == true%>
           <div class="form-group">
-          <p> <%=@community.name%> is open for Registration.</p></div>
+            <p> Phone Number: <div><%= @community.number %></p>
           </div>
-        <%elsif @community.status == false%>
-        <div class="form-group">
-          <p> <%=@community.name%> is not open for Registration at the moment.</p></div>
-          </div>
+          <hr>
+
+          <% if @community.link.size > 0  %>
+
+          <div class="form-group">
+            <p> The link to this organization's webpage: <div><a href="<%=@community.link%>"><%=@community.link%></a></p>
+          
           <%end%>
           </div>
-        <hr/>
+          <hr>
+          
+          <div class="form-group">
+            <p> The Link To The Website: <div><%= @community.number %></p>
+          </div>
+          <hr>
 
+          <%if @community.status == true%>
+          <div class="form-group">
+            <p> <%=@community.name%> is open for Registration.</p>
+          </div>
+        
 
-        <!-- About -->
+          <%elsif @community.status == false%>
+          <div class="form-group">
+            <p> <%=@community.name%> is not open for Registration at the moment.</p>
+          </div>
+          <%end%>
+
+        </div>
+        </div>
+      <hr/>
+
       
         <!-- GOOGLE MAP -->
-        <div class="row" id="latitude" data-lat= "<%= @community.latitude %>">
+        <div class="row col-md-12">
+          <div class="row" id="latitude" data-lat= "<%= @community.latitude %>">
 
-      <div class="map1">
-        <div id="map" style="map1"></div>
-      </div>
-      </div>
-</div>
-<!-- NEAR BY communities -->
-    <div class="row">
-      <h3>Near by</h3>
-      <% for community in @community.nearbys(10) %>
-          <div class="col-md-4">
-            <div class="panel panel-default">
-              <div class="panel-heading preview">
-              <a href="<%=@community.link%>"><%=@community.link%></a>
-               <br/> About        : <%=community.about%>   
-                <br/> Services: <%=community.services%>
-                (<%= community.distance.round(2) %> kms away)
-              </div>
+            <div class="map1 map-radius">
+              <div id="map" style="map1"></div>
             </div>
+
           </div>
-      <% end %>
+        </div>
+
+      </div>
     </div>
+</div>
+
+</div>
+
+          <!-- NEAR BY communities -->
+        <div class="col-md-12 background-for-nearby">
+          <h3>Near by</h3>
+            <% for community in @community.nearbys(10) %>
+              <div class="col-md-4">
+                <div class="row">
+                  <div class="nearby-textbox" >
+                    <p><a href="<%=@community.link%>"><%=@community.link%></a></p>
+                   
+                    <p> About: <%=community.about%> </p> 
+                  
+                    <p> Services: <%=community.services%></p> 
+                      (<%= community.distance.round(2) %> kms away)
+                  </div>
+                </div>
+              </div>
+            <% end %>
+
+        </div>
+   
+ 
+
 
 
 <script> 
@@ -97,8 +121,7 @@
           title: 'Hello World!'
         });
       }
-    </script>
+  </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLwih_dEjx7rHvO04och6w_zABvfO8Dcw&callback=initMap"
     async defer></script> 
-    </div>
-    <hr/>
+</div>
