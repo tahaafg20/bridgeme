@@ -19,7 +19,7 @@
           <div class="col-sm-12">
             <h4>
                 <%= pluralize(@guest_reviews.count, "Review") %><br>
-                <span id="average_rating"></span>
+             
             </h4>
           </div>
           <hr>
@@ -146,9 +146,9 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLwih_dEjx7rHvO04och6w_zABvfO8Dcw&callback=initMap"
     async defer></script> 
    
-<script>
 
-$(document).on('turbolinks:load', function() {
+
+
 
 
   </div> 
@@ -158,13 +158,4 @@ $(document).on('turbolinks:load', function() {
  
 </div>
 
-<script>
-$(document).ready(function() {
-  $('#average_rating').raty({
-    path: '/assets',
-    readOnly: true,
-    score: <%= @room.average_rating %>
-  });
-});
-</script>
 
