@@ -6,7 +6,7 @@ ruby '2.6.3'
 gem 'rails', '~> 6.0.0.rc2'
 # Use sqlite3 as the database for Active Record
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 3.12'
 gem 'jquery-rails'
 gem 'country-select'
 gem 'capistrano'
