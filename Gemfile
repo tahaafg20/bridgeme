@@ -13,7 +13,7 @@ gem 'capistrano'
 gem 'capistrano-rails'
 gem 'capistrano-passenger'
 gem 'capistrano-rbenv'
-gem 'geocoder', '~> 1.4'
+gem 'geocoder', '~> 1.6'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5'
 gem 'aws-sdk-s3', require: false
