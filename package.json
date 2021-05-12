@@ -14,7 +14,7 @@
     "object-fit-images": "^3.2.4",
     "popper.js": "^1.15.0",
     "raty": "^1.0.5",
-    "swiper": "^4.5.0",
+    "swiper": "^6.5.1",
     "toastr": "^2.1.4",
     "turbolinks": "^5.2.0"
   },
