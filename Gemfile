@@ -42,7 +42,7 @@ gem 'administrate-field-active_storage'
 gem "administrate"
 gem 'omniauth-facebook'
 gem 'koala'
-gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.12'
 gem 'mini_magick'
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'sassc-rails', '>= 2.1.0'
